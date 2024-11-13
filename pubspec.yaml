@@ -19,42 +19,50 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.4.3 <4.0.0'
+  sdk: '>=3.5.3 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
-
-
+  flutter_localizations:
+    sdk: flutter
   cupertino_icons: ^1.0.6
-  go_router:
-  build_runner:
-  retrofit_generator: '>=8.0.0 <10.0.0' # for Dart 3.3 use ^9.0.0
-  json_serializable: ^6.8.0
+  intl:
+  bloc:
+  flutter_bloc:
+  shared_preferences:
+  provider:
   injectable:
   get_it:
-  retrofit: ^4.4.1
+  retrofit:
   logger: ^2.4.0
-  json_annotation: ^4.9.0
-  dio: ^5.7.0
-  flutter_bloc: ^8.1.6
-  awesome_dialog: ^3.2.1
-  flutter_screenutil: ^5.9.3
+  json_annotation:
+  dio:
+  lottie:
+  dialogs:
+    git:
+      url: https://github.com/john-safwat/My-Packages.git
+      path: app_packages/dialogs
+  pretty_dio_logger:
+  connectivity_plus:
+  cached_network_image:
+  animate_do:
+  icons_launcher:
+  flutter_native_splash:
+
 dev_dependencies:
+  flutter_lints: ^3.0.0
+
   flutter_test:
     sdk: flutter
   injectable_generator:
   build_runner:
   retrofit_generator: '>=8.0.0 <10.0.0' # for Dart 3.3 use ^9.0.0
   json_serializable: ^6.8.0
-  cached_network_image:
-  flutter_svg:
-  flutter_secure_storage:
-  flutter_lints: ^3.0.0
 
 flutter:
-
+  generate: true
   uses-material-design: true
   assets:
+    - assets/animations/
     - assets/images/
-    - assets/svgs/
