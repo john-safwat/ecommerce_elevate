@@ -20,7 +20,8 @@ class AppTheme {
         labelSmall: TextStyle(color: AppColors.black),
         bodyLarge: TextStyle(color: AppColors.black),
         bodyMedium: TextStyle(color: AppColors.black),
-        bodySmall: TextStyle(color: AppColors.black)),
+        bodySmall: TextStyle(color: AppColors.black),),
+
     progressIndicatorTheme: const ProgressIndicatorThemeData(
       color: AppColors.pink,
     ),

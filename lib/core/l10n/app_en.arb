@@ -77,5 +77,6 @@
   "newPassword": "New Password",
   "newPasswordAgain": "New Password Confirmation",
   "yourTokenIsInvalid": "Your token is invalid please login again",
-  "resetPasswordMessage": "Password must not be empty and must contain 6 characters with upper case letter and one number at least "
+  "resetPasswordMessage": "Password must not be empty and must contain 6 characters with upper case letter and one number at least ",
+  "resendOtpTimerMessage" : "You Can resend Otp code After"
 }
