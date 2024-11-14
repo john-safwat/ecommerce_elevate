@@ -6,7 +6,7 @@ part 'registration_user_dto.g.dart'; // Add this line
 @JsonSerializable()
 class RegistrationUserDto {
   RegistrationUserDto(
-    this.username,
+    this.gender,
     this.firstName,
     this.lastName,
     this.email,
@@ -15,7 +15,7 @@ class RegistrationUserDto {
     this.phone,
   );
 
-  final String? username;
+  final String? gender;
   final String? firstName;
   final String? lastName;
   final String? email;
@@ -28,7 +28,7 @@ class RegistrationUserDto {
       _$RegistrationUserDtoFromJson(json); // Add this line
 
   factory RegistrationUserDto.fromDomain(RegistrationUser user) =>
-      RegistrationUserDto(user.username, user.firstName, user.lastName,
+      RegistrationUserDto(user.gender, user.firstName, user.lastName,
           user.email, user.password, user.rePassword, user.phone);
 
   // The toJson method for serialization

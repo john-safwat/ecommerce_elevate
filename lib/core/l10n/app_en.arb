@@ -77,5 +77,10 @@
   "newPassword": "New Password",
   "newPasswordAgain": "New Password Confirmation",
   "yourTokenIsInvalid": "Your token is invalid please login again",
-  "resetPasswordMessage": "Password must not be empty and must contain 6 characters with upper case letter and one number at least "
+  "resetPasswordMessage": "Password must not be empty and must contain 6 characters with upper case letter and one number at least ",
+  "gender": "Gender :",
+  "male": "Male",
+  "female": "Female",
+  "create_an_account": "Creating an account, you agree to our",
+  "terms_and_conditions": "Terms and Conditions"
 }

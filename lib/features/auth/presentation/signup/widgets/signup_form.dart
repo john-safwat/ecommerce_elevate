@@ -1,5 +1,6 @@
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/signup/signup_view_model.dart';
+import 'package:ecommerce_elevate/features/auth/presentation/signup/widgets/selected_gender_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,18 +22,6 @@ class SignupForm extends StatelessWidget {
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         padding: const EdgeInsets.all(16),
         children: [
-          TextFormField(
-            textInputAction: TextInputAction.next,
-            autovalidateMode: AutovalidateMode.onUserInteraction,
-            validator: (value) => viewModel.nameValidation(value ?? ""),
-            keyboardType: TextInputType.name,
-            controller: viewModel.nameController,
-            decoration: InputDecoration(
-              label: Text(viewModel.locale!.userName),
-              hintText: viewModel.locale!.enterYouUserName,
-            ),
-          ),
-          const SizedBox(height: 24),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -145,6 +134,28 @@ class SignupForm extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 24),
+          const SelectedGenderWidget(),
+
+          ///---> terms and conditions*****
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                viewModel.locale!.create_an_account,
+                style:
+                    const TextStyle(fontSize: 11, fontWeight: FontWeight.w400),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                  viewModel.locale!.terms_and_conditions,
+                  style: const TextStyle(
+                      fontSize: 11, fontWeight: FontWeight.bold),
+                ),
+              )
+            ],
+          ),
+          const SizedBox(height: 24),
           ValueListenableBuilder(
             valueListenable: viewModel.valid,
             builder: (context, value, child) => ElevatedButton(
@@ -159,6 +170,8 @@ class SignupForm extends StatelessWidget {
                 )),
           ),
           const SizedBox(height: 16),
+
+          ///---> already have account*****
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -168,7 +181,7 @@ class SignupForm extends StatelessWidget {
                       viewModel.doIntent(NavigateToLoginScreenAction()),
                   child: Text(viewModel.locale!.login))
             ],
-          )
+          ),
         ],
       ),
     );
