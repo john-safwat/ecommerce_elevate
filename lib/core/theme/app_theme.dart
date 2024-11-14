@@ -114,5 +114,14 @@ class AppTheme {
       side: BorderSide(color: AppColors.pink),
       overlayColor: WidgetStatePropertyAll(AppColors.pink),
     ),
+
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      type: BottomNavigationBarType.fixed,
+      backgroundColor: AppColors.white,
+      selectedItemColor: AppColors.pink,
+      unselectedItemColor: AppColors.white[AppColors.colorCode80],
+      showUnselectedLabels: true,
+      showSelectedLabels: true
+    )
   );
 }
