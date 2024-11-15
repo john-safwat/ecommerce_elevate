@@ -16,7 +16,9 @@ class OtpVerifyViewModel
   final VerifyResetPasswordUseCase _verifyResetPasswordUseCase;
   final ForgetPasswordUseCase _forgetPasswordUseCase;
   late Timer timer;
+  late Timer resendOtpTimer;
   int time = 600;
+  int resendTimer = 60;
 
   List<String> opts = List.filled(6, "");
 
@@ -28,9 +30,11 @@ class OtpVerifyViewModel
 
   _initTimer() {
     timer = Timer.periodic(const Duration(seconds: 1), _updateTimer);
+    resendOtpTimer = Timer.periodic(const Duration(seconds: 1), _updateOtpTimer);
   }
 
   ValueNotifier<String> timerMessage = ValueNotifier<String>("10:00");
+  ValueNotifier<String> resendMessage = ValueNotifier<String>("01:00");
   ValueNotifier<bool> valid = ValueNotifier<bool>(false);
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -86,8 +90,24 @@ class OtpVerifyViewModel
     if (seconds.length == 1) {
       seconds = "0$seconds";
     }
+
     timerMessage.value = "${locale!.validFor} $minutes:$seconds";
     _checkInputFormValidation();
+  }
+  void _updateOtpTimer(Timer timer) {
+    if (resendTimer ==0){
+      return;
+    }
+    resendTimer--;
+    String resendMinutes = (resendTimer ~/ 60).toString();
+    String resendSeconds = (resendTimer % 60).toString();
+    if (resendMinutes.length == 1) {
+      resendMinutes = "0$resendMinutes";
+    }
+    if (resendMinutes.length == 1) {
+      resendMinutes = "0$resendMinutes";
+    }
+    resendMessage.value = " ${locale!.resendOtpTimerMessage} $resendMinutes:$resendSeconds";
   }
 
   void _navigateToResetPasswordScreen() {
@@ -125,6 +145,7 @@ class OtpVerifyViewModel
     switch (response) {
       case Success<ForgetPasswordResponse>():
         {
+          resendTimer = 60;
           time = 600;
           emit(OtpResendLoadingSuccessState());
         }
