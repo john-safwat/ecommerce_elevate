@@ -1,8 +1,5 @@
 {
   "login": "Login",
-  "explore": "Explore",
-  "result": "Result",
-  "profile": "Profile",
   "socketExceptionMessage": "There seems to be a problem with your internet connection. Please check your network settings and try again.",
   "timeoutExceptionMessage": "The request took too long to complete. Please try again later or check your internet connection.",
   "httpExceptionMessage": "Something went wrong on the server side. Please try again later or contact our support team.",
@@ -77,6 +74,10 @@
   "newPassword": "New Password",
   "newPasswordAgain": "New Password Confirmation",
   "yourTokenIsInvalid": "Your token is invalid please login again",
+  "resendOtpTimerMessage" : "You Can resend Otp code After",
   "resetPasswordMessage": "Password must not be empty and must contain 6 characters with upper case letter and one number at least ",
-  "resendOtpTimerMessage" : "You Can resend Otp code After"
+  "home" : "Home",
+  "categories" : "Categories",
+  "cart" : "Cart",
+  "profile" : "Profile"
 }
