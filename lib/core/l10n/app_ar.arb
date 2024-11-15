@@ -78,6 +78,7 @@
   "resendOtpTimerMessage" : "يمكنك اعادة ارسال رمز التحقق بعد",
   "home" : "الرئيسية",
   "categories" : "الفئات",
+
   "cart" : "السلة",
   "profile" : "الملف الشخصي"
 }

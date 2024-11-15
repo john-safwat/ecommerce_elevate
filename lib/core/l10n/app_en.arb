@@ -78,6 +78,7 @@
   "resetPasswordMessage": "Password must not be empty and must contain 6 characters with upper case letter and one number at least ",
   "home" : "Home",
   "categories" : "Categories",
+
   "cart" : "Cart",
   "profile" : "Profile"
 }
