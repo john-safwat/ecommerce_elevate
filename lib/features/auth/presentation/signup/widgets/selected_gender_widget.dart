@@ -11,37 +11,47 @@ class SelectedGenderWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SignupViewModel, SignupViewState>(
       builder: (context, state) {
+        var theme = Theme.of(context);
         SignupViewModel viewModel = BlocProvider.of<SignupViewModel>(context);
         return Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Text(viewModel.locale!.gender),
-            Row(
-              children: [
-                Radio<Gender>(
-                  activeColor: AppColors.pink,
-                  value: Gender.female,
-                  groupValue: viewModel.selectedGender,
-                  onChanged: (Gender? value) {
-                    viewModel.doIntent(ChangeGenderAction(gender: value!));
-                  },
-                ),
-                Text(viewModel.locale!.female),
-              ],
+            Text(
+              viewModel.locale!.gender,
+              style: theme.textTheme.titleLarge?.copyWith(fontSize: 18),
             ),
-            const SizedBox(width: 20),
-            Row(
-              children: [
-                Radio<Gender>(
-                  activeColor: AppColors.pink,
-                  value: Gender.male,
-                  groupValue: viewModel.selectedGender,
-                  onChanged: (Gender? value) {
-                    viewModel.doIntent(ChangeGenderAction(gender: value!));
-                  },
-                ),
-                Text(viewModel.locale!.male),
-              ],
+            const SizedBox(width: 40),
+            Expanded(
+              child: Row(
+                children: [
+                  Radio<Gender>(
+                    activeColor: AppColors.pink,
+                    value: Gender.female,
+                    groupValue: viewModel.selectedGender,
+                    onChanged: (Gender? value) {
+                      viewModel.doIntent(ChangeGenderAction(gender: value!));
+                    },
+                  ),
+                  Text(viewModel.locale!.female,
+                      style: theme.textTheme.bodyMedium),
+                ],
+              ),
+            ),
+            Expanded(
+              child: Row(
+                children: [
+                  Radio<Gender>(
+                    activeColor: AppColors.pink,
+                    value: Gender.male,
+                    groupValue: viewModel.selectedGender,
+                    onChanged: (Gender? value) {
+                      viewModel.doIntent(ChangeGenderAction(gender: value!));
+                    },
+                  ),
+                  Text(viewModel.locale!.male,
+                      style: theme.textTheme.bodyMedium),
+                ],
+              ),
             ),
           ],
         );

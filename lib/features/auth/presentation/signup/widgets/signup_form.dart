@@ -14,6 +14,7 @@ class SignupForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var theme = Theme.of(context);
     viewModel = BlocProvider.of<SignupViewModel>(context);
     return Form(
       onChanged: () => viewModel.doIntent(FormDataChangedAction()),
@@ -137,23 +138,26 @@ class SignupForm extends StatelessWidget {
           const SelectedGenderWidget(),
 
           ///---> terms and conditions*****
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                viewModel.locale!.create_an_account,
-                style:
-                    const TextStyle(fontSize: 11, fontWeight: FontWeight.w400),
-              ),
-              TextButton(
-                onPressed: () {},
-                child: Text(
-                  viewModel.locale!.terms_and_conditions,
-                  style: const TextStyle(
-                      fontSize: 11, fontWeight: FontWeight.bold),
+          FittedBox(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  viewModel.locale!.create_an_account,
+                  style: theme.textTheme.bodySmall,
                 ),
-              )
-            ],
+                TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    viewModel.locale!.terms_and_conditions,
+                    style: theme.textTheme.bodySmall!.copyWith(
+                      decoration: TextDecoration.underline,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                )
+              ],
+            ),
           ),
           const SizedBox(height: 24),
           ValueListenableBuilder(
