@@ -118,45 +118,37 @@ void main() async {
     test(
         'shold  call changePasswordVisibility() function based on change password visibilityAction',
         () {
-      //! Arrange
       signupViewModel.passwordVisible.value = false;
-      //! Act
       signupViewModel.doIntent(ChangePasswordVisibilityAction());
-      //! Assert
       expect(signupViewModel.passwordVisible.value, true);
     });
     test(
         'shold  call _changePasswordConfirmVisibility() function based on change passwordConfirmVisibility action',
         () {
-      //! Arrange
       signupViewModel.passwordConfirmationVisible.value = false;
-      //! Act
+
       signupViewModel.doIntent(ChangePasswordConfirmationVisibilityAction());
-      //! Assert
+
       expect(signupViewModel.passwordConfirmationVisible.value, true);
     });
     test(
         'shold  call _navigateToLoginScreen  function based on SignupConfirmAction',
         () {
-      //! Act
       signupViewModel.doIntent(SignupConfirmAction());
-      //! Assert
+
       expect(signupViewModel.state, isA<NavigateToLoginScreenState>());
     });
     test(
         'shold  call _changeGender(action.gender)  function based on ChangeGenderAction',
         () {
-      //! Act
       signupViewModel.doIntent(ChangeGenderAction(gender: Gender.male));
-      //! Assert
+
       expect(signupViewModel.selectedGender, Gender.male);
     });
     test(
         'shold  call _navigateToLoginScreen()  function based on NavigateToLoginScreenAction',
         () {
-      //! Act
       signupViewModel.doIntent(NavigateToLoginScreenAction());
-      //! Assert
       expect(signupViewModel.state, isA<NavigateToLoginScreenState>());
     });
   });
