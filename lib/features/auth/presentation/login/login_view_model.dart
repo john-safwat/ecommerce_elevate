@@ -77,9 +77,16 @@ class LoginViewModel extends BaseViewModel<LoginViewState, LoginViewAction> {
         {
           _navigateToForgetPasswordScreen();
         }
+      case ContinueAsGuestAction():
+        {
+          _continueAsGuest();
+        }
     }
   }
-
+  void _continueAsGuest() {
+    appConfigProvider!.isGuest = true;
+    emit(NavigateAsGuestState());
+  }
   void _login() async {
     if (formKey.currentState!.validate()) {
       emit(LoginLoadingState());

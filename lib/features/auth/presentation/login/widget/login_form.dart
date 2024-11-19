@@ -85,6 +85,15 @@ class LoginForm extends StatelessWidget {
                 child: Text(viewModel.locale!.login)),
           ),
           const SizedBox(height: 16),
+          OutlinedButton(
+            onPressed: () => viewModel.doIntent(ContinueAsGuestAction()),
+            style: OutlinedButton.styleFrom(
+              padding: const EdgeInsets.all(16),
+              side: BorderSide(color: AppColors.pink),
+            ),
+            //todo:Add localization
+            child: Text( "Continue as Guest"),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -94,7 +103,9 @@ class LoginForm extends StatelessWidget {
                       viewModel.doIntent(NavigateToSignUpScreeAction()),
                   child: Text(viewModel.locale!.signup))
             ],
-          )
+          ),
+          const SizedBox(height: 16),
+
         ],
       ),
     );

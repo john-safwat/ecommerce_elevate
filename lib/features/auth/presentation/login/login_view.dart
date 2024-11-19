@@ -62,6 +62,9 @@ class _LoginViewState extends BaseState<LoginView, LoginViewModel> {
           if (state is NavigateToForgetPasswordScreenState) {
             Navigator.pushNamed(context, Routes.forgetPasswordRoute);
           }
+          if (state is NavigateAsGuestState) {
+            Navigator.pushReplacementNamed(context, Routes.homeRoute);
+          }
         },
         child: Scaffold(
           appBar: AppBar(

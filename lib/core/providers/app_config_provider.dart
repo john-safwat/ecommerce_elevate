@@ -5,6 +5,7 @@ import 'package:injectable/injectable.dart';
 class AppConfigProvider extends ChangeNotifier {
   String _token = "";
   String _email = "";
+  bool _isGuest = false;
 
   String get email => _email;
 
@@ -19,4 +20,11 @@ class AppConfigProvider extends ChangeNotifier {
     _token = value;
     notifyListeners();
   }
+  bool get isGuest => _isGuest;
+
+  set isGuest(bool value) {
+    _isGuest = value;
+    notifyListeners();
+  }
+
 }

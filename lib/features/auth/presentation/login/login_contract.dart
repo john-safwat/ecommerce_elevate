@@ -14,6 +14,8 @@ class InvalidCredentialsState extends LoginViewState {}
 
 class NavigateToHomeScreeState extends LoginViewState {}
 
+class NavigateAsGuestState extends LoginViewState {}
+
 class NavigateToSignUpScreeState extends LoginViewState {}
 
 class LoginFailState extends LoginViewState {
@@ -39,5 +41,7 @@ class RememberMeButtonAction extends LoginViewAction {}
 class NavigateToSignUpScreeAction extends LoginViewAction {}
 
 class NavigateToHomeScreeAction extends LoginViewAction {}
+
+class ContinueAsGuestAction extends LoginViewAction {}
 
 class NavigateToForgetPasswordScreenAction extends LoginViewAction {}
