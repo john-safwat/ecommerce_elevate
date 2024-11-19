@@ -80,5 +80,11 @@
   "categories" : "الفئات",
 
   "cart" : "السلة",
-  "profile" : "الملف الشخصي"
+  "profile" : "الملف الشخصي",
+  "search" : "بحث",
+  "getLocation" : "الحصول على الموقع",
+  "youMustEnableLocation" : "يجب تفعيل الموقع",
+  "locationPermissionNotGranted" : "لم يتم اعطاء الصلاحية للموقع",
+  "cantFindYourLocation" : "لا يمكن الحصول على موقعك"
+
 }
