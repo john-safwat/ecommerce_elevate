@@ -50,6 +50,9 @@ dependencies:
   icons_launcher:
   flutter_native_splash:
   mockito:
+  location: ^7.0.1
+  geocode:
+
 
 dev_dependencies:
   flutter_lints: ^3.0.0

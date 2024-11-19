@@ -84,5 +84,11 @@
   "male": "Male",
   "female": "Female",
   "create_an_account": "Creating an account, you agree to our",
-  "terms_and_conditions": "Terms and Conditions"
+  "terms_and_conditions": "Terms and Conditions",
+  "search" : "Search",
+  "getLocation" : "Finding Your Location",
+  "youMustEnableLocation" : "You Must Enable Location Service",
+  "locationPermissionNotGranted" : "Location Permission Not Granted",
+  "cantFindYourLocation" : "Can't Find Your Location"
+
 }

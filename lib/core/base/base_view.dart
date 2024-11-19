@@ -21,6 +21,7 @@ abstract class BaseState<T extends StatefulWidget, VM extends BaseViewModel>
     viewModel.locale = null;
     viewModel.languageProvider = null;
     viewModel.appConfigProvider = null;
+    viewModel.mediaQuery = null;
   }
 
   @override
@@ -28,6 +29,7 @@ abstract class BaseState<T extends StatefulWidget, VM extends BaseViewModel>
     viewModel.locale = AppLocalizations.of(context);
     viewModel.languageProvider = Provider.of<LanguageProvider>(context);
     viewModel.appConfigProvider = Provider.of<AppConfigProvider>(context);
+    viewModel.mediaQuery = MediaQuery.of(context).size;
     return const Placeholder();
   }
 

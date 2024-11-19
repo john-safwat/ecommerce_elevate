@@ -84,5 +84,11 @@
   "male": "ذكر",
   "female": "انثى",
   "create_an_account": "إنشاء حساب، فإنك توافق على لدينا",
-  "terms_and_conditions": "الشروط والاحكام"
+  "terms_and_conditions": "الشروط والاحكام",
+  "search" : "بحث",
+  "getLocation" : "الحصول على الموقع",
+  "youMustEnableLocation" : "يجب تفعيل الموقع",
+  "locationPermissionNotGranted" : "لم يتم اعطاء الصلاحية للموقع",
+  "cantFindYourLocation" : "لا يمكن الحصول على موقعك"
+
 }
