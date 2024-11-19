@@ -75,8 +75,16 @@
   "newPasswordAgain": "كلمة المرور الجديدة مرة واحدة",
   "yourTokenIsInvalid": "انتهت صلاحية الجلسة الخاصة بك. الرجاء تسجيل الدخول مرة واحدة.",
   "resetPasswordMessage": "يجب ألا تكون كلمة المرور فارغة ويجب أن تحتوي على 6 أحرف بحرف كبير ورقم واحد على الأقل",
+  "resendOtpTimerMessage" : "يمكنك اعادة ارسال رمز التحقق بعد",
   "home" : "الرئيسية",
   "categories" : "الفئات",
+
   "cart" : "السلة",
-  "profile" : "الملف الشخصي"
+  "profile" : "الملف الشخصي",
+  "search" : "بحث",
+  "getLocation" : "الحصول على الموقع",
+  "youMustEnableLocation" : "يجب تفعيل الموقع",
+  "locationPermissionNotGranted" : "لم يتم اعطاء الصلاحية للموقع",
+  "cantFindYourLocation" : "لا يمكن الحصول على موقعك"
+
 }
