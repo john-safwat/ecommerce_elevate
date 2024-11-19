@@ -20,7 +20,8 @@ class AppTheme {
         labelSmall: TextStyle(color: AppColors.black),
         bodyLarge: TextStyle(color: AppColors.black),
         bodyMedium: TextStyle(color: AppColors.black),
-        bodySmall: TextStyle(color: AppColors.black)),
+        bodySmall: TextStyle(color: AppColors.black),),
+
     progressIndicatorTheme: const ProgressIndicatorThemeData(
       color: AppColors.pink,
     ),
@@ -114,5 +115,14 @@ class AppTheme {
       side: BorderSide(color: AppColors.pink),
       overlayColor: WidgetStatePropertyAll(AppColors.pink),
     ),
+
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      type: BottomNavigationBarType.fixed,
+      backgroundColor: AppColors.white,
+      selectedItemColor: AppColors.pink,
+      unselectedItemColor: AppColors.white[AppColors.colorCode80],
+      showUnselectedLabels: true,
+      showSelectedLabels: true
+    )
   );
 }
