@@ -9,8 +9,10 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:dio/dio.dart' as _i361;
+import 'package:geocode/geocode.dart' as _i1024;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
+import 'package:location/location.dart' as _i645;
 import 'package:logger/logger.dart' as _i974;
 import 'package:pretty_dio_logger/pretty_dio_logger.dart' as _i528;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
@@ -49,6 +51,7 @@ import '../../features/home/tabs/home/view_model/home_tab_view_model.dart'
     as _i183;
 import '../../features/home/view_model/home_view_model.dart' as _i656;
 import '../datasource_execution/datasource_execution.dart' as _i166;
+import '../modules/location_module.dart' as _i917;
 import '../modules/logger_module.dart' as _i774;
 import '../modules/network_module.dart' as _i184;
 import '../modules/shared_preferences_module.dart' as _i744;
@@ -70,11 +73,11 @@ extension GetItInjectableX on _i174.GetIt {
     final sharedPreferencesModule = _$SharedPreferencesModule();
     final loggerModule = _$LoggerModule();
     final networkModule = _$NetworkModule();
+    final locationModule = _$LocationModule();
     await gh.factoryAsync<_i460.SharedPreferences>(
       () => sharedPreferencesModule.prefs,
       preResolve: true,
     );
-    gh.factory<_i183.HomeTabViewModel>(() => _i183.HomeTabViewModel());
     gh.factory<_i656.HomeViewModel>(() => _i656.HomeViewModel());
     gh.singleton<_i166.DataSourceExecution>(() => _i166.DataSourceExecution());
     gh.singleton<_i56.AppConfigProvider>(() => _i56.AppConfigProvider());
@@ -83,8 +86,14 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i361.Dio>(() => networkModule.provideDio());
     gh.lazySingleton<_i528.PrettyDioLogger>(
         () => networkModule.providerInterceptor());
+    gh.lazySingleton<_i645.Location>(() => locationModule.location);
+    gh.lazySingleton<_i1024.GeoCode>(() => locationModule.geoCode);
     gh.singleton<_i187.AuthRetrofitClient>(
         () => _i187.AuthRetrofitClient(gh<_i361.Dio>()));
+    gh.factory<_i183.HomeTabViewModel>(() => _i183.HomeTabViewModel(
+          gh<_i645.Location>(),
+          gh<_i1024.GeoCode>(),
+        ));
     gh.factory<_i1071.AuthLocalDatasource>(
         () => _i909.AuthLocalDatasourceImpl(gh<_i460.SharedPreferences>()));
     gh.singleton<_i822.LanguageProvider>(
@@ -135,3 +144,5 @@ class _$SharedPreferencesModule extends _i744.SharedPreferencesModule {}
 class _$LoggerModule extends _i774.LoggerModule {}
 
 class _$NetworkModule extends _i184.NetworkModule {}
+
+class _$LocationModule extends _i917.LocationModule {}

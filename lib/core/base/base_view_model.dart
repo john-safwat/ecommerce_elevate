@@ -16,7 +16,7 @@ abstract class BaseViewModel<T, E extends BaseAction> extends Cubit<T> {
   AppLocalizations? locale;
   Size? mediaQuery;
 
-  void doIntent(E action);
+  Future<void> doIntent(E action);
 
   String mapExceptionToMessage(Exception exception) {
     if (exception is SocketException) {
