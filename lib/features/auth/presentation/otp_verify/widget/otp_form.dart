@@ -56,6 +56,7 @@ class OtpForm extends StatelessWidget {
             style: Theme.of(context).textTheme.titleLarge,
           ),
         ),
+
         const SizedBox(height: 32),
         ValueListenableBuilder(
           valueListenable: viewModel.valid,
@@ -78,14 +79,25 @@ class OtpForm extends StatelessWidget {
               viewModel.locale!.didNotReceiveCode,
               style: Theme.of(context).textTheme.bodyLarge,
             ),
-            TextButton(
-              onPressed: () {
-                viewModel.doIntent(OtpResendAction());
-              },
-              child: Text(
-                viewModel.locale!.resend,
+            ValueListenableBuilder(
+              valueListenable: viewModel.resendMessage,
+              builder: (context, value, child) =>
+                  viewModel.resendTimer ==0?
+                  TextButton(
+                    onPressed: () {
+                      viewModel.doIntent(OtpResendAction());
+                    },
+                    child: Text(
+                      viewModel.locale!.resend,
+                    ),
+                  ):
+                  Text(
+                viewModel.resendMessage.value,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.labelMedium,
               ),
-            )
+            ),
+
           ],
         ),
       ],
