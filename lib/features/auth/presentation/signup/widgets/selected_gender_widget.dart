@@ -11,14 +11,16 @@ class SelectedGenderWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SignupViewModel, SignupViewState>(
       builder: (context, state) {
-        var theme = Theme.of(context);
         SignupViewModel viewModel = BlocProvider.of<SignupViewModel>(context);
         return Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
               viewModel.locale!.gender,
-              style: theme.textTheme.titleLarge?.copyWith(fontSize: 18),
+              style: Theme.of(context)
+                  .textTheme
+                  .titleLarge
+                  ?.copyWith(fontSize: 18),
             ),
             const SizedBox(width: 40),
             Expanded(
