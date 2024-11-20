@@ -1,6 +1,6 @@
 class RegistrationUser {
   RegistrationUser({
-    this.username,
+   this.gender,
     this.firstName,
     this.lastName,
     this.email,
@@ -9,7 +9,7 @@ class RegistrationUser {
     this.phone,
   });
 
-  String? username;
+  String? gender;
   String? firstName;
   String? lastName;
   String? email;

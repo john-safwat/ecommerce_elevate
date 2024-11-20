@@ -8,7 +8,7 @@ part of 'registration_user_dto.dart';
 
 RegistrationUserDto _$RegistrationUserDtoFromJson(Map<String, dynamic> json) =>
     RegistrationUserDto(
-      json['username'] as String?,
+      json['gender'] as String?,
       json['firstName'] as String?,
       json['lastName'] as String?,
       json['email'] as String?,
@@ -20,7 +20,7 @@ RegistrationUserDto _$RegistrationUserDtoFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$RegistrationUserDtoToJson(
         RegistrationUserDto instance) =>
     <String, dynamic>{
-      'username': instance.username,
+      'gender': instance.gender,
       'firstName': instance.firstName,
       'lastName': instance.lastName,
       'email': instance.email,
