@@ -1,6 +1,7 @@
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
 import 'package:ecommerce_elevate/core/assets/app_images.dart';
 import 'package:ecommerce_elevate/core/base/base_view.dart';
+import 'package:ecommerce_elevate/core/constants/routes.dart';
 import 'package:ecommerce_elevate/core/di/di.dart';
 import 'package:ecommerce_elevate/core/shared_widgets/search_text_field.dart';
 import 'package:ecommerce_elevate/features/home/tabs/home/view_model/home_tab_actions.dart';
@@ -20,6 +21,7 @@ class _HomeTabViewState extends BaseState<HomeTabView, HomeTabViewModel> {
     super.initState();
     viewModel.doIntent(LoadLocationAction());
   }
+
   @override
   Widget build(BuildContext context) {
     super.build(context);
@@ -29,10 +31,16 @@ class _HomeTabViewState extends BaseState<HomeTabView, HomeTabViewModel> {
           SliverAppBar(
             title: Row(
               children: [
-                Image.asset(
-                  AppImages.logo,
-                  width: viewModel.mediaQuery!.width * 0.25,
-                  fit: BoxFit.cover,
+                InkWell(
+                  onTap: () {
+                    // todo: test navigation to product details view
+                    Navigator.pushNamed(context, Routes.productDetailsRoute);
+                  },
+                  child: Image.asset(
+                    AppImages.logo,
+                    width: viewModel.mediaQuery!.width * 0.25,
+                    fit: BoxFit.cover,
+                  ),
                 ),
                 const SizedBox(width: 16),
                 Expanded(

@@ -47,6 +47,8 @@ import '../../features/auth/presentation/reset_password/reset_password_view_mode
     as _i974;
 import '../../features/auth/presentation/signup/signup_view_model.dart'
     as _i1055;
+import '../../features/home/product_details/presentation/product_details_view_model.dart'
+    as _i101;
 import '../../features/home/tabs/home/view_model/home_tab_view_model.dart'
     as _i183;
 import '../../features/home/view_model/home_view_model.dart' as _i656;
@@ -79,6 +81,8 @@ extension GetItInjectableX on _i174.GetIt {
       preResolve: true,
     );
     gh.factory<_i656.HomeViewModel>(() => _i656.HomeViewModel());
+    gh.factory<_i101.ProductDetailsViewModel>(
+        () => _i101.ProductDetailsViewModel());
     gh.singleton<_i56.AppConfigProvider>(() => _i56.AppConfigProvider());
     gh.singleton<_i166.DataSourceExecution>(() => _i166.DataSourceExecution());
     gh.lazySingleton<_i974.Logger>(() => loggerModule.loggerProvider);
