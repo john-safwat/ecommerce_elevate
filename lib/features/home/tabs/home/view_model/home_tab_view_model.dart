@@ -1,19 +1,26 @@
 import 'package:ecommerce_elevate/core/base/base_view_model.dart';
-import 'package:ecommerce_elevate/features/home/tabs/home/view_model/home_tab_actions.dart';
-import 'package:ecommerce_elevate/features/home/tabs/home/view_model/home_tab_state.dart';
+import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
+import 'package:ecommerce_elevate/features/home/domain/entities/cateogry/Categories.dart';
+import 'package:ecommerce_elevate/features/home/domain/use_case/occasions_use_case.dart';
 import 'package:flutter/material.dart';
 import 'package:geocode/geocode.dart';
 import 'package:injectable/injectable.dart';
 import 'package:location/location.dart';
+import '../../../domain/entities/occasions/occasions.dart';
+import 'home_tab_actions.dart';
+import 'home_tab_state.dart';
 
 @injectable
 class HomeTabViewModel extends BaseViewModel<HomeTabState, HomeTabActions> {
-  HomeTabViewModel() : super(InitialHomeTabState());
+  OccasionsUseCase homeTabUseCase;
+  HomeTabViewModel(this.homeTabUseCase) : super(DataLoadingInitialState());
 
   late ValueNotifier<String> locationMessage =
       ValueNotifier(locale!.getLocation);
   final Location _location = Location();
   bool locationLoaded = false;
+  List<Categories> categoriesList = [];
+  List<Occasions> occasionsList = [];
 
   @override
   void doIntent(HomeTabActions action) {
@@ -22,8 +29,45 @@ class HomeTabViewModel extends BaseViewModel<HomeTabState, HomeTabActions> {
         {
           _getLocation();
         }
+
+      case LoadDataAction():{
+        _loadData();
+      }
     }
   }
+  /*_getCategoryInfo()async{
+    emit(LoadingHomeTabCategoryState('loading'));
+    //final result = await categoryUseCase.callCategories();
+    switch (result) {
+
+      case Success<CategoriesResponseEntity>():{
+        categories = result.data!.categories??[];
+        emit(SuccessHomeTabCategoryState());}
+      case Failure<CategoriesResponseEntity>():{
+        emit(FailHomeTabCategoryState(mapExceptionToMessage(result.exception)));
+      }
+    }
+  }*/
+  void _loadData()async {
+    emit(DataLoadingState());
+  var response = await Future.wait([homeTabUseCase()]);
+  Results<List<Categories>> categoriesResponse = response[1] as Results<List<Categories>>;
+  Results<List<Occasions>> occasions = response[0] as Results<List<Occasions>>;
+  if (categoriesResponse is Failure<List<Categories>>){
+    emit(DataLoadingFailState(mapExceptionToMessage(categoriesResponse.exception)));
+  }
+  if (occasions is Failure<List<Occasions>>){
+    emit(DataLoadingFailState(mapExceptionToMessage(occasions.exception)));
+  }
+  else {
+    occasions as Success<List<Occasions>>;
+    categoriesResponse as Success<List<Categories>>;
+    occasionsList = occasions.data??[];
+    categoriesList = categoriesResponse.data??[];
+    emit(DataLoadingSuccessState());
+  }
+  }
+
 
   /// Main method to retrieve the user's location and display their address.
   _getLocation() async {
@@ -126,4 +170,6 @@ class HomeTabViewModel extends BaseViewModel<HomeTabState, HomeTabActions> {
       locationMessage.value = locale!.cantFindYourLocation;
     }
   }
+
+
 }
