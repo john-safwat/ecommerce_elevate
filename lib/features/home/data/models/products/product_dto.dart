@@ -1,9 +1,10 @@
-
+import 'package:ecommerce_elevate/features/home/domain/entities/products/product.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'product_dto.g.dart';
+
 @JsonSerializable()
-class ProductDtp {
+class ProductDto {
   @JsonKey(name: "_id")
   final String? productId;
   @JsonKey(name: "title")
@@ -35,7 +36,7 @@ class ProductDtp {
   @JsonKey(name: "id")
   final String? id;
 
-  ProductDtp ({
+  ProductDto({
     this.productId,
     this.title,
     this.slug,
@@ -53,12 +54,31 @@ class ProductDtp {
     this.id,
   });
 
-  factory ProductDtp.fromJson(Map<String, dynamic> json) {
-    return _$ProductDtpFromJson(json);
+  factory ProductDto.fromJson(Map<String, dynamic> json) {
+    return _$ProductDtoFromJson(json);
   }
 
   Map<String, dynamic> toJson() {
-    return _$ProductDtpToJson(this);
+    return _$ProductDtoToJson(this);
+  }
+
+  Product toDomain() {
+    return Product(
+      productId: productId,
+      title: title,
+      slug: slug,
+      description: description,
+      imgCover: imgCover,
+      images: images,
+      price: price,
+      priceAfterDiscount: priceAfterDiscount,
+      quantity: quantity,
+      category: category,
+      occasion: occasion,
+      createdAt: createdAt,
+      updatedAt: updatedAt,
+      V: V,
+      id: id,
+    );
   }
 }
-

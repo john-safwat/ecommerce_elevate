@@ -8,7 +8,7 @@ class BestSellerResponseDto {
   @JsonKey(name: "message")
   final String? message;
   @JsonKey(name: "bestSeller")
-  final List<ProductDtp>? bestSeller;
+  final List<ProductDto>? bestSeller;
 
   BestSellerResponseDto ({
     this.message,

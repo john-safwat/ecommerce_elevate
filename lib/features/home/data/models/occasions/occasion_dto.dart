@@ -1,6 +1,8 @@
-
+import 'package:ecommerce_elevate/features/home/domain/entities/occasions/occasion.dart';
 import 'package:json_annotation/json_annotation.dart';
+
 part 'occasion_dto.g.dart';
+
 @JsonSerializable()
 class OccasionDto {
   @JsonKey(name: "_id")
@@ -16,7 +18,7 @@ class OccasionDto {
   @JsonKey(name: "updatedAt")
   final String? updatedAt;
 
-  OccasionDto ({
+  OccasionDto({
     this.id,
     this.name,
     this.slug,
@@ -31,5 +33,16 @@ class OccasionDto {
 
   Map<String, dynamic> toJson() {
     return _$OccasionDtoToJson(this);
+  }
+
+  Occasion toDomain() {
+    return Occasion(
+      id: id,
+      name: name,
+      slug: slug,
+      image: image,
+      createdAt: createdAt,
+      updatedAt: updatedAt,
+    );
   }
 }

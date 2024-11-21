@@ -1,26 +1,33 @@
 import 'package:ecommerce_elevate/core/base/base_view_model.dart';
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
-import 'package:ecommerce_elevate/features/home/domain/entities/cateogry/Categories.dart';
-import 'package:ecommerce_elevate/features/home/domain/use_case/occasions_use_case.dart';
+import 'package:ecommerce_elevate/features/home/domain/entities/category/category.dart';
+import 'package:ecommerce_elevate/features/home/domain/entities/occasions/occasion.dart';
+import 'package:ecommerce_elevate/features/home/domain/entities/products/product.dart';
+import 'package:ecommerce_elevate/features/home/domain/use_case/get_categories_list_use_case.dart';
+import 'package:ecommerce_elevate/features/home/domain/use_case/get_most_selling_products_list_use_case.dart';
+import 'package:ecommerce_elevate/features/home/domain/use_case/get_occasions_list_use_case.dart';
 import 'package:flutter/material.dart';
 import 'package:geocode/geocode.dart';
 import 'package:injectable/injectable.dart';
 import 'package:location/location.dart';
-import '../../../domain/entities/occasions/occasions.dart';
+
 import 'home_tab_actions.dart';
 import 'home_tab_state.dart';
 
 @injectable
-class HomeTabViewModel extends BaseViewModel<HomeTabState, HomeTabActions> {
-  OccasionsUseCase homeTabUseCase;
-  HomeTabViewModel(this.homeTabUseCase) : super(DataLoadingInitialState());
+class HomeTabViewModel extends BaseViewModel<HomeTabStates, HomeTabActions> {
+  GetOccasionsListUseCase getOccasionsListUseCase;
+  GetCategoriesListUseCase getCategoriesListUseCase;
+  GetMostSellingProductsListUseCase getMostSellingProductsListUseCase;
+
+  HomeTabViewModel(this.getCategoriesListUseCase,
+      this.getMostSellingProductsListUseCase, this.getOccasionsListUseCase)
+      : super(HomeTabStates());
 
   late ValueNotifier<String> locationMessage =
       ValueNotifier(locale!.getLocation);
   final Location _location = Location();
   bool locationLoaded = false;
-  List<Categories> categoriesList = [];
-  List<Occasions> occasionsList = [];
 
   @override
   void doIntent(HomeTabActions action) {
@@ -30,44 +37,14 @@ class HomeTabViewModel extends BaseViewModel<HomeTabState, HomeTabActions> {
           _getLocation();
         }
 
-      case LoadDataAction():{
-        _loadData();
-      }
+      case LoadDataAction():
+        {
+          _getMostSellingProductsList();
+          _getCategoriesList();
+          _getOccasionsList();
+        }
     }
   }
-  /*_getCategoryInfo()async{
-    emit(LoadingHomeTabCategoryState('loading'));
-    //final result = await categoryUseCase.callCategories();
-    switch (result) {
-
-      case Success<CategoriesResponseEntity>():{
-        categories = result.data!.categories??[];
-        emit(SuccessHomeTabCategoryState());}
-      case Failure<CategoriesResponseEntity>():{
-        emit(FailHomeTabCategoryState(mapExceptionToMessage(result.exception)));
-      }
-    }
-  }*/
-  void _loadData()async {
-    emit(DataLoadingState());
-  var response = await Future.wait([homeTabUseCase()]);
-  Results<List<Categories>> categoriesResponse = response[1] as Results<List<Categories>>;
-  Results<List<Occasions>> occasions = response[0] as Results<List<Occasions>>;
-  if (categoriesResponse is Failure<List<Categories>>){
-    emit(DataLoadingFailState(mapExceptionToMessage(categoriesResponse.exception)));
-  }
-  if (occasions is Failure<List<Occasions>>){
-    emit(DataLoadingFailState(mapExceptionToMessage(occasions.exception)));
-  }
-  else {
-    occasions as Success<List<Occasions>>;
-    categoriesResponse as Success<List<Categories>>;
-    occasionsList = occasions.data??[];
-    categoriesList = categoriesResponse.data??[];
-    emit(DataLoadingSuccessState());
-  }
-  }
-
 
   /// Main method to retrieve the user's location and display their address.
   _getLocation() async {
@@ -164,12 +141,88 @@ class HomeTabViewModel extends BaseViewModel<HomeTabState, HomeTabActions> {
         longitude: locationData.longitude!,
       );
       // Update the UI with the resolved address or a fallback message.
-      locationMessage.value = "${location.streetNumber} - ${location.streetAddress!}";
+      locationMessage.value =
+          "${location.streetNumber} - ${location.streetAddress!}";
     } catch (e) {
       // Display an error message if address resolution fails.
       locationMessage.value = locale!.cantFindYourLocation;
     }
   }
 
+  void _getMostSellingProductsList() async {
+    emit(state.copyWith(productsState: HomeTabLoadingState()));
 
+    var response = await getMostSellingProductsListUseCase();
+
+    switch (response) {
+      case Success<List<Product>?>():
+        {
+          emit(
+            state.copyWith(
+              productsState:
+                  HomeTabLoadingSuccessState<List<Product>?>(response.data),
+            ),
+          );
+        }
+      case Failure<List<Product>?>():
+        {
+          emit(
+            state.copyWith(
+              productsState: HomeTabLoadingFailState(
+                  mapExceptionToMessage(response.exception),
+                  response.exception),
+            ),
+          );
+        }
+    }
+  }
+
+  void _getCategoriesList() async {
+    emit(state.copyWith(categoriesState: HomeTabLoadingState()));
+
+    var response = await getCategoriesListUseCase();
+
+    switch (response) {
+      case Success<List<Category>?>():
+        {
+          emit(state.copyWith(
+              categoriesState:
+                  HomeTabLoadingSuccessState<List<Category>?>(response.data)));
+        }
+      case Failure<List<Category>?>():
+        {
+          emit(
+            state.copyWith(
+              categoriesState: HomeTabLoadingFailState(
+                  mapExceptionToMessage(response.exception),
+                  response.exception),
+            ),
+          );
+        }
+    }
+  }
+
+  void _getOccasionsList() async {
+    emit(state.copyWith(occasionsState: HomeTabLoadingState()));
+    var response = await getOccasionsListUseCase();
+    switch (response) {
+
+      case Success<List<Occasion>?>():
+        {
+          emit(state.copyWith(
+              occasionsState:
+              HomeTabLoadingSuccessState<List<Occasion>?>(response.data)));
+        }
+      case Failure<List<Occasion>?>():
+        {
+          emit(
+            state.copyWith(
+              occasionsState: HomeTabLoadingFailState(
+                  mapExceptionToMessage(response.exception),
+                  response.exception),
+            ),
+          );
+        }
+    }
+  }
 }

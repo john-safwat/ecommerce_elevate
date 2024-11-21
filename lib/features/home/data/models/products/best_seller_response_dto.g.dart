@@ -11,7 +11,7 @@ BestSellerResponseDto _$BestSellerResponseDtoFromJson(
     BestSellerResponseDto(
       message: json['message'] as String?,
       bestSeller: (json['bestSeller'] as List<dynamic>?)
-          ?.map((e) => ProductDtp.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ProductDto.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 

@@ -6,8 +6,6 @@ import 'package:ecommerce_elevate/core/shared_widgets/search_text_field.dart';
 import 'package:ecommerce_elevate/features/home/tabs/home/view_model/home_tab_actions.dart';
 import 'package:ecommerce_elevate/features/home/tabs/home/view_model/home_tab_state.dart';
 import 'package:ecommerce_elevate/features/home/tabs/home/view_model/home_tab_view_model.dart';
-import 'package:ecommerce_elevate/features/home/tabs/home/widgets/categories_widget.dart';
-import 'package:ecommerce_elevate/features/home/tabs/home/widgets/occasions_widget.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -79,80 +77,6 @@ class _HomeTabViewState extends BaseState<HomeTabView, HomeTabViewModel> {
                 ),
               ),
             ),
-            SliverToBoxAdapter(
-              child: Column(
-                children: [
-                  BlocBuilder<HomeTabViewModel, HomeTabState>(
-
-                    builder: (context, state) {
-                      if (state is DataLoadingState) {
-                        return const Center(
-                          child: CircularProgressIndicator(),
-                        );
-                      }
-                      if (state is DataLoadingFailState) {
-                        return Center(
-                          child: Text(state.message ?? 'yassda'),
-                        );
-                      }
-
-
-                        return SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.3,
-                          child: ListView.separated(
-                            itemBuilder: (context, index) {
-                              print(viewModel.occasionsList);
-                              return OccasionsWidget(
-                                  entity: viewModel.occasionsList, index: index);
-                            },
-                            scrollDirection: Axis.horizontal,
-                            itemCount: viewModel.occasionsList.length,
-                            separatorBuilder: (context, index) =>
-                                SizedBox(
-                              width: 16,
-                            ),
-                          ),
-                        );
-
-
-
-
-                    },
-
-                  ),
-                  BlocBuilder<HomeTabViewModel, HomeTabState>(
-
-                    builder:(context, state) {
-
-                    if (state is DataLoadingState){
-                      return const Center(child: CircularProgressIndicator(),);
-                    }
-                    if (state is DataLoadingFailState){
-                      return Center(
-                        child: Text(state.message ?? ''),
-                      );
-                    }
-                      return Row(
-                        children: [
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width * 1,
-                            height: MediaQuery.of(context).size.height * 0.3,
-                            child: ListView.separated(
-                                itemBuilder: (context, index) {
-
-                                  return CategoriesWidget(entity: viewModel.categoriesList, index: index);
-                                },
-                                separatorBuilder: (context, index) => SizedBox(width: 14,),
-                                itemCount: viewModel.categoriesList.length),
-                          )
-                        ],
-                      );
-
-                  } ,)
-
-                ],
-              ),
-            )
           ],
         ),
       ),

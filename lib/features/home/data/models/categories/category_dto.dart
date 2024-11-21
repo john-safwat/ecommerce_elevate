@@ -1,7 +1,8 @@
-
+import 'package:ecommerce_elevate/features/home/domain/entities/category/category.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'category_dto.g.dart';
+
 @JsonSerializable()
 class CategoryDto {
   @JsonKey(name: "_id")
@@ -17,7 +18,7 @@ class CategoryDto {
   @JsonKey(name: "updatedAt")
   final String? updatedAt;
 
-  CategoryDto ({
+  CategoryDto({
     this.id,
     this.name,
     this.slug,
@@ -33,5 +34,15 @@ class CategoryDto {
   Map<String, dynamic> toJson() {
     return _$CategoryDtoToJson(this);
   }
-}
 
+  Category toDomain() {
+    return Category(
+      id: id,
+      name: name,
+      slug: slug,
+      image: image,
+      createdAt: createdAt,
+      updatedAt: updatedAt,
+    );
+  }
+}
