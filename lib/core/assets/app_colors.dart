@@ -13,6 +13,7 @@ class AppColors {
   static const int colorCode90 = 90;
   static const int colorCode100 = 100;
   static const Color green = Color(0xFF11CE19);
+  static const Color successGreen = Color(0xFF0CB359);
   static const Color red = Color(0xFFCC1010);
   static const Color gray = Color(0xFF535353);
   static const Color lightPink = Color(0xFFF9ECF0);

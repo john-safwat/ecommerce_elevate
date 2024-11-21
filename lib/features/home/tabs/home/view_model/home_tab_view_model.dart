@@ -19,22 +19,23 @@ class HomeTabViewModel extends BaseViewModel<HomeTabStates, HomeTabActions> {
   GetOccasionsListUseCase getOccasionsListUseCase;
   GetCategoriesListUseCase getCategoriesListUseCase;
   GetMostSellingProductsListUseCase getMostSellingProductsListUseCase;
-
+  Location location;
+  GeoCode geoCode;
+ 
   HomeTabViewModel(this.getCategoriesListUseCase,
-      this.getMostSellingProductsListUseCase, this.getOccasionsListUseCase)
+      this.getMostSellingProductsListUseCase, this.getOccasionsListUseCase , this.location , this.geoCode)
       : super(HomeTabStates());
-
+  
   late ValueNotifier<String> locationMessage =
       ValueNotifier(locale!.getLocation);
-  final Location _location = Location();
   bool locationLoaded = false;
 
   @override
-  void doIntent(HomeTabActions action) {
+  Future<void> doIntent(HomeTabActions action) async{
     switch (action) {
       case LoadLocationAction():
         {
-          _getLocation();
+          await _getLocation();
         }
 
       case LoadDataAction():
@@ -47,7 +48,7 @@ class HomeTabViewModel extends BaseViewModel<HomeTabStates, HomeTabActions> {
   }
 
   /// Main method to retrieve the user's location and display their address.
-  _getLocation() async {
+  Future<void> _getLocation() async {
     // Check if the location service is enabled.
     var serviceEnabled = await _checkForLocationService();
     if (!serviceEnabled) {
@@ -82,10 +83,10 @@ class HomeTabViewModel extends BaseViewModel<HomeTabStates, HomeTabActions> {
   /// - `true` if the location service is enabled.
   /// - `false` otherwise.
   Future<bool> _checkForLocationService() async {
-    bool serviceEnabled = await _location.serviceEnabled();
+    bool serviceEnabled = await location.serviceEnabled();
     if (!serviceEnabled) {
       // Request the user to enable the location service.
-      serviceEnabled = await _location.requestService();
+      serviceEnabled = await location.requestService();
     }
     return serviceEnabled;
   }
@@ -97,10 +98,10 @@ class HomeTabViewModel extends BaseViewModel<HomeTabStates, HomeTabActions> {
   /// - `true` if location permissions are granted.
   /// - `false` otherwise.
   Future<bool> _checkForLocationPermission() async {
-    var permissionGranted = await _location.hasPermission();
+    var permissionGranted = await location.hasPermission();
     if (permissionGranted == PermissionStatus.denied) {
       // Request location permissions if they are denied.
-      permissionGranted = await _location.requestPermission();
+      permissionGranted = await location.requestPermission();
     }
     // Ensure permissions are granted before proceeding.
     return permissionGranted == PermissionStatus.granted;
@@ -116,7 +117,7 @@ class HomeTabViewModel extends BaseViewModel<HomeTabStates, HomeTabActions> {
     LocationData locationData;
     try {
       // Retrieve the current location data.
-      locationData = await _location.getLocation();
+      locationData = await location.getLocation();
     } catch (e) {
       // Display an error message if location data cannot be retrieved.
       locationMessage.value = locale!.cantFindYourLocation;
@@ -136,7 +137,7 @@ class HomeTabViewModel extends BaseViewModel<HomeTabStates, HomeTabActions> {
   Future<void> _getUserAddress(LocationData locationData) async {
     try {
       // Perform reverse geocoding to retrieve the address.
-      var location = await GeoCode().reverseGeocoding(
+      var location = await geoCode.reverseGeocoding(
         latitude: locationData.latitude!,
         longitude: locationData.longitude!,
       );

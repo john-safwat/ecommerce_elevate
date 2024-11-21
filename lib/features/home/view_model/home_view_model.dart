@@ -17,7 +17,7 @@ class HomeViewModel extends BaseViewModel<HomeStates, HomeActions> {
   List<Widget> tabs = [const HomeTabView() , const CategoriesTab() , const CartTab() , const ProfileTab()];
 
   @override
-  void doIntent(HomeActions action) {
+  Future<void>  doIntent(HomeActions action) async {
     switch (action) {
       case ChangeSelectedIndex():{
         _changeSelectedIndex(action.selectedIndex);
