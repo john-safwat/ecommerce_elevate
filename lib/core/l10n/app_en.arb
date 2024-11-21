@@ -74,11 +74,21 @@
   "newPassword": "New Password",
   "newPasswordAgain": "New Password Confirmation",
   "yourTokenIsInvalid": "Your token is invalid please login again",
-  "resendOtpTimerMessage" : "You Can resend Otp code After",
+  "resendOtpTimerMessage": "You Can resend Otp code After",
   "resetPasswordMessage": "Password must not be empty and must contain 6 characters with upper case letter and one number at least ",
-  "home" : "Home",
-  "categories" : "Categories",
+  "home": "Home",
+  "categories": "Categories",
+  "cart": "Cart",
+  "profile": "Profile",
+  "gender": "Gender :",
+  "male": "Male",
+  "female": "Female",
+  "create_an_account": "Creating an account, you agree to our",
+  "terms_and_conditions": "Terms and Conditions",
+  "search" : "Search",
+  "getLocation" : "Finding Your Location",
+  "youMustEnableLocation" : "You Must Enable Location Service",
+  "locationPermissionNotGranted" : "Location Permission Not Granted",
+  "cantFindYourLocation" : "Can't Find Your Location"
 
-  "cart" : "Cart",
-  "profile" : "Profile"
 }
