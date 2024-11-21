@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:ecommerce_elevate/core/constants/api_constants.dart';
-import 'package:ecommerce_elevate/features/home/data/models/occasions/occasions_dto.dart';
-import 'package:ecommerce_elevate/features/home/data/models/occasions/response/occasions_response_dto.dart';
+import 'package:ecommerce_elevate/features/home/data/models/occasions/occasions_response_dto.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -14,7 +13,7 @@ abstract class OccasionsRetrofitClient {
   factory OccasionsRetrofitClient(Dio dio) = _OccasionsRetrofitClient;
 
   @GET(ApiConstants.occasionsRoute)
-  Future<OccasionsResponseDto> getOccasionsList();
+  Future<OccasionResponseDto> getOccasionsList();
 
 
 }
