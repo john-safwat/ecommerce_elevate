@@ -111,8 +111,8 @@ extension GetItInjectableX on _i174.GetIt {
       preResolve: true,
     );
     gh.factory<_i656.HomeViewModel>(() => _i656.HomeViewModel());
-    gh.singleton<_i166.DataSourceExecution>(() => _i166.DataSourceExecution());
     gh.singleton<_i56.AppConfigProvider>(() => _i56.AppConfigProvider());
+    gh.singleton<_i166.DataSourceExecution>(() => _i166.DataSourceExecution());
     gh.lazySingleton<_i974.Logger>(() => loggerModule.loggerProvider);
     gh.lazySingleton<_i974.PrettyPrinter>(() => loggerModule.prettyPrinter);
     gh.lazySingleton<_i361.Dio>(() => networkModule.provideDio());
@@ -188,8 +188,6 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i697.LoginUserUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i149.ResetPasswordUseCase>(
         () => _i149.ResetPasswordUseCase(gh<_i961.AuthRepository>()));
-    gh.factory<_i660.VerifyResetPasswordUseCase>(
-        () => _i660.VerifyResetPasswordUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i974.ResetPasswordViewModel>(
         () => _i974.ResetPasswordViewModel(gh<_i149.ResetPasswordUseCase>()));
     gh.factory<_i599.ForgetPasswordViewModel>(
