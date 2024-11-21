@@ -11,4 +11,8 @@ class ApiConstants {
   static const String resetPasswordRoute = "auth/resetPassword";
   static const String deleteAccountRoute = "auth/deleteMe";
   static const String editProfileRoute = "auth/editProfile";
+  static const String homeTabRoute = "home";
+  static const String categoriesRoute = "categories";
+  static const String occasionsRoute = "occasions";
+  static const String bestSellerRoute = "best-seller";
 }

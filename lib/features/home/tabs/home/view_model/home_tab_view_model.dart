@@ -1,17 +1,31 @@
 import 'package:ecommerce_elevate/core/base/base_view_model.dart';
-import 'package:ecommerce_elevate/features/home/tabs/home/view_model/home_tab_actions.dart';
-import 'package:ecommerce_elevate/features/home/tabs/home/view_model/home_tab_state.dart';
+import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
+import 'package:ecommerce_elevate/features/home/domain/entities/category/category.dart';
+import 'package:ecommerce_elevate/features/home/domain/entities/occasions/occasion.dart';
+import 'package:ecommerce_elevate/features/home/domain/entities/products/product.dart';
+import 'package:ecommerce_elevate/features/home/domain/use_case/get_categories_list_use_case.dart';
+import 'package:ecommerce_elevate/features/home/domain/use_case/get_most_selling_products_list_use_case.dart';
+import 'package:ecommerce_elevate/features/home/domain/use_case/get_occasions_list_use_case.dart';
 import 'package:flutter/material.dart';
 import 'package:geocode/geocode.dart';
 import 'package:injectable/injectable.dart';
 import 'package:location/location.dart';
 
+import 'home_tab_actions.dart';
+import 'home_tab_state.dart';
+
 @injectable
-class HomeTabViewModel extends BaseViewModel<HomeTabState, HomeTabActions> {
+class HomeTabViewModel extends BaseViewModel<HomeTabStates, HomeTabActions> {
+  GetOccasionsListUseCase getOccasionsListUseCase;
+  GetCategoriesListUseCase getCategoriesListUseCase;
+  GetMostSellingProductsListUseCase getMostSellingProductsListUseCase;
   Location location;
   GeoCode geoCode;
-  HomeTabViewModel(this.location , this.geoCode) : super(InitialHomeTabState());
-
+ 
+  HomeTabViewModel(this.getCategoriesListUseCase,
+      this.getMostSellingProductsListUseCase, this.getOccasionsListUseCase , this.location , this.geoCode)
+      : super(HomeTabStates());
+  
   late ValueNotifier<String> locationMessage =
       ValueNotifier(locale!.getLocation);
   bool locationLoaded = false;
@@ -22,6 +36,13 @@ class HomeTabViewModel extends BaseViewModel<HomeTabState, HomeTabActions> {
       case LoadLocationAction():
         {
           await _getLocation();
+        }
+
+      case LoadDataAction():
+        {
+          _getMostSellingProductsList();
+          _getCategoriesList();
+          _getOccasionsList();
         }
     }
   }
@@ -121,10 +142,88 @@ class HomeTabViewModel extends BaseViewModel<HomeTabState, HomeTabActions> {
         longitude: locationData.longitude!,
       );
       // Update the UI with the resolved address or a fallback message.
-      locationMessage.value = "${location.streetNumber} - ${location.streetAddress!}";
+      locationMessage.value =
+          "${location.streetNumber} - ${location.streetAddress!}";
     } catch (e) {
       // Display an error message if address resolution fails.
       locationMessage.value = locale!.cantFindYourLocation;
+    }
+  }
+
+  void _getMostSellingProductsList() async {
+    emit(state.copyWith(productsState: HomeTabLoadingState()));
+
+    var response = await getMostSellingProductsListUseCase();
+
+    switch (response) {
+      case Success<List<Product>?>():
+        {
+          emit(
+            state.copyWith(
+              productsState:
+                  HomeTabLoadingSuccessState<List<Product>?>(response.data),
+            ),
+          );
+        }
+      case Failure<List<Product>?>():
+        {
+          emit(
+            state.copyWith(
+              productsState: HomeTabLoadingFailState(
+                  mapExceptionToMessage(response.exception),
+                  response.exception),
+            ),
+          );
+        }
+    }
+  }
+
+  void _getCategoriesList() async {
+    emit(state.copyWith(categoriesState: HomeTabLoadingState()));
+
+    var response = await getCategoriesListUseCase();
+
+    switch (response) {
+      case Success<List<Category>?>():
+        {
+          emit(state.copyWith(
+              categoriesState:
+                  HomeTabLoadingSuccessState<List<Category>?>(response.data)));
+        }
+      case Failure<List<Category>?>():
+        {
+          emit(
+            state.copyWith(
+              categoriesState: HomeTabLoadingFailState(
+                  mapExceptionToMessage(response.exception),
+                  response.exception),
+            ),
+          );
+        }
+    }
+  }
+
+  void _getOccasionsList() async {
+    emit(state.copyWith(occasionsState: HomeTabLoadingState()));
+    var response = await getOccasionsListUseCase();
+    switch (response) {
+
+      case Success<List<Occasion>?>():
+        {
+          emit(state.copyWith(
+              occasionsState:
+              HomeTabLoadingSuccessState<List<Occasion>?>(response.data)));
+        }
+      case Failure<List<Occasion>?>():
+        {
+          emit(
+            state.copyWith(
+              occasionsState: HomeTabLoadingFailState(
+                  mapExceptionToMessage(response.exception),
+                  response.exception),
+            ),
+          );
+        }
     }
   }
 }
