@@ -1,26 +1,21 @@
 import 'package:ecommerce_elevate/core/assets/app_images.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
+import 'package:ecommerce_elevate/features/home/domain/entities/products/product.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../assets/app_colors.dart';
 
 class ProductCardWidget extends StatelessWidget {
-  final double width;
-  final double height;
-  final String title;
-  final int priceAfterDiscount;
-  final int price;
+  // should be object of type product and onPress function
+  final Product product;
+  final String buttonTitle;
   final Function onPressed;
 
   const ProductCardWidget({
     super.key,
-    required this.width,
-    required this.height,
-    required this.title,
-    required this.priceAfterDiscount,
-    required this.price,
+    required this.product,
     required this.onPressed,
+    required this.buttonTitle,
   });
 
   int discount(int price, int priceAfterDisc) {
@@ -29,108 +24,80 @@ class ProductCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // container boundaries should depend on the parent widget
     return Container(
-      height: height * .28,
-      width: width * .4,
       padding: const EdgeInsets.all(8),
-      margin: const EdgeInsets.all(16),
+      // no need for the margin the space is described by the parent
       decoration: BoxDecoration(
         border: Border.all(color: AppColors.white[AppColors.colorCode70]!),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Column(
         children: [
+          // no need for expanded just add the image and it's width will fill
+          // automatically and take the image aspect ratio
           Expanded(
-            flex: 56,
             child: Image.asset(AppImages.test, fit: BoxFit.cover),
           ),
           const SizedBox(height: 8),
-          Expanded(
-            flex: 38,
-            child: Column(
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                product.title ?? "",
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              const SizedBox(height: 4),
+              Row(
+                children: [
+                  Text(
+                    'EGP ${product.priceAfterDiscount ?? 0} ',
+                    style: Theme.of(context).textTheme.titleSmall,
+                  ),
+                  Text(
+                    " ${product.price ?? 0}",
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.gray,
+                          decoration: TextDecoration.lineThrough,
+                        ),
+                  ),
+                  Text(
+                    ' ${discount(product.price ?? 0, product.priceAfterDiscount ?? 0)}%',
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.successGreen,
+                        ),
+                  ),
+                ],
+              )
+            ],
+          ),
+          // wrong use of spacer
+          // const Spacer(),
+          ElevatedButton(
+            onPressed: () {
+              onPressed();
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        title,
-                        style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w400,
-                            ),
-                      ),
-                      const SizedBox(height: 4),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'EGP $priceAfterDiscount',
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleMedium
-                                ?.copyWith(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                          ),
-                          Text(
-                            price.toString(),
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleMedium
-                                ?.copyWith(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                  color: AppColors.gray,
-                                  decoration: TextDecoration.lineThrough,
-                                ),
-                          ),
-                          Text(
-                            '${discount(price, priceAfterDiscount)}%',
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleMedium
-                                ?.copyWith(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                  color: AppColors.successGreen,
-                                ),
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
+                const Icon(
+                  Icons.shopping_cart_outlined,
+                  size: 18,
                 ),
-                const Spacer(),
-                ElevatedButton(
-                  onPressed: () {
-                    onPressed();
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(
-                        Icons.shopping_cart_outlined,
-                        size: 18,
-                      ),
-                      SizedBox(width: width * .04),
-                      Text(
-                        AppLocalizations.of(context)!.addToCart,
-                        style:
-                            Theme.of(context).textTheme.titleMedium?.copyWith(
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.w500,
-                                  color: AppColors.white,
-                                ),
-                      ),
-                    ],
-                  ),
-                )
+                // only 8 is needed
+                const SizedBox(width: 8),
+                // pass button title
+                Text(
+                  buttonTitle,
+                  style: const TextStyle(fontSize: 14),
+                ),
               ],
             ),
-          ),
+          )
         ],
       ),
     );

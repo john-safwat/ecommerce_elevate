@@ -17,18 +17,24 @@ class RadioWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
-    return Row(
-      children: [
-        Radio<Gender>(
-          activeColor: AppColors.pink,
-          value: value,
-          groupValue: groupValue,
-          onChanged: (Gender? value) {
-            onChangeGender.call(value!);
-          },
-        ),
-        Text(title, style: theme.textTheme.bodyMedium),
-      ],
+    return InkWell(
+      overlayColor: WidgetStateProperty.all(Colors.transparent),
+      onTap: (){
+        onChangeGender.call(value);
+      },
+      child: Row(
+        children: [
+          Radio<Gender>(
+            activeColor: AppColors.pink,
+            value: value,
+            groupValue: groupValue,
+            onChanged: (Gender? value) {
+              onChangeGender.call(value!);
+            },
+          ),
+          Text(title, style: theme.textTheme.bodyMedium),
+        ],
+      ),
     );
   }
 }

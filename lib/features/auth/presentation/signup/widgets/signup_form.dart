@@ -173,7 +173,7 @@ class SignupForm extends StatelessWidget {
                   child: Text(viewModel.locale!.signup),
                 )),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 8),
 
           ///---> already have account*****
           Row(

@@ -8,6 +8,7 @@ import 'package:ecommerce_elevate/core/providers/language_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+
 abstract class BaseViewModel<T, E extends BaseAction> extends Cubit<T> {
   BaseViewModel(super.initialState);
 

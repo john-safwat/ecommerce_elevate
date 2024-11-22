@@ -6,7 +6,8 @@ import 'package:ecommerce_elevate/features/auth/presentation/login/login_view.da
 import 'package:ecommerce_elevate/features/auth/presentation/otp_verify/otp_verify_view.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/reset_password/reset_password_view.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/signup/signup_view.dart';
-import 'package:ecommerce_elevate/features/home/home_view.dart';
+import 'package:ecommerce_elevate/features/home/presentation/home_view.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';

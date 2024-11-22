@@ -1,8 +1,8 @@
 import 'package:ecommerce_elevate/core/base/base_view.dart';
 import 'package:ecommerce_elevate/core/di/di.dart';
-import 'package:ecommerce_elevate/features/home/view_model/home_actions.dart';
-import 'package:ecommerce_elevate/features/home/view_model/home_states.dart';
-import 'package:ecommerce_elevate/features/home/view_model/home_view_model.dart';
+import 'package:ecommerce_elevate/features/home/presentation/view_model/home_actions.dart';
+import 'package:ecommerce_elevate/features/home/presentation/view_model/home_states.dart';
+import 'package:ecommerce_elevate/features/home/presentation/view_model/home_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

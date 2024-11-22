@@ -90,5 +90,8 @@
   "youMustEnableLocation" : "يجب تفعيل الموقع",
   "locationPermissionNotGranted" : "لم يتم اعطاء الصلاحية للموقع",
   "cantFindYourLocation" : "لا يمكن الحصول على موقعك",
-  "addToCart" : "اضف الي السلة"
+  "addToCart" : "اضف الي السلة",
+  "viewAll" : "عرض الكل",
+  "occasions" : "الفئات",
+  "bestSellers" : "الاكثر مبيعا"
 }
