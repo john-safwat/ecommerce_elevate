@@ -10,16 +10,18 @@ class RadioWidget extends StatelessWidget {
     required this.title,
     required this.onChangeGender,
   });
+
   final Gender value;
   final Gender groupValue;
   final String title;
   final Function(Gender gender) onChangeGender;
+
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     return InkWell(
       overlayColor: WidgetStateProperty.all(Colors.transparent),
-      onTap: (){
+      onTap: () {
         onChangeGender.call(value);
       },
       child: Row(

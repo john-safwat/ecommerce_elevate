@@ -30,7 +30,8 @@ class OtpVerifyViewModel
 
   _initTimer() {
     timer = Timer.periodic(const Duration(seconds: 1), _updateTimer);
-    resendOtpTimer = Timer.periodic(const Duration(seconds: 1), _updateOtpTimer);
+    resendOtpTimer =
+        Timer.periodic(const Duration(seconds: 1), _updateOtpTimer);
   }
 
   ValueNotifier<String> timerMessage = ValueNotifier<String>("10:00");
@@ -41,7 +42,7 @@ class OtpVerifyViewModel
   String otpMessage = "";
 
   @override
-  Future<void>  doIntent(OtpVerifyViewAction action)async {
+  Future<void> doIntent(OtpVerifyViewAction action) async {
     switch (action) {
       case OnCompleteCodeVerifyAction():
         {
@@ -94,8 +95,9 @@ class OtpVerifyViewModel
     timerMessage.value = "${locale!.validFor} $minutes:$seconds";
     _checkInputFormValidation();
   }
+
   void _updateOtpTimer(Timer timer) {
-    if (resendTimer ==0){
+    if (resendTimer == 0) {
       return;
     }
     resendTimer--;
@@ -107,7 +109,8 @@ class OtpVerifyViewModel
     if (resendMinutes.length == 1) {
       resendMinutes = "0$resendMinutes";
     }
-    resendMessage.value = " ${locale!.resendOtpTimerMessage} $resendMinutes:$resendSeconds";
+    resendMessage.value =
+        " ${locale!.resendOtpTimerMessage} $resendMinutes:$resendSeconds";
   }
 
   void _navigateToResetPasswordScreen() {

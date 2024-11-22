@@ -13,7 +13,7 @@ class OccasionResponseDto {
   @JsonKey(name: "occasions")
   final List<OccasionDto>? occasions;
 
-  OccasionResponseDto ({
+  OccasionResponseDto({
     this.message,
     this.metadata,
     this.occasions,
@@ -27,7 +27,3 @@ class OccasionResponseDto {
     return _$OccasionResponseDtoToJson(this);
   }
 }
-
-
-
-

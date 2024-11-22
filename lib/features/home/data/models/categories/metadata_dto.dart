@@ -11,7 +11,7 @@ class MetadataDto {
   @JsonKey(name: "limit")
   final int? limit;
 
-  MetadataDto ({
+  MetadataDto({
     this.currentPage,
     this.numberOfPages,
     this.limit,

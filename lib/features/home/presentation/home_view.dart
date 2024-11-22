@@ -19,32 +19,26 @@ class _HomeViewState extends BaseState<HomeView, HomeViewModel> {
     super.build(context);
     return BlocProvider(
       create: (context) => viewModel,
-      child: BlocBuilder<HomeViewModel , HomeStates>(
-
+      child: BlocBuilder<HomeViewModel, HomeStates>(
         builder: (context, state) => Scaffold(
           body: viewModel.tabs[viewModel.currentIndex],
           bottomNavigationBar: BottomNavigationBar(
-            currentIndex: viewModel.currentIndex,
-             onTap: (value) => viewModel.doIntent(ChangeSelectedIndex(value)),
-             items: [
-               BottomNavigationBarItem(
-                   icon: const Icon(Icons.home_outlined),
-                   label: viewModel.locale!.home
-               ),
-               BottomNavigationBarItem(
-                   icon: const Icon(Icons.category_outlined),
-                   label: viewModel.locale!.categories
-               ),
-               BottomNavigationBarItem(
-                   icon: const Icon(Icons.shopping_cart_outlined),
-                   label: viewModel.locale!.cart
-               ),
-               BottomNavigationBarItem(
-                   icon: const Icon(Icons.person_outline),
-                   label: viewModel.locale!.profile
-               ),
-             ]
-          ),
+              currentIndex: viewModel.currentIndex,
+              onTap: (value) => viewModel.doIntent(ChangeSelectedIndex(value)),
+              items: [
+                BottomNavigationBarItem(
+                    icon: const Icon(Icons.home_outlined),
+                    label: viewModel.locale!.home),
+                BottomNavigationBarItem(
+                    icon: const Icon(Icons.category_outlined),
+                    label: viewModel.locale!.categories),
+                BottomNavigationBarItem(
+                    icon: const Icon(Icons.shopping_cart_outlined),
+                    label: viewModel.locale!.cart),
+                BottomNavigationBarItem(
+                    icon: const Icon(Icons.person_outline),
+                    label: viewModel.locale!.profile),
+              ]),
         ),
       ),
     );

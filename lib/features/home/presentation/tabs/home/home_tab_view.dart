@@ -69,7 +69,7 @@ class _HomeTabViewState extends BaseState<HomeTabView, HomeTabViewModel> {
                         TitleWidget(
                           title: viewModel.locale!.categories,
                           buttonTitle: viewModel.locale!.viewAll,
-                          onTextButtonPress: (){},
+                          onTextButtonPress: () {},
                         ),
                         SizedBox(
                           height: 96,
@@ -90,8 +90,7 @@ class _HomeTabViewState extends BaseState<HomeTabView, HomeTabViewModel> {
                       ],
                     ),
                   ),
-                )
-,
+                ),
                 SliverToBoxAdapter(
                   child: Skeletonizer(
                     enabled: products.isEmpty,
@@ -100,23 +99,23 @@ class _HomeTabViewState extends BaseState<HomeTabView, HomeTabViewModel> {
                         TitleWidget(
                           title: viewModel.locale!.bestSellers,
                           buttonTitle: viewModel.locale!.viewAll,
-                          onTextButtonPress: (){},
+                          onTextButtonPress: () {},
                         ),
                         SizedBox(
                           height: 210,
                           child: ListView.separated(
                             padding: const EdgeInsets.symmetric(horizontal: 16),
                             scrollDirection: Axis.horizontal,
-                            itemBuilder: (context, index) => BestSellerCardWidget(
+                            itemBuilder: (context, index) =>
+                                BestSellerCardWidget(
                               product: products!.isEmpty
-                                  ? Product(title: "----------" , price: 100)
+                                  ? Product(title: "----------", price: 100)
                                   : products[index],
-                              function: (){},
+                              function: () {},
                             ),
                             separatorBuilder: (context, index) =>
-                            const SizedBox(width: 16),
-                            itemCount:
-                            products.isEmpty ? 20 : products.length,
+                                const SizedBox(width: 16),
+                            itemCount: products.isEmpty ? 20 : products.length,
                           ),
                         )
                       ],
@@ -131,23 +130,24 @@ class _HomeTabViewState extends BaseState<HomeTabView, HomeTabViewModel> {
                         TitleWidget(
                           title: viewModel.locale!.occasions,
                           buttonTitle: viewModel.locale!.viewAll,
-                          onTextButtonPress: (){},
+                          onTextButtonPress: () {},
                         ),
                         SizedBox(
                           height: 180,
                           child: ListView.separated(
                             padding: const EdgeInsets.symmetric(horizontal: 16),
                             scrollDirection: Axis.horizontal,
-                            itemBuilder: (context, index) => OccasionsCardWidget(
+                            itemBuilder: (context, index) =>
+                                OccasionsCardWidget(
                               occasion: occasions!.isEmpty
                                   ? Occasion(name: "-------")
                                   : occasions[index],
-                              function: (){},
+                              function: () {},
                             ),
                             separatorBuilder: (context, index) =>
-                            const SizedBox(width: 16),
+                                const SizedBox(width: 16),
                             itemCount:
-                            occasions.isEmpty ? 20 : occasions.length,
+                                occasions.isEmpty ? 20 : occasions.length,
                           ),
                         )
                       ],

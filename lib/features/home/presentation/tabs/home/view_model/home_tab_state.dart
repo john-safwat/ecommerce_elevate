@@ -23,7 +23,6 @@ class HomeTabLoadingFailState extends HomeTabState {
   HomeTabLoadingFailState(this.errorMessage, this.exception);
 }
 
-
 class HomeTabStates {
   late HomeTabState categoriesState;
   late HomeTabState occasionsState;

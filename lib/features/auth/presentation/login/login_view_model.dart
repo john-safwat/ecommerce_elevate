@@ -47,7 +47,7 @@ class LoginViewModel extends BaseViewModel<LoginViewState, LoginViewAction> {
   }
 
   @override
-  Future<void>  doIntent(LoginViewAction action) async {
+  Future<void> doIntent(LoginViewAction action) async {
     switch (action) {
       case FormDataChangedAction():
         {

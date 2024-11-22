@@ -4,12 +4,11 @@ import 'package:ecommerce_elevate/features/home/domain/repository/products_repos
 import 'package:injectable/injectable.dart';
 
 @injectable
-class GetMostSellingProductsListUseCase{
-
+class GetMostSellingProductsListUseCase {
   ProductsRepository repository;
 
   GetMostSellingProductsListUseCase(this.repository);
 
-  Future<Results<List<Product>?>> call()async => repository.getBestSellerList();
-
+  Future<Results<List<Product>?>> call() async =>
+      repository.getBestSellerList();
 }

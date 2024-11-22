@@ -10,7 +10,7 @@ class BestSellerResponseDto {
   @JsonKey(name: "bestSeller")
   final List<ProductDto>? bestSeller;
 
-  BestSellerResponseDto ({
+  BestSellerResponseDto({
     this.message,
     this.bestSeller,
   });
@@ -23,4 +23,3 @@ class BestSellerResponseDto {
     return _$BestSellerResponseDtoToJson(this);
   }
 }
-

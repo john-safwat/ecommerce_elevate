@@ -6,7 +6,9 @@ import 'package:flutter/material.dart';
 class HomeAppBar extends StatelessWidget {
   final String searchHint;
   final ValueNotifier<String> locationMessage;
-  const HomeAppBar({required this.searchHint, required this.locationMessage , super.key});
+
+  const HomeAppBar(
+      {required this.searchHint, required this.locationMessage, super.key});
 
   @override
   Widget build(BuildContext context) {

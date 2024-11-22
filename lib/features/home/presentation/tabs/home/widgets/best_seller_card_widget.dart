@@ -40,7 +40,7 @@ class BestSellerCardWidget extends StatelessWidget {
           ),
           const SizedBox(height: 4),
           Text(
-            "${product.price??0} EGP",
+            "${product.price ?? 0} EGP",
             style: Theme.of(context).textTheme.titleMedium,
             overflow: TextOverflow.ellipsis,
           )

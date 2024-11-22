@@ -6,6 +6,7 @@ import 'package:location/location.dart';
 abstract class LocationModule {
   @lazySingleton
   Location get location => Location();
+
   @lazySingleton
   GeoCode get geoCode => GeoCode();
 }

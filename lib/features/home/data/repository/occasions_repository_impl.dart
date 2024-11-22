@@ -4,7 +4,7 @@ import 'package:ecommerce_elevate/features/home/domain/entities/occasions/occasi
 import 'package:ecommerce_elevate/features/home/domain/repository/occasions_repository.dart';
 import 'package:injectable/injectable.dart';
 
-@Injectable(as:OccasionsRepository )
+@Injectable(as: OccasionsRepository)
 class OccasionsRepositoryImpl implements OccasionsRepository {
   final OccasionsRemoteDatasource _datasource;
 
@@ -12,8 +12,7 @@ class OccasionsRepositoryImpl implements OccasionsRepository {
 
   @override
   Future<Results<List<Occasion>?>> getOccasionsList() {
-   var response = _datasource.getOccasionsList();
-   return response;
+    var response = _datasource.getOccasionsList();
+    return response;
   }
-
 }

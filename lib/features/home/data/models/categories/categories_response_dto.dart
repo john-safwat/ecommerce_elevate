@@ -13,7 +13,7 @@ class CategoriesResponseDto {
   @JsonKey(name: "categories")
   final List<CategoryDto>? categories;
 
-  CategoriesResponseDto ({
+  CategoriesResponseDto({
     this.message,
     this.metadata,
     this.categories,
@@ -27,6 +27,3 @@ class CategoriesResponseDto {
     return _$CategoriesResponseDtoToJson(this);
   }
 }
-
-
-

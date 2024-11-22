@@ -1,4 +1,3 @@
-
 class Product {
   final String? productId;
   final String? title;
@@ -16,7 +15,7 @@ class Product {
   final int? V;
   final String? id;
 
-  Product ({
+  Product({
     this.productId,
     this.title,
     this.slug,
@@ -34,4 +33,3 @@ class Product {
     this.id,
   });
 }
-

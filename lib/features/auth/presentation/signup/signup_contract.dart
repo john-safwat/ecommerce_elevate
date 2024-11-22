@@ -9,6 +9,7 @@ class SignupAction extends SignupViewAction {}
 
 class ChangeGenderAction extends SignupViewAction {
   Gender gender;
+
   ChangeGenderAction({required this.gender});
 }
 

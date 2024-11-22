@@ -32,7 +32,7 @@ class ForgetPasswordViewModel
   }
 
   @override
-  Future<void>  doIntent(ForgetPasswordViewAction action) async {
+  Future<void> doIntent(ForgetPasswordViewAction action) async {
     switch (action) {
       case FormDataChangedAction():
         {

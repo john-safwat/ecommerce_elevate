@@ -90,9 +90,9 @@ class LoginForm extends StatelessWidget {
             style: OutlinedButton.styleFrom(
               padding: const EdgeInsets.all(16),
               foregroundColor: AppColors.pink,
-              side:const BorderSide(color: AppColors.pink),
+              side: const BorderSide(color: AppColors.pink),
             ),
-            child: Text( "Continue as Guest"),
+            child: Text("Continue as Guest"),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,

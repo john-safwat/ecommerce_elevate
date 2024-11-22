@@ -1,5 +1,3 @@
-
-
 abstract class AuthLocalDatasource {
   Future<void> storeToken(String token);
 

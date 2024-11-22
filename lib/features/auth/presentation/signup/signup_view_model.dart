@@ -30,7 +30,7 @@ class SignupViewModel extends BaseViewModel<SignupViewState, SignupAction> {
   ValueNotifier<bool> passwordConfirmationVisible = ValueNotifier(true);
 
   @override
-  Future<void>  doIntent(SignupViewAction action)async {
+  Future<void> doIntent(SignupViewAction action) async {
     switch (action) {
       case FormDataChangedAction():
         {

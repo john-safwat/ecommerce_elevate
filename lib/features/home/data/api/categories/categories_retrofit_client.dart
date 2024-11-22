@@ -14,6 +14,4 @@ abstract class CategoriesRetrofitClient {
 
   @GET(ApiConstants.categoriesRoute)
   Future<CategoriesResponseDto> getCategoriesList();
-
-
 }

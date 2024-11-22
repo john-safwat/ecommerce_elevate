@@ -14,6 +14,4 @@ abstract class OccasionsRetrofitClient {
 
   @GET(ApiConstants.occasionsRoute)
   Future<OccasionResponseDto> getOccasionsList();
-
-
 }

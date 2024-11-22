@@ -14,6 +14,4 @@ abstract class ProductsRetrofitClient {
 
   @GET(ApiConstants.bestSellerRoute)
   Future<BestSellerResponseDto> getBestSellerList();
-
-
 }

@@ -14,14 +14,20 @@ class HomeViewModel extends BaseViewModel<HomeStates, HomeActions> {
 
   int currentIndex = 0;
 
-  List<Widget> tabs = [const HomeTabView() , const CategoriesTab() , const CartTab() , const ProfileTab()];
+  List<Widget> tabs = [
+    const HomeTabView(),
+    const CategoriesTab(),
+    const CartTab(),
+    const ProfileTab()
+  ];
 
   @override
-  Future<void>  doIntent(HomeActions action) async {
+  Future<void> doIntent(HomeActions action) async {
     switch (action) {
-      case ChangeSelectedIndex():{
-        _changeSelectedIndex(action.selectedIndex);
-      }
+      case ChangeSelectedIndex():
+        {
+          _changeSelectedIndex(action.selectedIndex);
+        }
     }
   }
 

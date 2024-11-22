@@ -7,7 +7,7 @@ import '../../../../../core/datasource_execution/datasource_execution.dart';
 import '../../api/categories/categories_retrofit_client.dart';
 
 @Injectable(as: CategoriesRemoteDatasource)
-class CategoriesDatasourceImpl extends CategoriesRemoteDatasource {
+class CategoriesDatasourceImpl implements CategoriesRemoteDatasource {
   final CategoriesRetrofitClient _categoriesRetrofitClient;
   final DataSourceExecution _apiExecution;
 
