@@ -45,7 +45,7 @@ dependencies:
       path: app_packages/dialogs
   pretty_dio_logger:
   connectivity_plus:
-  cached_network_image:
+  cached_network_image: ^3.4.1
   animate_do:
   icons_launcher:
   flutter_native_splash:
