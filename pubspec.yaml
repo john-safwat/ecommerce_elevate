@@ -53,6 +53,11 @@ dependencies:
   location:
   geocode:
   skeletonizer:
+  import_sorter:
+
+import_sorter:
+  emojis: true # Optional, defaults to false
+  comments: true # Optional, defaults to true
 
 dev_dependencies:
   flutter_lints: ^3.0.0

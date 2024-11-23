@@ -1,9 +1,13 @@
+// 🐦 Flutter imports:
+import 'package:flutter/material.dart';
+
+// 📦 Package imports:
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+// 🌎 Project imports:
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/signup/signup_view_model.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/signup/widgets/selected_gender_widget.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../signup_contract.dart';
 
 // ignore: must_be_immutable

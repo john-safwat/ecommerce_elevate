@@ -1,5 +1,7 @@
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
 
+// 🌎 Project imports:
 import '../assets/app_colors.dart';
 
 class AppTheme {

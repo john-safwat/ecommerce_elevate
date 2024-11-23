@@ -8,6 +8,8 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+
+// 📦 Package imports:
 import 'package:dio/dio.dart' as _i361;
 import 'package:geocode/geocode.dart' as _i1024;
 import 'package:get_it/get_it.dart' as _i174;
@@ -17,7 +19,22 @@ import 'package:logger/logger.dart' as _i974;
 import 'package:pretty_dio_logger/pretty_dio_logger.dart' as _i528;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
+// 🌎 Project imports:
 import '../../features/auth/data/api/auth_retrofit_client.dart' as _i187;
+import '../../features/auth/data/repository/auth_repository_impl.dart' as _i409;
+import '../../features/auth/domain/repository/auth_repository.dart' as _i961;
+import '../../features/auth/domain/use_case/login_user_use_case.dart' as _i697;
+import '../../features/auth/domain/use_case/signup_user_use_case.dart' as _i529;
+import '../../features/auth/presentation/login/login_view_model.dart' as _i225;
+import '../datasource_execution/datasource_execution.dart' as _i166;
+import '../modules/location_module.dart' as _i917;
+import '../modules/logger_module.dart' as _i774;
+import '../modules/network_module.dart' as _i184;
+import '../modules/shared_preferences_module.dart' as _i744;
+import '../providers/app_config_provider.dart' as _i56;
+import '../providers/language_provider.dart' as _i822;
+import '../utils/app_initializer.dart' as _i348;
+
 import '../../features/auth/data/datasource/contract/auth_local_datasource.dart'
     as _i1071;
 import '../../features/auth/data/datasource/contract/auth_remote_datasource.dart'
@@ -26,21 +43,16 @@ import '../../features/auth/data/datasource/impl/auth_local_datasource_impl.dart
     as _i909;
 import '../../features/auth/data/datasource/impl/auth_remote_datasource_impl.dart'
     as _i81;
-import '../../features/auth/data/repository/auth_repository_impl.dart' as _i409;
-import '../../features/auth/domain/repository/auth_repository.dart' as _i961;
 import '../../features/auth/domain/use_case/delete_token_use_case.dart'
     as _i376;
 import '../../features/auth/domain/use_case/forget_password_use_case.dart'
     as _i90;
-import '../../features/auth/domain/use_case/login_user_use_case.dart' as _i697;
 import '../../features/auth/domain/use_case/reset_password_use_case.dart'
     as _i149;
-import '../../features/auth/domain/use_case/signup_user_use_case.dart' as _i529;
 import '../../features/auth/domain/use_case/verify_reset_code_use_case.dart'
     as _i660;
 import '../../features/auth/presentation/forget_password/forget_password_view_model.dart'
     as _i599;
-import '../../features/auth/presentation/login/login_view_model.dart' as _i225;
 import '../../features/auth/presentation/otp_verify/otp_verify_view_model.dart'
     as _i1033;
 import '../../features/auth/presentation/reset_password/reset_password_view_model.dart'
@@ -87,14 +99,6 @@ import '../../features/home/presentation/tabs/home/view_model/home_tab_view_mode
     as _i742;
 import '../../features/home/presentation/view_model/home_view_model.dart'
     as _i77;
-import '../datasource_execution/datasource_execution.dart' as _i166;
-import '../modules/location_module.dart' as _i917;
-import '../modules/logger_module.dart' as _i774;
-import '../modules/network_module.dart' as _i184;
-import '../modules/shared_preferences_module.dart' as _i744;
-import '../providers/app_config_provider.dart' as _i56;
-import '../providers/language_provider.dart' as _i822;
-import '../utils/app_initializer.dart' as _i348;
 
 extension GetItInjectableX on _i174.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt

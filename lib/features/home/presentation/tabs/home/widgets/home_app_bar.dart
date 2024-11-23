@@ -1,7 +1,10 @@
+// 🐦 Flutter imports:
+import 'package:flutter/material.dart';
+
+// 🌎 Project imports:
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
 import 'package:ecommerce_elevate/core/assets/app_images.dart';
 import 'package:ecommerce_elevate/core/shared_widgets/search_text_field.dart';
-import 'package:flutter/material.dart';
 
 class HomeAppBar extends StatelessWidget {
   final String searchHint;

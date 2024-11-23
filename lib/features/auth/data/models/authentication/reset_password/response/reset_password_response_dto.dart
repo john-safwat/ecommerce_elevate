@@ -1,5 +1,8 @@
-import 'package:ecommerce_elevate/features/auth/domain/entities/reset_password/reset_password_response.dart';
+// 📦 Package imports:
 import 'package:json_annotation/json_annotation.dart';
+
+// 🌎 Project imports:
+import 'package:ecommerce_elevate/features/auth/domain/entities/reset_password/reset_password_response.dart';
 
 part 'reset_password_response_dto.g.dart';
 

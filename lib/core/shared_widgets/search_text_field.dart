@@ -1,5 +1,8 @@
-import 'package:ecommerce_elevate/core/assets/app_colors.dart';
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
+
+// 🌎 Project imports:
+import 'package:ecommerce_elevate/core/assets/app_colors.dart';
 
 class SearchTextField extends StatelessWidget {
   final bool enabled;

@@ -1,13 +1,19 @@
+// 🎯 Dart imports:
 import 'dart:developer';
 
+// 🐦 Flutter imports:
+import 'package:flutter/cupertino.dart';
+
+// 📦 Package imports:
+import 'package:injectable/injectable.dart';
+
+// 🌎 Project imports:
 import 'package:ecommerce_elevate/core/base/base_view_model.dart';
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/registration/registration_response.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/registration/registration_user.dart';
 import 'package:ecommerce_elevate/features/auth/domain/use_case/signup_user_use_case.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/signup/signup_contract.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:injectable/injectable.dart';
 
 @injectable
 class SignupViewModel extends BaseViewModel<SignupViewState, SignupAction> {

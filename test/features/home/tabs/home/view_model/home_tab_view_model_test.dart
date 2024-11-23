@@ -1,7 +1,7 @@
+// 🎯 Dart imports:
 import 'dart:ui';
 
-import 'package:ecommerce_elevate/features/home/tabs/home/view_model/home_tab_actions.dart';
-import 'package:ecommerce_elevate/features/home/tabs/home/view_model/home_tab_view_model.dart';
+// 📦 Package imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:geocode/geocode.dart';
@@ -9,13 +9,37 @@ import 'package:location/location.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
+// 🌎 Project imports:
+import 'package:ecommerce_elevate/features/home/domain/use_case/get_categories_list_use_case.dart';
+import 'package:ecommerce_elevate/features/home/domain/use_case/get_most_selling_products_list_use_case.dart';
+import 'package:ecommerce_elevate/features/home/domain/use_case/get_occasions_list_use_case.dart';
+import 'package:ecommerce_elevate/features/home/presentation/tabs/home/view_model/home_tab_actions.dart';
+import 'package:ecommerce_elevate/features/home/presentation/tabs/home/view_model/home_tab_view_model.dart';
 import 'home_tab_view_model_test.mocks.dart';
 
-@GenerateMocks([Location, GeoCode])
+@GenerateMocks([
+  Location,
+  GeoCode,
+  GetCategoriesListUseCase,
+  GetOccasionsListUseCase,
+  GetMostSellingProductsListUseCase
+])
 void main() async {
   MockLocation mockLocation = MockLocation();
   MockGeoCode mockGeoCode = MockGeoCode();
-  HomeTabViewModel viewModel = HomeTabViewModel(mockLocation, mockGeoCode);
+  MockGetOccasionsListUseCase getOccasionsListUseCase =
+      MockGetOccasionsListUseCase();
+  MockGetCategoriesListUseCase getCategoriesListUseCase =
+      MockGetCategoriesListUseCase();
+  MockGetMostSellingProductsListUseCase getMostSellingProductsListUseCase =
+      MockGetMostSellingProductsListUseCase();
+  HomeTabViewModel viewModel = HomeTabViewModel(
+      getCategoriesListUseCase,
+      getMostSellingProductsListUseCase,
+      getOccasionsListUseCase,
+      mockLocation,
+      mockGeoCode);
+
   AppLocalizations localizations =
       await AppLocalizations.delegate.load(const Locale("en"));
 
