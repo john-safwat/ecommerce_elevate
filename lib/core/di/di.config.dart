@@ -47,6 +47,8 @@ import '../../features/auth/presentation/reset_password/reset_password_view_mode
     as _i974;
 import '../../features/auth/presentation/signup/signup_view_model.dart'
     as _i1055;
+import '../../features/home/best_seller/presentation/view_model/best_seller_view_model.dart'
+    as _i232;
 import '../../features/home/data/api/best_seller/products_retrofit_client.dart'
     as _i337;
 import '../../features/home/data/api/categories/categories_retrofit_client.dart'
@@ -107,31 +109,32 @@ extension GetItInjectableX on _i174.GetIt {
       environmentFilter,
     );
     final sharedPreferencesModule = _$SharedPreferencesModule();
-    final locationModule = _$LocationModule();
     final loggerModule = _$LoggerModule();
     final networkModule = _$NetworkModule();
+    final locationModule = _$LocationModule();
     await gh.factoryAsync<_i460.SharedPreferences>(
       () => sharedPreferencesModule.prefs,
       preResolve: true,
     );
     gh.factory<_i656.HomeViewModel>(() => _i656.HomeViewModel());
-    gh.singleton<_i166.DataSourceExecution>(() => _i166.DataSourceExecution());
+    gh.factory<_i232.BestSellerViewModel>(() => _i232.BestSellerViewModel());
     gh.singleton<_i56.AppConfigProvider>(() => _i56.AppConfigProvider());
-    gh.lazySingleton<_i645.Location>(() => locationModule.location);
-    gh.lazySingleton<_i1024.GeoCode>(() => locationModule.geoCode);
+    gh.singleton<_i166.DataSourceExecution>(() => _i166.DataSourceExecution());
     gh.lazySingleton<_i974.Logger>(() => loggerModule.loggerProvider);
     gh.lazySingleton<_i974.PrettyPrinter>(() => loggerModule.prettyPrinter);
     gh.lazySingleton<_i361.Dio>(() => networkModule.provideDio());
     gh.lazySingleton<_i528.PrettyDioLogger>(
         () => networkModule.providerInterceptor());
+    gh.lazySingleton<_i645.Location>(() => locationModule.location);
+    gh.lazySingleton<_i1024.GeoCode>(() => locationModule.geoCode);
     gh.singleton<_i187.AuthRetrofitClient>(
         () => _i187.AuthRetrofitClient(gh<_i361.Dio>()));
     gh.singleton<_i337.ProductsRetrofitClient>(
         () => _i337.ProductsRetrofitClient(gh<_i361.Dio>()));
-    gh.singleton<_i186.CategoriesRetrofitClient>(
-        () => _i186.CategoriesRetrofitClient(gh<_i361.Dio>()));
     gh.singleton<_i207.OccasionsRetrofitClient>(
         () => _i207.OccasionsRetrofitClient(gh<_i361.Dio>()));
+    gh.singleton<_i186.CategoriesRetrofitClient>(
+        () => _i186.CategoriesRetrofitClient(gh<_i361.Dio>()));
     gh.factory<_i542.CategoriesRemoteDatasource>(
         () => _i948.CategoriesDatasourceImpl(
               gh<_i186.CategoriesRetrofitClient>(),
@@ -185,12 +188,12 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i376.DeleteTokenUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i1055.SignupViewModel>(
         () => _i1055.SignupViewModel(gh<_i529.SignupUserUseCase>()));
+    gh.factory<_i660.VerifyResetPasswordUseCase>(
+        () => _i660.VerifyResetPasswordUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i697.LoginUserUseCase>(
         () => _i697.LoginUserUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i149.ResetPasswordUseCase>(
         () => _i149.ResetPasswordUseCase(gh<_i961.AuthRepository>()));
-    gh.factory<_i660.VerifyResetPasswordUseCase>(
-        () => _i660.VerifyResetPasswordUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i974.ResetPasswordViewModel>(
         () => _i974.ResetPasswordViewModel(gh<_i149.ResetPasswordUseCase>()));
     gh.factory<_i599.ForgetPasswordViewModel>(
@@ -214,8 +217,8 @@ extension GetItInjectableX on _i174.GetIt {
 
 class _$SharedPreferencesModule extends _i744.SharedPreferencesModule {}
 
-class _$LocationModule extends _i917.LocationModule {}
-
 class _$LoggerModule extends _i774.LoggerModule {}
 
 class _$NetworkModule extends _i184.NetworkModule {}
+
+class _$LocationModule extends _i917.LocationModule {}

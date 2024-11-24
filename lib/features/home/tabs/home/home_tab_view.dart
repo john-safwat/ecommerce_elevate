@@ -1,12 +1,11 @@
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
 import 'package:ecommerce_elevate/core/assets/app_images.dart';
 import 'package:ecommerce_elevate/core/base/base_view.dart';
+import 'package:ecommerce_elevate/core/constants/routes.dart';
 import 'package:ecommerce_elevate/core/di/di.dart';
 import 'package:ecommerce_elevate/core/shared_widgets/search_text_field.dart';
 import 'package:ecommerce_elevate/features/home/tabs/home/view_model/home_tab_actions.dart';
-import 'package:ecommerce_elevate/features/home/tabs/home/view_model/home_tab_state.dart';
 import 'package:ecommerce_elevate/features/home/tabs/home/view_model/home_tab_view_model.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -36,10 +35,16 @@ class _HomeTabViewState extends BaseState<HomeTabView, HomeTabViewModel> {
             SliverAppBar(
               title: Row(
                 children: [
-                  Image.asset(
-                    AppImages.logo,
-                    width: viewModel.mediaQuery!.width * 0.25,
-                    fit: BoxFit.cover,
+                  InkWell(
+                    onTap: () {
+                      Navigator.of(context)
+                          .pushNamed(Routes.bestSellerViewRoute);
+                    },
+                    child: Image.asset(
+                      AppImages.logo,
+                      width: viewModel.mediaQuery!.width * 0.25,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                   const SizedBox(width: 16),
                   Expanded(
@@ -87,5 +92,4 @@ class _HomeTabViewState extends BaseState<HomeTabView, HomeTabViewModel> {
   HomeTabViewModel initViewModel() {
     return getIt<HomeTabViewModel>();
   }
-
 }

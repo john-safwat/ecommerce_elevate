@@ -85,10 +85,12 @@
   "female": "انثى",
   "create_an_account": "إنشاء حساب، فإنك توافق على لدينا",
   "terms_and_conditions": "الشروط والاحكام",
-  "search" : "بحث",
-  "getLocation" : "الحصول على الموقع",
-  "youMustEnableLocation" : "يجب تفعيل الموقع",
-  "locationPermissionNotGranted" : "لم يتم اعطاء الصلاحية للموقع",
-  "cantFindYourLocation" : "لا يمكن الحصول على موقعك",
-  "addToCart" : "اضف الي السلة"
+  "search": "بحث",
+  "getLocation": "الحصول على الموقع",
+  "youMustEnableLocation": "يجب تفعيل الموقع",
+  "locationPermissionNotGranted": "لم يتم اعطاء الصلاحية للموقع",
+  "cantFindYourLocation": "لا يمكن الحصول على موقعك",
+  "addToCart": "اضف الي السلة",
+  "best_seller": "الاكثر مبيعا",
+  "bloom_with_our_exquisite_best_sellers": "تزيين مع احصاءاتنا الاكثر مبيعا"
 }

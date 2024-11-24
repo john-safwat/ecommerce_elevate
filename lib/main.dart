@@ -6,6 +6,7 @@ import 'package:ecommerce_elevate/features/auth/presentation/login/login_view.da
 import 'package:ecommerce_elevate/features/auth/presentation/otp_verify/otp_verify_view.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/reset_password/reset_password_view.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/signup/signup_view.dart';
+import 'package:ecommerce_elevate/features/home/best_seller/presentation/best_seller_view.dart';
 import 'package:ecommerce_elevate/features/home/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -56,6 +57,7 @@ class MyApp extends StatelessWidget {
         Routes.forgetPasswordRoute: (context) => const ForgetPasswordView(),
         Routes.otpVerifyRoute: (context) => const OtpVerifyView(),
         Routes.resetPasswordViewRoute: (context) => const ResetPasswordView(),
+        Routes.bestSellerViewRoute: (context) => const BestSellerView(),
       },
       initialRoute: appConfigProvider.token.isEmpty
           ? Routes.loginRoute
