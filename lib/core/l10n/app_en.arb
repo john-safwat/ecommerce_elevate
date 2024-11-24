@@ -90,5 +90,6 @@
   "youMustEnableLocation" : "You Must Enable Location Service",
   "locationPermissionNotGranted" : "Location Permission Not Granted",
   "cantFindYourLocation" : "Can't Find Your Location",
-  "addToCart": "Add to cart"
+  "addToCart": "Add to cart",
+  "occasions" : "Occasions"
 }

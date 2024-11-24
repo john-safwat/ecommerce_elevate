@@ -85,6 +85,8 @@ import '../../features/home/domain/use_case/get_occasions_list_use_case.dart'
     as _i64;
 import '../../features/home/tabs/home/view_model/home_tab_view_model.dart'
     as _i183;
+import '../../features/home/tabs/occasions/occasions_view_model/occasions_view_model.dart'
+    as _i888;
 import '../../features/home/view_model/home_view_model.dart' as _i656;
 import '../datasource_execution/datasource_execution.dart' as _i166;
 import '../modules/location_module.dart' as _i917;
@@ -195,6 +197,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i974.ResetPasswordViewModel(gh<_i149.ResetPasswordUseCase>()));
     gh.factory<_i599.ForgetPasswordViewModel>(
         () => _i599.ForgetPasswordViewModel(gh<_i90.ForgetPasswordUseCase>()));
+    gh.factory<_i888.OccasionsViewModel>(
+        () => _i888.OccasionsViewModel(gh<_i64.GetOccasionsListUseCase>()));
     gh.factory<_i183.HomeTabViewModel>(() => _i183.HomeTabViewModel(
           gh<_i348.GetCategoriesListUseCase>(),
           gh<_i842.GetMostSellingProductsListUseCase>(),
