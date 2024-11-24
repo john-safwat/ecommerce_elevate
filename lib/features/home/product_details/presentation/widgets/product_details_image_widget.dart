@@ -7,8 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProductDetailsImageWidget extends StatelessWidget {
-  const ProductDetailsImageWidget({super.key, required this.viewModel});
+  const ProductDetailsImageWidget(
+      {super.key, required this.viewModel, required this.images});
   final ProductDetailsViewModel viewModel;
+  final List<String> images;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -21,14 +23,14 @@ class ProductDetailsImageWidget extends StatelessWidget {
               onPageChanged: (value) {
                 viewModel.doIntent(ChangeCurrentPageIndexAction(value));
               },
-              itemCount: 6,
+              itemCount: images.length,
               itemBuilder: (context, index) {
                 return CachedNetworkImage(
-                  imageUrl:
-                      'https://pixlr.com/images/generator/image-editor.webp',
+                  imageUrl: images[index],
                   height: viewModel.mediaQuery!.height / 2,
                   width: viewModel.mediaQuery!.width,
                   fit: BoxFit.cover,
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
                 );
               }),
         ),
@@ -48,7 +50,7 @@ class ProductDetailsImageWidget extends StatelessWidget {
         BlocBuilder<ProductDetailsViewModel, ProductDetailsState>(
           builder: (context, state) {
             return DontsIndecatorWidget(
-              dotNumber: 6,
+              dotNumber: images.length,
               currentDot: viewModel.currentPageIndex,
             );
           },

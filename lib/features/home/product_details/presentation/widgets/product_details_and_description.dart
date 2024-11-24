@@ -1,10 +1,13 @@
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
+import 'package:ecommerce_elevate/features/home/domain/entities/products/product.dart';
 import 'package:ecommerce_elevate/features/home/product_details/presentation/product_details_view_model.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetailsAndDescription extends StatelessWidget {
-  const ProductDetailsAndDescription({super.key, required this.viewModel});
+  const ProductDetailsAndDescription(
+      {super.key, required this.viewModel, required this.product});
   final ProductDetailsViewModel viewModel;
+  final Product product;
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
@@ -18,7 +21,7 @@ class ProductDetailsAndDescription extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                '${viewModel.locale!.egp} 1,500',
+                '${viewModel.locale!.egp} ${product.price}',
                 style: theme.textTheme.titleLarge!
                     .copyWith(fontWeight: FontWeight.w700),
               ),
@@ -30,7 +33,7 @@ class ProductDetailsAndDescription extends StatelessWidget {
                         .copyWith(fontWeight: FontWeight.w500),
                   ),
                   Text(
-                    'In stock',
+                    '${product.slug}',
                     style: theme.textTheme.titleSmall!
                         .copyWith(fontWeight: FontWeight.w400),
                   ),
@@ -50,8 +53,7 @@ class ProductDetailsAndDescription extends StatelessWidget {
           Text(viewModel.locale!.description,
               style: theme.textTheme.bodyLarge!
                   .copyWith(fontWeight: FontWeight.w500)),
-          Text(
-              'Lorem ipsum dolor sit amet consectetur. Id sit morbi ornare morbi duis rhoncus orci massa.',
+          Text(product.description ?? '',
               style: theme.textTheme.bodyMedium!.copyWith(color: Colors.black)),
           const SizedBox(height: 24),
           Text('Bouquet include',
