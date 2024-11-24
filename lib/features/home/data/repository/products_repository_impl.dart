@@ -9,7 +9,7 @@ import 'package:ecommerce_elevate/features/home/domain/repository/products_repos
 
 @Injectable(as: ProductsRepository)
 class BestSellerRepositoryImpl implements ProductsRepository {
-  final ProductsDatasource _datasource;
+  final ProductsRemoteDatasource _datasource;
 
   BestSellerRepositoryImpl(this._datasource);
 

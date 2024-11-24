@@ -8,8 +8,8 @@ import 'package:ecommerce_elevate/features/home/data/datasource/contract/product
 import 'package:ecommerce_elevate/features/home/domain/entities/products/product.dart';
 import '../../../../../core/datasource_execution/datasource_execution.dart';
 
-@Injectable(as: ProductsDatasource)
-class ProductsRemoteDatasourceImpl implements ProductsDatasource {
+@Injectable(as: ProductsRemoteDatasource)
+class ProductsRemoteDatasourceImpl implements ProductsRemoteDatasource {
   final ProductsRetrofitClient _bestSellerRetrofitClient;
   final DataSourceExecution _apiExecution;
 

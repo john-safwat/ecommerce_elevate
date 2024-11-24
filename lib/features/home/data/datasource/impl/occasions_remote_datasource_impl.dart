@@ -9,11 +9,11 @@ import 'package:ecommerce_elevate/features/home/domain/entities/occasions/occasi
 import '../../../../../core/datasource_execution/datasource_execution.dart';
 
 @Injectable(as: OccasionsRemoteDatasource)
-class OccasionsDatasourceImpl implements OccasionsRemoteDatasource {
+class OccasionsRemoteDatasourceImpl implements OccasionsRemoteDatasource {
   final OccasionsRetrofitClient _occasionsRetrofitClient;
   final DataSourceExecution _apiExecution;
 
-  OccasionsDatasourceImpl(this._occasionsRetrofitClient, this._apiExecution);
+  OccasionsRemoteDatasourceImpl(this._occasionsRetrofitClient, this._apiExecution);
 
   @override
   Future<Results<List<Occasion>?>> getOccasionsList() async {

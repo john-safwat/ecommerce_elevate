@@ -9,11 +9,11 @@ import '../../../../../core/datasource_execution/datasource_execution.dart';
 import '../../api/categories/categories_retrofit_client.dart';
 
 @Injectable(as: CategoriesRemoteDatasource)
-class CategoriesDatasourceImpl implements CategoriesRemoteDatasource {
+class CategoriesRemoteDatasourceImpl implements CategoriesRemoteDatasource {
   final CategoriesRetrofitClient _categoriesRetrofitClient;
   final DataSourceExecution _apiExecution;
 
-  CategoriesDatasourceImpl(this._categoriesRetrofitClient, this._apiExecution);
+  CategoriesRemoteDatasourceImpl(this._categoriesRetrofitClient, this._apiExecution);
 
   @override
   Future<Results<List<Category>?>> getCategoriesList() async {

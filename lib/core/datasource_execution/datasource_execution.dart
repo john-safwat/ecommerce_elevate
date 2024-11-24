@@ -11,7 +11,7 @@ import 'package:ecommerce_elevate/core/datasource_execution/app_exception.dart';
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 
 @singleton
-class DataSourceExecution {
+mixin class DataSourceExecution {
   Future<Results<T>> execute<T>(Future<T> Function() apiCall) async {
     try {
       var response = await apiCall();

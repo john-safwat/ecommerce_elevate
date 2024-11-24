@@ -12,4 +12,4 @@ final getIt = GetIt.instance;
   preferRelativeImports: true, // default
   asExtension: true, // default
 )
-Future<void> configureDependencies(String environment) async => await getIt.init(environment: environment);
+Future<void> configureDependencies() async => await getIt.init();

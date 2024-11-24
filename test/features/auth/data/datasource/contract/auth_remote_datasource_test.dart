@@ -11,9 +11,11 @@ import 'package:ecommerce_elevate/features/auth/data/datasource/impl/auth_remote
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/verify_reset_code/request/verify_reset_code_request_dto.dart';
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/verify_reset_code/response/verify_reset_code_response_dto.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/verify_reset_code/verify_reset_code_response.dart';
+import '../../../../../core/datasource_execution/mock_datasource_execution.dart';
+import '../../../../home/data/datasource/impl/categories_remote_datasource_test.mocks.dart';
 import 'auth_remote_datasource_test.mocks.dart';
 
-@GenerateMocks([AuthRetrofitClient, DataSourceExecution])
+@GenerateMocks([AuthRetrofitClient])
 void main() {
   test('TODO: Implement tests for auth_remote_datasource.dart', () async {
     var retrofitClient = MockAuthRetrofitClient();

@@ -3,18 +3,8 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-
-// 🎯 Dart imports:
 import 'dart:async' as _i9;
 import 'dart:ui' as _i10;
-
-// 📦 Package imports:
-import 'package:geocode/src/geocode.dart' as _i11;
-import 'package:geocode/src/model/address.dart' as _i3;
-import 'package:geocode/src/model/coordinates.dart' as _i4;
-import 'package:location/location.dart' as _i8;
-import 'package:mockito/mockito.dart' as _i1;
-import 'package:mockito/src/dummies.dart' as _i12;
 
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart'
     as _i14;
@@ -36,8 +26,14 @@ import 'package:ecommerce_elevate/features/home/domain/use_case/get_most_selling
     as _i18;
 import 'package:ecommerce_elevate/features/home/domain/use_case/get_occasions_list_use_case.dart'
     as _i16;
+import 'package:geocode/src/geocode.dart' as _i11;
+import 'package:geocode/src/model/address.dart' as _i3;
+import 'package:geocode/src/model/coordinates.dart' as _i4;
+import 'package:location/location.dart' as _i8;
 import 'package:location_platform_interface/location_platform_interface.dart'
     as _i2;
+import 'package:mockito/mockito.dart' as _i1;
+import 'package:mockito/src/dummies.dart' as _i12;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values

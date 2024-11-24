@@ -25,7 +25,7 @@ void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-  await configureDependencies(Constants.mainEnvironment);
+  await configureDependencies();
   getIt<AppInitializer>().init();
   FlutterNativeSplash.remove();
   runApp(
