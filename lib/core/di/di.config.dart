@@ -88,13 +88,13 @@ import '../../features/home/presentation/tabs/home/view_model/home_tab_view_mode
 import '../../features/home/presentation/view_model/home_view_model.dart'
     as _i77;
 import '../datasource_execution/datasource_execution.dart' as _i166;
-import '../modules/location_module.dart' as _i917;
-import '../modules/logger_module.dart' as _i774;
-import '../modules/network_module.dart' as _i184;
-import '../modules/shared_preferences_module.dart' as _i744;
 import '../providers/app_config_provider.dart' as _i56;
 import '../providers/language_provider.dart' as _i822;
 import '../utils/app_initializer.dart' as _i348;
+import 'modules/location_module.dart' as _i765;
+import 'modules/logger_module.dart' as _i205;
+import 'modules/network_module.dart' as _i851;
+import 'modules/shared_preferences_module.dart' as _i813;
 
 extension GetItInjectableX on _i174.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -111,11 +111,11 @@ extension GetItInjectableX on _i174.GetIt {
     final locationModule = _$LocationModule();
     final loggerModule = _$LoggerModule();
     final networkModule = _$NetworkModule();
+    gh.factory<_i77.HomeViewModel>(() => _i77.HomeViewModel());
     await gh.factoryAsync<_i460.SharedPreferences>(
       () => sharedPreferencesModule.prefs,
       preResolve: true,
     );
-    gh.factory<_i77.HomeViewModel>(() => _i77.HomeViewModel());
     gh.singleton<_i166.DataSourceExecution>(() => _i166.DataSourceExecution());
     gh.singleton<_i56.AppConfigProvider>(() => _i56.AppConfigProvider());
     gh.lazySingleton<_i645.Location>(() => locationModule.location);
@@ -213,10 +213,10 @@ extension GetItInjectableX on _i174.GetIt {
   }
 }
 
-class _$SharedPreferencesModule extends _i744.SharedPreferencesModule {}
+class _$SharedPreferencesModule extends _i813.SharedPreferencesModule {}
 
-class _$LocationModule extends _i917.LocationModule {}
+class _$LocationModule extends _i765.LocationModule {}
 
-class _$LoggerModule extends _i774.LoggerModule {}
+class _$LoggerModule extends _i205.LoggerModule {}
 
-class _$NetworkModule extends _i184.NetworkModule {}
+class _$NetworkModule extends _i851.NetworkModule {}
