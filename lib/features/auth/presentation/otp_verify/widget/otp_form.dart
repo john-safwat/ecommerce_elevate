@@ -1,9 +1,13 @@
+// 🐦 Flutter imports:
+import 'package:flutter/material.dart';
+
+// 📦 Package imports:
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+// 🌎 Project imports:
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/otp_verify/otp_verify_view_model.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/otp_verify/widget/otp_form_field.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../otp_verify_contract.dart';
 
 class OtpForm extends StatelessWidget {
@@ -56,7 +60,6 @@ class OtpForm extends StatelessWidget {
             style: Theme.of(context).textTheme.titleLarge,
           ),
         ),
-
         const SizedBox(height: 32),
         ValueListenableBuilder(
           valueListenable: viewModel.valid,
@@ -81,23 +84,21 @@ class OtpForm extends StatelessWidget {
             ),
             ValueListenableBuilder(
               valueListenable: viewModel.resendMessage,
-              builder: (context, value, child) =>
-                  viewModel.resendTimer ==0?
-                  TextButton(
-                    onPressed: () {
-                      viewModel.doIntent(OtpResendAction());
-                    },
-                    child: Text(
-                      viewModel.locale!.resend,
+              builder: (context, value, child) => viewModel.resendTimer == 0
+                  ? TextButton(
+                      onPressed: () {
+                        viewModel.doIntent(OtpResendAction());
+                      },
+                      child: Text(
+                        viewModel.locale!.resend,
+                      ),
+                    )
+                  : Text(
+                      viewModel.resendMessage.value,
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.labelMedium,
                     ),
-                  ):
-                  Text(
-                viewModel.resendMessage.value,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.labelMedium,
-              ),
             ),
-
           ],
         ),
       ],

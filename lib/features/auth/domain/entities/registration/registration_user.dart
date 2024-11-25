@@ -1,6 +1,6 @@
 class RegistrationUser {
   RegistrationUser({
-   this.gender,
+    this.gender,
     this.firstName,
     this.lastName,
     this.email,

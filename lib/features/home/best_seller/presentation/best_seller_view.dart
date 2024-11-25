@@ -73,7 +73,7 @@ class _BestSellerViewState
                     occasion: 'occasion',
                   ),
                   onPressed: () {},
-                  buttonIcon: Icons.add,
+             
                   buttonTitle: viewModel.locale!.addToCart,
                 ),
               ),

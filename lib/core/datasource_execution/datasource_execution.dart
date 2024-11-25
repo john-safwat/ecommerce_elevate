@@ -1,13 +1,17 @@
+// 🎯 Dart imports:
 import 'dart:async';
 import 'dart:io';
 
+// 📦 Package imports:
 import 'package:dio/dio.dart';
-import 'package:ecommerce_elevate/core/datasource_execution/app_exception.dart';
-import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:injectable/injectable.dart';
 
+// 🌎 Project imports:
+import 'package:ecommerce_elevate/core/datasource_execution/app_exception.dart';
+import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
+
 @singleton
-class DataSourceExecution {
+mixin class DataSourceExecution {
   Future<Results<T>> execute<T>(Future<T> Function() apiCall) async {
     try {
       var response = await apiCall();

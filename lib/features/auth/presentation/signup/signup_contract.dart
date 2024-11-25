@@ -1,3 +1,4 @@
+// 🌎 Project imports:
 import 'package:ecommerce_elevate/core/base/base_view_model.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/signup/signup_view_model.dart';
 
@@ -9,6 +10,7 @@ class SignupAction extends SignupViewAction {}
 
 class ChangeGenderAction extends SignupViewAction {
   Gender gender;
+
   ChangeGenderAction({required this.gender});
 }
 
