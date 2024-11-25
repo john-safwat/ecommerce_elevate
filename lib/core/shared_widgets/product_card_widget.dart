@@ -27,6 +27,8 @@ class ProductCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: height * .28,
+      width: width * .4,
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         border: Border.all(color: AppColors.white[AppColors.colorCode70]!),
@@ -38,7 +40,7 @@ class ProductCardWidget extends StatelessWidget {
             child: CachedNetworkImage(
               imageUrl: product.imgCover ?? AppImages.test,
               errorWidget: (context, url, error) =>
-              const Center(child: Icon(Icons.error, color: AppColors.pink)),
+                  const Center(child: Icon(Icons.error, color: AppColors.pink)),
               fit: BoxFit.cover,
               width: double.infinity,
             ),
@@ -54,9 +56,9 @@ class ProductCardWidget extends StatelessWidget {
                     Text(
                       product.title ?? '',
                       style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                      ),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                          ),
                     ),
                     const SizedBox(height: 4),
                     Row(
@@ -65,29 +67,29 @@ class ProductCardWidget extends StatelessWidget {
                         Text(
                           'EGP ${product.priceAfterDiscount}',
                           style:
-                          Theme.of(context).textTheme.titleMedium?.copyWith(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
-                          ),
+                              Theme.of(context).textTheme.titleMedium?.copyWith(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                         ),
                         Text(
                           product.price.toString(),
                           style:
-                          Theme.of(context).textTheme.titleMedium?.copyWith(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.gray,
-                            decoration: TextDecoration.lineThrough,
-                          ),
+                              Theme.of(context).textTheme.titleMedium?.copyWith(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                    color: AppColors.gray,
+                                    decoration: TextDecoration.lineThrough,
+                                  ),
                         ),
                         Text(
                           '${discount(product.price ?? 0, product.priceAfterDiscount ?? 0)}%',
                           style:
-                          Theme.of(context).textTheme.titleMedium?.copyWith(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.successGreen,
-                          ),
+                              Theme.of(context).textTheme.titleMedium?.copyWith(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                    color: AppColors.successGreen,
+                                  ),
                         ),
                       ],
                     )
@@ -109,10 +111,10 @@ class ProductCardWidget extends StatelessWidget {
                     Text(
                       buttonTitle,
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        fontSize: 13,
-                        fontWeight: FontWeight.w500,
-                        color: AppColors.white,
-                      ),
+                            fontSize: 13,
+                            fontWeight: FontWeight.w500,
+                            color: AppColors.white,
+                          ),
                     ),
                   ],
                 ),
