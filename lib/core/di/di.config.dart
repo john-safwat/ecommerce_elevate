@@ -154,12 +154,12 @@ extension GetItInjectableX on _i174.GetIt {
               gh<_i202.ProductsRetrofitClient>(),
               gh<_i166.DataSourceExecution>(),
             ));
-    gh.factory<_i195.ProductsRepository>(() =>
-        _i748.BestSellerRepositoryImpl(gh<_i603.ProductsRemoteDatasource>()));
     gh.factory<_i1070.AuthRemoteDatasource>(() => _i81.AuthRemoteDatasourceImpl(
           gh<_i187.AuthRetrofitClient>(),
           gh<_i166.DataSourceExecution>(),
         ));
+    gh.factory<_i195.ProductsRepository>(() =>
+        _i748.ProductsRepositoryImpl(gh<_i603.ProductsRemoteDatasource>()));
     gh.lazySingleton<_i348.AppInitializer>(() => _i348.AppInitializer(
           gh<_i822.LanguageProvider>(),
           gh<_i56.AppConfigProvider>(),

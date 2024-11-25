@@ -8,10 +8,10 @@ import 'package:ecommerce_elevate/features/home/domain/entities/products/product
 import 'package:ecommerce_elevate/features/home/domain/repository/products_repository.dart';
 
 @Injectable(as: ProductsRepository)
-class BestSellerRepositoryImpl implements ProductsRepository {
+class ProductsRepositoryImpl implements ProductsRepository {
   final ProductsRemoteDatasource _datasource;
 
-  BestSellerRepositoryImpl(this._datasource);
+  ProductsRepositoryImpl(this._datasource);
 
   @override
   Future<Results<List<Product>?>> getBestSellerList() async {

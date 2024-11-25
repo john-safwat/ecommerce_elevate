@@ -1,7 +1,10 @@
-import 'package:ecommerce_elevate/core/datasource_execution/datasource_execution.dart';
-import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
+// 📦 Package imports:
 import 'package:mockito/mockito.dart';
 import 'package:mockito/src/dummies.dart';
+
+// 🌎 Project imports:
+import 'package:ecommerce_elevate/core/datasource_execution/datasource_execution.dart';
+import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 
 class MockDataSourceExecution extends Mock implements DataSourceExecution {
   MockDataSourceExecution() {
