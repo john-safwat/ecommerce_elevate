@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
 import 'package:ecommerce_elevate/core/base/base_view.dart';
 import 'package:ecommerce_elevate/core/di/di.dart';
@@ -19,6 +20,8 @@ class _BestSellerViewState
     extends BaseState<BestSellerView, BestSellerViewModel> {
   @override
   Widget build(BuildContext context) {
+    var bestSellerList =
+        ModalRoute.of(context)!.settings.arguments as List<Product>;
     super.build(context);
     return BlocProvider(
       create: (context) => viewModel,
@@ -48,7 +51,7 @@ class _BestSellerViewState
             crossAxisSpacing: 17,
             childAspectRatio: 163 / 229,
           ),
-          itemCount: 10,
+          itemCount: bestSellerList.length,
           itemBuilder: (BuildContext context, int index) {
             return BlocListener<BestSellerViewModel, BestSellerStates>(
               listener: (context, state) {},
@@ -57,24 +60,13 @@ class _BestSellerViewState
                   // todo : navigate to product details
                   // viewModel.doIntent(NavigatorToProductDetails());
                 },
-                child: ProductCardWidget(
-                  product: Product(
-                    id: '1',
-                    title: 'title',
-                    slug: 'slug',
-                    description: 'description',
-                    imgCover:
-                        'https://cdn.pixabay.com/photo/2014/06/03/19/38/test-361512_640.jpg',
-                    images: const [],
-                    price: 220,
-                    priceAfterDiscount: 200,
-                    quantity: 100,
-                    category: 'category',
-                    occasion: 'occasion',
+                child: SlideInUp(
+                  duration: Duration(milliseconds: 500 + (index * 50)),
+                  child: ProductCardWidget(
+                    product: bestSellerList[index],
+                    onPressed: () {},
+                    buttonTitle: viewModel.locale!.addToCart,
                   ),
-                  onPressed: () {},
-             
-                  buttonTitle: viewModel.locale!.addToCart,
                 ),
               ),
             );
