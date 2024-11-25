@@ -89,6 +89,8 @@ import '../../features/home/presentation/tabs/home/view_model/home_tab_view_mode
     as _i742;
 import '../../features/home/presentation/view_model/home_view_model.dart'
     as _i77;
+import '../../features/home/product_details/presentation/product_details_view_model.dart'
+    as _i101;
 import '../datasource_execution/datasource_execution.dart' as _i166;
 import '../modules/location_module.dart' as _i917;
 import '../modules/logger_module.dart' as _i774;
@@ -118,6 +120,8 @@ extension GetItInjectableX on _i174.GetIt {
       preResolve: true,
     );
     gh.factory<_i232.BestSellerViewModel>(() => _i232.BestSellerViewModel());
+    gh.factory<_i101.ProductDetailsViewModel>(
+        () => _i101.ProductDetailsViewModel());
     gh.factory<_i77.HomeViewModel>(() => _i77.HomeViewModel());
     gh.singleton<_i56.AppConfigProvider>(() => _i56.AppConfigProvider());
     gh.singleton<_i166.DataSourceExecution>(() => _i166.DataSourceExecution());

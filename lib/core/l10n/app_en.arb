@@ -91,9 +91,12 @@
   "locationPermissionNotGranted": "Location Permission Not Granted",
   "cantFindYourLocation": "Can't Find Your Location",
   "addToCart": "Add to cart",
+  "egp": "EGP",
+  "status": "Status",
+  "description": "Description",
   "viewAll": "View All",
   "occasions": "Occasions",
   "bestSellers": "Best Sellers",
-   "best_seller": "Best Seller",
-   "bloom_with_our_exquisite_best_sellers": "Bloom with our exquisite best sellers"
+  "best_seller": "Best Seller",
+  "bloom_with_our_exquisite_best_sellers": "Bloom with our exquisite best sellers"
 }

@@ -1,6 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
 import 'package:ecommerce_elevate/core/base/base_view.dart';
+import 'package:ecommerce_elevate/core/constants/routes.dart';
 import 'package:ecommerce_elevate/core/di/di.dart';
 import 'package:ecommerce_elevate/core/shared_widgets/product_card_widget.dart';
 import 'package:ecommerce_elevate/features/home/best_seller/presentation/view_model/best_seller_states.dart';
@@ -57,15 +58,20 @@ class _BestSellerViewState
               listener: (context, state) {},
               child: InkWell(
                 onTap: () {
-                  // todo : navigate to product details
-                  // viewModel.doIntent(NavigatorToProductDetails());
+                  Navigator.of(context).pushNamed(
+                    Routes.productDetailsRoute,
+                    arguments: bestSellerList[index],
+                  );
                 },
                 child: SlideInUp(
                   duration: Duration(milliseconds: 500 + (index * 50)),
-                  child: ProductCardWidget(
-                    product: bestSellerList[index],
-                    onPressed: () {},
-                    buttonTitle: viewModel.locale!.addToCart,
+                  child: Hero(
+                    tag: bestSellerList[index].id ?? 0,
+                    child: ProductCardWidget(
+                      product: bestSellerList[index],
+                      onPressed: () {},
+                      buttonTitle: viewModel.locale!.addToCart,
+                    ),
                   ),
                 ),
               ),
