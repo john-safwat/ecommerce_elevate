@@ -9,10 +9,13 @@ import 'package:injectable/injectable.dart';
 @injectable
 class OccasionsViewModel
     extends BaseViewModel<OccasionsStates, OccasionsActions> {
-  GetOccasionsListUseCase occasionsUseCase;
+  final GetOccasionsListUseCase _occasionsUseCase;
+
+  int _occasionsLength = 0;
+  int get occasionsLength => _occasionsLength;
 
   @factoryMethod
-  OccasionsViewModel(this.occasionsUseCase) : super(OccasionInitialsState());
+  OccasionsViewModel(this._occasionsUseCase) : super(OccasionInitialsState());
 
   @override
   Future<void> doIntent(OccasionsActions action) async {
@@ -28,10 +31,11 @@ class OccasionsViewModel
   Future<void> _getOccasionTabs() async {
     emit(OccasionLoadingState());
 
-    final occasions = await occasionsUseCase();
+    final Results<List<Occasion>?> occasions = await _occasionsUseCase();
 
     switch (occasions) {
       case Success<List<Occasion>?>():
+        _occasionsLength = occasions.data?.length ?? 0;
         emit(OccasionTabsSuccessState(occasions.data));
 
       case Failure<List<Occasion>?>():

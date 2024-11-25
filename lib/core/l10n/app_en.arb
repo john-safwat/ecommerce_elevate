@@ -91,5 +91,6 @@
   "locationPermissionNotGranted" : "Location Permission Not Granted",
   "cantFindYourLocation" : "Can't Find Your Location",
   "addToCart": "Add to cart",
-  "occasions" : "Occasions"
+  "occasions" : "Occasions",
+  "occasionAppBarMessage" : "Bloom with our exquisite best sellers"
 }

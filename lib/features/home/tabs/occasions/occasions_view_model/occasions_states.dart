@@ -5,7 +5,7 @@ sealed class OccasionsStates {}
 
 class OccasionInitialsState extends OccasionsStates {}
 
-class OccasionLoadingState<T> extends OccasionsStates {}
+class OccasionLoadingState extends OccasionsStates {}
 
 class OccasionTabsSuccessState extends OccasionsStates {
   final List<Occasion>? occasions;

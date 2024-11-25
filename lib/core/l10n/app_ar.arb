@@ -91,5 +91,6 @@
   "locationPermissionNotGranted" : "لم يتم اعطاء الصلاحية للموقع",
   "cantFindYourLocation" : "لا يمكن الحصول على موقعك",
   "addToCart" : "اضف الي السلة",
-  "occasions" : "المناسبات"
+  "occasions" : "المناسبات",
+  "occasionAppBarMessage": "ازدهر مع منتجاتنا الرائعة الأكثر مبيعًا"
 }
