@@ -10,6 +10,10 @@ class GetAllProductsListUseCase {
   @factoryMethod
   GetAllProductsListUseCase(this.productsRepository);
 
-  Future<Results<List<Product>?>> call() async =>
-      productsRepository.getAllProductsList();
+  Future<Results<List<Product>?>> call(
+          {String? occasionId, String? categoryId}) async =>
+      await productsRepository.getAllProductsList(
+        categoryId: categoryId,
+        occasionId: occasionId,
+      );
 }

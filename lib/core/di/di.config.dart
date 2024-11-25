@@ -77,6 +77,8 @@ import '../../features/home/domain/repository/occasions_repository.dart'
     as _i860;
 import '../../features/home/domain/repository/products_repository.dart'
     as _i195;
+import '../../features/home/domain/use_case/get_all_products_list_use_case.dart'
+    as _i896;
 import '../../features/home/domain/use_case/get_categories_list_use_case.dart'
     as _i348;
 import '../../features/home/domain/use_case/get_most_selling_products_list_use_case.dart'
@@ -173,6 +175,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i842.GetMostSellingProductsListUseCase>(() =>
         _i842.GetMostSellingProductsListUseCase(
             gh<_i195.ProductsRepository>()));
+    gh.factory<_i896.GetAllProductsListUseCase>(
+        () => _i896.GetAllProductsListUseCase(gh<_i195.ProductsRepository>()));
     gh.factory<_i860.OccasionsRepository>(() =>
         _i17.OccasionsRepositoryImpl(gh<_i96.OccasionsRemoteDatasource>()));
     gh.factory<_i348.GetCategoriesListUseCase>(

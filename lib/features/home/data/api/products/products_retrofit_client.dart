@@ -17,5 +17,8 @@ abstract class ProductsRetrofitClient {
   Future<BestSellerResponseDto> getBestSellerList();
 
   @GET(ApiConstants.allProductsRoute)
-  Future<AllProductsResponsDto> getAllProducts();
+  Future<AllProductsResponsDto> getAllProducts({
+    @Query("occasion") String? occasionId,
+    @Query("category") String? categoryId,
+  });
 }

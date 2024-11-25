@@ -24,9 +24,13 @@ class ProductsRemoteDatasourceImpl implements ProductsDatasource {
   }
 
   @override
-  Future<Results<List<Product>?>> getAllProductsList() async {
+  Future<Results<List<Product>?>> getAllProductsList(
+      {String? occasionId, String? categoryId}) async {
     var response = await _apiExecution.execute<List<Product>?>(() async {
-      var result = await _productsRetrofitClient.getAllProducts();
+      var result = await _productsRetrofitClient.getAllProducts(
+        occasionId: occasionId,
+        categoryId: categoryId,
+      );
       return result.products?.map((product) => product.toDomain()).toList();
     });
     return response;

@@ -47,4 +47,6 @@ class OccasionsViewModel
         );
     }
   }
+
+  Future<void> _getAllProducts() async {}
 }

@@ -17,7 +17,10 @@ class BestSellerRepositoryImpl implements ProductsRepository {
   }
 
   @override
-  Future<Results<List<Product>?>> getAllProductsList() async {
-    return await _datasource.getAllProductsList();
-  }
+  Future<Results<List<Product>?>> getAllProductsList(
+          {String? occasionId, String? categoryId}) async =>
+      await _datasource.getAllProductsList(
+        categoryId: categoryId,
+        occasionId: occasionId,
+      );
 }

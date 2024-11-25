@@ -57,9 +57,16 @@ class _ProductsRetrofitClient implements ProductsRetrofitClient {
   }
 
   @override
-  Future<AllProductsResponsDto> getAllProducts() async {
+  Future<AllProductsResponsDto> getAllProducts({
+    String? occasionId,
+    String? categoryId,
+  }) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'occasion': occasionId,
+      r'category': categoryId,
+    };
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<AllProductsResponsDto>(Options(
