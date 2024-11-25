@@ -15,4 +15,9 @@ class BestSellerRepositoryImpl implements ProductsRepository {
     var response = await _datasource.getBestSellerList();
     return response;
   }
+
+  @override
+  Future<Results<List<Product>?>> getAllProductsList() async {
+    return await _datasource.getAllProductsList();
+  }
 }

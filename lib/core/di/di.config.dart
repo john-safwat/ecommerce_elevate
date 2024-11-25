@@ -47,12 +47,12 @@ import '../../features/auth/presentation/reset_password/reset_password_view_mode
     as _i974;
 import '../../features/auth/presentation/signup/signup_view_model.dart'
     as _i1055;
-import '../../features/home/data/api/best_seller/products_retrofit_client.dart'
-    as _i337;
 import '../../features/home/data/api/categories/categories_retrofit_client.dart'
     as _i186;
 import '../../features/home/data/api/occasions/occasions_retrofit_client.dart'
     as _i207;
+import '../../features/home/data/api/products/products_retrofit_client.dart'
+    as _i202;
 import '../../features/home/data/datasource/contract/categories_remote_datasource.dart'
     as _i542;
 import '../../features/home/data/datasource/contract/occasions_remote_datasource.dart'
@@ -128,12 +128,12 @@ extension GetItInjectableX on _i174.GetIt {
         () => networkModule.providerInterceptor());
     gh.singleton<_i187.AuthRetrofitClient>(
         () => _i187.AuthRetrofitClient(gh<_i361.Dio>()));
-    gh.singleton<_i337.ProductsRetrofitClient>(
-        () => _i337.ProductsRetrofitClient(gh<_i361.Dio>()));
     gh.singleton<_i186.CategoriesRetrofitClient>(
         () => _i186.CategoriesRetrofitClient(gh<_i361.Dio>()));
     gh.singleton<_i207.OccasionsRetrofitClient>(
         () => _i207.OccasionsRetrofitClient(gh<_i361.Dio>()));
+    gh.singleton<_i202.ProductsRetrofitClient>(
+        () => _i202.ProductsRetrofitClient(gh<_i361.Dio>()));
     gh.factory<_i542.CategoriesRemoteDatasource>(
         () => _i948.CategoriesDatasourceImpl(
               gh<_i186.CategoriesRetrofitClient>(),
@@ -141,13 +141,13 @@ extension GetItInjectableX on _i174.GetIt {
             ));
     gh.factory<_i1071.AuthLocalDatasource>(
         () => _i909.AuthLocalDatasourceImpl(gh<_i460.SharedPreferences>()));
-    gh.factory<_i603.ProductsDatasource>(
-        () => _i868.ProductsRemoteDatasourceImpl(
-              gh<_i337.ProductsRetrofitClient>(),
-              gh<_i166.DataSourceExecution>(),
-            ));
     gh.singleton<_i822.LanguageProvider>(
         () => _i822.LanguageProvider(gh<_i460.SharedPreferences>()));
+    gh.factory<_i603.ProductsDatasource>(
+        () => _i868.ProductsRemoteDatasourceImpl(
+              gh<_i202.ProductsRetrofitClient>(),
+              gh<_i166.DataSourceExecution>(),
+            ));
     gh.factory<_i96.OccasionsRemoteDatasource>(
         () => _i290.OccasionsDatasourceImpl(
               gh<_i207.OccasionsRetrofitClient>(),
