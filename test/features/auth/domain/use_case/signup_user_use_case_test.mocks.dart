@@ -3,13 +3,7 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-
-// 🎯 Dart imports:
 import 'dart:async' as _i3;
-
-// 📦 Package imports:
-import 'package:mockito/mockito.dart' as _i1;
-import 'package:mockito/src/dummies.dart' as _i7;
 
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart'
     as _i4;
@@ -31,6 +25,8 @@ import 'package:ecommerce_elevate/features/auth/domain/entities/verify_reset_cod
     as _i11;
 import 'package:ecommerce_elevate/features/auth/domain/repository/auth_repository.dart'
     as _i2;
+import 'package:mockito/mockito.dart' as _i1;
+import 'package:mockito/src/dummies.dart' as _i7;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values

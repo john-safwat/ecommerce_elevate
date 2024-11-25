@@ -111,11 +111,11 @@ extension GetItInjectableX on _i174.GetIt {
     final locationModule = _$LocationModule();
     final loggerModule = _$LoggerModule();
     final networkModule = _$NetworkModule();
-    gh.factory<_i77.HomeViewModel>(() => _i77.HomeViewModel());
     await gh.factoryAsync<_i460.SharedPreferences>(
       () => sharedPreferencesModule.prefs,
       preResolve: true,
     );
+    gh.factory<_i77.HomeViewModel>(() => _i77.HomeViewModel());
     gh.singleton<_i166.DataSourceExecution>(() => _i166.DataSourceExecution());
     gh.singleton<_i56.AppConfigProvider>(() => _i56.AppConfigProvider());
     gh.lazySingleton<_i645.Location>(() => locationModule.location);
