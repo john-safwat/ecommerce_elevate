@@ -48,20 +48,34 @@ class _BestSellerViewState
               const EdgeInsets.only(top: 24, right: 16, left: 16, bottom: 10),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
-            mainAxisSpacing: 17,
-            crossAxisSpacing: 17,
-            childAspectRatio: 163 / 229,
+            mainAxisSpacing: 16,
+            crossAxisSpacing: 16,
+            childAspectRatio: 0.7,
           ),
           itemCount: bestSellerList.length,
           itemBuilder: (BuildContext context, int index) {
             return BlocListener<BestSellerViewModel, BestSellerStates>(
-              listener: (context, state) {},
+              listener: (context, state) {
+                if (state is NavigatorToProductDetailsState) {
+                  // Navigator.pushNamed(
+                  //   context,
+                  //   Routes.productDetailsRoute,
+                  //   arguments: state.product,
+                  // );
+                }
+              },
               child: InkWell(
                 onTap: () {
-                  Navigator.of(context).pushNamed(
+                  Navigator.pushNamed(
+                    context,
                     Routes.productDetailsRoute,
                     arguments: bestSellerList[index],
                   );
+                  // viewModel.doIntent(
+                  //   NavigatorToProductDetails(
+                  //     product: bestSellerList[index],
+                  //   ),
+                  // );
                 },
                 child: SlideInUp(
                   duration: Duration(milliseconds: 500 + (index * 50)),

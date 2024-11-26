@@ -33,7 +33,9 @@ class ProductDetailsAndDescription extends StatelessWidget {
                         .copyWith(fontWeight: FontWeight.w500),
                   ),
                   Text(
-                    '${product.V}',
+                    (product.quantity ?? 0) <= 0
+                        ? viewModel.locale!.outOfStock
+                        : viewModel.locale!.inStock,
                     style: theme.textTheme.titleSmall!
                         .copyWith(fontWeight: FontWeight.w400),
                     overflow: TextOverflow.ellipsis,

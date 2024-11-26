@@ -115,12 +115,20 @@ class _HomeTabViewState extends BaseState<HomeTabView, HomeTabViewModel> {
                           child: ListView.separated(
                             padding: const EdgeInsets.symmetric(horizontal: 16),
                             scrollDirection: Axis.horizontal,
-                            itemBuilder: (context, index) =>
-                                BestSellerCardWidget(
-                              product: products!.isEmpty
-                                  ? Product(title: "----------", price: 100)
-                                  : products[index],
-                              function: () {},
+                            itemBuilder: (context, index) => GestureDetector(
+                              onTap: () {
+                                // navigator to product details view
+                                Navigator.of(context).pushNamed(
+                                  Routes.productDetailsRoute,
+                                  arguments: products?[index],
+                                );
+                              },
+                              child: BestSellerCardWidget(
+                                product: products!.isEmpty
+                                    ? Product(title: "----------", price: 100)
+                                    : products[index],
+                                function: () {},
+                              ),
                             ),
                             separatorBuilder: (context, index) =>
                                 const SizedBox(width: 16),

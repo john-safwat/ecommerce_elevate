@@ -23,16 +23,29 @@ class _ProductDetailsViewState
     return BlocProvider(
       create: (context) => viewModel,
       child: Scaffold(
-          body: ListView(children: [
-        ProductDetailsImageWidget(
-          viewModel: viewModel,
-          product: product,
-        ),
-        ProductDetailsAndDescription(
-          viewModel: viewModel,
-          product: product,
-        )
-      ])),
+          body: Stack(
+        children: [
+          ListView(padding: EdgeInsets.zero, children: [
+            ProductDetailsImageWidget(
+              viewModel: viewModel,
+              product: product,
+            ),
+            ProductDetailsAndDescription(
+              viewModel: viewModel,
+              product: product,
+            )
+          ]),
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: AppBar(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+            ),
+          )
+        ],
+      )),
     );
   }
 

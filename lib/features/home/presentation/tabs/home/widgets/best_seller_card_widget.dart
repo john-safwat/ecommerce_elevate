@@ -1,12 +1,10 @@
 // 🐦 Flutter imports:
-import 'package:flutter/material.dart';
-
 // 📦 Package imports:
 import 'package:cached_network_image/cached_network_image.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/assets/app_images.dart';
 import 'package:ecommerce_elevate/features/home/domain/entities/products/product.dart';
+import 'package:flutter/material.dart';
 
 class BestSellerCardWidget extends StatelessWidget {
   final Product product;
@@ -25,15 +23,18 @@ class BestSellerCardWidget extends StatelessWidget {
           Expanded(
             child: ClipRRect(
               borderRadius: BorderRadius.circular(16),
-              child: CachedNetworkImage(
-                fit: BoxFit.cover,
-                width: double.infinity,
-                imageUrl: product.imgCover ?? "",
-                placeholder: (context, url) => const Center(
-                  child: CircularProgressIndicator(),
+              child: Hero(
+                tag: product.id ?? 0,
+                child: CachedNetworkImage(
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                  imageUrl: product.imgCover ?? "",
+                  placeholder: (context, url) => const Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                  errorWidget: (context, url, error) =>
+                      Image.asset(AppImages.imagePlaceholder),
                 ),
-                errorWidget: (context, url, error) =>
-                    Image.asset(AppImages.imagePlaceholder),
               ),
             ),
           ),

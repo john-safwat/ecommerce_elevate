@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:ecommerce_elevate/core/assets/app_colors.dart';
 import 'package:ecommerce_elevate/features/home/domain/entities/products/product.dart';
 import 'package:ecommerce_elevate/features/home/product_details/presentation/product_details_contract.dart';
 import 'package:ecommerce_elevate/features/home/product_details/presentation/product_details_view_model.dart';
@@ -38,19 +37,6 @@ class ProductDetailsImageWidget extends StatelessWidget {
                   ),
                 );
               }),
-        ),
-        Positioned.directional(
-          textDirection: TextDirection.ltr,
-          start: 0,
-          top: viewModel.mediaQuery!.height * 0.02,
-          child: IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Icon(
-                Icons.arrow_back_ios,
-                color: AppColors.black,
-              )),
         ),
         BlocBuilder<ProductDetailsViewModel, ProductDetailsState>(
           builder: (context, state) {
