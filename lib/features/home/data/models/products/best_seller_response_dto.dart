@@ -1,5 +1,8 @@
-import 'package:ecommerce_elevate/features/home/data/models/products/product_dto.dart';
+// 📦 Package imports:
 import 'package:json_annotation/json_annotation.dart';
+
+// 🌎 Project imports:
+import 'package:ecommerce_elevate/features/home/data/models/products/product_dto.dart';
 
 part 'best_seller_response_dto.g.dart';
 

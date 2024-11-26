@@ -92,5 +92,7 @@
   "cantFindYourLocation" : "Can't Find Your Location",
   "addToCart": "Add to cart",
   "occasions" : "Occasions",
-  "occasionAppBarMessage" : "Bloom with our exquisite best sellers"
+  "occasionAppBarMessage" : "Bloom with our exquisite best sellers",
+  "viewAll": "View All",
+  "bestSellers": "Best Sellers"
 }

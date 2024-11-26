@@ -1,12 +1,16 @@
-import 'package:ecommerce_elevate/features/auth/domain/entities/registration/registration_user.dart';
-import 'package:ecommerce_elevate/features/auth/domain/use_case/signup_user_use_case.dart';
-import 'package:ecommerce_elevate/features/auth/presentation/signup/signup_contract.dart';
-import 'package:ecommerce_elevate/features/auth/presentation/signup/signup_view_model.dart';
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
+
+// 📦 Package imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 
+// 🌎 Project imports:
+import 'package:ecommerce_elevate/features/auth/domain/entities/registration/registration_user.dart';
+import 'package:ecommerce_elevate/features/auth/domain/use_case/signup_user_use_case.dart';
+import 'package:ecommerce_elevate/features/auth/presentation/signup/signup_contract.dart';
+import 'package:ecommerce_elevate/features/auth/presentation/signup/signup_view_model.dart';
 import 'signup_view_model_test.mocks.dart';
 
 @GenerateMocks([SignupUserUseCase])

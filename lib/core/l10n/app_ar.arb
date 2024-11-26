@@ -92,5 +92,7 @@
   "cantFindYourLocation" : "لا يمكن الحصول على موقعك",
   "addToCart" : "اضف الي السلة",
   "occasions" : "المناسبات",
-  "occasionAppBarMessage": "ازدهر مع منتجاتنا الرائعة الأكثر مبيعًا"
+  "occasionAppBarMessage": "ازدهر مع منتجاتنا الرائعة الأكثر مبيعًا",
+  "viewAll": "عرض الكل",
+  "bestSellers": "الاكثر مبيعا"
 }

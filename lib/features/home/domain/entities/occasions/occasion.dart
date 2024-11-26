@@ -1,4 +1,3 @@
-
 class Occasion {
   final String? id;
   final String? name;
@@ -7,7 +6,7 @@ class Occasion {
   final String? createdAt;
   final String? updatedAt;
 
-  Occasion ({
+  Occasion({
     this.id,
     this.name,
     this.slug,
@@ -15,5 +14,4 @@ class Occasion {
     this.createdAt,
     this.updatedAt,
   });
-
 }
