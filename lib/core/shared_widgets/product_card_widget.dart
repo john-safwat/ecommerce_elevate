@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce_elevate/core/assets/app_images.dart';
 import 'package:ecommerce_elevate/features/home/domain/entities/products/product.dart';
-
 import 'package:flutter/material.dart';
 
 import '../assets/app_colors.dart';
@@ -27,8 +26,6 @@ class ProductCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height * .28,
-      width: width * .4,
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         border: Border.all(color: AppColors.white[AppColors.colorCode70]!),
