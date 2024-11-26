@@ -1,3 +1,10 @@
+// 🐦 Flutter imports:
+import 'package:flutter/material.dart';
+
+// 📦 Package imports:
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+// 🌎 Project imports:
 import 'package:ecommerce_elevate/core/base/base_view.dart';
 import 'package:ecommerce_elevate/core/constants/routes.dart';
 import 'package:ecommerce_elevate/core/di/di.dart';
@@ -5,8 +12,6 @@ import 'package:ecommerce_elevate/core/utils/app_dialogs.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/otp_verify/otp_verify_contract.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/otp_verify/otp_verify_view_model.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/otp_verify/widget/otp_form.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class OtpVerifyView extends StatefulWidget {
   const OtpVerifyView({super.key});

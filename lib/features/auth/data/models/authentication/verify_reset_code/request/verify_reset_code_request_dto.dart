@@ -1,3 +1,4 @@
+// 📦 Package imports:
 import 'package:json_annotation/json_annotation.dart';
 
 part 'verify_reset_code_request_dto.g.dart';

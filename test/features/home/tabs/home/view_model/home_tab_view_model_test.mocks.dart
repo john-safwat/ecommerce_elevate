@@ -3,17 +3,37 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i6;
-import 'dart:ui' as _i7;
+import 'dart:async' as _i9;
+import 'dart:ui' as _i10;
 
-import 'package:geocode/src/geocode.dart' as _i8;
+import 'package:ecommerce_elevate/core/datasource_execution/results.dart'
+    as _i14;
+import 'package:ecommerce_elevate/features/home/domain/entities/category/category.dart'
+    as _i15;
+import 'package:ecommerce_elevate/features/home/domain/entities/occasions/occasion.dart'
+    as _i17;
+import 'package:ecommerce_elevate/features/home/domain/entities/products/product.dart'
+    as _i19;
+import 'package:ecommerce_elevate/features/home/domain/repository/categories_repository.dart'
+    as _i5;
+import 'package:ecommerce_elevate/features/home/domain/repository/occasions_repository.dart'
+    as _i6;
+import 'package:ecommerce_elevate/features/home/domain/repository/products_repository.dart'
+    as _i7;
+import 'package:ecommerce_elevate/features/home/domain/use_case/get_categories_list_use_case.dart'
+    as _i13;
+import 'package:ecommerce_elevate/features/home/domain/use_case/get_most_selling_products_list_use_case.dart'
+    as _i18;
+import 'package:ecommerce_elevate/features/home/domain/use_case/get_occasions_list_use_case.dart'
+    as _i16;
+import 'package:geocode/src/geocode.dart' as _i11;
 import 'package:geocode/src/model/address.dart' as _i3;
 import 'package:geocode/src/model/coordinates.dart' as _i4;
-import 'package:location/location.dart' as _i5;
+import 'package:location/location.dart' as _i8;
 import 'package:location_platform_interface/location_platform_interface.dart'
     as _i2;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:mockito/src/dummies.dart' as _i9;
+import 'package:mockito/src/dummies.dart' as _i12;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -58,22 +78,55 @@ class _FakeCoordinates_2 extends _i1.SmartFake implements _i4.Coordinates {
         );
 }
 
+class _FakeCategoriesRepository_3 extends _i1.SmartFake
+    implements _i5.CategoriesRepository {
+  _FakeCategoriesRepository_3(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeOccasionsRepository_4 extends _i1.SmartFake
+    implements _i6.OccasionsRepository {
+  _FakeOccasionsRepository_4(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeProductsRepository_5 extends _i1.SmartFake
+    implements _i7.ProductsRepository {
+  _FakeProductsRepository_5(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [Location].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockLocation extends _i1.Mock implements _i5.Location {
+class MockLocation extends _i1.Mock implements _i8.Location {
   MockLocation() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i6.Stream<_i2.LocationData> get onLocationChanged => (super.noSuchMethod(
+  _i9.Stream<_i2.LocationData> get onLocationChanged => (super.noSuchMethod(
         Invocation.getter(#onLocationChanged),
-        returnValue: _i6.Stream<_i2.LocationData>.empty(),
-      ) as _i6.Stream<_i2.LocationData>);
+        returnValue: _i9.Stream<_i2.LocationData>.empty(),
+      ) as _i9.Stream<_i2.LocationData>);
 
   @override
-  _i6.Future<bool> changeSettings({
+  _i9.Future<bool> changeSettings({
     _i2.LocationAccuracy? accuracy = _i2.LocationAccuracy.high,
     int? interval = 1000,
     double? distanceFilter = 0.0,
@@ -88,90 +141,90 @@ class MockLocation extends _i1.Mock implements _i5.Location {
             #distanceFilter: distanceFilter,
           },
         ),
-        returnValue: _i6.Future<bool>.value(false),
-      ) as _i6.Future<bool>);
+        returnValue: _i9.Future<bool>.value(false),
+      ) as _i9.Future<bool>);
 
   @override
-  _i6.Future<bool> isBackgroundModeEnabled() => (super.noSuchMethod(
+  _i9.Future<bool> isBackgroundModeEnabled() => (super.noSuchMethod(
         Invocation.method(
           #isBackgroundModeEnabled,
           [],
         ),
-        returnValue: _i6.Future<bool>.value(false),
-      ) as _i6.Future<bool>);
+        returnValue: _i9.Future<bool>.value(false),
+      ) as _i9.Future<bool>);
 
   @override
-  _i6.Future<bool> enableBackgroundMode({bool? enable = true}) =>
+  _i9.Future<bool> enableBackgroundMode({bool? enable = true}) =>
       (super.noSuchMethod(
         Invocation.method(
           #enableBackgroundMode,
           [],
           {#enable: enable},
         ),
-        returnValue: _i6.Future<bool>.value(false),
-      ) as _i6.Future<bool>);
+        returnValue: _i9.Future<bool>.value(false),
+      ) as _i9.Future<bool>);
 
   @override
-  _i6.Future<_i2.LocationData> getLocation() => (super.noSuchMethod(
+  _i9.Future<_i2.LocationData> getLocation() => (super.noSuchMethod(
         Invocation.method(
           #getLocation,
           [],
         ),
-        returnValue: _i6.Future<_i2.LocationData>.value(_FakeLocationData_0(
+        returnValue: _i9.Future<_i2.LocationData>.value(_FakeLocationData_0(
           this,
           Invocation.method(
             #getLocation,
             [],
           ),
         )),
-      ) as _i6.Future<_i2.LocationData>);
+      ) as _i9.Future<_i2.LocationData>);
 
   @override
-  _i6.Future<_i2.PermissionStatus> hasPermission() => (super.noSuchMethod(
+  _i9.Future<_i2.PermissionStatus> hasPermission() => (super.noSuchMethod(
         Invocation.method(
           #hasPermission,
           [],
         ),
-        returnValue: _i6.Future<_i2.PermissionStatus>.value(
+        returnValue: _i9.Future<_i2.PermissionStatus>.value(
             _i2.PermissionStatus.granted),
-      ) as _i6.Future<_i2.PermissionStatus>);
+      ) as _i9.Future<_i2.PermissionStatus>);
 
   @override
-  _i6.Future<_i2.PermissionStatus> requestPermission() => (super.noSuchMethod(
+  _i9.Future<_i2.PermissionStatus> requestPermission() => (super.noSuchMethod(
         Invocation.method(
           #requestPermission,
           [],
         ),
-        returnValue: _i6.Future<_i2.PermissionStatus>.value(
+        returnValue: _i9.Future<_i2.PermissionStatus>.value(
             _i2.PermissionStatus.granted),
-      ) as _i6.Future<_i2.PermissionStatus>);
+      ) as _i9.Future<_i2.PermissionStatus>);
 
   @override
-  _i6.Future<bool> serviceEnabled() => (super.noSuchMethod(
+  _i9.Future<bool> serviceEnabled() => (super.noSuchMethod(
         Invocation.method(
           #serviceEnabled,
           [],
         ),
-        returnValue: _i6.Future<bool>.value(false),
-      ) as _i6.Future<bool>);
+        returnValue: _i9.Future<bool>.value(false),
+      ) as _i9.Future<bool>);
 
   @override
-  _i6.Future<bool> requestService() => (super.noSuchMethod(
+  _i9.Future<bool> requestService() => (super.noSuchMethod(
         Invocation.method(
           #requestService,
           [],
         ),
-        returnValue: _i6.Future<bool>.value(false),
-      ) as _i6.Future<bool>);
+        returnValue: _i9.Future<bool>.value(false),
+      ) as _i9.Future<bool>);
 
   @override
-  _i6.Future<_i2.AndroidNotificationData?> changeNotificationOptions({
+  _i9.Future<_i2.AndroidNotificationData?> changeNotificationOptions({
     String? channelName,
     String? title,
     String? iconName,
     String? subtitle,
     String? description,
-    _i7.Color? color,
+    _i10.Color? color,
     bool? onTapBringToFront,
   }) =>
       (super.noSuchMethod(
@@ -188,14 +241,14 @@ class MockLocation extends _i1.Mock implements _i5.Location {
             #onTapBringToFront: onTapBringToFront,
           },
         ),
-        returnValue: _i6.Future<_i2.AndroidNotificationData?>.value(),
-      ) as _i6.Future<_i2.AndroidNotificationData?>);
+        returnValue: _i9.Future<_i2.AndroidNotificationData?>.value(),
+      ) as _i9.Future<_i2.AndroidNotificationData?>);
 }
 
 /// A class which mocks [GeoCode].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockGeoCode extends _i1.Mock implements _i8.GeoCode {
+class MockGeoCode extends _i1.Mock implements _i11.GeoCode {
   MockGeoCode() {
     _i1.throwOnMissingStub(this);
   }
@@ -203,14 +256,14 @@ class MockGeoCode extends _i1.Mock implements _i8.GeoCode {
   @override
   String get apiKey => (super.noSuchMethod(
         Invocation.getter(#apiKey),
-        returnValue: _i9.dummyValue<String>(
+        returnValue: _i12.dummyValue<String>(
           this,
           Invocation.getter(#apiKey),
         ),
       ) as String);
 
   @override
-  _i6.Future<_i3.Address> reverseGeocoding({
+  _i9.Future<_i3.Address> reverseGeocoding({
     required double? latitude,
     required double? longitude,
   }) =>
@@ -223,7 +276,7 @@ class MockGeoCode extends _i1.Mock implements _i8.GeoCode {
             #longitude: longitude,
           },
         ),
-        returnValue: _i6.Future<_i3.Address>.value(_FakeAddress_1(
+        returnValue: _i9.Future<_i3.Address>.value(_FakeAddress_1(
           this,
           Invocation.method(
             #reverseGeocoding,
@@ -234,17 +287,17 @@ class MockGeoCode extends _i1.Mock implements _i8.GeoCode {
             },
           ),
         )),
-      ) as _i6.Future<_i3.Address>);
+      ) as _i9.Future<_i3.Address>);
 
   @override
-  _i6.Future<_i4.Coordinates> forwardGeocoding({required String? address}) =>
+  _i9.Future<_i4.Coordinates> forwardGeocoding({required String? address}) =>
       (super.noSuchMethod(
         Invocation.method(
           #forwardGeocoding,
           [],
           {#address: address},
         ),
-        returnValue: _i6.Future<_i4.Coordinates>.value(_FakeCoordinates_2(
+        returnValue: _i9.Future<_i4.Coordinates>.value(_FakeCoordinates_2(
           this,
           Invocation.method(
             #forwardGeocoding,
@@ -252,5 +305,137 @@ class MockGeoCode extends _i1.Mock implements _i8.GeoCode {
             {#address: address},
           ),
         )),
-      ) as _i6.Future<_i4.Coordinates>);
+      ) as _i9.Future<_i4.Coordinates>);
+}
+
+/// A class which mocks [GetCategoriesListUseCase].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockGetCategoriesListUseCase extends _i1.Mock
+    implements _i13.GetCategoriesListUseCase {
+  MockGetCategoriesListUseCase() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i5.CategoriesRepository get repository => (super.noSuchMethod(
+        Invocation.getter(#repository),
+        returnValue: _FakeCategoriesRepository_3(
+          this,
+          Invocation.getter(#repository),
+        ),
+      ) as _i5.CategoriesRepository);
+
+  @override
+  set repository(_i5.CategoriesRepository? _repository) => super.noSuchMethod(
+        Invocation.setter(
+          #repository,
+          _repository,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i9.Future<_i14.Results<List<_i15.Category>?>> call() => (super.noSuchMethod(
+        Invocation.method(
+          #call,
+          [],
+        ),
+        returnValue: _i9.Future<_i14.Results<List<_i15.Category>?>>.value(
+            _i12.dummyValue<_i14.Results<List<_i15.Category>?>>(
+          this,
+          Invocation.method(
+            #call,
+            [],
+          ),
+        )),
+      ) as _i9.Future<_i14.Results<List<_i15.Category>?>>);
+}
+
+/// A class which mocks [GetOccasionsListUseCase].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockGetOccasionsListUseCase extends _i1.Mock
+    implements _i16.GetOccasionsListUseCase {
+  MockGetOccasionsListUseCase() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i6.OccasionsRepository get repository => (super.noSuchMethod(
+        Invocation.getter(#repository),
+        returnValue: _FakeOccasionsRepository_4(
+          this,
+          Invocation.getter(#repository),
+        ),
+      ) as _i6.OccasionsRepository);
+
+  @override
+  set repository(_i6.OccasionsRepository? _repository) => super.noSuchMethod(
+        Invocation.setter(
+          #repository,
+          _repository,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i9.Future<_i14.Results<List<_i17.Occasion>?>> call() => (super.noSuchMethod(
+        Invocation.method(
+          #call,
+          [],
+        ),
+        returnValue: _i9.Future<_i14.Results<List<_i17.Occasion>?>>.value(
+            _i12.dummyValue<_i14.Results<List<_i17.Occasion>?>>(
+          this,
+          Invocation.method(
+            #call,
+            [],
+          ),
+        )),
+      ) as _i9.Future<_i14.Results<List<_i17.Occasion>?>>);
+}
+
+/// A class which mocks [GetMostSellingProductsListUseCase].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockGetMostSellingProductsListUseCase extends _i1.Mock
+    implements _i18.GetMostSellingProductsListUseCase {
+  MockGetMostSellingProductsListUseCase() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i7.ProductsRepository get repository => (super.noSuchMethod(
+        Invocation.getter(#repository),
+        returnValue: _FakeProductsRepository_5(
+          this,
+          Invocation.getter(#repository),
+        ),
+      ) as _i7.ProductsRepository);
+
+  @override
+  set repository(_i7.ProductsRepository? _repository) => super.noSuchMethod(
+        Invocation.setter(
+          #repository,
+          _repository,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i9.Future<_i14.Results<List<_i19.Product>?>> call() => (super.noSuchMethod(
+        Invocation.method(
+          #call,
+          [],
+        ),
+        returnValue: _i9.Future<_i14.Results<List<_i19.Product>?>>.value(
+            _i12.dummyValue<_i14.Results<List<_i19.Product>?>>(
+          this,
+          Invocation.method(
+            #call,
+            [],
+          ),
+        )),
+      ) as _i9.Future<_i14.Results<List<_i19.Product>?>>);
 }

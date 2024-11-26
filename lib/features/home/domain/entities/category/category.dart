@@ -1,4 +1,3 @@
-
 class Category {
   final String? id;
   final String? name;
@@ -7,7 +6,7 @@ class Category {
   final String? createdAt;
   final String? updatedAt;
 
-  Category ({
+  Category({
     this.id,
     this.name,
     this.slug,
@@ -15,6 +14,4 @@ class Category {
     this.createdAt,
     this.updatedAt,
   });
-
 }
-

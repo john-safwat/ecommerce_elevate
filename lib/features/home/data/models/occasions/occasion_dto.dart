@@ -1,5 +1,8 @@
-import 'package:ecommerce_elevate/features/home/domain/entities/occasions/occasion.dart';
+// 📦 Package imports:
 import 'package:json_annotation/json_annotation.dart';
+
+// 🌎 Project imports:
+import 'package:ecommerce_elevate/features/home/domain/entities/occasions/occasion.dart';
 
 part 'occasion_dto.g.dart';
 

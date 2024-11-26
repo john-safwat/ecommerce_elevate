@@ -1,3 +1,4 @@
+// 📦 Package imports:
 import 'package:json_annotation/json_annotation.dart';
 
 part 'forget_password_request_dto.g.dart';
