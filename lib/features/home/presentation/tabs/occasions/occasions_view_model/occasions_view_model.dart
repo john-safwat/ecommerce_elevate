@@ -4,8 +4,8 @@ import 'package:ecommerce_elevate/features/home/domain/entities/occasions/occasi
 import 'package:ecommerce_elevate/features/home/domain/entities/products/product.dart';
 import 'package:ecommerce_elevate/features/home/domain/use_case/get_all_products_list_use_case.dart';
 import 'package:ecommerce_elevate/features/home/domain/use_case/get_occasions_list_use_case.dart';
-import 'package:ecommerce_elevate/features/home/tabs/occasions/occasions_view_model/occasions_actions.dart';
-import 'package:ecommerce_elevate/features/home/tabs/occasions/occasions_view_model/occasions_states.dart';
+import 'package:ecommerce_elevate/features/home/presentation/tabs/occasions/occasions_view_model/occasions_actions.dart';
+import 'package:ecommerce_elevate/features/home/presentation/tabs/occasions/occasions_view_model/occasions_states.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 

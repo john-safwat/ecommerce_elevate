@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../core/assets/app_colors.dart';
+import '../../../../../../core/assets/app_colors.dart';
 
 class OccasionsAppBarTitle extends StatelessWidget {
   final String screnTitle;

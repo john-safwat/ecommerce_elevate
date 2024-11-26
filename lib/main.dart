@@ -15,7 +15,7 @@ import 'package:ecommerce_elevate/features/auth/presentation/login/login_view.da
 import 'package:ecommerce_elevate/features/auth/presentation/otp_verify/otp_verify_view.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/reset_password/reset_password_view.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/signup/signup_view.dart';
-import 'package:ecommerce_elevate/features/home/tabs/occasions/occasions_screen.dart';
+import 'package:ecommerce_elevate/features/home/presentation/tabs/occasions/occasions_screen.dart';
 
 import 'package:ecommerce_elevate/features/home/presentation/home_view.dart';
 import 'core/constants/routes.dart';

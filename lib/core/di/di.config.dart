@@ -87,10 +87,10 @@ import '../../features/home/domain/use_case/get_occasions_list_use_case.dart'
     as _i64;
 import '../../features/home/presentation/tabs/home/view_model/home_tab_view_model.dart'
     as _i742;
+import '../../features/home/presentation/tabs/occasions/occasions_view_model/occasions_view_model.dart'
+    as _i463;
 import '../../features/home/presentation/view_model/home_view_model.dart'
     as _i77;
-import '../../features/home/tabs/occasions/occasions_view_model/occasions_view_model.dart'
-    as _i888;
 import '../datasource_execution/datasource_execution.dart' as _i166;
 import '../providers/app_config_provider.dart' as _i56;
 import '../providers/language_provider.dart' as _i822;
@@ -199,7 +199,7 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i376.DeleteTokenUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i1055.SignupViewModel>(
         () => _i1055.SignupViewModel(gh<_i529.SignupUserUseCase>()));
-    gh.factory<_i888.OccasionsViewModel>(() => _i888.OccasionsViewModel(
+    gh.factory<_i463.OccasionsViewModel>(() => _i463.OccasionsViewModel(
           gh<_i64.GetOccasionsListUseCase>(),
           gh<_i896.GetAllProductsListUseCase>(),
         ));
