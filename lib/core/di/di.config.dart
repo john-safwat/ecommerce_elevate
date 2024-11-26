@@ -92,13 +92,13 @@ import '../../features/home/presentation/view_model/home_view_model.dart'
 import '../../features/home/product_details/presentation/product_details_view_model.dart'
     as _i101;
 import '../datasource_execution/datasource_execution.dart' as _i166;
-import '../modules/location_module.dart' as _i917;
-import '../modules/logger_module.dart' as _i774;
-import '../modules/network_module.dart' as _i184;
-import '../modules/shared_preferences_module.dart' as _i744;
 import '../providers/app_config_provider.dart' as _i56;
 import '../providers/language_provider.dart' as _i822;
 import '../utils/app_initializer.dart' as _i348;
+import 'modules/location_module.dart' as _i765;
+import 'modules/logger_module.dart' as _i205;
+import 'modules/network_module.dart' as _i851;
+import 'modules/shared_preferences_module.dart' as _i813;
 
 extension GetItInjectableX on _i174.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -122,6 +122,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i232.BestSellerViewModel>(() => _i232.BestSellerViewModel());
     gh.factory<_i101.ProductDetailsViewModel>(
         () => _i101.ProductDetailsViewModel());
+    gh.factory<_i656.HomeViewModel>(() => _i656.HomeViewModel());
+    gh.singleton<_i166.DataSourceExecution>(() => _i166.DataSourceExecution());
     gh.factory<_i77.HomeViewModel>(() => _i77.HomeViewModel());
     gh.singleton<_i56.AppConfigProvider>(() => _i56.AppConfigProvider());
     gh.singleton<_i166.DataSourceExecution>(() => _i166.DataSourceExecution());
@@ -132,6 +134,16 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i361.Dio>(() => networkModule.provideDio());
     gh.lazySingleton<_i528.PrettyDioLogger>(
         () => networkModule.providerInterceptor());
+
+    gh.singleton<_i187.AuthRetrofitClient>(
+        () => _i187.AuthRetrofitClient(gh<_i361.Dio>()));
+    gh.singleton<_i337.ProductsRetrofitClient>(
+        () => _i337.ProductsRetrofitClient(gh<_i361.Dio>()));
+    gh.singleton<_i186.CategoriesRetrofitClient>(
+        () => _i186.CategoriesRetrofitClient(gh<_i361.Dio>()));
+    gh.singleton<_i207.OccasionsRetrofitClient>(
+        () => _i207.OccasionsRetrofitClient(gh<_i361.Dio>()));
+
     gh.singleton<_i202.ProductsRetrofitClient>(
         () => _i202.ProductsRetrofitClient(gh<_i361.Dio>()));
     gh.singleton<_i207.OccasionsRetrofitClient>(
@@ -143,6 +155,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i96.OccasionsRemoteDatasource>(
         () => _i290.OccasionsRemoteDatasourceImpl(
               gh<_i207.OccasionsRetrofitClient>(),
+    gh.factory<_i542.CategoriesRemoteDatasource>(
+        () => _i948.CategoriesDatasourceImpl(
+              gh<_i186.CategoriesRetrofitClient>(),
               gh<_i166.DataSourceExecution>(),
             ));
     gh.factory<_i1071.AuthLocalDatasource>(
@@ -210,6 +225,13 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i974.ResetPasswordViewModel(gh<_i149.ResetPasswordUseCase>()));
     gh.factory<_i599.ForgetPasswordViewModel>(
         () => _i599.ForgetPasswordViewModel(gh<_i90.ForgetPasswordUseCase>()));
+    gh.factory<_i183.HomeTabViewModel>(() => _i183.HomeTabViewModel(
+          gh<_i348.GetCategoriesListUseCase>(),
+          gh<_i842.GetMostSellingProductsListUseCase>(),
+          gh<_i64.GetOccasionsListUseCase>(),
+          gh<_i645.Location>(),
+          gh<_i1024.GeoCode>(),
+        ));
     gh.factory<_i225.LoginViewModel>(
         () => _i225.LoginViewModel(gh<_i697.LoginUserUseCase>()));
     gh.factory<_i1033.OtpVerifyViewModel>(() => _i1033.OtpVerifyViewModel(
@@ -220,10 +242,13 @@ extension GetItInjectableX on _i174.GetIt {
   }
 }
 
-class _$SharedPreferencesModule extends _i744.SharedPreferencesModule {}
+class _$SharedPreferencesModule extends _i813.SharedPreferencesModule {}
 
+class _$LocationModule extends _i765.LocationModule {}
 class _$LocationModule extends _i917.LocationModule {}
 
 class _$LoggerModule extends _i774.LoggerModule {}
 
-class _$NetworkModule extends _i184.NetworkModule {}
+class _$LoggerModule extends _i205.LoggerModule {}
+
+class _$NetworkModule extends _i851.NetworkModule {}

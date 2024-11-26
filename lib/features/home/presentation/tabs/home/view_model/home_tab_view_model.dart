@@ -48,10 +48,7 @@ class HomeTabViewModel extends BaseViewModel<HomeTabStates, HomeTabActions> {
 
       case LoadDataAction():
         {
-          _getData();
-          // _getMostSellingProductsList();
-          // _getCategoriesList();
-          // _getOccasionsList();
+          await _getData();
         }
     }
   }
@@ -159,7 +156,7 @@ class HomeTabViewModel extends BaseViewModel<HomeTabStates, HomeTabActions> {
     }
   }
 
-  void _getData() async {
+  Future<void> _getData() async {
     emit(
       state.copyWith(
         productsState: HomeTabLoadingState(),

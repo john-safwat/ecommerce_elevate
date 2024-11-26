@@ -60,4 +60,4 @@ abstract class BaseViewModel<T, E extends BaseAction> extends Cubit<T> {
   }
 }
 
-class BaseAction {}
+abstract class BaseAction {}
