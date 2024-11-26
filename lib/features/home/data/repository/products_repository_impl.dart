@@ -1,15 +1,15 @@
 // 📦 Package imports:
+import 'package:ecommerce_elevate/features/home/data/datasource/contract/products_remote_datasource.dart';
 import 'package:injectable/injectable.dart';
 
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
-import 'package:ecommerce_elevate/features/home/data/datasource/contract/products_remote_datasource.dart';
 import 'package:ecommerce_elevate/features/home/domain/entities/products/product.dart';
 import 'package:ecommerce_elevate/features/home/domain/repository/products_repository.dart';
 
 @Injectable(as: ProductsRepository)
 class ProductsRepositoryImpl implements ProductsRepository {
-  final ProductsRemoteDatasource _datasource;
+  final ProductsDatasource _datasource;
 
   ProductsRepositoryImpl(this._datasource);
 
@@ -18,4 +18,12 @@ class ProductsRepositoryImpl implements ProductsRepository {
     var response = await _datasource.getBestSellerList();
     return response;
   }
+
+  @override
+  Future<Results<List<Product>?>> getAllProductsList(
+          {String? occasionId, String? categoryId}) async =>
+      await _datasource.getAllProductsList(
+        categoryId: categoryId,
+        occasionId: occasionId,
+      );
 }

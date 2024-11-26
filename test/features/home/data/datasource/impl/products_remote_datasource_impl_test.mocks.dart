@@ -3,9 +3,11 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i4;
+import 'dart:async' as _i5;
 
 import 'package:ecommerce_elevate/features/home/data/api/products/products_retrofit_client.dart'
+    as _i4;
+import 'package:ecommerce_elevate/features/home/data/models/products/all_products_respons_dto.dart'
     as _i3;
 import 'package:ecommerce_elevate/features/home/data/models/products/best_seller_response_dto.dart'
     as _i2;
@@ -35,23 +37,34 @@ class _FakeBestSellerResponseDto_0 extends _i1.SmartFake
         );
 }
 
+class _FakeAllProductsResponsDto_1 extends _i1.SmartFake
+    implements _i3.AllProductsResponsDto {
+  _FakeAllProductsResponsDto_1(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [ProductsRetrofitClient].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockProductsRetrofitClient extends _i1.Mock
-    implements _i3.ProductsRetrofitClient {
+    implements _i4.ProductsRetrofitClient {
   MockProductsRetrofitClient() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<_i2.BestSellerResponseDto> getBestSellerList() =>
+  _i5.Future<_i2.BestSellerResponseDto> getBestSellerList() =>
       (super.noSuchMethod(
         Invocation.method(
           #getBestSellerList,
           [],
         ),
-        returnValue: _i4.Future<_i2.BestSellerResponseDto>.value(
+        returnValue: _i5.Future<_i2.BestSellerResponseDto>.value(
             _FakeBestSellerResponseDto_0(
           this,
           Invocation.method(
@@ -59,5 +72,33 @@ class MockProductsRetrofitClient extends _i1.Mock
             [],
           ),
         )),
-      ) as _i4.Future<_i2.BestSellerResponseDto>);
+      ) as _i5.Future<_i2.BestSellerResponseDto>);
+
+  @override
+  _i5.Future<_i3.AllProductsResponsDto> getAllProducts({
+    String? occasionId,
+    String? categoryId,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getAllProducts,
+          [],
+          {
+            #occasionId: occasionId,
+            #categoryId: categoryId,
+          },
+        ),
+        returnValue: _i5.Future<_i3.AllProductsResponsDto>.value(
+            _FakeAllProductsResponsDto_1(
+          this,
+          Invocation.method(
+            #getAllProducts,
+            [],
+            {
+              #occasionId: occasionId,
+              #categoryId: categoryId,
+            },
+          ),
+        )),
+      ) as _i5.Future<_i3.AllProductsResponsDto>);
 }
