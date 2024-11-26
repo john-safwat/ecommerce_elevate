@@ -1,3 +1,4 @@
+// 📦 Package imports:
 import 'package:json_annotation/json_annotation.dart';
 
 part 'metadata_dto.g.dart';
@@ -11,7 +12,7 @@ class MetadataDto {
   @JsonKey(name: "limit")
   final int? limit;
 
-  MetadataDto ({
+  MetadataDto({
     this.currentPage,
     this.numberOfPages,
     this.limit,

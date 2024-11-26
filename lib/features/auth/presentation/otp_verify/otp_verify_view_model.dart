@@ -1,5 +1,13 @@
+// 🎯 Dart imports:
 import 'dart:async';
 
+// 🐦 Flutter imports:
+import 'package:flutter/material.dart';
+
+// 📦 Package imports:
+import 'package:injectable/injectable.dart';
+
+// 🌎 Project imports:
 import 'package:ecommerce_elevate/core/base/base_view_model.dart';
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/forgetPassword/forget_password_response.dart';
@@ -7,8 +15,6 @@ import 'package:ecommerce_elevate/features/auth/domain/entities/verify_reset_cod
 import 'package:ecommerce_elevate/features/auth/domain/use_case/forget_password_use_case.dart';
 import 'package:ecommerce_elevate/features/auth/domain/use_case/verify_reset_code_use_case.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/otp_verify/otp_verify_contract.dart';
-import 'package:flutter/material.dart';
-import 'package:injectable/injectable.dart';
 
 @injectable
 class OtpVerifyViewModel
@@ -30,7 +36,8 @@ class OtpVerifyViewModel
 
   _initTimer() {
     timer = Timer.periodic(const Duration(seconds: 1), _updateTimer);
-    resendOtpTimer = Timer.periodic(const Duration(seconds: 1), _updateOtpTimer);
+    resendOtpTimer =
+        Timer.periodic(const Duration(seconds: 1), _updateOtpTimer);
   }
 
   ValueNotifier<String> timerMessage = ValueNotifier<String>("10:00");
@@ -41,7 +48,7 @@ class OtpVerifyViewModel
   String otpMessage = "";
 
   @override
-  Future<void>  doIntent(OtpVerifyViewAction action)async {
+  Future<void> doIntent(OtpVerifyViewAction action) async {
     switch (action) {
       case OnCompleteCodeVerifyAction():
         {
@@ -94,8 +101,9 @@ class OtpVerifyViewModel
     timerMessage.value = "${locale!.validFor} $minutes:$seconds";
     _checkInputFormValidation();
   }
+
   void _updateOtpTimer(Timer timer) {
-    if (resendTimer ==0){
+    if (resendTimer == 0) {
       return;
     }
     resendTimer--;
@@ -107,7 +115,8 @@ class OtpVerifyViewModel
     if (resendMinutes.length == 1) {
       resendMinutes = "0$resendMinutes";
     }
-    resendMessage.value = " ${locale!.resendOtpTimerMessage} $resendMinutes:$resendSeconds";
+    resendMessage.value =
+        " ${locale!.resendOtpTimerMessage} $resendMinutes:$resendSeconds";
   }
 
   void _navigateToResetPasswordScreen() {

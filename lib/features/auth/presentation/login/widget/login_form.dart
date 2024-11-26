@@ -1,8 +1,12 @@
-import 'package:ecommerce_elevate/core/assets/app_colors.dart';
-import 'package:ecommerce_elevate/features/auth/presentation/login/login_view_model.dart';
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
+
+// 📦 Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+// 🌎 Project imports:
+import 'package:ecommerce_elevate/core/assets/app_colors.dart';
+import 'package:ecommerce_elevate/features/auth/presentation/login/login_view_model.dart';
 import '../login_contract.dart';
 
 // ignore: must_be_immutable
@@ -85,6 +89,15 @@ class LoginForm extends StatelessWidget {
                 child: Text(viewModel.locale!.login)),
           ),
           const SizedBox(height: 16),
+          OutlinedButton(
+            onPressed: () {},
+            style: OutlinedButton.styleFrom(
+              padding: const EdgeInsets.all(16),
+              foregroundColor: AppColors.pink,
+              side: const BorderSide(color: AppColors.pink),
+            ),
+            child: Text("Continue as Guest"),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

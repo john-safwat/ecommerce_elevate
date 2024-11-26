@@ -1,3 +1,4 @@
+// 🌎 Project imports:
 import 'package:ecommerce_elevate/features/auth/domain/entities/user/user.dart';
 
 class AuthenticationResponse {

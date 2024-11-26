@@ -1,6 +1,10 @@
-import 'package:dialogs/app_dialog_utils.dart';
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
 
+// 📦 Package imports:
+import 'package:dialogs/app_dialog_utils.dart';
+
+// 🌎 Project imports:
 import '../assets/animation_assets.dart';
 
 class AppDialogs {

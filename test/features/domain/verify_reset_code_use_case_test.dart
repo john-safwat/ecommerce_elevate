@@ -1,12 +1,15 @@
+// 📦 Package imports:
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
 
+// 🌎 Project imports:
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/verify_reset_code/verify_reset_code_response.dart';
 import 'package:ecommerce_elevate/features/auth/domain/repository/auth_repository.dart';
 import 'package:ecommerce_elevate/features/auth/domain/use_case/verify_reset_code_use_case.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
-import 'package:mockito/mockito.dart';
 import 'verify_reset_code_use_case_test.mocks.dart';
+
 @GenerateMocks([AuthRepository])
 void main (){
   test('when call invoke it should call authRepository.verifyResetPasswordCode with correct params ',(){

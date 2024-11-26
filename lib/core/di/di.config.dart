@@ -47,12 +47,12 @@ import '../../features/auth/presentation/reset_password/reset_password_view_mode
     as _i974;
 import '../../features/auth/presentation/signup/signup_view_model.dart'
     as _i1055;
-import '../../features/home/data/api/best_seller/products_retrofit_client.dart'
-    as _i337;
 import '../../features/home/data/api/categories/categories_retrofit_client.dart'
     as _i186;
 import '../../features/home/data/api/occasions/occasions_retrofit_client.dart'
     as _i207;
+import '../../features/home/data/api/products/products_retrofit_client.dart'
+    as _i202;
 import '../../features/home/data/datasource/contract/categories_remote_datasource.dart'
     as _i542;
 import '../../features/home/data/datasource/contract/occasions_remote_datasource.dart'
@@ -83,17 +83,18 @@ import '../../features/home/domain/use_case/get_most_selling_products_list_use_c
     as _i842;
 import '../../features/home/domain/use_case/get_occasions_list_use_case.dart'
     as _i64;
-import '../../features/home/tabs/home/view_model/home_tab_view_model.dart'
-    as _i183;
-import '../../features/home/view_model/home_view_model.dart' as _i656;
+import '../../features/home/presentation/tabs/home/view_model/home_tab_view_model.dart'
+    as _i742;
+import '../../features/home/presentation/view_model/home_view_model.dart'
+    as _i77;
 import '../datasource_execution/datasource_execution.dart' as _i166;
-import '../modules/location_module.dart' as _i917;
-import '../modules/logger_module.dart' as _i774;
-import '../modules/network_module.dart' as _i184;
-import '../modules/shared_preferences_module.dart' as _i744;
 import '../providers/app_config_provider.dart' as _i56;
 import '../providers/language_provider.dart' as _i822;
 import '../utils/app_initializer.dart' as _i348;
+import 'modules/location_module.dart' as _i765;
+import 'modules/logger_module.dart' as _i205;
+import 'modules/network_module.dart' as _i851;
+import 'modules/shared_preferences_module.dart' as _i813;
 
 extension GetItInjectableX on _i174.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -116,6 +117,8 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i656.HomeViewModel>(() => _i656.HomeViewModel());
     gh.singleton<_i166.DataSourceExecution>(() => _i166.DataSourceExecution());
+    gh.factory<_i77.HomeViewModel>(() => _i77.HomeViewModel());
+    gh.singleton<_i166.DataSourceExecution>(() => _i166.DataSourceExecution());
     gh.singleton<_i56.AppConfigProvider>(() => _i56.AppConfigProvider());
     gh.lazySingleton<_i645.Location>(() => locationModule.location);
     gh.lazySingleton<_i1024.GeoCode>(() => locationModule.geoCode);
@@ -132,6 +135,11 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i186.CategoriesRetrofitClient(gh<_i361.Dio>()));
     gh.singleton<_i207.OccasionsRetrofitClient>(
         () => _i207.OccasionsRetrofitClient(gh<_i361.Dio>()));
+    gh.singleton<_i202.ProductsRetrofitClient>(
+        () => _i202.ProductsRetrofitClient(gh<_i361.Dio>()));
+    gh.factory<_i96.OccasionsRemoteDatasource>(
+        () => _i290.OccasionsRemoteDatasourceImpl(
+              gh<_i207.OccasionsRetrofitClient>(),
     gh.factory<_i542.CategoriesRemoteDatasource>(
         () => _i948.CategoriesDatasourceImpl(
               gh<_i186.CategoriesRetrofitClient>(),
@@ -139,31 +147,35 @@ extension GetItInjectableX on _i174.GetIt {
             ));
     gh.factory<_i1071.AuthLocalDatasource>(
         () => _i909.AuthLocalDatasourceImpl(gh<_i460.SharedPreferences>()));
-    gh.factory<_i603.ProductsDatasource>(
-        () => _i868.ProductsRemoteDatasourceImpl(
-              gh<_i337.ProductsRetrofitClient>(),
-              gh<_i166.DataSourceExecution>(),
-            ));
     gh.singleton<_i822.LanguageProvider>(
         () => _i822.LanguageProvider(gh<_i460.SharedPreferences>()));
-    gh.factory<_i96.OccasionsRemoteDatasource>(
-        () => _i290.OccasionsDatasourceImpl(
-              gh<_i207.OccasionsRetrofitClient>(),
+    gh.factory<_i542.CategoriesRemoteDatasource>(
+        () => _i948.CategoriesRemoteDatasourceImpl(
+              gh<_i186.CategoriesRetrofitClient>(),
+              gh<_i166.DataSourceExecution>(),
+            ));
+    gh.factory<_i860.OccasionsRepository>(() =>
+        _i17.OccasionsRepositoryImpl(gh<_i96.OccasionsRemoteDatasource>()));
+    gh.factory<_i603.ProductsRemoteDatasource>(
+        () => _i868.ProductsRemoteDatasourceImpl(
+              gh<_i202.ProductsRetrofitClient>(),
               gh<_i166.DataSourceExecution>(),
             ));
     gh.factory<_i1070.AuthRemoteDatasource>(() => _i81.AuthRemoteDatasourceImpl(
           gh<_i187.AuthRetrofitClient>(),
           gh<_i166.DataSourceExecution>(),
         ));
+    gh.factory<_i195.ProductsRepository>(() =>
+        _i748.ProductsRepositoryImpl(gh<_i603.ProductsRemoteDatasource>()));
     gh.lazySingleton<_i348.AppInitializer>(() => _i348.AppInitializer(
           gh<_i822.LanguageProvider>(),
           gh<_i56.AppConfigProvider>(),
           gh<_i460.SharedPreferences>(),
         ));
-    gh.factory<_i195.ProductsRepository>(
-        () => _i748.BestSellerRepositoryImpl(gh<_i603.ProductsDatasource>()));
     gh.factory<_i403.CategoriesRepository>(() =>
         _i199.CategoriesRepositoryImpl(gh<_i542.CategoriesRemoteDatasource>()));
+    gh.factory<_i64.GetOccasionsListUseCase>(
+        () => _i64.GetOccasionsListUseCase(gh<_i860.OccasionsRepository>()));
     gh.factory<_i961.AuthRepository>(() => _i409.AuthRepositoryImpl(
           gh<_i1070.AuthRemoteDatasource>(),
           gh<_i1071.AuthLocalDatasource>(),
@@ -171,16 +183,19 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i842.GetMostSellingProductsListUseCase>(() =>
         _i842.GetMostSellingProductsListUseCase(
             gh<_i195.ProductsRepository>()));
-    gh.factory<_i860.OccasionsRepository>(() =>
-        _i17.OccasionsRepositoryImpl(gh<_i96.OccasionsRemoteDatasource>()));
     gh.factory<_i348.GetCategoriesListUseCase>(
         () => _i348.GetCategoriesListUseCase(gh<_i403.CategoriesRepository>()));
+    gh.factory<_i742.HomeTabViewModel>(() => _i742.HomeTabViewModel(
+          gh<_i348.GetCategoriesListUseCase>(),
+          gh<_i842.GetMostSellingProductsListUseCase>(),
+          gh<_i64.GetOccasionsListUseCase>(),
+          gh<_i645.Location>(),
+          gh<_i1024.GeoCode>(),
+        ));
     gh.factory<_i90.ForgetPasswordUseCase>(
         () => _i90.ForgetPasswordUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i529.SignupUserUseCase>(
         () => _i529.SignupUserUseCase(gh<_i961.AuthRepository>()));
-    gh.factory<_i64.GetOccasionsListUseCase>(
-        () => _i64.GetOccasionsListUseCase(gh<_i860.OccasionsRepository>()));
     gh.factory<_i376.DeleteTokenUseCase>(
         () => _i376.DeleteTokenUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i1055.SignupViewModel>(
@@ -212,10 +227,13 @@ extension GetItInjectableX on _i174.GetIt {
   }
 }
 
-class _$SharedPreferencesModule extends _i744.SharedPreferencesModule {}
+class _$SharedPreferencesModule extends _i813.SharedPreferencesModule {}
 
+class _$LocationModule extends _i765.LocationModule {}
 class _$LocationModule extends _i917.LocationModule {}
 
 class _$LoggerModule extends _i774.LoggerModule {}
 
-class _$NetworkModule extends _i184.NetworkModule {}
+class _$LoggerModule extends _i205.LoggerModule {}
+
+class _$NetworkModule extends _i851.NetworkModule {}

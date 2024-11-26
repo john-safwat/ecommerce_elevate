@@ -27,6 +27,8 @@ class ProductCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: height * .28,
+      width: width * .4,
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         border: Border.all(color: AppColors.white[AppColors.colorCode70]!),
