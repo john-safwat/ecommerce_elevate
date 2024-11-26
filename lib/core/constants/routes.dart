@@ -6,4 +6,6 @@ class Routes {
   static const String otpVerifyRoute = "/otpVerify";
   static const String resetPasswordViewRoute = "/resetPassword";
   static const String occasionsRoute = "/occasions";
+  static const String productDetailsRoute = "/productDetails";
+  static const String bestSellerViewRoute = "/bestSeller";
 }

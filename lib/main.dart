@@ -16,8 +16,16 @@ import 'package:ecommerce_elevate/features/auth/presentation/otp_verify/otp_veri
 import 'package:ecommerce_elevate/features/auth/presentation/reset_password/reset_password_view.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/signup/signup_view.dart';
 import 'package:ecommerce_elevate/features/home/presentation/tabs/occasions/occasions_screen.dart';
+import 'package:ecommerce_elevate/features/home/best_seller/presentation/best_seller_view.dart';
 
 import 'package:ecommerce_elevate/features/home/presentation/home_view.dart';
+import 'package:ecommerce_elevate/features/home/product_details/presentation/product_details_view.dart';
+import 'package:flutter/material.dart';
+// 📦 Package imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:provider/provider.dart';
+
 import 'core/constants/routes.dart';
 import 'core/di/di.dart';
 import 'core/theme/app_theme.dart';
@@ -63,6 +71,8 @@ class MyApp extends StatelessWidget {
         Routes.otpVerifyRoute: (context) => const OtpVerifyView(),
         Routes.resetPasswordViewRoute: (context) => const ResetPasswordView(),
         Routes.occasionsRoute: (context) => const OccasionsScreen(),
+        Routes.productDetailsRoute: (context) => const ProductDetailsView(),
+        Routes.bestSellerViewRoute: (context) => const BestSellerView(),
       },
       initialRoute: appConfigProvider.token.isEmpty
           ? Routes.loginRoute

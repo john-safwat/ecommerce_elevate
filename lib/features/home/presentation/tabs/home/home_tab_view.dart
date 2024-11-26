@@ -1,12 +1,7 @@
 // 🐦 Flutter imports:
-import 'package:flutter/material.dart';
-
-// 📦 Package imports:
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:skeletonizer/skeletonizer.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/base/base_view.dart';
+import 'package:ecommerce_elevate/core/constants/routes.dart';
 import 'package:ecommerce_elevate/core/di/di.dart';
 import 'package:ecommerce_elevate/core/constants/routes.dart';
 import 'package:ecommerce_elevate/features/home/domain/entities/category/category.dart';
@@ -20,6 +15,10 @@ import 'package:ecommerce_elevate/features/home/presentation/tabs/home/widgets/c
 import 'package:ecommerce_elevate/features/home/presentation/tabs/home/widgets/home_app_bar.dart';
 import 'package:ecommerce_elevate/features/home/presentation/tabs/home/widgets/occasions_card_widget.dart';
 import 'package:ecommerce_elevate/features/home/presentation/tabs/home/widgets/title_widget.dart';
+import 'package:flutter/material.dart';
+// 📦 Package imports:
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class HomeTabView extends StatefulWidget {
   const HomeTabView({super.key});
@@ -105,19 +104,32 @@ class _HomeTabViewState extends BaseState<HomeTabView, HomeTabViewModel> {
                         TitleWidget(
                           title: viewModel.locale!.bestSellers,
                           buttonTitle: viewModel.locale!.viewAll,
-                          onTextButtonPress: () {},
+                          onTextButtonPress: () {
+                            Navigator.of(context).pushNamed(
+                              Routes.bestSellerViewRoute,
+                              arguments: products,
+                            );
+                          },
                         ),
                         SizedBox(
                           height: 210,
                           child: ListView.separated(
                             padding: const EdgeInsets.symmetric(horizontal: 16),
                             scrollDirection: Axis.horizontal,
-                            itemBuilder: (context, index) =>
-                                BestSellerCardWidget(
-                              product: products!.isEmpty
-                                  ? Product(title: "----------", price: 100)
-                                  : products[index],
-                              function: () {},
+                            itemBuilder: (context, index) => GestureDetector(
+                              onTap: () {
+                                // navigator to product details view
+                                Navigator.of(context).pushNamed(
+                                  Routes.productDetailsRoute,
+                                  arguments: products?[index],
+                                );
+                              },
+                              child: BestSellerCardWidget(
+                                product: products!.isEmpty
+                                    ? Product(title: "----------", price: 100)
+                                    : products[index],
+                                function: () {},
+                              ),
                             ),
                             separatorBuilder: (context, index) =>
                                 const SizedBox(width: 16),
