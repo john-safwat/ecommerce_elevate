@@ -191,8 +191,10 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i376.DeleteTokenUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i1055.SignupViewModel>(
         () => _i1055.SignupViewModel(gh<_i529.SignupUserUseCase>()));
-    gh.factory<_i888.OccasionsViewModel>(
-        () => _i888.OccasionsViewModel(gh<_i64.GetOccasionsListUseCase>()));
+    gh.factory<_i888.OccasionsViewModel>(() => _i888.OccasionsViewModel(
+          gh<_i64.GetOccasionsListUseCase>(),
+          gh<_i896.GetAllProductsListUseCase>(),
+        ));
     gh.factory<_i697.LoginUserUseCase>(
         () => _i697.LoginUserUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i149.ResetPasswordUseCase>(

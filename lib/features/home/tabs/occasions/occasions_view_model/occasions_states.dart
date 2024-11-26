@@ -7,6 +7,8 @@ class OccasionInitialsState extends OccasionsStates {}
 
 class OccasionLoadingState extends OccasionsStates {}
 
+class ProductsLoadingState extends OccasionsStates {}
+
 class OccasionTabsSuccessState extends OccasionsStates {
   final List<Occasion>? occasions;
 
@@ -14,7 +16,7 @@ class OccasionTabsSuccessState extends OccasionsStates {
 }
 
 class OccasionProductsSuccessState extends OccasionsStates {
-  Product products;
+  List<Product>? products;
   OccasionProductsSuccessState(this.products);
 }
 
@@ -23,4 +25,11 @@ class OccasionFailureState extends OccasionsStates {
   Exception exception;
 
   OccasionFailureState(this.errorMessage, this.exception);
+}
+
+class ProductsFailureState extends OccasionsStates {
+  String errorMessage;
+  Exception exception;
+
+  ProductsFailureState(this.errorMessage, this.exception);
 }

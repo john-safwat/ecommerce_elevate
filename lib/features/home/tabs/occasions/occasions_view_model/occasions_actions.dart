@@ -4,4 +4,7 @@ sealed class OccasionsActions extends BaseAction {}
 
 class LoadTabsAction extends OccasionsActions {}
 
-class LoadProductsAction extends OccasionsActions {}
+class LoadProductsAction extends OccasionsActions {
+  // String? occasionId;
+  // LoadProductsAction(this.occasionId);
+}
