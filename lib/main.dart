@@ -66,7 +66,7 @@ class MyApp extends StatelessWidget {
       },
       initialRoute: appConfigProvider.token.isEmpty
           ? Routes.loginRoute
-          : Routes.occasionsRoute,
+          : Routes.homeRoute,
     );
   }
 }

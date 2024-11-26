@@ -182,6 +182,8 @@ extension GetItInjectableX on _i174.GetIt {
             gh<_i195.ProductsRepository>()));
     gh.factory<_i896.GetAllProductsListUseCase>(
         () => _i896.GetAllProductsListUseCase(gh<_i195.ProductsRepository>()));
+    gh.factory<_i463.OccasionsViewModel>(
+        () => _i463.OccasionsViewModel(gh<_i896.GetAllProductsListUseCase>()));
     gh.factory<_i348.GetCategoriesListUseCase>(
         () => _i348.GetCategoriesListUseCase(gh<_i403.CategoriesRepository>()));
     gh.factory<_i742.HomeTabViewModel>(() => _i742.HomeTabViewModel(
@@ -199,10 +201,6 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i376.DeleteTokenUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i1055.SignupViewModel>(
         () => _i1055.SignupViewModel(gh<_i529.SignupUserUseCase>()));
-    gh.factory<_i463.OccasionsViewModel>(() => _i463.OccasionsViewModel(
-          gh<_i64.GetOccasionsListUseCase>(),
-          gh<_i896.GetAllProductsListUseCase>(),
-        ));
     gh.factory<_i697.LoginUserUseCase>(
         () => _i697.LoginUserUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i149.ResetPasswordUseCase>(
