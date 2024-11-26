@@ -77,12 +77,16 @@ import '../../features/home/domain/repository/occasions_repository.dart'
     as _i860;
 import '../../features/home/domain/repository/products_repository.dart'
     as _i195;
+import '../../features/home/domain/use_case/get_all_products_list_use_case.dart'
+    as _i896;
 import '../../features/home/domain/use_case/get_categories_list_use_case.dart'
     as _i348;
 import '../../features/home/domain/use_case/get_most_selling_products_list_use_case.dart'
     as _i842;
 import '../../features/home/domain/use_case/get_occasions_list_use_case.dart'
     as _i64;
+import '../../features/home/presentation/tabs/categories/view_model/categories_view_model.dart'
+    as _i436;
 import '../../features/home/presentation/tabs/home/view_model/home_tab_view_model.dart'
     as _i742;
 import '../../features/home/presentation/view_model/home_view_model.dart'
@@ -147,13 +151,14 @@ extension GetItInjectableX on _i174.GetIt {
               gh<_i186.CategoriesRetrofitClient>(),
               gh<_i166.DataSourceExecution>(),
             ));
-    gh.factory<_i860.OccasionsRepository>(() =>
-        _i17.OccasionsRepositoryImpl(gh<_i96.OccasionsRemoteDatasource>()));
     gh.factory<_i603.ProductsRemoteDatasource>(
         () => _i868.ProductsRemoteDatasourceImpl(
               gh<_i202.ProductsRetrofitClient>(),
               gh<_i166.DataSourceExecution>(),
+              gh<_i202.ProductsRetrofitClient>(),
             ));
+    gh.factory<_i860.OccasionsRepository>(() =>
+        _i17.OccasionsRepositoryImpl(gh<_i96.OccasionsRemoteDatasource>()));
     gh.factory<_i1070.AuthRemoteDatasource>(() => _i81.AuthRemoteDatasourceImpl(
           gh<_i187.AuthRetrofitClient>(),
           gh<_i166.DataSourceExecution>(),
@@ -176,6 +181,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i842.GetMostSellingProductsListUseCase>(() =>
         _i842.GetMostSellingProductsListUseCase(
             gh<_i195.ProductsRepository>()));
+    gh.factory<_i896.GetAllProductsListUseCase>(
+        () => _i896.GetAllProductsListUseCase(gh<_i195.ProductsRepository>()));
     gh.factory<_i348.GetCategoriesListUseCase>(
         () => _i348.GetCategoriesListUseCase(gh<_i403.CategoriesRepository>()));
     gh.factory<_i742.HomeTabViewModel>(() => _i742.HomeTabViewModel(
@@ -201,6 +208,10 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i149.ResetPasswordUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i974.ResetPasswordViewModel>(
         () => _i974.ResetPasswordViewModel(gh<_i149.ResetPasswordUseCase>()));
+    gh.factory<_i436.CategoriesViewModel>(() => _i436.CategoriesViewModel(
+          gh<_i348.GetCategoriesListUseCase>(),
+          gh<_i896.GetAllProductsListUseCase>(),
+        ));
     gh.factory<_i599.ForgetPasswordViewModel>(
         () => _i599.ForgetPasswordViewModel(gh<_i90.ForgetPasswordUseCase>()));
     gh.factory<_i225.LoginViewModel>(

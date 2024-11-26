@@ -52,4 +52,32 @@ class MockProductsRemoteDatasource extends _i1.Mock
           ),
         )),
       ) as _i3.Future<_i4.Results<List<_i5.Product>?>>);
+
+  @override
+  _i3.Future<_i4.Results<List<_i5.Product>?>> getAllProductsList({
+    String? occasionId,
+    String? categoryId,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getAllProductsList,
+          [],
+          {
+            #occasionId: occasionId,
+            #categoryId: categoryId,
+          },
+        ),
+        returnValue: _i3.Future<_i4.Results<List<_i5.Product>?>>.value(
+            _i6.dummyValue<_i4.Results<List<_i5.Product>?>>(
+          this,
+          Invocation.method(
+            #getAllProductsList,
+            [],
+            {
+              #occasionId: occasionId,
+              #categoryId: categoryId,
+            },
+          ),
+        )),
+      ) as _i3.Future<_i4.Results<List<_i5.Product>?>>);
 }

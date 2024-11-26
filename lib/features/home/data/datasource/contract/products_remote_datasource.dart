@@ -4,4 +4,8 @@ import 'package:ecommerce_elevate/features/home/domain/entities/products/product
 
 abstract interface class ProductsRemoteDatasource {
   Future<Results<List<Product>?>> getBestSellerList();
+  Future<Results<List<Product>?>> getAllProductsList({
+    String? occasionId,
+    String? categoryId,
+  });
 }
