@@ -5,6 +5,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:ecommerce_elevate/core/providers/app_config_provider.dart';
 import 'package:ecommerce_elevate/core/providers/language_provider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 abstract class BaseViewModel<T, E extends BaseAction> extends Cubit<T> {
@@ -13,8 +14,9 @@ abstract class BaseViewModel<T, E extends BaseAction> extends Cubit<T> {
   LanguageProvider? languageProvider;
   AppConfigProvider? appConfigProvider;
   AppLocalizations? locale;
+  Size? mediaQuery;
 
-  void doIntent(E action);
+  Future<void> doIntent(E action);
 
   String mapExceptionToMessage(Exception exception) {
     if (exception is SocketException) {

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:ecommerce_elevate/core/base/base_view_model.dart';
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/registration/registration_response.dart';
@@ -14,7 +16,6 @@ class SignupViewModel extends BaseViewModel<SignupViewState, SignupAction> {
   SignupViewModel(this.signupUserUseCase) : super(InitialSignupViewState());
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  final TextEditingController nameController = TextEditingController();
   final TextEditingController firstNameController = TextEditingController();
   final TextEditingController lastNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
@@ -22,13 +23,14 @@ class SignupViewModel extends BaseViewModel<SignupViewState, SignupAction> {
   final TextEditingController confirmPasswordController =
       TextEditingController();
   final TextEditingController phoneController = TextEditingController();
+  Gender selectedGender = Gender.female;
 
   ValueNotifier<bool> valid = ValueNotifier(false);
   ValueNotifier<bool> passwordVisible = ValueNotifier(true);
   ValueNotifier<bool> passwordConfirmationVisible = ValueNotifier(true);
 
   @override
-  void doIntent(SignupViewAction action) {
+  Future<void>  doIntent(SignupViewAction action)async {
     switch (action) {
       case FormDataChangedAction():
         {
@@ -53,6 +55,10 @@ class SignupViewModel extends BaseViewModel<SignupViewState, SignupAction> {
       case NavigateToLoginScreenAction():
         {
           _navigateToLoginScreen();
+        }
+      case ChangeGenderAction():
+        {
+          _changeGender(action.gender);
         }
     }
   }
@@ -111,15 +117,14 @@ class SignupViewModel extends BaseViewModel<SignupViewState, SignupAction> {
   String? phoneValidation(String value) {
     if (value.isEmpty) {
       return locale!.enterPhoneNumber;
-    } else if (!RegExp(r'^01[0125][0-9]{8}$').hasMatch(value)) {
+    } else if (!RegExp(r'^\+20(10|11|12|15)\d{8}$').hasMatch(value)) {
       return locale!.enterValidMobileNumber;
     }
     return null;
   }
 
   void _updateValidationState() {
-    if (nameController.text.isEmpty ||
-        firstNameController.text.isEmpty ||
+    if (firstNameController.text.isEmpty ||
         lastNameController.text.isEmpty ||
         emailController.text.isEmpty ||
         passwordController.text.isEmpty ||
@@ -140,7 +145,7 @@ class SignupViewModel extends BaseViewModel<SignupViewState, SignupAction> {
           email: emailController.text,
           firstName: firstNameController.text,
           lastName: lastNameController.text,
-          username: nameController.text,
+          gender: selectedGender == Gender.female ? "female" : "male",
           password: passwordController.text,
           rePassword: confirmPasswordController.text,
           phone: phoneController.text));
@@ -174,6 +179,12 @@ class SignupViewModel extends BaseViewModel<SignupViewState, SignupAction> {
     passwordVisible.value = !passwordVisible.value;
   }
 
+  void _changeGender(Gender value) {
+    selectedGender = value;
+    log('selectedGender: $selectedGender');
+    emit(ChangeGenderState());
+  }
+
   void _changePasswordConfirmationVisibility() {
     passwordConfirmationVisible.value = !passwordConfirmationVisible.value;
   }
@@ -182,3 +193,5 @@ class SignupViewModel extends BaseViewModel<SignupViewState, SignupAction> {
     emit(NavigateToLoginScreenState());
   }
 }
+
+enum Gender { male, female }

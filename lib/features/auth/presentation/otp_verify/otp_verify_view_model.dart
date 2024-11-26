@@ -41,7 +41,7 @@ class OtpVerifyViewModel
   String otpMessage = "";
 
   @override
-  void doIntent(OtpVerifyViewAction action) {
+  Future<void>  doIntent(OtpVerifyViewAction action)async {
     switch (action) {
       case OnCompleteCodeVerifyAction():
         {

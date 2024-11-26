@@ -25,7 +25,7 @@ class ResetPasswordViewModel
   ValueNotifier<bool> passwordConfirmationVisible = ValueNotifier(true);
 
   @override
-  void doIntent(ResetPasswordViewAction action) {
+  Future<void>  doIntent(ResetPasswordViewAction action) async{
     switch (action) {
       case NavigateToLoginScreenAction():
         {
