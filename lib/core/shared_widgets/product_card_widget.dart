@@ -1,3 +1,6 @@
+
+// 🐦 Flutter imports:
+// 🌎 Project imports:
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce_elevate/core/assets/app_images.dart';
 import 'package:ecommerce_elevate/features/home/domain/entities/products/product.dart';
@@ -43,44 +46,35 @@ class ProductCardWidget extends StatelessWidget {
                   const Center(child: Icon(Icons.error, color: AppColors.pink)),
               fit: BoxFit.cover,
               width: double.infinity,
+
             ),
           ),
           const SizedBox(height: 8),
           Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      product.title ?? '',
-                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                          ),
-                    ),
-                    const SizedBox(height: 4),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'EGP ${product.priceAfterDiscount}',
-                          style:
-                              Theme.of(context).textTheme.titleMedium?.copyWith(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+              Text(
+                product.title ?? "",
+                style: Theme.of(context).textTheme.bodySmall,
+                overflow: TextOverflow.ellipsis,
+              ),
+              const SizedBox(height: 4),
+              Row(
+                children: [
+                  Text(
+                    'EGP ${product.priceAfterDiscount ?? 0} ',
+                    style: Theme.of(context).textTheme.labelLarge,
+                  ),
+                  Text(
+                    " ${product.price ?? 0}",
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                          color: AppColors.gray,
+                          decoration: TextDecoration.lineThrough,
                         ),
-                        Text(
-                          product.price.toString(),
-                          style:
-                              Theme.of(context).textTheme.titleMedium?.copyWith(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                    color: AppColors.gray,
-                                    decoration: TextDecoration.lineThrough,
-                                  ),
+                  ),
+                  Text(
+                    ' ${discount(product.price ?? 0, product.priceAfterDiscount ?? 0)}%',
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                          color: AppColors.successGreen,
                         ),
                         Text(
                           '${discount(product.price ?? 0, product.priceAfterDiscount ?? 0)}%',

@@ -47,6 +47,8 @@ import '../../features/auth/presentation/reset_password/reset_password_view_mode
     as _i974;
 import '../../features/auth/presentation/signup/signup_view_model.dart'
     as _i1055;
+import '../../features/home/best_seller/presentation/view_model/best_seller_view_model.dart'
+    as _i232;
 import '../../features/home/data/api/categories/categories_retrofit_client.dart'
     as _i186;
 import '../../features/home/data/api/occasions/occasions_retrofit_client.dart'
@@ -87,6 +89,8 @@ import '../../features/home/presentation/tabs/home/view_model/home_tab_view_mode
     as _i742;
 import '../../features/home/presentation/view_model/home_view_model.dart'
     as _i77;
+import '../../features/home/product_details/presentation/product_details_view_model.dart'
+    as _i101;
 import '../datasource_execution/datasource_execution.dart' as _i166;
 import '../providers/app_config_provider.dart' as _i56;
 import '../providers/language_provider.dart' as _i822;
@@ -115,11 +119,14 @@ extension GetItInjectableX on _i174.GetIt {
       () => sharedPreferencesModule.prefs,
       preResolve: true,
     );
+    gh.factory<_i232.BestSellerViewModel>(() => _i232.BestSellerViewModel());
+    gh.factory<_i101.ProductDetailsViewModel>(
+        () => _i101.ProductDetailsViewModel());
     gh.factory<_i656.HomeViewModel>(() => _i656.HomeViewModel());
     gh.singleton<_i166.DataSourceExecution>(() => _i166.DataSourceExecution());
     gh.factory<_i77.HomeViewModel>(() => _i77.HomeViewModel());
-    gh.singleton<_i166.DataSourceExecution>(() => _i166.DataSourceExecution());
     gh.singleton<_i56.AppConfigProvider>(() => _i56.AppConfigProvider());
+    gh.singleton<_i166.DataSourceExecution>(() => _i166.DataSourceExecution());
     gh.lazySingleton<_i645.Location>(() => locationModule.location);
     gh.lazySingleton<_i1024.GeoCode>(() => locationModule.geoCode);
     gh.lazySingleton<_i974.Logger>(() => loggerModule.loggerProvider);
@@ -127,6 +134,7 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i361.Dio>(() => networkModule.provideDio());
     gh.lazySingleton<_i528.PrettyDioLogger>(
         () => networkModule.providerInterceptor());
+
     gh.singleton<_i187.AuthRetrofitClient>(
         () => _i187.AuthRetrofitClient(gh<_i361.Dio>()));
     gh.singleton<_i337.ProductsRetrofitClient>(
@@ -135,8 +143,15 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i186.CategoriesRetrofitClient(gh<_i361.Dio>()));
     gh.singleton<_i207.OccasionsRetrofitClient>(
         () => _i207.OccasionsRetrofitClient(gh<_i361.Dio>()));
+
     gh.singleton<_i202.ProductsRetrofitClient>(
         () => _i202.ProductsRetrofitClient(gh<_i361.Dio>()));
+    gh.singleton<_i207.OccasionsRetrofitClient>(
+        () => _i207.OccasionsRetrofitClient(gh<_i361.Dio>()));
+    gh.singleton<_i186.CategoriesRetrofitClient>(
+        () => _i186.CategoriesRetrofitClient(gh<_i361.Dio>()));
+    gh.singleton<_i187.AuthRetrofitClient>(
+        () => _i187.AuthRetrofitClient(gh<_i361.Dio>()));
     gh.factory<_i96.OccasionsRemoteDatasource>(
         () => _i290.OccasionsRemoteDatasourceImpl(
               gh<_i207.OccasionsRetrofitClient>(),
@@ -200,12 +215,12 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i376.DeleteTokenUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i1055.SignupViewModel>(
         () => _i1055.SignupViewModel(gh<_i529.SignupUserUseCase>()));
+    gh.factory<_i660.VerifyResetPasswordUseCase>(
+        () => _i660.VerifyResetPasswordUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i697.LoginUserUseCase>(
         () => _i697.LoginUserUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i149.ResetPasswordUseCase>(
         () => _i149.ResetPasswordUseCase(gh<_i961.AuthRepository>()));
-    gh.factory<_i660.VerifyResetPasswordUseCase>(
-        () => _i660.VerifyResetPasswordUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i974.ResetPasswordViewModel>(
         () => _i974.ResetPasswordViewModel(gh<_i149.ResetPasswordUseCase>()));
     gh.factory<_i599.ForgetPasswordViewModel>(
