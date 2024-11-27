@@ -20,36 +20,36 @@ class OccasionsScreen extends StatefulWidget {
 class _OccasionsScreenState
     extends BaseState<OccasionsScreen, OccasionsViewModel>
     with TickerProviderStateMixin {
-  late TabController tabController;
-  List<Occasion>? occasions;
-
   @override
   void dispose() {
     super.dispose();
-    tabController.dispose();
-    tabController.removeListener(() {});
+    viewModel.tabController.dispose();
+    viewModel.tabController.removeListener(() {});
   }
+
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
 
-    occasions = ModalRoute.of(context)?.settings.arguments as List<Occasion>?;
-
-    if (occasions != null) {
-      tabController = TabController(
-        length: occasions!.length,
+    if(viewModel.occasions!.isEmpty){
+      viewModel.occasions =
+      ModalRoute.of(context)?.settings.arguments as List<Occasion>?;
+      viewModel.tabController = TabController(
+        length: viewModel.occasions!.length,
         vsync: this,
       );
-
-      tabController.addListener(() {
-        if (tabController.indexIsChanging) return;
+      viewModel.tabController.addListener(() {
+        if (viewModel.tabController.indexIsChanging) return;
         viewModel.doIntent(
-          LoadProductsAction(occasions![tabController.index].id),
+          LoadProductsAction(
+              viewModel.occasions![viewModel.tabController.index].id),
         );
       });
-
-      viewModel.doIntent(LoadProductsAction(occasions![0].id));
+      viewModel.doIntent(
+        LoadProductsAction(
+            viewModel.occasions![viewModel.tabController.index].id),
+      );
     }
   }
 
@@ -67,31 +67,21 @@ class _OccasionsScreenState
           ),
         ),
         body: DefaultTabController(
-          length: occasions!.length,
+          length: viewModel.occasions!.length,
           child: Column(
             children: [
               OccasionsTabbarWidget(
-                tabController: tabController,
-                tabs: occasions!.map((occasion) {
+                tabController: viewModel.tabController,
+                tabs: viewModel.occasions!.map((occasion) {
                   return Tab(text: occasion.name ?? "");
                 }).toList(),
               ),
-              const SizedBox(height: 16),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
-                  child: TabBarView(
-                    controller: tabController,
-                    children: occasions!
-                        .map(
-                          (occasion) =>
-                              OccasionsTabviewWidget(viewModel: viewModel),
-                        )
-                        .toList(),
-                  ),
+                  padding: const EdgeInsets.all(16),
+                  child: OccasionsTabviewWidget(viewModel: viewModel),
                 ),
               ),
-              const SizedBox(height: 16),
             ],
           ),
         ),

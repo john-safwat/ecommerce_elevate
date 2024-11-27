@@ -16,8 +16,7 @@ class OccasionTabsSuccessState extends OccasionsStates {
 }
 
 class OccasionProductsSuccessState extends OccasionsStates {
-  List<Product>? products;
-  OccasionProductsSuccessState(this.products);
+  OccasionProductsSuccessState();
 }
 
 class OccasionFailureState extends OccasionsStates {
@@ -33,3 +32,11 @@ class ProductsFailureState extends OccasionsStates {
 
   ProductsFailureState(this.errorMessage, this.exception);
 }
+
+class NavigatorToProductDetailsState extends OccasionsStates {
+  final Product product;
+
+  NavigatorToProductDetailsState(this.product);
+}
+
+class EmptyProductsState extends OccasionsStates {}
