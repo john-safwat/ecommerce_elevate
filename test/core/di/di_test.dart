@@ -65,8 +65,8 @@ Future<void> dependenciesSetup() async {
       MockProductsRetrofitClient());
   getItTest.registerSingleton<MockOccasionsRemoteDatasource>(
       MockOccasionsRemoteDatasource());
-  getItTest.registerSingleton<MockProductsRemoteDatasource>(
-      MockProductsRemoteDatasource());
+  getItTest.registerSingleton<MockProductsRemoteDatasourceImpl>(
+      MockProductsRemoteDatasourceImpl());
   getItTest.registerSingleton<MockCategoriesRepository>(
       MockCategoriesRepository());
   getItTest.registerSingleton<MockOccasionsRepository>(

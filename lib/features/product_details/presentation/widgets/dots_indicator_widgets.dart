@@ -1,8 +1,8 @@
-import 'package:ecommerce_elevate/features/home/product_details/presentation/widgets/custom_dot_indecator.dart';
+import 'package:ecommerce_elevate/features/product_details/presentation/widgets/custom_dot_indicator.dart';
 import 'package:flutter/material.dart';
 
-class DontsIndecatorWidget extends StatelessWidget {
-  const DontsIndecatorWidget({
+class DotsIndicatorWidget extends StatelessWidget {
+  const DotsIndicatorWidget({
     super.key,
     required this.dotNumber,
     required this.currentDot,
@@ -16,11 +16,11 @@ class DontsIndecatorWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: List.generate(dotNumber, (index) {
         return Padding(
-          padding: EdgeInsets.only(
-            right: size.width * 0.02,
-            bottom: size.height * 0.01,
+          padding: const EdgeInsets.only(
+            right: 16,
+            bottom: 16,
           ),
-          child: CustomDotIndecator(isActive: index == currentDot),
+          child: CustomDotIndicator(isActive: index == currentDot),
         );
       }),
     );

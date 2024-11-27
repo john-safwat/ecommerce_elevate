@@ -94,15 +94,13 @@
   "occasions" : "Occasions",
   "occasionAppBarMessage" : "Bloom with our exquisite best sellers",
   "viewAll": "View All",
-  "bestSellers": "Best Sellers"
+  "bestSellers": "Best Sellers",
   "egp": "EGP",
   "status": "Status",
   "description": "Description",
-  "viewAll": "View All",
-  "occasions": "Occasions",
-  "bestSellers": "Best Sellers",
   "best_seller": "Best Seller",
   "bloom_with_our_exquisite_best_sellers": "Bloom with our exquisite best sellers",
   "inStock": "In Stock",
-  "outOfStock": "Out of Stock"
+  "outOfStock": "Out of Stock",
+  "thereIsNoProduct" : "There is No Products in Stock"
 }
