@@ -257,7 +257,6 @@ void main() async {
       expect(viewModel.state.productsState, isA<HomeTabLoadingFailState>());
     });
 
-
     test("emits mixed success and failure states", () async {
       var occasionsResponse = Success<List<Occasion>?>([]);
       var categoriesResponse = Failure<List<Category>?>(Exception());
@@ -277,9 +276,9 @@ void main() async {
       await viewModel.doIntent(LoadDataAction());
 
       expect(viewModel.state.categoriesState, isA<HomeTabLoadingFailState>());
-      expect(viewModel.state.occasionsState, isA<HomeTabLoadingSuccessState<List<Occasion>?>>());
+      expect(viewModel.state.occasionsState,
+          isA<HomeTabLoadingSuccessState<List<Occasion>?>>());
       expect(viewModel.state.productsState, isA<HomeTabLoadingFailState>());
     });
-
   });
 }

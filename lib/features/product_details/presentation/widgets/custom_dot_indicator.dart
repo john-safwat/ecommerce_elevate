@@ -6,6 +6,7 @@ class CustomDotIndicator extends StatefulWidget {
     super.key,
     required this.isActive,
   });
+
   final bool isActive;
 
   @override
@@ -20,8 +21,9 @@ class _CustomDotIndicatorState extends State<CustomDotIndicator> {
       width: widget.isActive ? 45 : 10,
       height: 10,
       decoration: BoxDecoration(
-        color:
-            widget.isActive ? AppColors.pink : AppColors.white[AppColors.colorCode70],
+        color: widget.isActive
+            ? AppColors.pink
+            : AppColors.white[AppColors.colorCode70],
         borderRadius: BorderRadius.circular(12),
       ),
     );

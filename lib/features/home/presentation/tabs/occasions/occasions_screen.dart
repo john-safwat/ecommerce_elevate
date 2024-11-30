@@ -27,14 +27,13 @@ class _OccasionsScreenState
     viewModel.tabController.removeListener(() {});
   }
 
-
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
 
-    if(viewModel.occasions!.isEmpty){
+    if (viewModel.occasions!.isEmpty) {
       viewModel.occasions =
-      ModalRoute.of(context)?.settings.arguments as List<Occasion>?;
+          ModalRoute.of(context)?.settings.arguments as List<Occasion>?;
       viewModel.tabController = TabController(
         length: viewModel.occasions!.length,
         vsync: this,

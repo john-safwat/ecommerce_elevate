@@ -117,6 +117,13 @@ class AppTheme {
         side: BorderSide(color: AppColors.pink),
         overlayColor: WidgetStatePropertyAll(AppColors.pink),
       ),
+      outlinedButtonTheme: OutlinedButtonThemeData(
+        style: OutlinedButton.styleFrom(
+          padding: const EdgeInsets.all(16),
+          foregroundColor: AppColors.pink,
+          side: const BorderSide(color: AppColors.pink),
+        ),
+      ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
           type: BottomNavigationBarType.fixed,
           backgroundColor: AppColors.white,

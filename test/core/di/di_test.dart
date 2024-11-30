@@ -1,7 +1,5 @@
 // 🐦 Flutter imports:
 
-import 'package:ecommerce_elevate/features/home/data/repository/categories_repository_impl.dart';
-import 'package:ecommerce_elevate/features/home/domain/repository/categories_repository.dart';
 import 'package:ecommerce_elevate/features/home/presentation/tabs/home/view_model/home_tab_view_model.dart';
 // 🐦 Flutter imports:
 import 'package:flutter/material.dart';
@@ -67,10 +65,9 @@ Future<void> dependenciesSetup() async {
       MockOccasionsRemoteDatasource());
   getItTest.registerSingleton<MockProductsRemoteDatasourceImpl>(
       MockProductsRemoteDatasourceImpl());
-  getItTest.registerSingleton<MockCategoriesRepository>(
-      MockCategoriesRepository());
-  getItTest.registerSingleton<MockOccasionsRepository>(
-      MockOccasionsRepository());
-  getItTest.registerSingleton<MockProductsRepository>(
-      MockProductsRepository());
+  getItTest
+      .registerSingleton<MockCategoriesRepository>(MockCategoriesRepository());
+  getItTest
+      .registerSingleton<MockOccasionsRepository>(MockOccasionsRepository());
+  getItTest.registerSingleton<MockProductsRepository>(MockProductsRepository());
 }

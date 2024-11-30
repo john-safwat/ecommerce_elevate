@@ -5,6 +5,7 @@ sealed class OccasionsActions extends BaseAction {}
 
 class LoadProductsAction extends OccasionsActions {
   String? occasionId;
+
   LoadProductsAction(this.occasionId);
 }
 

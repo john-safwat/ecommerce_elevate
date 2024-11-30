@@ -42,3 +42,5 @@ class NavigateToSignUpScreeAction extends LoginViewAction {}
 class NavigateToHomeScreeAction extends LoginViewAction {}
 
 class NavigateToForgetPasswordScreenAction extends LoginViewAction {}
+
+class GuestLoginAction extends LoginViewAction {}

@@ -1,9 +1,4 @@
 // 🐦 Flutter imports:
-import 'package:flutter/material.dart';
-
-// 📦 Package imports:
-import 'package:injectable/injectable.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/base/base_view_model.dart';
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
@@ -11,6 +6,9 @@ import 'package:ecommerce_elevate/features/auth/domain/entities/authentication/a
 import 'package:ecommerce_elevate/features/auth/domain/entities/authentication/authentication_response.dart';
 import 'package:ecommerce_elevate/features/auth/domain/use_case/login_user_use_case.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/login/login_contract.dart';
+import 'package:flutter/material.dart';
+// 📦 Package imports:
+import 'package:injectable/injectable.dart';
 
 @injectable
 class LoginViewModel extends BaseViewModel<LoginViewState, LoginViewAction> {
@@ -82,6 +80,10 @@ class LoginViewModel extends BaseViewModel<LoginViewState, LoginViewAction> {
         {
           _navigateToForgetPasswordScreen();
         }
+      case GuestLoginAction():
+        {
+          _guestLogin();
+        }
     }
   }
 
@@ -139,5 +141,9 @@ class LoginViewModel extends BaseViewModel<LoginViewState, LoginViewAction> {
 
   void _navigateToForgetPasswordScreen() {
     emit(NavigateToForgetPasswordScreenState());
+  }
+
+  void _guestLogin() {
+    emit(LoginSuccessState());
   }
 }

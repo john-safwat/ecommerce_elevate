@@ -27,7 +27,7 @@ class _BestSellerViewState
     super.build(context);
     return BlocProvider(
       create: (context) => viewModel,
-      child: BlocListener<BestSellerViewModel , BestSellerStates>(
+      child: BlocListener<BestSellerViewModel, BestSellerStates>(
         listener: (context, state) {
           if (state is NavigatorToProductDetailsState) {
             Navigator.pushNamed(

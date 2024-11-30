@@ -9,14 +9,14 @@ import 'package:mockito/mockito.dart';
 import '../../../../core/di/di_test.dart';
 import 'occasions_repository_impl_test.mocks.dart';
 
-
 @GenerateMocks([OccasionsRemoteDatasource])
 void main() async {
-
   await dependenciesSetup();
 
   group("Occasion Repository Test", () {
-    test('should return a non-empty occasions list on successful datasource call', () async {
+    test(
+        'should return a non-empty occasions list on successful datasource call',
+        () async {
       var mockDatasource = getItTest<MockOccasionsRemoteDatasource>();
       var repository = OccasionsRepositoryImpl(mockDatasource);
 
@@ -49,7 +49,5 @@ void main() async {
       expect(actualResult, result);
       expect(result.exception, isException);
     });
-
   });
-
 }
