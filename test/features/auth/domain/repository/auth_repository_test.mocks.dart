@@ -8,13 +8,17 @@ import 'dart:async' as _i3;
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart'
     as _i4;
 import 'package:ecommerce_elevate/features/auth/data/datasource/contract/auth_local_datasource.dart'
-    as _i14;
+    as _i16;
 import 'package:ecommerce_elevate/features/auth/data/datasource/contract/auth_remote_datasource.dart'
     as _i2;
 import 'package:ecommerce_elevate/features/auth/domain/entities/authentication/authentication_request.dart'
     as _i9;
 import 'package:ecommerce_elevate/features/auth/domain/entities/authentication/authentication_response.dart'
     as _i8;
+import 'package:ecommerce_elevate/features/auth/domain/entities/edit_profile/edit_profile_request.dart'
+    as _i15;
+import 'package:ecommerce_elevate/features/auth/domain/entities/edit_profile/edit_profile_response.dart'
+    as _i14;
 import 'package:ecommerce_elevate/features/auth/domain/entities/forgetPassword/forget_password_response.dart'
     as _i10;
 import 'package:ecommerce_elevate/features/auth/domain/entities/registration/registration_response.dart'
@@ -142,13 +146,31 @@ class MockAuthRemoteDatasource extends _i1.Mock
           ),
         )),
       ) as _i3.Future<_i4.Results<_i12.ResetPasswordResponse>>);
+
+  @override
+  _i3.Future<_i4.Results<_i14.EditProfileResponse>> editProfile(
+          _i15.EditProfileRequest? request) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #editProfile,
+          [request],
+        ),
+        returnValue: _i3.Future<_i4.Results<_i14.EditProfileResponse>>.value(
+            _i7.dummyValue<_i4.Results<_i14.EditProfileResponse>>(
+          this,
+          Invocation.method(
+            #editProfile,
+            [request],
+          ),
+        )),
+      ) as _i3.Future<_i4.Results<_i14.EditProfileResponse>>);
 }
 
 /// A class which mocks [AuthLocalDatasource].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockAuthLocalDatasource extends _i1.Mock
-    implements _i14.AuthLocalDatasource {
+    implements _i16.AuthLocalDatasource {
   MockAuthLocalDatasource() {
     _i1.throwOnMissingStub(this);
   }

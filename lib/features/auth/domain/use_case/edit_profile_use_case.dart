@@ -5,7 +5,7 @@ import 'package:ecommerce_elevate/features/auth/domain/repository/auth_repositor
 import 'package:injectable/injectable.dart';
 
 @injectable
-abstract class EditProfileUseCase {
+class EditProfileUseCase {
   final AuthRepository _authRepository;
 
   EditProfileUseCase(this._authRepository);

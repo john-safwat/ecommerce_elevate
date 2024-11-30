@@ -1,14 +1,13 @@
 // 🎯 Dart imports:
 import 'dart:async';
 
-// 📦 Package imports:
-import 'package:injectable/injectable.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/datasource_execution/datasource_execution.dart';
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
+import 'package:ecommerce_elevate/core/providers/app_config_provider.dart';
 import 'package:ecommerce_elevate/features/auth/data/api/auth_retrofit_client.dart';
 import 'package:ecommerce_elevate/features/auth/data/datasource/contract/auth_remote_datasource.dart';
+import 'package:ecommerce_elevate/features/auth/data/models/authentication/edit_profile/request/edit_profile_request_dto.dart';
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/forget_password/request/forget_password_request_dto.dart';
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/login/request/authentication_request_dto.dart';
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/registration/request/registration_user_dto.dart';
@@ -16,12 +15,15 @@ import 'package:ecommerce_elevate/features/auth/data/models/authentication/reset
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/verify_reset_code/request/verify_reset_code_request_dto.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/authentication/authentication_request.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/authentication/authentication_response.dart';
+import 'package:ecommerce_elevate/features/auth/domain/entities/edit_profile/edit_profile_request.dart';
+import 'package:ecommerce_elevate/features/auth/domain/entities/edit_profile/edit_profile_response.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/forgetPassword/forget_password_response.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/registration/registration_response.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/registration/registration_user.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/reset_password/reset_password_request.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/reset_password/reset_password_response.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/verify_reset_code/verify_reset_code_response.dart';
+import 'package:injectable/injectable.dart';
 
 @Injectable(as: AuthRemoteDatasource)
 class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
@@ -85,5 +87,23 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
       return response.toDomain();
     });
     return response;
+  }
+
+  @override
+  Future<Results<EditProfileResponse>> editProfile(EditProfileRequest request) {
+    return _apiExecution.execute<EditProfileResponse>(() async {
+      var response = await _authRetrofitClient.editProfile(
+        "Bearer ${AppConfigProvider().token}",
+        EditProfileRequestDto(
+          email: request.email,
+          firstName: request.firstName,
+          lastName: request.lastName,
+          gender: request.gender,
+          phone: request.phone,
+          photo: request.photo,
+        ),
+      );
+      return response.toDomain();
+    });
   }
 }

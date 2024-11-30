@@ -30,6 +30,8 @@ import '../../features/auth/data/repository/auth_repository_impl.dart' as _i409;
 import '../../features/auth/domain/repository/auth_repository.dart' as _i961;
 import '../../features/auth/domain/use_case/delete_token_use_case.dart'
     as _i376;
+import '../../features/auth/domain/use_case/edit_profile_use_case.dart'
+    as _i259;
 import '../../features/auth/domain/use_case/forget_password_use_case.dart'
     as _i90;
 import '../../features/auth/domain/use_case/login_user_use_case.dart' as _i697;
@@ -127,8 +129,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i835.BestSellerViewModel>(() => _i835.BestSellerViewModel());
     gh.factory<_i155.ProductDetailsViewModel>(
         () => _i155.ProductDetailsViewModel());
-    gh.singleton<_i166.DataSourceExecution>(() => _i166.DataSourceExecution());
     gh.singleton<_i56.AppConfigProvider>(() => _i56.AppConfigProvider());
+    gh.singleton<_i166.DataSourceExecution>(() => _i166.DataSourceExecution());
     gh.lazySingleton<_i645.Location>(() => locationModule.location);
     gh.lazySingleton<_i1024.GeoCode>(() => locationModule.geoCode);
     gh.lazySingleton<_i974.Logger>(() => loggerModule.loggerProvider);
@@ -136,14 +138,14 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i361.Dio>(() => networkModule.provideDio());
     gh.lazySingleton<_i528.PrettyDioLogger>(
         () => networkModule.providerInterceptor());
-    gh.singleton<_i187.AuthRetrofitClient>(
-        () => _i187.AuthRetrofitClient(gh<_i361.Dio>()));
-    gh.singleton<_i186.CategoriesRetrofitClient>(
-        () => _i186.CategoriesRetrofitClient(gh<_i361.Dio>()));
-    gh.singleton<_i207.OccasionsRetrofitClient>(
-        () => _i207.OccasionsRetrofitClient(gh<_i361.Dio>()));
     gh.singleton<_i202.ProductsRetrofitClient>(
         () => _i202.ProductsRetrofitClient(gh<_i361.Dio>()));
+    gh.singleton<_i207.OccasionsRetrofitClient>(
+        () => _i207.OccasionsRetrofitClient(gh<_i361.Dio>()));
+    gh.singleton<_i186.CategoriesRetrofitClient>(
+        () => _i186.CategoriesRetrofitClient(gh<_i361.Dio>()));
+    gh.singleton<_i187.AuthRetrofitClient>(
+        () => _i187.AuthRetrofitClient(gh<_i361.Dio>()));
     gh.factory<_i96.OccasionsRemoteDatasource>(
         () => _i290.OccasionsRemoteDatasourceImpl(
               gh<_i207.OccasionsRetrofitClient>(),
@@ -208,12 +210,14 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i376.DeleteTokenUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i1055.SignupViewModel>(
         () => _i1055.SignupViewModel(gh<_i529.SignupUserUseCase>()));
-    gh.factory<_i697.LoginUserUseCase>(
-        () => _i697.LoginUserUseCase(gh<_i961.AuthRepository>()));
-    gh.factory<_i149.ResetPasswordUseCase>(
-        () => _i149.ResetPasswordUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i660.VerifyResetPasswordUseCase>(
         () => _i660.VerifyResetPasswordUseCase(gh<_i961.AuthRepository>()));
+    gh.factory<_i697.LoginUserUseCase>(
+        () => _i697.LoginUserUseCase(gh<_i961.AuthRepository>()));
+    gh.factory<_i259.EditProfileUseCase>(
+        () => _i259.EditProfileUseCase(gh<_i961.AuthRepository>()));
+    gh.factory<_i149.ResetPasswordUseCase>(
+        () => _i149.ResetPasswordUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i974.ResetPasswordViewModel>(
         () => _i974.ResetPasswordViewModel(gh<_i149.ResetPasswordUseCase>()));
     gh.factory<_i599.ForgetPasswordViewModel>(
