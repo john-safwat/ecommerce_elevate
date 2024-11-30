@@ -1,9 +1,9 @@
 class ChangePasswordRequest {
-  final String? oldPassword;
+  final String? newPassword;
   final String? password;
 
   ChangePasswordRequest({
-    this.oldPassword,
+    this.newPassword,
     this.password,
   });
 }

@@ -2,6 +2,8 @@
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/authentication/authentication_request.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/authentication/authentication_response.dart';
+import 'package:ecommerce_elevate/features/auth/domain/entities/change_password/change_password_reaponse.dart';
+import 'package:ecommerce_elevate/features/auth/domain/entities/change_password/change_password_request.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/forgetPassword/forget_password_response.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/registration/registration_response.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/registration/registration_user.dart';
@@ -20,4 +22,9 @@ abstract class AuthRemoteDatasource {
 
   Future<Results<ResetPasswordResponse>> resetPassword(
       ResetPasswordRequest request);
+
+  Future<Results<ChangePasswordReaponse?>> changePassword(
+    String token,
+    ChangePasswordRequest request,
+  );
 }
