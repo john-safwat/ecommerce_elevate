@@ -11,6 +11,10 @@ import 'package:ecommerce_elevate/features/auth/domain/entities/authentication/a
     as _i9;
 import 'package:ecommerce_elevate/features/auth/domain/entities/authentication/authentication_response.dart'
     as _i8;
+import 'package:ecommerce_elevate/features/auth/domain/entities/change_password/change_password_reaponse.dart'
+    as _i14;
+import 'package:ecommerce_elevate/features/auth/domain/entities/change_password/change_password_request.dart'
+    as _i15;
 import 'package:ecommerce_elevate/features/auth/domain/entities/forgetPassword/forget_password_response.dart'
     as _i10;
 import 'package:ecommerce_elevate/features/auth/domain/entities/registration/registration_response.dart'
@@ -147,6 +151,33 @@ class MockAuthRepository extends _i1.Mock implements _i2.AuthRepository {
           ),
         )),
       ) as _i3.Future<_i4.Results<_i12.ResetPasswordResponse>>);
+
+  @override
+  _i3.Future<_i4.Results<_i14.ChangePasswordReaponse?>> changePassword(
+    String? token,
+    _i15.ChangePasswordRequest? request,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #changePassword,
+          [
+            token,
+            request,
+          ],
+        ),
+        returnValue:
+            _i3.Future<_i4.Results<_i14.ChangePasswordReaponse?>>.value(
+                _i7.dummyValue<_i4.Results<_i14.ChangePasswordReaponse?>>(
+          this,
+          Invocation.method(
+            #changePassword,
+            [
+              token,
+              request,
+            ],
+          ),
+        )),
+      ) as _i3.Future<_i4.Results<_i14.ChangePasswordReaponse?>>);
 
   @override
   _i3.Future<void> deleteToken() => (super.noSuchMethod(
