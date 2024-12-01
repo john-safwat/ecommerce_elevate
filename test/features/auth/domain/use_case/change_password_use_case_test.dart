@@ -11,23 +11,43 @@ import 'change_password_use_case_test.mocks.dart';
 
 @GenerateMocks([AuthRepository])
 void main() {
-  test('when call method it should call authRepo.changePassword', () async {
-    var mockedRepository = MockAuthRepository();
-    var useCase = ChangePasswordUseCase(mockedRepository);
-    var userRequest = ChangePasswordRequest(
-      password: 'password',
-      newPassword: 'rePassword',
-    );
-    const token = 'token';
-    var mockedResult =
-        Success<ChangePasswordResponse?>(ChangePasswordResponse());
+  group('change password use case success and fail', () {
+    test('when call method it should call authRepo.changePassword', () async {
+      var mockedRepository = MockAuthRepository();
+      var useCase = ChangePasswordUseCase(mockedRepository);
+      var userRequest = ChangePasswordRequest(
+        password: 'password',
+        newPassword: 'rePassword',
+      );
+      const token = 'token';
+      var mockedResult =
+          Success<ChangePasswordResponse?>(ChangePasswordResponse());
 
-    provideDummy<Results<ChangePasswordResponse?>>(mockedResult);
-    when(mockedRepository.changePassword(token, userRequest))
-        .thenAnswer((_) async => mockedResult);
+      provideDummy<Results<ChangePasswordResponse?>>(mockedResult);
+      when(mockedRepository.changePassword(token, userRequest))
+          .thenAnswer((_) async => mockedResult);
 
-    var result = await useCase.call(token, userRequest);
+      var result = await useCase.call(token, userRequest);
 
-    expect(result, mockedResult);
+      expect(result, mockedResult);
+    });
+
+    test('should return Failure when changePassword fail', () async {
+      var mockedRepository = MockAuthRepository();
+      var useCase = ChangePasswordUseCase(mockedRepository);
+      var userRequest = ChangePasswordRequest(
+        password: 'password',
+        newPassword: 'rePassword',
+      );
+      const token = 'token';
+      var mockedResult = Failure<ChangePasswordResponse?>(Exception());
+      provideDummy<Results<ChangePasswordResponse?>>(mockedResult);
+
+      when(mockedRepository.changePassword(token, userRequest))
+          .thenAnswer((_) async => mockedResult);
+
+      var result = await useCase.call(token, userRequest);
+      expect(result, mockedResult);
+    });
   });
 }
