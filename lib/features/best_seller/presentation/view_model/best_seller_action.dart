@@ -1,5 +1,5 @@
 import 'package:ecommerce_elevate/core/base/base_view_model.dart';
-import 'package:ecommerce_elevate/features/home/domain/entities/products/product.dart';
+import 'package:ecommerce_elevate/core/shared_features/domain/entities/products/product.dart';
 
 sealed class BestSellerAction extends BaseAction {}
 

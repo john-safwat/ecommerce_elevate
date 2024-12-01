@@ -1,10 +1,10 @@
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
-import 'package:ecommerce_elevate/features/home/domain/entities/category/category.dart';
-import 'package:ecommerce_elevate/features/home/domain/entities/occasions/occasion.dart';
-import 'package:ecommerce_elevate/features/home/domain/entities/products/product.dart';
-import 'package:ecommerce_elevate/features/home/domain/use_case/get_categories_list_use_case.dart';
-import 'package:ecommerce_elevate/features/home/domain/use_case/get_most_selling_products_list_use_case.dart';
-import 'package:ecommerce_elevate/features/home/domain/use_case/get_occasions_list_use_case.dart';
+import 'package:ecommerce_elevate/core/shared_features/domain/entities/category/category.dart';
+import 'package:ecommerce_elevate/core/shared_features/domain/entities/occasions/occasion.dart';
+import 'package:ecommerce_elevate/core/shared_features/domain/entities/products/product.dart';
+import 'package:ecommerce_elevate/core/shared_features/domain/use_case/get_categories_list_use_case.dart';
+import 'package:ecommerce_elevate/core/shared_features/domain/use_case/get_most_selling_products_list_use_case.dart';
+import 'package:ecommerce_elevate/core/shared_features/domain/use_case/get_occasions_list_use_case.dart';
 import 'package:ecommerce_elevate/features/home/presentation/tabs/home/view_model/home_tab_actions.dart';
 import 'package:ecommerce_elevate/features/home/presentation/tabs/home/view_model/home_tab_state.dart';
 import 'package:ecommerce_elevate/features/home/presentation/tabs/home/view_model/home_tab_view_model.dart';

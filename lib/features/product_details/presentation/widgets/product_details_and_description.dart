@@ -1,5 +1,5 @@
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
-import 'package:ecommerce_elevate/features/home/domain/entities/products/product.dart';
+import 'package:ecommerce_elevate/core/shared_features/domain/entities/products/product.dart';
 import 'package:ecommerce_elevate/features/product_details/presentation/product_details_view_model.dart';
 import 'package:flutter/material.dart';
 

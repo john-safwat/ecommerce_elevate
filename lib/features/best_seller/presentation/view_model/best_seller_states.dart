@@ -1,4 +1,5 @@
-import 'package:ecommerce_elevate/features/home/domain/entities/products/product.dart';
+
+import 'package:ecommerce_elevate/core/shared_features/domain/entities/products/product.dart';
 
 sealed class BestSellerStates {}
 

@@ -3,11 +3,11 @@ import 'package:ecommerce_elevate/core/assets/app_colors.dart';
 import 'package:ecommerce_elevate/core/base/base_view.dart';
 import 'package:ecommerce_elevate/core/constants/routes.dart';
 import 'package:ecommerce_elevate/core/di/di.dart';
+import 'package:ecommerce_elevate/core/shared_features/domain/entities/products/product.dart';
 import 'package:ecommerce_elevate/core/shared_widgets/product_card_widget.dart';
 import 'package:ecommerce_elevate/features/best_seller/presentation/view_model/best_seller_action.dart';
 import 'package:ecommerce_elevate/features/best_seller/presentation/view_model/best_seller_states.dart';
 import 'package:ecommerce_elevate/features/best_seller/presentation/view_model/best_seller_view_model.dart';
-import 'package:ecommerce_elevate/features/home/domain/entities/products/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
