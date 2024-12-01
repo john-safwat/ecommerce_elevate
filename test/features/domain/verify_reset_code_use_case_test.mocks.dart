@@ -153,7 +153,7 @@ class MockAuthRepository extends _i1.Mock implements _i2.AuthRepository {
       ) as _i3.Future<_i4.Results<_i12.ResetPasswordResponse>>);
 
   @override
-  _i3.Future<_i4.Results<_i14.ChangePasswordReaponse?>> changePassword(
+  _i3.Future<_i4.Results<_i14.ChangePasswordResponse?>> changePassword(
     String? token,
     _i15.ChangePasswordRequest? request,
   ) =>
@@ -166,8 +166,8 @@ class MockAuthRepository extends _i1.Mock implements _i2.AuthRepository {
           ],
         ),
         returnValue:
-            _i3.Future<_i4.Results<_i14.ChangePasswordReaponse?>>.value(
-                _i7.dummyValue<_i4.Results<_i14.ChangePasswordReaponse?>>(
+            _i3.Future<_i4.Results<_i14.ChangePasswordResponse?>>.value(
+                _i7.dummyValue<_i4.Results<_i14.ChangePasswordResponse?>>(
           this,
           Invocation.method(
             #changePassword,
@@ -177,7 +177,7 @@ class MockAuthRepository extends _i1.Mock implements _i2.AuthRepository {
             ],
           ),
         )),
-      ) as _i3.Future<_i4.Results<_i14.ChangePasswordReaponse?>>);
+      ) as _i3.Future<_i4.Results<_i14.ChangePasswordResponse?>>);
 
   @override
   _i3.Future<void> deleteToken() => (super.noSuchMethod(

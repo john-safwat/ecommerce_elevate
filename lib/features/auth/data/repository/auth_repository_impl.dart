@@ -67,7 +67,7 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<Results<ChangePasswordReaponse?>> changePassword(
+  Future<Results<ChangePasswordResponse?>> changePassword(
     String token,
     ChangePasswordRequest request,
   ) {

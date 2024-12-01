@@ -9,7 +9,7 @@ class ChangePasswordUseCase {
   final AuthRepository _authRepository;
   ChangePasswordUseCase(this._authRepository);
 
-  Future<Results<ChangePasswordReaponse?>> call(
+  Future<Results<ChangePasswordResponse?>> call(
     String token,
     ChangePasswordRequest request,
   ) async =>

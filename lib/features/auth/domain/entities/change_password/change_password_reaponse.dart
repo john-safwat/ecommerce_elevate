@@ -1,8 +1,8 @@
-class ChangePasswordReaponse {
+class ChangePasswordResponse {
   final String? message;
   final String? token;
 
-  ChangePasswordReaponse({
+  ChangePasswordResponse({
     this.message,
     this.token,
   });

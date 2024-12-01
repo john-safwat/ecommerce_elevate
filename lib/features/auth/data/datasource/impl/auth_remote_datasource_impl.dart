@@ -90,11 +90,11 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
   }
 
   @override
-  Future<Results<ChangePasswordReaponse?>> changePassword(
+  Future<Results<ChangePasswordResponse?>> changePassword(
     String token,
     ChangePasswordRequest request,
   ) async {
-    var response = await _apiExecution.execute<ChangePasswordReaponse?>(
+    var response = await _apiExecution.execute<ChangePasswordResponse?>(
       () async {
         var response = await _authRetrofitClient.changePassword(
             token,

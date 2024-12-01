@@ -118,7 +118,7 @@ class ChangePasswordViewModel
           ));
       emit(HideLoadingState());
       switch (response) {
-        case Success<ChangePasswordReaponse?>():
+        case Success<ChangePasswordResponse?>():
           {
             if (response.data!.token != null) {
               appConfigProvider!.token = response.data!.token ?? "";
@@ -126,7 +126,7 @@ class ChangePasswordViewModel
             }
           }
 
-        case Failure<ChangePasswordReaponse?>():
+        case Failure<ChangePasswordResponse?>():
           {
             emit(ShowFailState(mapExceptionToMessage(response.exception)));
           }
