@@ -113,8 +113,8 @@ class ChangePasswordViewModel
       var response = await changePasswordUseCase(
           'Bearer ${appConfigProvider!.token}',
           ChangePasswordRequest(
-            newPassword: passwordController.text,
-            password: newPasswordController.text,
+            newPassword: newPasswordController.text,
+            password: passwordController.text,
           ));
       emit(HideLoadingState());
       switch (response) {
