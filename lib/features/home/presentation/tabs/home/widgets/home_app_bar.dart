@@ -1,10 +1,10 @@
 // 🐦 Flutter imports:
-import 'package:flutter/material.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
 import 'package:ecommerce_elevate/core/assets/app_images.dart';
+import 'package:ecommerce_elevate/core/constants/routes.dart';
 import 'package:ecommerce_elevate/core/shared_widgets/search_text_field.dart';
+import 'package:flutter/material.dart';
 
 class HomeAppBar extends StatelessWidget {
   final String searchHint;
@@ -18,10 +18,15 @@ class HomeAppBar extends StatelessWidget {
     return SliverAppBar(
       title: Row(
         children: [
-          Image.asset(
-            AppImages.logo,
-            width: MediaQuery.of(context).size.width * 0.25,
-            fit: BoxFit.cover,
+          InkWell(
+            onTap: () {
+              Navigator.of(context).pushNamed(Routes.editProfileViewRoute);
+            },
+            child: Image.asset(
+              AppImages.logo,
+              width: MediaQuery.of(context).size.width * 0.25,
+              fit: BoxFit.cover,
+            ),
           ),
           const SizedBox(width: 16),
           Expanded(

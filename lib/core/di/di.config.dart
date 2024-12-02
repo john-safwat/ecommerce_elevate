@@ -42,6 +42,8 @@ import '../../features/auth/domain/use_case/reset_password_use_case.dart'
 import '../../features/auth/domain/use_case/signup_user_use_case.dart' as _i529;
 import '../../features/auth/domain/use_case/verify_reset_code_use_case.dart'
     as _i660;
+import '../../features/auth/presentation/edit_profile/edit_profile_view_model.dart'
+    as _i939;
 import '../../features/auth/presentation/forget_password/forget_password_view_model.dart'
     as _i599;
 import '../../features/auth/presentation/login/login_view_model.dart' as _i225;
@@ -222,6 +224,10 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i284.GetUserInfoUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i259.EditProfileUseCase>(
         () => _i259.EditProfileUseCase(gh<_i961.AuthRepository>()));
+    gh.factory<_i939.ProfileViewModel>(() => _i939.ProfileViewModel(
+          gh<_i284.GetUserInfoUseCase>(),
+          gh<_i259.EditProfileUseCase>(),
+        ));
     gh.factory<_i974.ResetPasswordViewModel>(
         () => _i974.ResetPasswordViewModel(gh<_i149.ResetPasswordUseCase>()));
     gh.factory<_i599.ForgetPasswordViewModel>(
