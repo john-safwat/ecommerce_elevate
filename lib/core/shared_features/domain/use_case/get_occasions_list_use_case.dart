@@ -1,10 +1,11 @@
 // 📦 Package imports:
-import 'package:ecommerce_elevate/core/shared_features/domain/entities/occasions/occasion.dart';
-import 'package:ecommerce_elevate/core/shared_features/domain/repository/occasions_repository.dart';
-import 'package:injectable/injectable.dart';
 
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
+import 'package:ecommerce_elevate/core/shared_features/domain/entities/occasions/occasion.dart';
+import 'package:ecommerce_elevate/core/shared_features/domain/repository/occasions_repository.dart';
+// 📦 Package imports:
+import 'package:injectable/injectable.dart';
 
 @injectable
 class GetOccasionsListUseCase {

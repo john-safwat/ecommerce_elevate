@@ -1,9 +1,9 @@
 // 🐦 Flutter imports:
+
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/base/base_view.dart';
 import 'package:ecommerce_elevate/core/constants/routes.dart';
 import 'package:ecommerce_elevate/core/di/di.dart';
-import 'package:ecommerce_elevate/core/constants/routes.dart';
 import 'package:ecommerce_elevate/core/shared_features/domain/entities/category/category.dart';
 import 'package:ecommerce_elevate/core/shared_features/domain/entities/occasions/occasion.dart';
 import 'package:ecommerce_elevate/core/shared_features/domain/entities/products/product.dart';
@@ -15,6 +15,7 @@ import 'package:ecommerce_elevate/features/home/presentation/tabs/home/widgets/c
 import 'package:ecommerce_elevate/features/home/presentation/tabs/home/widgets/home_app_bar.dart';
 import 'package:ecommerce_elevate/features/home/presentation/tabs/home/widgets/occasions_card_widget.dart';
 import 'package:ecommerce_elevate/features/home/presentation/tabs/home/widgets/title_widget.dart';
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
 // 📦 Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';

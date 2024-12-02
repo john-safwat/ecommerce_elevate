@@ -1,13 +1,13 @@
 // 🐦 Flutter imports:
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-
-// 📦 Package imports:
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/features/auth/presentation/otp_verify/otp_verify_contract.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/otp_verify/otp_verify_view_model.dart';
+// 🐦 Flutter imports:
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+// 📦 Package imports:
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class OtpFormField extends StatelessWidget {
   final int index;

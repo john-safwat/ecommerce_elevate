@@ -1,8 +1,9 @@
+// 📦 Package imports:
+// 🌎 Project imports:
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:ecommerce_elevate/core/shared_features/data/api/products/products_retrofit_client.dart';
 import 'package:ecommerce_elevate/core/shared_features/data/datasource/contract/products_remote_datasource.dart';
 import 'package:ecommerce_elevate/core/shared_features/domain/entities/products/product.dart';
-
 import 'package:injectable/injectable.dart';
 
 import '../../../../../core/datasource_execution/datasource_execution.dart';

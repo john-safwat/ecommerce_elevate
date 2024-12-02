@@ -2,9 +2,6 @@
 
 // 📦 Package imports:
 import 'package:dio/dio.dart';
-import 'package:ecommerce_elevate/core/shared_features/data/api/categories/categories_retrofit_client.dart';
-import 'package:ecommerce_elevate/core/shared_features/data/datasource/impl/categories_remote_datasource_impl.dart';
-import 'package:ecommerce_elevate/core/shared_features/domain/entities/category/category.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
@@ -12,6 +9,9 @@ import 'package:mockito/mockito.dart';
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/datasource_execution/app_exception.dart';
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
+import 'package:ecommerce_elevate/core/shared_features/data/api/categories/categories_retrofit_client.dart';
+import 'package:ecommerce_elevate/core/shared_features/data/datasource/impl/categories_remote_datasource_impl.dart';
+import 'package:ecommerce_elevate/core/shared_features/domain/entities/category/category.dart';
 import '../../../../../core/datasource_execution/mock_datasource_execution.dart';
 import '../../../../../core/di/di_test.dart';
 import 'categories_remote_datasource_impl_test.mocks.dart';

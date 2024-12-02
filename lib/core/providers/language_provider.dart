@@ -1,12 +1,12 @@
 // 🐦 Flutter imports:
-import 'package:flutter/cupertino.dart';
-
-// 📦 Package imports:
-import 'package:injectable/injectable.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/constants/constants.dart';
+// 🐦 Flutter imports:
+import 'package:flutter/cupertino.dart';
+// 📦 Package imports:
+import 'package:injectable/injectable.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 @singleton
 class LanguageProvider extends ChangeNotifier {

@@ -60,35 +60,44 @@ import '../../features/product_details/presentation/product_details_view_model.d
 import '../datasource_execution/datasource_execution.dart' as _i166;
 import '../providers/app_config_provider.dart' as _i56;
 import '../providers/language_provider.dart' as _i822;
+import '../shared_features/data/api/cart/cart_retrofit_client.dart' as _i703;
 import '../shared_features/data/api/categories/categories_retrofit_client.dart'
     as _i162;
 import '../shared_features/data/api/occasions/occasions_retrofit_client.dart'
     as _i234;
 import '../shared_features/data/api/products/products_retrofit_client.dart'
     as _i174;
+import '../shared_features/data/datasource/contract/cart_remote_datasource.dart'
+    as _i690;
 import '../shared_features/data/datasource/contract/categories_remote_datasource.dart'
     as _i1026;
 import '../shared_features/data/datasource/contract/occasions_remote_datasource.dart'
     as _i897;
 import '../shared_features/data/datasource/contract/products_remote_datasource.dart'
     as _i246;
+import '../shared_features/data/datasource/impl/cart_remote_datasource_impl.dart'
+    as _i287;
 import '../shared_features/data/datasource/impl/categories_remote_datasource_impl.dart'
     as _i455;
 import '../shared_features/data/datasource/impl/occasions_remote_datasource_impl.dart'
     as _i982;
 import '../shared_features/data/datasource/impl/products_remote_datasource_impl.dart'
     as _i655;
+import '../shared_features/data/repository/cart_repository_impl.dart' as _i1072;
 import '../shared_features/data/repository/categories_repository_impl.dart'
     as _i421;
 import '../shared_features/data/repository/occasions_repository_impl.dart'
     as _i919;
 import '../shared_features/data/repository/products_repository_impl.dart'
     as _i100;
+import '../shared_features/domain/repository/cart_repository.dart' as _i149;
 import '../shared_features/domain/repository/categories_repository.dart'
     as _i784;
 import '../shared_features/domain/repository/occasions_repository.dart'
     as _i486;
 import '../shared_features/domain/repository/products_repository.dart' as _i468;
+import '../shared_features/domain/use_case/add_item_to_cart_use_case.dart'
+    as _i23;
 import '../shared_features/domain/use_case/get_all_products_list_use_case.dart'
     as _i886;
 import '../shared_features/domain/use_case/get_categories_list_use_case.dart'
@@ -143,6 +152,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i234.OccasionsRetrofitClient(gh<_i361.Dio>()));
     gh.singleton<_i174.ProductsRetrofitClient>(
         () => _i174.ProductsRetrofitClient(gh<_i361.Dio>()));
+    gh.singleton<_i703.CartRetrofitClient>(
+        () => _i703.CartRetrofitClient(gh<_i361.Dio>()));
     gh.factory<_i246.ProductsDatasource>(
         () => _i655.ProductsRemoteDatasourceImpl(
               gh<_i174.ProductsRetrofitClient>(),
@@ -161,6 +172,10 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i1026.CategoriesRemoteDatasource>()));
     gh.factory<_i120.GetCategoriesListUseCase>(
         () => _i120.GetCategoriesListUseCase(gh<_i784.CategoriesRepository>()));
+    gh.factory<_i690.CartRemoteDatasource>(() => _i287.CartRemoteDatasourceImpl(
+          gh<_i166.DataSourceExecution>(),
+          gh<_i703.CartRetrofitClient>(),
+        ));
     gh.factory<_i468.ProductsRepository>(
         () => _i100.ProductsRepositoryImpl(gh<_i246.ProductsDatasource>()));
     gh.factory<_i1070.AuthRemoteDatasource>(() => _i81.AuthRemoteDatasourceImpl(
@@ -184,10 +199,14 @@ extension GetItInjectableX on _i174.GetIt {
         _i919.OccasionsRepositoryImpl(gh<_i897.OccasionsRemoteDatasource>()));
     gh.factory<_i886.GetAllProductsListUseCase>(
         () => _i886.GetAllProductsListUseCase(gh<_i468.ProductsRepository>()));
+    gh.factory<_i149.CartRepository>(
+        () => _i1072.CartRepositoryImpl(gh<_i690.CartRemoteDatasource>()));
     gh.factory<_i961.AuthRepository>(() => _i409.AuthRepositoryImpl(
           gh<_i1070.AuthRemoteDatasource>(),
           gh<_i1071.AuthLocalDatasource>(),
         ));
+    gh.factory<_i23.AddItemToCartUseCase>(
+        () => _i23.AddItemToCartUseCase(gh<_i690.CartRemoteDatasource>()));
     gh.factory<_i535.OccasionsViewModel>(
         () => _i535.OccasionsViewModel(gh<_i886.GetAllProductsListUseCase>()));
     gh.factory<_i90.ForgetPasswordUseCase>(

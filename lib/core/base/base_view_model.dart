@@ -2,17 +2,21 @@
 import 'dart:async';
 import 'dart:io';
 
-// 🐦 Flutter imports:
-import 'package:flutter/cupertino.dart';
-
 // 📦 Package imports:
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
+import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
+import 'package:ecommerce_elevate/core/di/di.dart';
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/providers/app_config_provider.dart';
 import 'package:ecommerce_elevate/core/providers/language_provider.dart';
+import 'package:ecommerce_elevate/core/shared_features/domain/entities/cart/request/add_to_cart_request.dart';
+import 'package:ecommerce_elevate/core/shared_features/domain/entities/cart/response/add_to_cart_response.dart';
+import 'package:ecommerce_elevate/core/shared_features/domain/use_case/add_item_to_cart_use_case.dart';
+import 'package:ecommerce_elevate/core/utils/app_dialogs.dart';
+// 🐦 Flutter imports:
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 abstract class BaseViewModel<T, E extends BaseAction> extends Cubit<T> {
   BaseViewModel(super.initialState);
@@ -22,7 +26,32 @@ abstract class BaseViewModel<T, E extends BaseAction> extends Cubit<T> {
   AppLocalizations? locale;
   Size? mediaQuery;
 
+  final AddItemToCartUseCase _addItemToCartUseCase =
+      getIt<AddItemToCartUseCase>();
+
   Future<void> doIntent(E action);
+
+  Future<void> addProductToCart(
+      AddToCartRequest addToCartRequest, T loadingState) async {
+    if(appConfigProvider!.token.isEmpty){
+      AppDialogs.showErrorToast(locale!.notLoggedIn);
+      return;
+    }
+    emit(loadingState);
+    var response = await _addItemToCartUseCase(
+        addToCartRequest, "Bearer ${appConfigProvider!.token}");
+    switch (response) {
+      case Success<AddToCartResponse>():
+        {
+          AppDialogs.showSuccessToast(locale!.addedToCartSuccessfully);
+        }
+      case Failure<AddToCartResponse>():
+        {
+          AppDialogs.showErrorToast(mapExceptionToMessage(response.exception));
+        }
+    }
+
+  }
 
   String mapExceptionToMessage(Exception exception) {
     if (exception is SocketException) {

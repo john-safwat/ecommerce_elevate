@@ -1,8 +1,9 @@
 // 📦 Package imports:
-import 'package:injectable/injectable.dart';
 
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/features/auth/domain/repository/auth_repository.dart';
+// 📦 Package imports:
+import 'package:injectable/injectable.dart';
 
 @injectable
 class DeleteTokenUseCase {

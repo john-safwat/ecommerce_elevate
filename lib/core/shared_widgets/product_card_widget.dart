@@ -1,9 +1,11 @@
 // 🐦 Flutter imports:
-// 🌎 Project imports:
+
+// 📦 Package imports:
 import 'package:cached_network_image/cached_network_image.dart';
+// 🌎 Project imports:
 import 'package:ecommerce_elevate/core/assets/app_images.dart';
 import 'package:ecommerce_elevate/core/shared_features/domain/entities/products/product.dart';
-
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
 
 import '../assets/app_colors.dart';
@@ -35,7 +37,7 @@ class ProductCardWidget extends StatelessWidget {
         onCardPressed();
       },
       child: Hero(
-        tag: product.id??0,
+        tag: product.id ?? 0,
         child: Container(
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(

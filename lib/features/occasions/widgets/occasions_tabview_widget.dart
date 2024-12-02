@@ -1,11 +1,15 @@
+// 🐦 Flutter imports:
+// 🌎 Project imports:
 import 'package:ecommerce_elevate/core/assets/animation_assets.dart';
 import 'package:ecommerce_elevate/core/constants/routes.dart';
 import 'package:ecommerce_elevate/core/shared_features/domain/entities/products/product.dart';
 import 'package:ecommerce_elevate/core/shared_widgets/product_card_widget.dart';
+import 'package:ecommerce_elevate/core/utils/app_dialogs.dart';
 import 'package:ecommerce_elevate/features/occasions/occasions_view_model/occasions_actions.dart';
 import 'package:ecommerce_elevate/features/occasions/occasions_view_model/occasions_states.dart';
 import 'package:ecommerce_elevate/features/occasions/occasions_view_model/occasions_view_model.dart';
 import 'package:flutter/material.dart';
+// 📦 Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
 import 'package:skeletonizer/skeletonizer.dart';
@@ -27,6 +31,13 @@ class OccasionsTabviewWidget extends StatelessWidget {
             arguments: state.product,
           );
         }
+        if (state is AddItemToCartState) {
+          AppDialogs.showLoading(
+              message: viewModel.locale!.loading, context: context);
+        }
+        if (state is AddItemToCartDoneState) {
+          Navigator.pop(context);
+        }
       },
       builder: (context, state) {
         switch (state) {
@@ -36,6 +47,8 @@ class OccasionsTabviewWidget extends StatelessWidget {
           case OccasionProductsSuccessState():
           case NavigatorToProductDetailsState():
           case ProductsLoadingState():
+          case AddItemToCartState():
+          case AddItemToCartDoneState():
           case OccasionFailureState():
             {
               return Skeletonizer(
@@ -62,7 +75,10 @@ class OccasionsTabviewWidget extends StatelessWidget {
                               title: "ad"),
                       buttonTitle: viewModel.locale!.addToCart,
                       buttonIcon: Icons.shopping_cart_outlined,
-                      onPressed: () {},
+                      onPressed: () {
+                        viewModel.doIntent(
+                            AddProductToCartAction(viewModel.products[index]));
+                      },
                       onCardPressed: () {
                         viewModel.doIntent(
                           NavigatorToProductDetails(

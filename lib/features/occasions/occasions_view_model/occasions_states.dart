@@ -1,4 +1,4 @@
-
+// 🌎 Project imports:
 import 'package:ecommerce_elevate/core/shared_features/domain/entities/occasions/occasion.dart';
 import 'package:ecommerce_elevate/core/shared_features/domain/entities/products/product.dart';
 
@@ -19,6 +19,10 @@ class OccasionTabsSuccessState extends OccasionsStates {
 class OccasionProductsSuccessState extends OccasionsStates {
   OccasionProductsSuccessState();
 }
+
+class AddItemToCartState extends OccasionsStates {}
+class AddItemToCartDoneState extends OccasionsStates {}
+
 
 class OccasionFailureState extends OccasionsStates {
   String errorMessage;

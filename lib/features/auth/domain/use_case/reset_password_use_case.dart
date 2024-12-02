@@ -1,11 +1,12 @@
 // 📦 Package imports:
-import 'package:injectable/injectable.dart';
 
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/reset_password/reset_password_request.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/reset_password/reset_password_response.dart';
 import 'package:ecommerce_elevate/features/auth/domain/repository/auth_repository.dart';
+// 📦 Package imports:
+import 'package:injectable/injectable.dart';
 
 @injectable
 class ResetPasswordUseCase {

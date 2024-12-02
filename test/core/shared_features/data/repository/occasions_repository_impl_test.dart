@@ -1,14 +1,15 @@
-import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
-import 'package:ecommerce_elevate/core/shared_features/data/datasource/contract/occasions_remote_datasource.dart';
-import 'package:ecommerce_elevate/core/shared_features/data/repository/occasions_repository_impl.dart';
-import 'package:ecommerce_elevate/core/shared_features/domain/entities/occasions/occasion.dart';
+// 📦 Package imports:
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
+// 🌎 Project imports:
+import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
+import 'package:ecommerce_elevate/core/shared_features/data/datasource/contract/occasions_remote_datasource.dart';
+import 'package:ecommerce_elevate/core/shared_features/data/repository/occasions_repository_impl.dart';
+import 'package:ecommerce_elevate/core/shared_features/domain/entities/occasions/occasion.dart';
 import '../../../../core/di/di_test.dart';
 import 'occasions_repository_impl_test.mocks.dart';
-
 
 @GenerateMocks([OccasionsRemoteDatasource])
 void main() async {

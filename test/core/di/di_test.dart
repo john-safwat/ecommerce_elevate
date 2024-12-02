@@ -1,12 +1,14 @@
 // 🐦 Flutter imports:
 
-import 'package:ecommerce_elevate/features/home/presentation/tabs/home/view_model/home_tab_view_model.dart';
 // 🐦 Flutter imports:
 import 'package:flutter/material.dart';
+
 // 📦 Package imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get_it/get_it.dart';
 
+// 🌎 Project imports:
+import 'package:ecommerce_elevate/features/home/presentation/tabs/home/view_model/home_tab_view_model.dart';
 import '../../features/home/tabs/home/view_model/home_tab_view_model_test.mocks.dart';
 import '../datasource_execution/mock_datasource_execution.dart';
 import '../shared_features/data/datasource/impl/categories_remote_datasource_impl_test.mocks.dart';

@@ -2,7 +2,6 @@
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:ecommerce_elevate/core/shared_features/domain/entities/products/product.dart';
 
-
 abstract interface class ProductsRepository {
   Future<Results<List<Product>?>> getBestSellerList();
 

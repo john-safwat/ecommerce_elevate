@@ -1,4 +1,12 @@
+// 🐦 Flutter imports:
+import 'package:ecommerce_elevate/core/utils/app_dialogs.dart';
+import 'package:flutter/material.dart';
+
+// 📦 Package imports:
 import 'package:animate_do/animate_do.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+// 🌎 Project imports:
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
 import 'package:ecommerce_elevate/core/base/base_view.dart';
 import 'package:ecommerce_elevate/core/constants/routes.dart';
@@ -8,8 +16,6 @@ import 'package:ecommerce_elevate/core/shared_widgets/product_card_widget.dart';
 import 'package:ecommerce_elevate/features/best_seller/presentation/view_model/best_seller_action.dart';
 import 'package:ecommerce_elevate/features/best_seller/presentation/view_model/best_seller_states.dart';
 import 'package:ecommerce_elevate/features/best_seller/presentation/view_model/best_seller_view_model.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BestSellerView extends StatefulWidget {
   const BestSellerView({super.key});
@@ -27,7 +33,7 @@ class _BestSellerViewState
     super.build(context);
     return BlocProvider(
       create: (context) => viewModel,
-      child: BlocListener<BestSellerViewModel , BestSellerStates>(
+      child: BlocListener<BestSellerViewModel, BestSellerStates>(
         listener: (context, state) {
           if (state is NavigatorToProductDetailsState) {
             Navigator.pushNamed(
@@ -35,6 +41,12 @@ class _BestSellerViewState
               Routes.productDetailsRoute,
               arguments: state.product,
             );
+          }
+          if(state is AddItemToCartState){
+            AppDialogs.showLoading(message: viewModel.locale!.loading, context: context);
+          }
+          if(state is AddItemToCartDoneState){
+            Navigator.pop(context);
           }
         },
         child: Scaffold(
@@ -69,7 +81,9 @@ class _BestSellerViewState
                 duration: Duration(milliseconds: 500 + (index * 50)),
                 child: ProductCardWidget(
                   product: bestSellerList[index],
-                  onPressed: () {},
+                  onPressed: () {
+                    viewModel.doIntent(AddProductToCartAction(bestSellerList[index]));
+                  },
                   onCardPressed: () {
                     viewModel.doIntent(
                       NavigatorToProductDetails(
