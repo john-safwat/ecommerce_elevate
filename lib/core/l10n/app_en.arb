@@ -102,5 +102,8 @@
   "bloom_with_our_exquisite_best_sellers": "Bloom with our exquisite best sellers",
   "inStock": "In Stock",
   "outOfStock": "Out of Stock",
-  "thereIsNoProduct" : "There is No Products in Stock"
+  "thereIsNoProduct" : "There is No Products in Stock",
+  "chooseProfilePhoto": "Choose Profile Photo",
+  "camera": "Camera",
+  "gallery": "Gallery"
 }

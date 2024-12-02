@@ -54,6 +54,7 @@ dependencies:
   geocode:
   skeletonizer:
   import_sorter:
+  image_picker:
 
 import_sorter:
   emojis: true # Optional, defaults to false
