@@ -2,17 +2,15 @@
 import 'dart:async';
 import 'dart:io';
 
-// 🐦 Flutter imports:
-import 'package:flutter/cupertino.dart';
-
-// 📦 Package imports:
+//  Package imports:
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/providers/app_config_provider.dart';
 import 'package:ecommerce_elevate/core/providers/language_provider.dart';
+// 🐦 Flutter imports:
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 abstract class BaseViewModel<T, E extends BaseAction> extends Cubit<T> {
   BaseViewModel(super.initialState);
@@ -42,7 +40,8 @@ abstract class BaseViewModel<T, E extends BaseAction> extends Cubit<T> {
         case DioExceptionType.badCertificate:
           return locale!.dioBadCertificateMessage;
         case DioExceptionType.badResponse:
-          return locale!.dioBadResponseMessage;
+          return exception.response?.data["error"] ??
+              locale!.dioBadResponseMessage;
         case DioExceptionType.cancel:
           return locale!.dioCancelMessage;
         case DioExceptionType.connectionError:

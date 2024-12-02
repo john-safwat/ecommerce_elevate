@@ -13,8 +13,6 @@ EditProfileRequestDto _$EditProfileRequestDtoFromJson(
       lastName: json['lastName'] as String?,
       email: json['email'] as String?,
       phone: json['phone'] as String?,
-      gender: json['gender'] as String?,
-      photo: json['photo'] as String?,
     );
 
 Map<String, dynamic> _$EditProfileRequestDtoToJson(
@@ -24,6 +22,4 @@ Map<String, dynamic> _$EditProfileRequestDtoToJson(
       'lastName': instance.lastName,
       'email': instance.email,
       'phone': instance.phone,
-      'gender': instance.gender,
-      'photo': instance.photo,
     };

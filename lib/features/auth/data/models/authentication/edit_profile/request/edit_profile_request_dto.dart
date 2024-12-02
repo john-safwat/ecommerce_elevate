@@ -8,16 +8,14 @@ class EditProfileRequestDto {
   final String? lastName;
   final String? email;
   final String? phone;
-  final String? gender;
-  final String? photo;
+ // String? gender;
 
   EditProfileRequestDto({
     required this.firstName,
     required this.lastName,
     required this.email,
     required this.phone,
-    required this.gender,
-    required this.photo,
+    //this.gender,
   });
 
   factory EditProfileRequestDto.fromJson(Map<String, dynamic> json) =>

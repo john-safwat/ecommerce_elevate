@@ -95,14 +95,14 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
   Future<Results<EditProfileResponse>> editProfile(EditProfileRequest request) {
     return _apiExecution.execute<EditProfileResponse>(() async {
       var response = await _authRetrofitClient.editProfile(
-        "Bearer ${AppConfigProvider().token}",
+        "Bearer ${getIt.get<AppConfigProvider>().token}",
         EditProfileRequestDto(
           email: request.email,
           firstName: request.firstName,
           lastName: request.lastName,
-          gender: request.gender,
+          // gender: request.gender,
           phone: request.phone,
-          photo: request.photo,
+          // photo: request.photo,
         ),
       );
       return response.toDomain();

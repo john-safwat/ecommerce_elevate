@@ -122,7 +122,7 @@ class ProfileViewModel extends BaseViewModel<ProfileViewState, ProfileAction> {
   String? phoneValidation(String value) {
     if (value.isEmpty) {
       return locale!.enterPhoneNumber;
-    } else if (!RegExp(r'^01[0125][0-9]{8}$').hasMatch(value)) {
+    } else if (!RegExp(r'^\+20(10|11|12|15)\d{8}$').hasMatch(value)) {
       return locale!.enterValidMobileNumber;
     }
     return null;
@@ -174,8 +174,8 @@ class ProfileViewModel extends BaseViewModel<ProfileViewState, ProfileAction> {
           lastName: lastNameController.text,
           email: emailController.text,
           phone: phoneController.text,
-          gender: user?.gender,
-          photo: user?.photo,
+          // gender: selectedGender == Gender.female ? "female" : "male",
+          // photo: user?.photo,
         ),
       );
       emit(HideLoadingState());
