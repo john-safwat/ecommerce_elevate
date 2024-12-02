@@ -25,6 +25,8 @@ import 'package:ecommerce_elevate/features/auth/domain/entities/reset_password/r
     as _i13;
 import 'package:ecommerce_elevate/features/auth/domain/entities/reset_password/reset_password_response.dart'
     as _i12;
+import 'package:ecommerce_elevate/features/auth/domain/entities/user_info/user_info_response.dart'
+    as _i16;
 import 'package:ecommerce_elevate/features/auth/domain/entities/verify_reset_code/verify_reset_code_response.dart'
     as _i11;
 import 'package:ecommerce_elevate/features/auth/domain/repository/auth_repository.dart'
@@ -169,6 +171,24 @@ class MockAuthRepository extends _i1.Mock implements _i2.AuthRepository {
           ),
         )),
       ) as _i3.Future<_i4.Results<_i14.EditProfileResponse>>);
+
+  @override
+  _i3.Future<_i4.Results<_i16.GetUserInfoResponse>> getUserInfo(
+          String? token) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getUserInfo,
+          [token],
+        ),
+        returnValue: _i3.Future<_i4.Results<_i16.GetUserInfoResponse>>.value(
+            _i7.dummyValue<_i4.Results<_i16.GetUserInfoResponse>>(
+          this,
+          Invocation.method(
+            #getUserInfo,
+            [token],
+          ),
+        )),
+      ) as _i3.Future<_i4.Results<_i16.GetUserInfoResponse>>);
 
   @override
   _i3.Future<void> deleteToken() => (super.noSuchMethod(

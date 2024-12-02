@@ -12,6 +12,7 @@ import 'package:ecommerce_elevate/features/auth/data/models/authentication/regis
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/registration/response/registration_response_dto.dart';
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/reset_password/request/reset_password_request_dto.dart';
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/reset_password/response/reset_password_response_dto.dart';
+import 'package:ecommerce_elevate/features/auth/data/models/authentication/user_info/response/get_user_info_response_dto.dart';
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/verify_reset_code/request/verify_reset_code_request_dto.dart';
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/verify_reset_code/response/verify_reset_code_response_dto.dart';
 import 'package:injectable/injectable.dart';
@@ -48,5 +49,9 @@ abstract class AuthRetrofitClient {
   Future<EditProfileResponseDto> editProfile(
     @Header("Authorization") String token,
     @Body() EditProfileRequestDto request,
+  );
+  @GET(ApiConstants.profileDataRoute)
+  Future<GetUserInfoResponseDto> getUserInfo(
+    @Header("Authorization") String token,
   );
 }

@@ -12,6 +12,7 @@ import 'package:ecommerce_elevate/features/auth/domain/entities/registration/reg
 import 'package:ecommerce_elevate/features/auth/domain/entities/registration/registration_user.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/reset_password/reset_password_request.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/reset_password/reset_password_response.dart';
+import 'package:ecommerce_elevate/features/auth/domain/entities/user_info/user_info_response.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/verify_reset_code/verify_reset_code_response.dart';
 import 'package:ecommerce_elevate/features/auth/domain/repository/auth_repository.dart';
 import 'package:injectable/injectable.dart';
@@ -71,5 +72,10 @@ class AuthRepositoryImpl implements AuthRepository {
       EditProfileRequest request) async {
     var response = await _remoteDatasource.editProfile(request);
     return response;
+  }
+
+  @override
+  Future<Results<GetUserInfoResponse>> getUserInfo(String token) async {
+    return await _remoteDatasource.getUserInfo(token);
   }
 }

@@ -8,7 +8,7 @@ import 'dart:async' as _i3;
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart'
     as _i4;
 import 'package:ecommerce_elevate/features/auth/data/datasource/contract/auth_local_datasource.dart'
-    as _i16;
+    as _i17;
 import 'package:ecommerce_elevate/features/auth/data/datasource/contract/auth_remote_datasource.dart'
     as _i2;
 import 'package:ecommerce_elevate/features/auth/domain/entities/authentication/authentication_request.dart'
@@ -29,6 +29,8 @@ import 'package:ecommerce_elevate/features/auth/domain/entities/reset_password/r
     as _i13;
 import 'package:ecommerce_elevate/features/auth/domain/entities/reset_password/reset_password_response.dart'
     as _i12;
+import 'package:ecommerce_elevate/features/auth/domain/entities/user_info/user_info_response.dart'
+    as _i16;
 import 'package:ecommerce_elevate/features/auth/domain/entities/verify_reset_code/verify_reset_code_response.dart'
     as _i11;
 import 'package:mockito/mockito.dart' as _i1;
@@ -164,13 +166,31 @@ class MockAuthRemoteDatasource extends _i1.Mock
           ),
         )),
       ) as _i3.Future<_i4.Results<_i14.EditProfileResponse>>);
+
+  @override
+  _i3.Future<_i4.Results<_i16.GetUserInfoResponse>> getUserInfo(
+          String? token) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getUserInfo,
+          [token],
+        ),
+        returnValue: _i3.Future<_i4.Results<_i16.GetUserInfoResponse>>.value(
+            _i7.dummyValue<_i4.Results<_i16.GetUserInfoResponse>>(
+          this,
+          Invocation.method(
+            #getUserInfo,
+            [token],
+          ),
+        )),
+      ) as _i3.Future<_i4.Results<_i16.GetUserInfoResponse>>);
 }
 
 /// A class which mocks [AuthLocalDatasource].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockAuthLocalDatasource extends _i1.Mock
-    implements _i16.AuthLocalDatasource {
+    implements _i17.AuthLocalDatasource {
   MockAuthLocalDatasource() {
     _i1.throwOnMissingStub(this);
   }

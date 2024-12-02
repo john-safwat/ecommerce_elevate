@@ -4,6 +4,7 @@ import 'dart:async';
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/datasource_execution/datasource_execution.dart';
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
+import 'package:ecommerce_elevate/core/di/di.dart';
 import 'package:ecommerce_elevate/core/providers/app_config_provider.dart';
 import 'package:ecommerce_elevate/features/auth/data/api/auth_retrofit_client.dart';
 import 'package:ecommerce_elevate/features/auth/data/datasource/contract/auth_remote_datasource.dart';
@@ -22,6 +23,7 @@ import 'package:ecommerce_elevate/features/auth/domain/entities/registration/reg
 import 'package:ecommerce_elevate/features/auth/domain/entities/registration/registration_user.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/reset_password/reset_password_request.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/reset_password/reset_password_response.dart';
+import 'package:ecommerce_elevate/features/auth/domain/entities/user_info/user_info_response.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/verify_reset_code/verify_reset_code_response.dart';
 import 'package:injectable/injectable.dart';
 
@@ -103,6 +105,15 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
           photo: request.photo,
         ),
       );
+      return response.toDomain();
+    });
+  }
+
+  @override
+  Future<Results<GetUserInfoResponse>> getUserInfo(String token) {
+    return _apiExecution.execute<GetUserInfoResponse>(() async {
+      var response = await _authRetrofitClient
+          .getUserInfo("Bearer ${getIt.get<AppConfigProvider>().token}");
       return response.toDomain();
     });
   }

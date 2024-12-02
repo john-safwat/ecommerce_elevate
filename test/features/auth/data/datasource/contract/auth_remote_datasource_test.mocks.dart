@@ -3,32 +3,34 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i9;
+import 'dart:async' as _i10;
 
 import 'package:ecommerce_elevate/features/auth/data/api/auth_retrofit_client.dart'
-    as _i8;
+    as _i9;
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/edit_profile/request/edit_profile_request_dto.dart'
-    as _i15;
+    as _i16;
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/edit_profile/response/edit_profile_response_dto.dart'
     as _i7;
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/forget_password/request/forget_password_request_dto.dart'
-    as _i12;
+    as _i13;
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/forget_password/response/forget_password_response_dto.dart'
     as _i4;
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/login/request/authentication_request_dto.dart'
-    as _i11;
+    as _i12;
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/login/response/authentication_response_dto.dart'
     as _i3;
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/registration/request/registration_user_dto.dart'
-    as _i10;
+    as _i11;
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/registration/response/registration_response_dto.dart'
     as _i2;
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/reset_password/request/reset_password_request_dto.dart'
-    as _i14;
+    as _i15;
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/reset_password/response/reset_password_response_dto.dart'
     as _i6;
+import 'package:ecommerce_elevate/features/auth/data/models/authentication/user_info/response/get_user_info_response_dto.dart'
+    as _i8;
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/verify_reset_code/request/verify_reset_code_request_dto.dart'
-    as _i13;
+    as _i14;
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/verify_reset_code/response/verify_reset_code_response_dto.dart'
     as _i5;
 import 'package:mockito/mockito.dart' as _i1;
@@ -112,24 +114,35 @@ class _FakeEditProfileResponseDto_5 extends _i1.SmartFake
         );
 }
 
+class _FakeGetUserInfoResponseDto_6 extends _i1.SmartFake
+    implements _i8.GetUserInfoResponseDto {
+  _FakeGetUserInfoResponseDto_6(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [AuthRetrofitClient].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockAuthRetrofitClient extends _i1.Mock
-    implements _i8.AuthRetrofitClient {
+    implements _i9.AuthRetrofitClient {
   MockAuthRetrofitClient() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i9.Future<_i2.RegistrationResponseDto> signup(
-          _i10.RegistrationUserDto? user) =>
+  _i10.Future<_i2.RegistrationResponseDto> signup(
+          _i11.RegistrationUserDto? user) =>
       (super.noSuchMethod(
         Invocation.method(
           #signup,
           [user],
         ),
-        returnValue: _i9.Future<_i2.RegistrationResponseDto>.value(
+        returnValue: _i10.Future<_i2.RegistrationResponseDto>.value(
             _FakeRegistrationResponseDto_0(
           this,
           Invocation.method(
@@ -137,17 +150,17 @@ class MockAuthRetrofitClient extends _i1.Mock
             [user],
           ),
         )),
-      ) as _i9.Future<_i2.RegistrationResponseDto>);
+      ) as _i10.Future<_i2.RegistrationResponseDto>);
 
   @override
-  _i9.Future<_i3.AuthenticationResponseDto> signIn(
-          _i11.AuthenticationRequestDto? authentication) =>
+  _i10.Future<_i3.AuthenticationResponseDto> signIn(
+          _i12.AuthenticationRequestDto? authentication) =>
       (super.noSuchMethod(
         Invocation.method(
           #signIn,
           [authentication],
         ),
-        returnValue: _i9.Future<_i3.AuthenticationResponseDto>.value(
+        returnValue: _i10.Future<_i3.AuthenticationResponseDto>.value(
             _FakeAuthenticationResponseDto_1(
           this,
           Invocation.method(
@@ -155,17 +168,17 @@ class MockAuthRetrofitClient extends _i1.Mock
             [authentication],
           ),
         )),
-      ) as _i9.Future<_i3.AuthenticationResponseDto>);
+      ) as _i10.Future<_i3.AuthenticationResponseDto>);
 
   @override
-  _i9.Future<_i4.ForgetPasswordResponseDto> forgetPassword(
-          _i12.ForgetPasswordRequestDto? request) =>
+  _i10.Future<_i4.ForgetPasswordResponseDto> forgetPassword(
+          _i13.ForgetPasswordRequestDto? request) =>
       (super.noSuchMethod(
         Invocation.method(
           #forgetPassword,
           [request],
         ),
-        returnValue: _i9.Future<_i4.ForgetPasswordResponseDto>.value(
+        returnValue: _i10.Future<_i4.ForgetPasswordResponseDto>.value(
             _FakeForgetPasswordResponseDto_2(
           this,
           Invocation.method(
@@ -173,17 +186,17 @@ class MockAuthRetrofitClient extends _i1.Mock
             [request],
           ),
         )),
-      ) as _i9.Future<_i4.ForgetPasswordResponseDto>);
+      ) as _i10.Future<_i4.ForgetPasswordResponseDto>);
 
   @override
-  _i9.Future<_i5.VerifyResetCodeResponseDto> verifyResetCode(
-          _i13.VerifyResetCodeRequestDto? resetCode) =>
+  _i10.Future<_i5.VerifyResetCodeResponseDto> verifyResetCode(
+          _i14.VerifyResetCodeRequestDto? resetCode) =>
       (super.noSuchMethod(
         Invocation.method(
           #verifyResetCode,
           [resetCode],
         ),
-        returnValue: _i9.Future<_i5.VerifyResetCodeResponseDto>.value(
+        returnValue: _i10.Future<_i5.VerifyResetCodeResponseDto>.value(
             _FakeVerifyResetCodeResponseDto_3(
           this,
           Invocation.method(
@@ -191,17 +204,17 @@ class MockAuthRetrofitClient extends _i1.Mock
             [resetCode],
           ),
         )),
-      ) as _i9.Future<_i5.VerifyResetCodeResponseDto>);
+      ) as _i10.Future<_i5.VerifyResetCodeResponseDto>);
 
   @override
-  _i9.Future<_i6.ResetPasswordResponseDto> resetPassword(
-          _i14.ResetPasswordRequestDto? request) =>
+  _i10.Future<_i6.ResetPasswordResponseDto> resetPassword(
+          _i15.ResetPasswordRequestDto? request) =>
       (super.noSuchMethod(
         Invocation.method(
           #resetPassword,
           [request],
         ),
-        returnValue: _i9.Future<_i6.ResetPasswordResponseDto>.value(
+        returnValue: _i10.Future<_i6.ResetPasswordResponseDto>.value(
             _FakeResetPasswordResponseDto_4(
           this,
           Invocation.method(
@@ -209,12 +222,12 @@ class MockAuthRetrofitClient extends _i1.Mock
             [request],
           ),
         )),
-      ) as _i9.Future<_i6.ResetPasswordResponseDto>);
+      ) as _i10.Future<_i6.ResetPasswordResponseDto>);
 
   @override
-  _i9.Future<_i7.EditProfileResponseDto> editProfile(
+  _i10.Future<_i7.EditProfileResponseDto> editProfile(
     String? token,
-    _i15.EditProfileRequestDto? request,
+    _i16.EditProfileRequestDto? request,
   ) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -224,7 +237,7 @@ class MockAuthRetrofitClient extends _i1.Mock
             request,
           ],
         ),
-        returnValue: _i9.Future<_i7.EditProfileResponseDto>.value(
+        returnValue: _i10.Future<_i7.EditProfileResponseDto>.value(
             _FakeEditProfileResponseDto_5(
           this,
           Invocation.method(
@@ -235,5 +248,22 @@ class MockAuthRetrofitClient extends _i1.Mock
             ],
           ),
         )),
-      ) as _i9.Future<_i7.EditProfileResponseDto>);
+      ) as _i10.Future<_i7.EditProfileResponseDto>);
+
+  @override
+  _i10.Future<_i8.GetUserInfoResponseDto> getUserInfo(String? token) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getUserInfo,
+          [token],
+        ),
+        returnValue: _i10.Future<_i8.GetUserInfoResponseDto>.value(
+            _FakeGetUserInfoResponseDto_6(
+          this,
+          Invocation.method(
+            #getUserInfo,
+            [token],
+          ),
+        )),
+      ) as _i10.Future<_i8.GetUserInfoResponseDto>);
 }
