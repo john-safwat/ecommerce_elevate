@@ -21,4 +21,9 @@ class AuthLocalDatasourceImpl implements AuthLocalDatasource {
   Future<void> deleteToken() async {
     await sharedPreferences.remove(Constants.tokenKey);
   }
+  @override
+  String? getToken()  {
+      var response =  sharedPreferences.getString(Constants.tokenKey);
+      return response;
+  }
 }

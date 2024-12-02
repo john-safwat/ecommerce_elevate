@@ -102,5 +102,22 @@
   "bloom_with_our_exquisite_best_sellers": "Bloom with our exquisite best sellers",
   "inStock": "In Stock",
   "outOfStock": "Out of Stock",
-  "thereIsNoProduct" : "There is No Products in Stock"
+  "thereIsNoProduct" : "There is No Products in Stock",
+  "myOrders" : "My Orders",
+  "savedAddress" : "Saved Address",
+  "notification" : "Notification",
+  "language" : "Language",
+  "logout" : "Logout",
+  "aboutUs" : "About Us",
+  "termsAndConditions" : "Terms and Conditions",
+  "arabic" : "Arabic",
+  "english" : "English",
+  "loginAgain": "Login Again",
+  "pleaseLoginAgain": "Please Login Again",
+  "logoutMessage": "Are you sure you want to logout?",
+  "yes": "Yes",
+  "no": "No",
+  "loggedOutSuccessfully": "Logged Out Successfully",
+  "areYouSureYouWantToLogout": "Are you sure you want to logout?"
+
 }
