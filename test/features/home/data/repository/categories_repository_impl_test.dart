@@ -1,4 +1,3 @@
-import 'package:ecommerce_elevate/core/datasource_execution/app_exception.dart';
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:ecommerce_elevate/features/home/data/datasource/contract/categories_remote_datasource.dart';
 import 'package:ecommerce_elevate/features/home/data/repository/categories_repository_impl.dart';
@@ -12,11 +11,12 @@ import 'categories_repository_impl_test.mocks.dart';
 
 @GenerateMocks([CategoriesRemoteDatasource])
 void main() async {
-
   await dependenciesSetup();
 
   group("Categories Repository Test", () {
-    test('should return a non-empty categories list on successful datasource call', () async {
+    test(
+        'should return a non-empty categories list on successful datasource call',
+        () async {
       var mockDatasource = getItTest<MockCategoriesRemoteDatasource>();
       var repository = CategoriesRepositoryImpl(mockDatasource);
 
@@ -49,7 +49,5 @@ void main() async {
       expect(actualResult, result);
       expect(result.exception, isException);
     });
-
   });
-
 }

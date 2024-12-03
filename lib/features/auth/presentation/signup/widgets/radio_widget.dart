@@ -1,9 +1,8 @@
 // 🐦 Flutter imports:
-import 'package:flutter/material.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/signup/signup_view_model.dart';
+import 'package:flutter/material.dart';
 
 class RadioWidget extends StatelessWidget {
   const RadioWidget({

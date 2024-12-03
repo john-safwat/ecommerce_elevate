@@ -11,11 +11,12 @@ import 'get_occasions_list_use_case_test.mocks.dart';
 
 @GenerateMocks([OccasionsRepository])
 void main() async {
-
   await dependenciesSetup();
 
   group("Occasion Repository Test", () {
-    test('should return a non-empty occasions list on successful datasource call', () async {
+    test(
+        'should return a non-empty occasions list on successful datasource call',
+        () async {
       var mockRepository = getItTest<MockOccasionsRepository>();
       var useCase = GetOccasionsListUseCase(mockRepository);
 
@@ -48,7 +49,5 @@ void main() async {
       expect(actualResult, result);
       expect(result.exception, isException);
     });
-
   });
-
 }

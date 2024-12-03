@@ -131,7 +131,6 @@ void main() async {
         datasourceExecution,
       );
 
-
       var result = Failure<List<Product>?>(
         DioException(
             type: DioExceptionType.connectionTimeout,

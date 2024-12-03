@@ -11,15 +11,19 @@ import 'get_most_selling_products_list_use_case_test.mocks.dart';
 
 @GenerateMocks([ProductsRepository])
 void main() async {
-
   await dependenciesSetup();
 
   group("Occasion Repository Test", () {
-    test('should return a non-empty products list on successful datasource call', () async {
+    test(
+        'should return a non-empty products list on successful datasource call',
+        () async {
       var mockRepository = getItTest<MockProductsRepository>();
       var useCase = GetMostSellingProductsListUseCase(mockRepository);
 
-      final mockProducts = [Product(), Product(),];
+      final mockProducts = [
+        Product(),
+        Product(),
+      ];
 
       var result = Success<List<Product>?>(mockProducts);
       provideDummy<Results<List<Product>?>>(result);
@@ -44,7 +48,5 @@ void main() async {
       expect(actualResult, result);
       expect(result.exception, isException);
     });
-
   });
-
 }

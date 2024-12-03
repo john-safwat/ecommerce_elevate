@@ -1,11 +1,11 @@
 // 📦 Package imports:
-import 'package:injectable/injectable.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:ecommerce_elevate/features/home/data/api/occasions/occasions_retrofit_client.dart';
 import 'package:ecommerce_elevate/features/home/data/datasource/contract/occasions_remote_datasource.dart';
 import 'package:ecommerce_elevate/features/home/domain/entities/occasions/occasion.dart';
+import 'package:injectable/injectable.dart';
+
 import '../../../../../core/datasource_execution/datasource_execution.dart';
 
 @Injectable(as: OccasionsRemoteDatasource)
@@ -13,7 +13,8 @@ class OccasionsRemoteDatasourceImpl implements OccasionsRemoteDatasource {
   final OccasionsRetrofitClient _occasionsRetrofitClient;
   final DataSourceExecution _apiExecution;
 
-  OccasionsRemoteDatasourceImpl(this._occasionsRetrofitClient, this._apiExecution);
+  OccasionsRemoteDatasourceImpl(
+      this._occasionsRetrofitClient, this._apiExecution);
 
   @override
   Future<Results<List<Occasion>?>> getOccasionsList() async {
