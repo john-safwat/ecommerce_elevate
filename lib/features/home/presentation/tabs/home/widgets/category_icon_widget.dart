@@ -4,6 +4,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
+import 'package:flutter/material.dart';
 import 'package:ecommerce_elevate/core/shared_features/domain/entities/category/category.dart';
 import 'package:flutter/material.dart';
 

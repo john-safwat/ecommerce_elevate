@@ -1,8 +1,11 @@
 // 📦 Package imports:
 
+// 🌎 Project imports:
+import 'package:json_annotation/json_annotation.dart';
 import 'package:ecommerce_elevate/core/shared_features/domain/entities/products/product.dart';
 // 🌎 Project imports:
 import 'package:json_annotation/json_annotation.dart';
+// 📦 Package imports:
 
 part 'product_dto.g.dart';
 

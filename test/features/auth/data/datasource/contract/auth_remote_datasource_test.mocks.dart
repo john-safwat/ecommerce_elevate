@@ -5,6 +5,10 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i9;
 
+import 'package:ecommerce_elevate/core/datasource_execution/datasource_execution.dart'
+    as _i16;
+import 'package:ecommerce_elevate/core/datasource_execution/results.dart'
+    as _i17;
 import 'package:ecommerce_elevate/features/auth/data/api/auth_retrofit_client.dart'
     as _i8;
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/change_password/change_password_request/change_password_request_dto.dart'
@@ -32,6 +36,7 @@ import 'package:ecommerce_elevate/features/auth/data/models/authentication/verif
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/verify_reset_code/response/verify_reset_code_response_dto.dart'
     as _i5;
 import 'package:mockito/mockito.dart' as _i1;
+import 'package:mockito/src/dummies.dart' as _i18;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -236,4 +241,31 @@ class MockAuthRetrofitClient extends _i1.Mock
           ),
         )),
       ) as _i9.Future<_i7.ChangePasswordResponseDto>);
+}
+
+/// A class which mocks [DataSourceExecution].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockDataSourceExecution extends _i1.Mock
+    implements _i16.DataSourceExecution {
+  MockDataSourceExecution() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i9.Future<_i17.Results<T>> execute<T>(_i9.Future<T> Function()? apiCall) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #execute,
+          [apiCall],
+        ),
+        returnValue:
+            _i9.Future<_i17.Results<T>>.value(_i18.dummyValue<_i17.Results<T>>(
+          this,
+          Invocation.method(
+            #execute,
+            [apiCall],
+          ),
+        )),
+      ) as _i9.Future<_i17.Results<T>>);
 }

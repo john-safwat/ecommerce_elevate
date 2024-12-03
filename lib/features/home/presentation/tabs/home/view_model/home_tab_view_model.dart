@@ -2,6 +2,13 @@
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/base/base_view_model.dart';
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
+// 📦 Package imports:
+import 'package:geocode/geocode.dart';
+import 'package:injectable/injectable.dart';
+import 'package:location/location.dart';
+
+
+// 🌎 Project imports:
 import 'package:ecommerce_elevate/core/shared_features/domain/entities/category/category.dart';
 import 'package:ecommerce_elevate/core/shared_features/domain/entities/occasions/occasion.dart';
 import 'package:ecommerce_elevate/core/shared_features/domain/entities/products/product.dart';
@@ -11,6 +18,8 @@ import 'package:ecommerce_elevate/core/shared_features/domain/use_case/get_occas
 import 'package:geocode/geocode.dart';
 import 'package:injectable/injectable.dart';
 import 'package:location/location.dart';
+// 📦 Package imports:
+
 
 import 'home_tab_actions.dart';
 import 'home_tab_state.dart';

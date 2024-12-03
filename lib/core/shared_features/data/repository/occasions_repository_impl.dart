@@ -2,6 +2,7 @@
 
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
+import 'package:injectable/injectable.dart';
 import 'package:ecommerce_elevate/core/shared_features/data/datasource/contract/occasions_remote_datasource.dart';
 import 'package:ecommerce_elevate/core/shared_features/domain/entities/occasions/occasion.dart';
 import 'package:ecommerce_elevate/core/shared_features/domain/repository/occasions_repository.dart';
