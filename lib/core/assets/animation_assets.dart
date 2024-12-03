@@ -4,4 +4,6 @@ class AnimationsAssets {
   static const String errorAnimation = "$_baseRoute/error.json";
   static const String infoAnimation = "$_baseRoute/info.json";
   static const String emptyAnimation = "$_baseRoute/empty.json";
+  static const String loginImageAnimation = "$_baseRoute/login_image.json";
+
 }

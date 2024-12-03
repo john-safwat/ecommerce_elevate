@@ -1,4 +1,5 @@
 // 📦 Package imports:
+
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:ecommerce_elevate/features/auth/data/datasource/contract/auth_local_datasource.dart';
@@ -14,6 +15,8 @@ import 'package:ecommerce_elevate/features/auth/domain/entities/reset_password/r
 import 'package:ecommerce_elevate/features/auth/domain/entities/reset_password/reset_password_response.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/verify_reset_code/verify_reset_code_response.dart';
 import 'package:ecommerce_elevate/features/auth/domain/repository/auth_repository.dart';
+import 'package:injectable/injectable.dart';
+// 📦 Package imports:
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: AuthRepository)

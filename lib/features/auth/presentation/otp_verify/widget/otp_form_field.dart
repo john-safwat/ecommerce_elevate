@@ -1,4 +1,9 @@
 // 🐦 Flutter imports:
+
+// 🌎 Project imports:
+import 'package:ecommerce_elevate/features/auth/presentation/otp_verify/otp_verify_contract.dart';
+import 'package:ecommerce_elevate/features/auth/presentation/otp_verify/otp_verify_view_model.dart';
+// 🐦 Flutter imports:
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/features/auth/presentation/otp_verify/otp_verify_contract.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/otp_verify/otp_verify_view_model.dart';

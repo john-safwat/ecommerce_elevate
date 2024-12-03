@@ -1,6 +1,9 @@
 // 📦 Package imports:
+
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/features/auth/domain/repository/auth_repository.dart';
+import 'package:injectable/injectable.dart';
+// 📦 Package imports:
 import 'package:injectable/injectable.dart';
 
 @injectable
