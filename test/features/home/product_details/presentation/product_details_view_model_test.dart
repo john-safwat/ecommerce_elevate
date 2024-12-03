@@ -1,5 +1,5 @@
-import 'package:ecommerce_elevate/features/home/product_details/presentation/product_details_contract.dart';
-import 'package:ecommerce_elevate/features/home/product_details/presentation/product_details_view_model.dart';
+import 'package:ecommerce_elevate/features/product_details/presentation/product_details_contract.dart';
+import 'package:ecommerce_elevate/features/product_details/presentation/product_details_view_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

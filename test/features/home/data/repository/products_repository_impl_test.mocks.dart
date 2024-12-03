@@ -7,7 +7,8 @@ import 'dart:async' as _i3;
 
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart'
     as _i4;
-import 'package:ecommerce_elevate/features/home/data/datasource/contract/products_remote_datasource.dart'
+
+import 'package:ecommerce_elevate/features/home/data/datasource/impl/products_remote_datasource_impl.dart'
     as _i2;
 import 'package:ecommerce_elevate/features/home/domain/entities/products/product.dart'
     as _i5;
@@ -27,12 +28,12 @@ import 'package:mockito/src/dummies.dart' as _i6;
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
-/// A class which mocks [ProductsDatasource].
+/// A class which mocks [ProductsRemoteDatasourceImpl].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockProductsDatasource extends _i1.Mock
-    implements _i2.ProductsDatasource {
-  MockProductsDatasource() {
+class MockProductsRemoteDatasourceImpl extends _i1.Mock
+    implements _i2.ProductsRemoteDatasourceImpl {
+  MockProductsRemoteDatasourceImpl() {
     _i1.throwOnMissingStub(this);
   }
 

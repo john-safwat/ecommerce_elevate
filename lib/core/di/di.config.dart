@@ -47,8 +47,8 @@ import '../../features/auth/presentation/reset_password/reset_password_view_mode
     as _i974;
 import '../../features/auth/presentation/signup/signup_view_model.dart'
     as _i1055;
-import '../../features/home/best_seller/presentation/view_model/best_seller_view_model.dart'
-    as _i232;
+import '../../features/best_seller/presentation/view_model/best_seller_view_model.dart'
+    as _i835;
 import '../../features/home/data/api/categories/categories_retrofit_client.dart'
     as _i186;
 import '../../features/home/data/api/occasions/occasions_retrofit_client.dart'
@@ -93,8 +93,8 @@ import '../../features/home/presentation/tabs/occasions/occasions_view_model/occ
     as _i463;
 import '../../features/home/presentation/view_model/home_view_model.dart'
     as _i77;
-import '../../features/home/product_details/presentation/product_details_view_model.dart'
-    as _i101;
+import '../../features/product_details/presentation/product_details_view_model.dart'
+    as _i155;
 import '../datasource_execution/datasource_execution.dart' as _i166;
 import '../providers/app_config_provider.dart' as _i56;
 import '../providers/language_provider.dart' as _i822;
@@ -123,10 +123,10 @@ extension GetItInjectableX on _i174.GetIt {
       () => sharedPreferencesModule.prefs,
       preResolve: true,
     );
-    gh.factory<_i232.BestSellerViewModel>(() => _i232.BestSellerViewModel());
     gh.factory<_i77.HomeViewModel>(() => _i77.HomeViewModel());
-    gh.factory<_i101.ProductDetailsViewModel>(
-        () => _i101.ProductDetailsViewModel());
+    gh.factory<_i835.BestSellerViewModel>(() => _i835.BestSellerViewModel());
+    gh.factory<_i155.ProductDetailsViewModel>(
+        () => _i155.ProductDetailsViewModel());
     gh.singleton<_i166.DataSourceExecution>(() => _i166.DataSourceExecution());
     gh.singleton<_i56.AppConfigProvider>(() => _i56.AppConfigProvider());
     gh.lazySingleton<_i645.Location>(() => locationModule.location);

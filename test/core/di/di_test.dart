@@ -7,6 +7,7 @@ import 'package:ecommerce_elevate/features/home/presentation/tabs/home/view_mode
 import 'package:flutter/material.dart';
 // 📦 Package imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../features/home/data/datasource/impl/categories_remote_datasource_impl_test.mocks.dart';
@@ -65,12 +66,18 @@ Future<void> dependenciesSetup() async {
       MockProductsRetrofitClient());
   getItTest.registerSingleton<MockOccasionsRemoteDatasource>(
       MockOccasionsRemoteDatasource());
-  getItTest.registerSingleton<MockProductsRemoteDatasource>(
-      MockProductsRemoteDatasource());
+  getItTest.registerSingleton<MockProductsRemoteDatasourceImpl>(
+      MockProductsRemoteDatasourceImpl());
   getItTest.registerSingleton<MockCategoriesRepository>(
       MockCategoriesRepository());
   getItTest.registerSingleton<MockOccasionsRepository>(
       MockOccasionsRepository());
   getItTest.registerSingleton<MockProductsRepository>(
       MockProductsRepository());
+}
+void main() {
+  setUp(() async {
+    await dependenciesSetup();
+  });
+
 }

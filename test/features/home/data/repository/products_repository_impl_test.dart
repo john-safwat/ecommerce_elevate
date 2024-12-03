@@ -1,5 +1,6 @@
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:ecommerce_elevate/features/home/data/datasource/contract/products_remote_datasource.dart';
+import 'package:ecommerce_elevate/features/home/data/datasource/impl/products_remote_datasource_impl.dart';
 import 'package:ecommerce_elevate/features/home/data/repository/products_repository_impl.dart';
 import 'package:ecommerce_elevate/features/home/domain/entities/products/product.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -9,14 +10,17 @@ import 'package:mockito/mockito.dart';
 import '../../../../core/di/di_test.dart';
 import 'products_repository_impl_test.mocks.dart';
 
-@GenerateMocks([ProductsDatasource])
+@GenerateMocks([ProductsRemoteDatasourceImpl])
+
 void main() async {
 
   await dependenciesSetup();
 
   group("Occasion Repository Test", () {
     test('should return a non-empty products list on successful datasource call', () async {
-      var mockDatasource = getItTest<MockProductsDatasource>();
+
+      var mockDatasource = getItTest<MockProductsRemoteDatasourceImpl>();
+
       var repository = ProductsRepositoryImpl(mockDatasource);
 
       final mockProducts = [Product(), Product(),];
@@ -32,7 +36,8 @@ void main() async {
     });
 
     test('Failure during the API call.', () async {
-      var mockDatasource = getItTest<MockProductsDatasource>();
+
+      var mockDatasource = getItTest<MockProductsRemoteDatasourceImpl>();
       var repository = ProductsRepositoryImpl(mockDatasource);
 
       var result = Failure<List<Product>?>(Exception());
