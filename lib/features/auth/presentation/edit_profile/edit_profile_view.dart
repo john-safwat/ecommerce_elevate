@@ -2,6 +2,7 @@ import 'package:ecommerce_elevate/core/assets/animation_assets.dart';
 import 'package:ecommerce_elevate/core/base/base_view.dart';
 import 'package:ecommerce_elevate/core/constants/routes.dart';
 import 'package:ecommerce_elevate/core/di/di.dart';
+import 'package:ecommerce_elevate/core/shared_widgets/servier_error_widget.dart';
 import 'package:ecommerce_elevate/core/utils/app_dialogs.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/edit_profile/edit_profile_contract.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/edit_profile/edit_profile_view_model.dart';
@@ -21,8 +22,7 @@ class _ProfileViewState extends BaseState<ProfileView, ProfileViewModel> {
   @override
   void initState() {
     super.initState();
-    // viewModel.mainViewModel =
-    //     BlocProvider.of<MainViewModel>(context, listen: false);
+
     viewModel.doIntent(LoadDataAction());
   }
 
@@ -72,6 +72,7 @@ class _ProfileViewState extends BaseState<ProfileView, ProfileViewModel> {
                     context: context,
                     posActionTitle: viewModel.locale!.ok);
               }
+
               if (state is ShowFailMessageState) {
                 AppDialogs.showFailDialog(
                     message: state.message,
@@ -85,18 +86,15 @@ class _ProfileViewState extends BaseState<ProfileView, ProfileViewModel> {
                   child: Lottie.asset(AnimationsAssets.checkAnimation),
                 );
               } else if (state is ProfileDataLoadingFailState) {
-                return Center(
-                  child: Lottie.asset(AnimationsAssets.checkAnimation),
+                return ServerErrorWidget(
+                  state.message,
+                  viewModel.locale!.tryAgain,
+                  () {
+                    viewModel.doIntent(
+                      LoadDataAction(),
+                    );
+                  },
                 );
-                // ServerErrorWidget(
-                //   state.message,
-                //   viewModel.locale!.tryAgain,
-                //   () {
-                //     viewModel.doIntent(
-                //       LoadDataAction(),
-                //     );
-                //   },
-                // );
               } else {
                 return UserForm(viewModel);
               }
