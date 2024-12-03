@@ -54,6 +54,7 @@ dependencies:
   geocode:
   skeletonizer:
   import_sorter:
+  fluttertoast:
 
 import_sorter:
   emojis: true # Optional, defaults to false

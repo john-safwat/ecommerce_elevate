@@ -1,7 +1,11 @@
 // 📦 Package imports:
+
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/constants/constants.dart';
 import 'package:ecommerce_elevate/features/auth/data/datasource/contract/auth_local_datasource.dart';
+import 'package:injectable/injectable.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+// 📦 Package imports:
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

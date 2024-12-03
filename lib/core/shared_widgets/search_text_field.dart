@@ -1,6 +1,9 @@
 // 🐦 Flutter imports:
+
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
+import 'package:flutter/material.dart';
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
 
 class SearchTextField extends StatelessWidget {

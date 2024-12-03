@@ -1,3 +1,5 @@
+// 🐦 Flutter imports:
+// 🌎 Project imports:
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -18,13 +20,17 @@ class _CustomDotIndicatorState extends State<CustomDotIndicator> {
   Widget build(BuildContext context) {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 400),
-      width: widget.isActive ? 45 : 10,
-      height: 10,
+      width: widget.isActive ? 32 : 8,
+      height: 8,
       decoration: BoxDecoration(
         color: widget.isActive
             ? AppColors.pink
             : AppColors.white[AppColors.colorCode70],
         borderRadius: BorderRadius.circular(12),
+        color: widget.isActive
+            ? AppColors.pink
+            : AppColors.white[AppColors.colorCode70],
+        borderRadius: BorderRadius.circular(8),
       ),
     );
   }

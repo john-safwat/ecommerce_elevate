@@ -19,7 +19,7 @@ class SignupViewModel extends BaseViewModel<SignupViewState, SignupAction> {
 
   SignupViewModel(this.signupUserUseCase) : super(InitialSignupViewState());
 
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController firstNameController = TextEditingController();
   final TextEditingController lastNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
@@ -42,7 +42,7 @@ class SignupViewModel extends BaseViewModel<SignupViewState, SignupAction> {
         }
       case SignupAction():
         {
-          _signup();
+          await _signup();
         }
       case ChangePasswordVisibilityAction():
         {
@@ -142,7 +142,7 @@ class SignupViewModel extends BaseViewModel<SignupViewState, SignupAction> {
     }
   }
 
-  void _signup() async {
+  Future<void> _signup() async {
     if (formKey.currentState!.validate()) {
       emit(SignupLoadingState());
       var response = await signupUserUseCase(RegistrationUser(
