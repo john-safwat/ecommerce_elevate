@@ -12,7 +12,6 @@ import 'package:ecommerce_elevate/features/auth/presentation/reset_password/rese
 import 'package:ecommerce_elevate/features/auth/presentation/signup/signup_view.dart';
 import 'package:ecommerce_elevate/features/best_seller/presentation/best_seller_view.dart';
 import 'package:ecommerce_elevate/features/home/presentation/home_view.dart';
-import 'package:ecommerce_elevate/features/home/presentation/tabs/occasions/occasions_screen.dart';
 import 'package:ecommerce_elevate/features/product_details/presentation/product_details_view.dart';
 import 'package:flutter/material.dart';
 // 📦 Package imports:

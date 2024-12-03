@@ -6,7 +6,6 @@ import 'package:retrofit/retrofit.dart';
 
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/constants/api_constants.dart';
-import 'package:ecommerce_elevate/features/home/data/models/occasions/occasions_response_dto.dart';
 
 part 'logout_retrofit_client.g.dart';
 

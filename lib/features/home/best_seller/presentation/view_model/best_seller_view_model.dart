@@ -1,5 +1,5 @@
 import 'package:ecommerce_elevate/core/base/base_view_model.dart';
-import 'package:ecommerce_elevate/features/home/domain/entities/products/product.dart';
+import 'package:ecommerce_elevate/core/shared_features/domain/entities/products/product.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../best_seller/presentation/view_model/best_seller_action.dart';
@@ -17,6 +17,8 @@ class BestSellerViewModel
         {
           _navigateToProductDetails(action.product);
         }
+      case AddProductToCartAction():
+        // TODO: Handle this case.
     }
   }
 

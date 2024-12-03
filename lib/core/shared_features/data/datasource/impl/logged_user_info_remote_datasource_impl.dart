@@ -1,8 +1,5 @@
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:ecommerce_elevate/features/home/data/api/get_user_logged_info/get_user_logged_info_retrofit_client.dart';
-import 'package:ecommerce_elevate/features/home/data/api/products/products_retrofit_client.dart';
-import 'package:ecommerce_elevate/features/home/data/datasource/contract/products_remote_datasource.dart';
-import 'package:ecommerce_elevate/features/home/domain/entities/products/product.dart';
 import 'package:ecommerce_elevate/features/home/domain/entities/profile_info/profile_response.dart';
 import 'package:injectable/injectable.dart';
 
