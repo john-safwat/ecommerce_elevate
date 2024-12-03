@@ -62,27 +62,22 @@ class BillingInformation extends StatelessWidget {
           children: [
             Text(
               viewModel.locale!.total,
-              style: Theme.of(context)
-                  .textTheme
-                  .titleLarge,
+              style: Theme.of(context).textTheme.titleLarge,
             ),
             const Spacer(),
             Text(
               "${(userCartResponse?.cart?.totalPrice ?? 0) + (userCartResponse?.cart?.totalPrice == null ? 0 : 10)} \$",
-              style: Theme.of(context)
-                  .textTheme
-                  .titleLarge!,
+              style: Theme.of(context).textTheme.titleLarge!,
             ),
           ],
         ),
         const SizedBox(height: 8),
         ElevatedButton(
-          onPressed: (){},
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(viewModel.locale!.checkout),
-          )
-        )
+            onPressed: () {},
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(viewModel.locale!.checkout),
+            ))
       ],
     );
   }

@@ -20,7 +20,6 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:provider/provider.dart';
 import 'package:ecommerce_elevate/features/occasions/occasions_screen.dart';
 import 'package:ecommerce_elevate/features/product_details/presentation/product_details_view.dart';
-// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
 // 📦 Package imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';

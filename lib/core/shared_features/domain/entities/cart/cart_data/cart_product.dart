@@ -1,4 +1,3 @@
-
 class CartProduct {
   final String? productId;
   final String? title;

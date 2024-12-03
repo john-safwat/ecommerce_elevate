@@ -1,11 +1,6 @@
 // 🐦 Flutter imports:
-import 'package:ecommerce_elevate/core/utils/app_dialogs.dart';
-import 'package:flutter/material.dart';
-
 // 📦 Package imports:
 import 'package:animate_do/animate_do.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
 import 'package:ecommerce_elevate/core/base/base_view.dart';
@@ -13,9 +8,12 @@ import 'package:ecommerce_elevate/core/constants/routes.dart';
 import 'package:ecommerce_elevate/core/di/di.dart';
 import 'package:ecommerce_elevate/core/shared_features/domain/entities/products/product.dart';
 import 'package:ecommerce_elevate/core/shared_widgets/product_card_widget.dart';
+import 'package:ecommerce_elevate/core/utils/app_dialogs.dart';
 import 'package:ecommerce_elevate/features/best_seller/presentation/view_model/best_seller_action.dart';
 import 'package:ecommerce_elevate/features/best_seller/presentation/view_model/best_seller_states.dart';
 import 'package:ecommerce_elevate/features/best_seller/presentation/view_model/best_seller_view_model.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BestSellerView extends StatefulWidget {
   const BestSellerView({super.key});
@@ -42,10 +40,11 @@ class _BestSellerViewState
               arguments: state.product,
             );
           }
-          if(state is AddItemToCartState){
-            AppDialogs.showLoading(message: viewModel.locale!.loading, context: context);
+          if (state is AddItemToCartState) {
+            AppDialogs.showLoading(
+                message: viewModel.locale!.loading, context: context);
           }
-          if(state is AddItemToCartDoneState){
+          if (state is AddItemToCartDoneState) {
             Navigator.pop(context);
           }
         },
@@ -82,7 +81,8 @@ class _BestSellerViewState
                 child: ProductCardWidget(
                   product: bestSellerList[index],
                   onPressed: () {
-                    viewModel.doIntent(AddProductToCartAction(bestSellerList[index]));
+                    viewModel.doIntent(
+                        AddProductToCartAction(bestSellerList[index]));
                   },
                   onCardPressed: () {
                     viewModel.doIntent(

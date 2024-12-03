@@ -4,7 +4,6 @@
 import 'package:ecommerce_elevate/features/auth/domain/entities/forgetPassword/forget_password_response.dart';
 // 📦 Package imports:
 import 'package:json_annotation/json_annotation.dart';
-import 'package:json_annotation/json_annotation.dart';
 
 part 'forget_password_response_dto.g.dart';
 

@@ -2,8 +2,6 @@
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/shared_features/data/models/categories/category_dto.dart';
 import 'package:ecommerce_elevate/core/shared_features/data/models/categories/metadata_dto.dart';
-import 'package:json_annotation/json_annotation.dart';
-
 // 🌎 Project imports:
 import 'package:json_annotation/json_annotation.dart';
 

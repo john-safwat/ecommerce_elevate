@@ -7,6 +7,7 @@ import 'package:injectable/injectable.dart';
 @injectable
 class ChangePasswordUseCase {
   final AuthRepository _authRepository;
+
   ChangePasswordUseCase(this._authRepository);
 
   Future<Results<ChangePasswordResponse?>> call(

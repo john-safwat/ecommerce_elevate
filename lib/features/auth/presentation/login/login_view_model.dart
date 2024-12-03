@@ -10,10 +10,6 @@ import 'package:ecommerce_elevate/features/auth/presentation/login/login_contrac
 import 'package:flutter/material.dart';
 // 📦 Package imports:
 import 'package:injectable/injectable.dart';
-// 🐦 Flutter imports:
-import 'package:flutter/material.dart';
-// 📦 Package imports:
-import 'package:injectable/injectable.dart';
 
 @injectable
 class LoginViewModel extends BaseViewModel<LoginViewState, LoginViewAction> {

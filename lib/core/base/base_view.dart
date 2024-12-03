@@ -8,11 +8,6 @@ import 'package:flutter/material.dart';
 // 📦 Package imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
-// 🐦 Flutter imports:
-import 'package:flutter/material.dart';
-// 📦 Package imports:
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:provider/provider.dart';
 
 abstract class BaseState<T extends StatefulWidget, VM extends BaseViewModel>
     extends State<T> {

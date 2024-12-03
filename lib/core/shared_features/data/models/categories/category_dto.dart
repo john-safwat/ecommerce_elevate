@@ -1,8 +1,6 @@
 // 📦 Package imports:
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/shared_features/domain/entities/category/category.dart';
-import 'package:json_annotation/json_annotation.dart';
-
 // 🌎 Project imports:
 import 'package:json_annotation/json_annotation.dart';
 

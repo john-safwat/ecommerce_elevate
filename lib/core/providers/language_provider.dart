@@ -2,9 +2,6 @@
 
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/constants/constants.dart';
-// 🐦 Flutter imports:
-// 🌎 Project imports:
-import 'package:ecommerce_elevate/core/constants/constants.dart';
 import 'package:flutter/cupertino.dart';
 // 📦 Package imports:
 import 'package:injectable/injectable.dart';

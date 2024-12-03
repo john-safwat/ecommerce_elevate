@@ -11,10 +11,6 @@ import 'package:ecommerce_elevate/features/home/presentation/view_model/home_sta
 import 'package:flutter/material.dart';
 // 📦 Package imports:
 import 'package:injectable/injectable.dart';
-// 🐦 Flutter imports:
-import 'package:flutter/material.dart';
-// 📦 Package imports:
-import 'package:injectable/injectable.dart';
 
 @injectable
 class HomeViewModel extends BaseViewModel<HomeStates, HomeActions> {

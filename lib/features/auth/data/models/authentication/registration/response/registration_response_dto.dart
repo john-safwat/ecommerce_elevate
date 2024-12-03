@@ -4,8 +4,6 @@
 import 'package:ecommerce_elevate/features/auth/data/models/user_info/user_dto.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/registration/registration_response.dart';
 import 'package:json_annotation/json_annotation.dart';
-// 📦 Package imports:
-import 'package:json_annotation/json_annotation.dart';
 
 part 'registration_response_dto.g.dart';
 

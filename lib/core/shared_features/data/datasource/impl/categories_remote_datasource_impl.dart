@@ -6,7 +6,6 @@ import 'package:injectable/injectable.dart';
 
 import 'package:ecommerce_elevate/core/shared_features/data/datasource/contract/categories_remote_datasource.dart';
 import 'package:ecommerce_elevate/core/shared_features/domain/entities/category/category.dart';
-// 📦 Package imports:
 import 'package:injectable/injectable.dart';
 
 import '../../../../../core/datasource_execution/datasource_execution.dart';

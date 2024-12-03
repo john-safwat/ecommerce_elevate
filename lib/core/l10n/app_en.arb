@@ -107,7 +107,7 @@
   "thereIsNoProduct": "There is No Products in Stock",
   "notLoggedIn": "Login To Add Item To Cart",
   "addedToCartSuccessfully": "Item Added To Cart Successfully",
-  "cartError" : "Error Happen While Adding Item To Cart",
+  "cartError": "Error Happen While Adding Item To Cart",
   "youMustBeLoggedIn": "You Must Be Logged In",
   "items" : "Items",
   "subTotal" : "Sub Total",
@@ -135,4 +135,12 @@
   "loggedOutSuccessfully": "Logged Out Successfully",
   "areYouSureYouWantToLogout": "Are you sure you want to logout?"
 
+  "items": "Items",
+  "subTotal": "Sub Total",
+  "total": "Total",
+  "deliveryFee": "Delivery Fee",
+  "checkout": "Checkout",
+  "updating": "Updating...",
+  "deleting": "Deleting...",
+  "deletedSuccessfully": "Deleted Successfully"
 }

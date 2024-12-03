@@ -37,10 +37,10 @@ class CartRepositoryImpl implements CartRepository {
   }
 
   @override
-  Future<Results<int>> deleteCartProduct({required String token, required String id}) async {
-    var response = await _remoteDatasource.deleteCartProduct(token: token, id: id);
+  Future<Results<int>> deleteCartProduct(
+      {required String token, required String id}) async {
+    var response =
+        await _remoteDatasource.deleteCartProduct(token: token, id: id);
     return response;
   }
-
-
 }

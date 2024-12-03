@@ -15,6 +15,9 @@ import 'package:ecommerce_elevate/core/shared_features/domain/entities/products/
 import 'package:ecommerce_elevate/core/shared_features/domain/use_case/get_categories_list_use_case.dart';
 import 'package:ecommerce_elevate/core/shared_features/domain/use_case/get_most_selling_products_list_use_case.dart';
 import 'package:ecommerce_elevate/core/shared_features/domain/use_case/get_occasions_list_use_case.dart';
+import 'package:geocode/geocode.dart';
+import 'package:injectable/injectable.dart';
+import 'package:location/location.dart';
 // 📦 Package imports:
 
 
@@ -33,7 +36,7 @@ class HomeTabViewModel extends BaseViewModel<HomeTabStates, HomeTabActions> {
       this.getOccasionsListUseCase,
       Location location,
       GeoCode geoCode)
-      : super(HomeTabStates(), location: location , geoCode: geoCode);
+      : super(HomeTabStates(), location: location, geoCode: geoCode);
 
   bool locationLoaded = false;
 
