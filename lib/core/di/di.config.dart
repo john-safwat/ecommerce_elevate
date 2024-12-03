@@ -28,6 +28,8 @@ import '../../features/auth/data/datasource/impl/auth_remote_datasource_impl.dar
     as _i81;
 import '../../features/auth/data/repository/auth_repository_impl.dart' as _i409;
 import '../../features/auth/domain/repository/auth_repository.dart' as _i961;
+import '../../features/auth/domain/use_case/change_password_use_case.dart'
+    as _i863;
 import '../../features/auth/domain/use_case/delete_token_use_case.dart'
     as _i376;
 import '../../features/auth/domain/use_case/forget_password_use_case.dart'
@@ -38,6 +40,8 @@ import '../../features/auth/domain/use_case/reset_password_use_case.dart'
 import '../../features/auth/domain/use_case/signup_user_use_case.dart' as _i529;
 import '../../features/auth/domain/use_case/verify_reset_code_use_case.dart'
     as _i660;
+import '../../features/auth/presentation/change_password/change_password_view_model.dart'
+    as _i98;
 import '../../features/auth/presentation/forget_password/forget_password_view_model.dart'
     as _i599;
 import '../../features/auth/presentation/login/login_view_model.dart' as _i225;
@@ -127,8 +131,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i835.BestSellerViewModel>(() => _i835.BestSellerViewModel());
     gh.factory<_i155.ProductDetailsViewModel>(
         () => _i155.ProductDetailsViewModel());
-    gh.singleton<_i166.DataSourceExecution>(() => _i166.DataSourceExecution());
     gh.singleton<_i56.AppConfigProvider>(() => _i56.AppConfigProvider());
+    gh.singleton<_i166.DataSourceExecution>(() => _i166.DataSourceExecution());
     gh.lazySingleton<_i645.Location>(() => locationModule.location);
     gh.lazySingleton<_i1024.GeoCode>(() => locationModule.geoCode);
     gh.lazySingleton<_i974.Logger>(() => loggerModule.loggerProvider);
@@ -136,14 +140,14 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i361.Dio>(() => networkModule.provideDio());
     gh.lazySingleton<_i528.PrettyDioLogger>(
         () => networkModule.providerInterceptor());
-    gh.singleton<_i187.AuthRetrofitClient>(
-        () => _i187.AuthRetrofitClient(gh<_i361.Dio>()));
-    gh.singleton<_i186.CategoriesRetrofitClient>(
-        () => _i186.CategoriesRetrofitClient(gh<_i361.Dio>()));
-    gh.singleton<_i207.OccasionsRetrofitClient>(
-        () => _i207.OccasionsRetrofitClient(gh<_i361.Dio>()));
     gh.singleton<_i202.ProductsRetrofitClient>(
         () => _i202.ProductsRetrofitClient(gh<_i361.Dio>()));
+    gh.singleton<_i207.OccasionsRetrofitClient>(
+        () => _i207.OccasionsRetrofitClient(gh<_i361.Dio>()));
+    gh.singleton<_i186.CategoriesRetrofitClient>(
+        () => _i186.CategoriesRetrofitClient(gh<_i361.Dio>()));
+    gh.singleton<_i187.AuthRetrofitClient>(
+        () => _i187.AuthRetrofitClient(gh<_i361.Dio>()));
     gh.factory<_i96.OccasionsRemoteDatasource>(
         () => _i290.OccasionsRemoteDatasourceImpl(
               gh<_i207.OccasionsRetrofitClient>(),
@@ -208,16 +212,20 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i376.DeleteTokenUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i1055.SignupViewModel>(
         () => _i1055.SignupViewModel(gh<_i529.SignupUserUseCase>()));
+    gh.factory<_i660.VerifyResetPasswordUseCase>(
+        () => _i660.VerifyResetPasswordUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i697.LoginUserUseCase>(
         () => _i697.LoginUserUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i149.ResetPasswordUseCase>(
         () => _i149.ResetPasswordUseCase(gh<_i961.AuthRepository>()));
-    gh.factory<_i660.VerifyResetPasswordUseCase>(
-        () => _i660.VerifyResetPasswordUseCase(gh<_i961.AuthRepository>()));
+    gh.factory<_i863.ChangePasswordUseCase>(
+        () => _i863.ChangePasswordUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i974.ResetPasswordViewModel>(
         () => _i974.ResetPasswordViewModel(gh<_i149.ResetPasswordUseCase>()));
     gh.factory<_i599.ForgetPasswordViewModel>(
         () => _i599.ForgetPasswordViewModel(gh<_i90.ForgetPasswordUseCase>()));
+    gh.factory<_i98.ChangePasswordViewModel>(
+        () => _i98.ChangePasswordViewModel(gh<_i863.ChangePasswordUseCase>()));
     gh.factory<_i225.LoginViewModel>(
         () => _i225.LoginViewModel(gh<_i697.LoginUserUseCase>()));
     gh.factory<_i1033.OtpVerifyViewModel>(() => _i1033.OtpVerifyViewModel(
