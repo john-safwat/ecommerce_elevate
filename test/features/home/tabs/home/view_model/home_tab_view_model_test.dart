@@ -1,4 +1,5 @@
 // 📦 Package imports:
+import 'package:ecommerce_elevate/core/shared_features/domain/use_case/add_item_to_cart_use_case.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:geocode/geocode.dart';

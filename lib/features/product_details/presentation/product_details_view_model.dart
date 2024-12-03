@@ -1,7 +1,7 @@
 // 🐦 Flutter imports:
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/base/base_view_model.dart';
-import 'package:ecommerce_elevate/core/shared_features/domain/entities/cart/request/add_to_cart_request.dart';
+import 'package:ecommerce_elevate/core/shared_features/domain/entities/cart/add_to_cart/request/add_to_cart_request.dart';
 import 'package:ecommerce_elevate/core/shared_features/domain/entities/products/product.dart';
 import 'package:ecommerce_elevate/features/product_details/presentation/product_details_contract.dart';
 import 'package:flutter/material.dart';

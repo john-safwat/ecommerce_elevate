@@ -90,4 +90,16 @@ class AppDialogs {
         fontSize: 16.0
     );
   }
+  static void showInfoToast(String message) {
+    Fluttertoast.showToast(
+        msg: message,
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.BOTTOM,
+        timeInSecForIosWeb: 1,
+        backgroundColor: AppColors.pink,
+        textColor: Colors.white,
+        fontSize: 16.0
+    );
+  }
+
 }

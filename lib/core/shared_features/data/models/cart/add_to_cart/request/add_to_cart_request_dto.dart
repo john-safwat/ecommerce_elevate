@@ -1,4 +1,4 @@
-import 'package:ecommerce_elevate/core/shared_features/domain/entities/cart/request/add_to_cart_request.dart';
+import 'package:ecommerce_elevate/core/shared_features/domain/entities/cart/add_to_cart/request/add_to_cart_request.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'add_to_cart_request_dto.g.dart';

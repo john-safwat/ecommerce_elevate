@@ -1,25 +1,29 @@
 // 🐦 Flutter imports:
+// 🌎 Project imports:
+import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
+import 'package:ecommerce_elevate/features/auth/domain/entities/registration/registration_response.dart';
+import 'package:ecommerce_elevate/features/auth/domain/entities/registration/registration_user.dart';
+import 'package:ecommerce_elevate/features/auth/domain/use_case/signup_user_use_case.dart';
+import 'package:ecommerce_elevate/features/auth/presentation/signup/signup_contract.dart';
+import 'package:ecommerce_elevate/features/auth/presentation/signup/signup_view_model.dart';
 import 'package:flutter/material.dart';
 
 // 📦 Package imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
 
-// 🌎 Project imports:
-import 'package:ecommerce_elevate/features/auth/domain/entities/registration/registration_user.dart';
-import 'package:ecommerce_elevate/features/auth/domain/use_case/signup_user_use_case.dart';
-import 'package:ecommerce_elevate/features/auth/presentation/signup/signup_contract.dart';
-import 'package:ecommerce_elevate/features/auth/presentation/signup/signup_view_model.dart';
 import 'signup_view_model_test.mocks.dart';
 
-@GenerateMocks([SignupUserUseCase])
+@GenerateMocks([SignupUserUseCase , GlobalKey  , FormState])
 void main() async {
+  TestWidgetsFlutterBinding.ensureInitialized();
   late SignupUserUseCase signupUseCase;
   late SignupViewModel signupViewModel;
   late RegistrationUser user;
   AppLocalizations locale =
-      await AppLocalizations.delegate.load(const Locale('en'));
+  await AppLocalizations.delegate.load(const Locale('en'));
 
   setUp(() {
     signupUseCase = MockSignupUserUseCase();
@@ -97,7 +101,7 @@ void main() async {
       const validPassword = "Ee3000##";
       signupViewModel.passwordController.text = validPassword;
       final result =
-          signupViewModel.passwordConfirmationValidation(validPassword);
+      signupViewModel.passwordConfirmationValidation(validPassword);
       expect(result, isNull);
     });
   });
@@ -121,39 +125,40 @@ void main() async {
   group('do action call functions based on signup action ', () {
     test(
         'shold  call changePasswordVisibility() function based on change password visibilityAction',
-        () {
-      signupViewModel.passwordVisible.value = false;
-      signupViewModel.doIntent(ChangePasswordVisibilityAction());
-      expect(signupViewModel.passwordVisible.value, true);
-    });
+            () {
+          signupViewModel.passwordVisible.value = false;
+          signupViewModel.doIntent(ChangePasswordVisibilityAction());
+          expect(signupViewModel.passwordVisible.value, true);
+        });
     test(
         'shold  call _changePasswordConfirmVisibility() function based on change passwordConfirmVisibility action',
-        () {
-      signupViewModel.passwordConfirmationVisible.value = false;
+            () {
+          signupViewModel.passwordConfirmationVisible.value = false;
 
-      signupViewModel.doIntent(ChangePasswordConfirmationVisibilityAction());
+          signupViewModel.doIntent(
+              ChangePasswordConfirmationVisibilityAction());
 
-      expect(signupViewModel.passwordConfirmationVisible.value, true);
-    });
+          expect(signupViewModel.passwordConfirmationVisible.value, true);
+        });
     test(
         'shold  call _navigateToLoginScreen  function based on SignupConfirmAction',
-        () {
-      signupViewModel.doIntent(SignupConfirmAction());
+            () {
+          signupViewModel.doIntent(SignupConfirmAction());
 
-      expect(signupViewModel.state, isA<NavigateToLoginScreenState>());
-    });
+          expect(signupViewModel.state, isA<NavigateToLoginScreenState>());
+        });
     test(
         'shold  call _changeGender(action.gender)  function based on ChangeGenderAction',
-        () {
-      signupViewModel.doIntent(ChangeGenderAction(gender: Gender.male));
+            () {
+          signupViewModel.doIntent(ChangeGenderAction(gender: Gender.male));
 
-      expect(signupViewModel.selectedGender, Gender.male);
-    });
+          expect(signupViewModel.selectedGender, Gender.male);
+        });
     test(
         'shold  call _navigateToLoginScreen()  function based on NavigateToLoginScreenAction',
-        () {
-      signupViewModel.doIntent(NavigateToLoginScreenAction());
-      expect(signupViewModel.state, isA<NavigateToLoginScreenState>());
-    });
+            () {
+          signupViewModel.doIntent(NavigateToLoginScreenAction());
+          expect(signupViewModel.state, isA<NavigateToLoginScreenState>());
+        });
   });
 }
