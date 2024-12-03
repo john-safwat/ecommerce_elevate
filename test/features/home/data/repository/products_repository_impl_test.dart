@@ -13,17 +13,22 @@ import 'products_repository_impl_test.mocks.dart';
 @GenerateMocks([ProductsRemoteDatasourceImpl])
 
 void main() async {
-
   await dependenciesSetup();
 
   group("Occasion Repository Test", () {
     test('should return a non-empty products list on successful datasource call', () async {
 
+    test(
+        'should return a non-empty products list on successful datasource call',
+        () async {
       var mockDatasource = getItTest<MockProductsRemoteDatasourceImpl>();
 
       var repository = ProductsRepositoryImpl(mockDatasource);
 
-      final mockProducts = [Product(), Product(),];
+      final mockProducts = [
+        Product(),
+        Product(),
+      ];
 
       var result = Success<List<Product>?>(mockProducts);
       provideDummy<Results<List<Product>?>>(result);
@@ -49,7 +54,5 @@ void main() async {
       expect(actualResult, result);
       expect(result.exception, isException);
     });
-
   });
-
 }

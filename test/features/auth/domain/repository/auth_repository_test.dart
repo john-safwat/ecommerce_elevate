@@ -1,8 +1,4 @@
 // 📦 Package imports:
-import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
-import 'package:mockito/mockito.dart';
-
 // 🌎 Project imports:
 import 'dart:async';
 
@@ -14,6 +10,10 @@ import 'package:ecommerce_elevate/features/auth/data/repository/auth_repository_
 import 'package:ecommerce_elevate/features/auth/domain/entities/registration/registration_response.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/registration/registration_user.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/verify_reset_code/verify_reset_code_response.dart';
+
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
 
 import 'auth_repository_test.mocks.dart';
 

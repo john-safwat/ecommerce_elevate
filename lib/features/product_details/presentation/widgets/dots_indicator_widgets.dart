@@ -7,8 +7,10 @@ class DotsIndicatorWidget extends StatelessWidget {
     required this.dotNumber,
     required this.currentDot,
   });
+
   final int dotNumber;
   final int currentDot;
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.sizeOf(context);

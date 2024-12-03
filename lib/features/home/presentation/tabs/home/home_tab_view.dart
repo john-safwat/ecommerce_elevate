@@ -3,7 +3,6 @@
 import 'package:ecommerce_elevate/core/base/base_view.dart';
 import 'package:ecommerce_elevate/core/constants/routes.dart';
 import 'package:ecommerce_elevate/core/di/di.dart';
-import 'package:ecommerce_elevate/core/constants/routes.dart';
 import 'package:ecommerce_elevate/features/home/domain/entities/category/category.dart';
 import 'package:ecommerce_elevate/features/home/domain/entities/occasions/occasion.dart';
 import 'package:ecommerce_elevate/features/home/domain/entities/products/product.dart';

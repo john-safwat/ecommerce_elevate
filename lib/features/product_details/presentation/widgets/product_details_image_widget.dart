@@ -9,8 +9,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class ProductDetailsImageWidget extends StatelessWidget {
   const ProductDetailsImageWidget(
       {super.key, required this.viewModel, required this.product});
+
   final ProductDetailsViewModel viewModel;
   final Product product;
+
   @override
   Widget build(BuildContext context) {
     return Stack(

@@ -123,8 +123,8 @@ extension GetItInjectableX on _i174.GetIt {
       () => sharedPreferencesModule.prefs,
       preResolve: true,
     );
-    gh.factory<_i77.HomeViewModel>(() => _i77.HomeViewModel());
     gh.factory<_i835.BestSellerViewModel>(() => _i835.BestSellerViewModel());
+    gh.factory<_i77.HomeViewModel>(() => _i77.HomeViewModel());
     gh.factory<_i155.ProductDetailsViewModel>(
         () => _i155.ProductDetailsViewModel());
     gh.singleton<_i166.DataSourceExecution>(() => _i166.DataSourceExecution());

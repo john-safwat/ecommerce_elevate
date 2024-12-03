@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+
 import 'product_dto.dart';
 
 part 'all_products_respons_dto.g.dart';

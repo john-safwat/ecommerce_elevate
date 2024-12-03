@@ -11,11 +11,11 @@ import 'get_categories_list_use_case_test.mocks.dart';
 
 @GenerateMocks([CategoriesRepository])
 void main() async {
-
   await dependenciesSetup();
 
   group("Categories Repository Test", () {
-    test('should return a non-empty categories list on successful repo call', () async {
+    test('should return a non-empty categories list on successful repo call',
+        () async {
       var mockRepository = getItTest<MockCategoriesRepository>();
       var useCase = GetCategoriesListUseCase(mockRepository);
 
@@ -48,7 +48,5 @@ void main() async {
       expect(actualResult, result);
       expect(result.exception, isException);
     });
-
   });
-
 }

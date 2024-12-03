@@ -6,8 +6,10 @@ import 'package:flutter/material.dart';
 class ProductDetailsAndDescription extends StatelessWidget {
   const ProductDetailsAndDescription(
       {super.key, required this.viewModel, required this.product});
+
   final ProductDetailsViewModel viewModel;
   final Product product;
+
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);

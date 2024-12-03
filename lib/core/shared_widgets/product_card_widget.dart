@@ -34,7 +34,7 @@ class ProductCardWidget extends StatelessWidget {
         onCardPressed();
       },
       child: Hero(
-        tag: product.id??0,
+        tag: product.id ?? 0,
         child: Container(
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
