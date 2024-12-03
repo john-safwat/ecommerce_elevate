@@ -1,15 +1,19 @@
 import 'dart:developer';
+import 'dart:io';
 
+import 'package:dio/dio.dart';
 import 'package:ecommerce_elevate/core/base/base_view_model.dart';
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:ecommerce_elevate/core/di/di.dart';
 import 'package:ecommerce_elevate/core/providers/app_config_provider.dart';
+import 'package:ecommerce_elevate/core/utils/set_image.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/edit_profile/edit_profile_request.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/edit_profile/edit_profile_response.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/user/user.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/user_info/user_info_response.dart';
 import 'package:ecommerce_elevate/features/auth/domain/use_case/edit_profile_use_case.dart';
 import 'package:ecommerce_elevate/features/auth/domain/use_case/get_user_info_use_case.dart';
+import 'package:ecommerce_elevate/features/auth/domain/use_case/upload_profile_image_use_case.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/edit_profile/edit_profile_contract.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/signup/signup_view_model.dart';
 import 'package:flutter/material.dart';
@@ -19,9 +23,11 @@ import 'package:injectable/injectable.dart';
 class ProfileViewModel extends BaseViewModel<ProfileViewState, ProfileAction> {
   GetUserInfoUseCase getUserInfoUseCase;
   EditProfileUseCase updateUserInfoUseCase;
+  UploadProfileImageUseCase uploadProfileImageUseCase;
   // late MainViewModel mainViewModel;
 
-  ProfileViewModel(this.getUserInfoUseCase, this.updateUserInfoUseCase)
+  ProfileViewModel(this.getUserInfoUseCase, this.updateUserInfoUseCase,
+      this.uploadProfileImageUseCase)
       : super(InitialProfileViewState());
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -30,6 +36,7 @@ class ProfileViewModel extends BaseViewModel<ProfileViewState, ProfileAction> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
   Gender selectedGender = Gender.female;
+  File? imageFile;
 
   ValueNotifier<bool> valid = ValueNotifier(false);
   User? user;
@@ -61,6 +68,10 @@ class ProfileViewModel extends BaseViewModel<ProfileViewState, ProfileAction> {
         {
           _changeGender(action.gender);
         }
+      case PickImageAction():
+        {
+          _setImage(action.context);
+        }
     }
   }
 
@@ -70,6 +81,38 @@ class ProfileViewModel extends BaseViewModel<ProfileViewState, ProfileAction> {
     emailController.dispose();
     phoneController.dispose();
     valid.dispose();
+  }
+
+  void _setImage(BuildContext context) async {
+    imageFile = await pickImage(context);
+
+    emit(SetImageProfileState());
+    _updateImageProfile();
+  }
+
+  Future<void> _updateImageProfile() async {
+    emit(UpdateImageProfileLoadingState());
+    log(imageFile.toString());
+    log(imageFile!.path.split('/').last.toLowerCase());
+    FormData formData = FormData.fromMap({
+      if (imageFile != null)
+        "photo": await MultipartFile.fromFile(
+          imageFile!.path,
+          //filename: 'profile.png',
+        ),
+    });
+    var response = uploadProfileImageUseCase.call(imageFile: formData);
+    switch (response) {
+      case Success<String>():
+        {
+          emit(UpdateImageProfileSuccessState());
+          _loadData();
+        }
+      case Failure<String>():
+        {
+          emit(UpdateImageProfileFailureState('error'));
+        }
+    }
   }
 
   void _loadData() async {

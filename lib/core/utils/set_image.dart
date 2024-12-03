@@ -49,9 +49,11 @@ Future<File?> pickImage(BuildContext context) async {
       });
 
   if (source != null) {
-    final pickedFile = await picker.pickImage(source: source);
+    XFile? pickedFile = await picker.pickImage(source: source);
 
-    image = File(pickedFile!.path);
+    if (pickedFile != null) {
+      image = File(pickedFile.path);
+    }
   }
   return image;
 }

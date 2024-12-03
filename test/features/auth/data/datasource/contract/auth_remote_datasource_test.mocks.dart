@@ -5,6 +5,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i10;
 
+import 'package:dio/dio.dart' as _i17;
 import 'package:ecommerce_elevate/features/auth/data/api/auth_retrofit_client.dart'
     as _i9;
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/edit_profile/request/edit_profile_request_dto.dart'
@@ -34,6 +35,7 @@ import 'package:ecommerce_elevate/features/auth/data/models/authentication/verif
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/verify_reset_code/response/verify_reset_code_response_dto.dart'
     as _i5;
 import 'package:mockito/mockito.dart' as _i1;
+import 'package:mockito/src/dummies.dart' as _i18;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -266,4 +268,29 @@ class MockAuthRetrofitClient extends _i1.Mock
           ),
         )),
       ) as _i10.Future<_i8.GetUserInfoResponseDto>);
+
+  @override
+  _i10.Future<String> uploadProfileImage(
+    String? token,
+    _i17.FormData? formData,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #uploadProfileImage,
+          [
+            token,
+            formData,
+          ],
+        ),
+        returnValue: _i10.Future<String>.value(_i18.dummyValue<String>(
+          this,
+          Invocation.method(
+            #uploadProfileImage,
+            [
+              token,
+              formData,
+            ],
+          ),
+        )),
+      ) as _i10.Future<String>);
 }

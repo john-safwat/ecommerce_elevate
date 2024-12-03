@@ -1,5 +1,4 @@
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
-import 'package:ecommerce_elevate/core/utils/set_image.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/edit_profile/edit_profile_contract.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/edit_profile/edit_profile_view_model.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/edit_profile/widgets/image_profile_and_edit_icon.dart';
@@ -28,7 +27,7 @@ class UserForm extends StatelessWidget {
             child: ImageProfileAndEditIcon(
               imageUrl: viewModel.user?.photo ?? '',
               deitIconOnTap: () {
-                pickImage(context);
+                viewModel.doIntent(PickImageAction(context: context));
               },
             ),
           ),

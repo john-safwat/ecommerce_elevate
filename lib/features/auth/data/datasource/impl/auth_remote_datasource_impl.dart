@@ -1,7 +1,7 @@
 // 🎯 Dart imports:
 import 'dart:async';
 
-// 🌎 Project imports:
+import 'package:dio/dio.dart';
 import 'package:ecommerce_elevate/core/datasource_execution/datasource_execution.dart';
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:ecommerce_elevate/core/di/di.dart';
@@ -115,6 +115,31 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
       var response = await _authRetrofitClient
           .getUserInfo("Bearer ${getIt.get<AppConfigProvider>().token}");
       return response.toDomain();
+    });
+  }
+
+  @override
+  Future<Results<String>> uploadProfileImage(FormData imageFile) async {
+    // FormData formData = FormData.fromMap({
+    //   "photo": await MultipartFile.fromFile(
+    //     imageFile.path,
+    //     filename: imageFile.path.split('/').last,
+
+    //   ),
+    // });
+    return await _apiExecution.execute<String>(() async {
+      var response = await Dio().put(
+        'https://flower.elevateegy.com/api/v1/auth/upload-photo',
+        data: imageFile,
+        options: Options(headers: {
+          "Authorization": "Bearer ${getIt.get<AppConfigProvider>().token}",
+          "Content-Type": "multipart/form-data"
+        }),
+      );
+
+      //  _authRetrofitClient.uploadProfileImage(
+      //     "Bearer ${getIt.get<AppConfigProvider>().token}", imageFile);
+      return response.data['message'];
     });
   }
 }

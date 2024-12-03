@@ -54,4 +54,10 @@ abstract class AuthRetrofitClient {
   Future<GetUserInfoResponseDto> getUserInfo(
     @Header("Authorization") String token,
   );
+  @PUT(ApiConstants.uploadProfileRoute)
+  @MultiPart()
+  Future<String> uploadProfileImage(
+    @Header("Authorization") String token,
+    @Body() FormData formData,
+  );
 }

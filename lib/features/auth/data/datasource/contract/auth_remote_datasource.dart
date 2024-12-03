@@ -1,4 +1,7 @@
 // 🌎 Project imports:
+import 'dart:io';
+
+import 'package:dio/dio.dart';
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/authentication/authentication_request.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/authentication/authentication_response.dart';
@@ -26,4 +29,6 @@ abstract class AuthRemoteDatasource {
 
   Future<Results<EditProfileResponse>> editProfile(EditProfileRequest request);
   Future<Results<GetUserInfoResponse>> getUserInfo(String token);
+
+  Future<Results<String>> uploadProfileImage(FormData imageFile);
 }

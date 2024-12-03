@@ -1,4 +1,7 @@
 // 🌎 Project imports:
+import 'dart:io';
+
+import 'package:dio/dio.dart';
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/authentication/authentication_request.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/authentication/authentication_response.dart';
@@ -11,6 +14,7 @@ import 'package:ecommerce_elevate/features/auth/domain/entities/reset_password/r
 import 'package:ecommerce_elevate/features/auth/domain/entities/reset_password/reset_password_response.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/user_info/user_info_response.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/verify_reset_code/verify_reset_code_response.dart';
+import 'package:retrofit/retrofit.dart';
 
 abstract class AuthRepository {
   Future<Results<RegistrationResponse>> signup(RegistrationUser user);
@@ -27,6 +31,8 @@ abstract class AuthRepository {
 
   Future<Results<EditProfileResponse>> editProfile(EditProfileRequest request);
   Future<Results<GetUserInfoResponse>> getUserInfo(String token);
+
+  Future<Results<String>> uploadProfileImage(FormData imageFile);
 
   Future<void> deleteToken();
 }

@@ -1,10 +1,9 @@
 // 📦 Package imports:
 import 'package:dio/dio.dart';
-import 'package:injectable/injectable.dart';
-import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/constants/api_constants.dart';
+import 'package:injectable/injectable.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 @module
 abstract class NetworkModule {
@@ -12,8 +11,8 @@ abstract class NetworkModule {
   Dio provideDio() {
     final dio = Dio();
     dio.options = BaseOptions(
-      connectTimeout: const Duration(seconds: 10),
-      receiveTimeout: const Duration(seconds: 10),
+      connectTimeout: const Duration(seconds: 20),
+      receiveTimeout: const Duration(seconds: 20),
       baseUrl: ApiConstants.baseUrl,
     );
     dio.interceptors.add(providerInterceptor());

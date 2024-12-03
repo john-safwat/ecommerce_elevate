@@ -40,6 +40,8 @@ import '../../features/auth/domain/use_case/login_user_use_case.dart' as _i697;
 import '../../features/auth/domain/use_case/reset_password_use_case.dart'
     as _i149;
 import '../../features/auth/domain/use_case/signup_user_use_case.dart' as _i529;
+import '../../features/auth/domain/use_case/upload_profile_image_use_case.dart'
+    as _i829;
 import '../../features/auth/domain/use_case/verify_reset_code_use_case.dart'
     as _i660;
 import '../../features/auth/presentation/edit_profile/edit_profile_view_model.dart'
@@ -214,22 +216,25 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i376.DeleteTokenUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i1055.SignupViewModel>(
         () => _i1055.SignupViewModel(gh<_i529.SignupUserUseCase>()));
+    gh.factory<_i284.GetUserInfoUseCase>(
+        () => _i284.GetUserInfoUseCase(gh<_i961.AuthRepository>()));
+    gh.factory<_i829.UploadProfileImageUseCase>(
+        () => _i829.UploadProfileImageUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i660.VerifyResetPasswordUseCase>(
         () => _i660.VerifyResetPasswordUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i697.LoginUserUseCase>(
         () => _i697.LoginUserUseCase(gh<_i961.AuthRepository>()));
-    gh.factory<_i149.ResetPasswordUseCase>(
-        () => _i149.ResetPasswordUseCase(gh<_i961.AuthRepository>()));
-    gh.factory<_i284.GetUserInfoUseCase>(
-        () => _i284.GetUserInfoUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i259.EditProfileUseCase>(
         () => _i259.EditProfileUseCase(gh<_i961.AuthRepository>()));
+    gh.factory<_i149.ResetPasswordUseCase>(
+        () => _i149.ResetPasswordUseCase(gh<_i961.AuthRepository>()));
+    gh.factory<_i974.ResetPasswordViewModel>(
+        () => _i974.ResetPasswordViewModel(gh<_i149.ResetPasswordUseCase>()));
     gh.factory<_i939.ProfileViewModel>(() => _i939.ProfileViewModel(
           gh<_i284.GetUserInfoUseCase>(),
           gh<_i259.EditProfileUseCase>(),
+          gh<_i829.UploadProfileImageUseCase>(),
         ));
-    gh.factory<_i974.ResetPasswordViewModel>(
-        () => _i974.ResetPasswordViewModel(gh<_i149.ResetPasswordUseCase>()));
     gh.factory<_i599.ForgetPasswordViewModel>(
         () => _i599.ForgetPasswordViewModel(gh<_i90.ForgetPasswordUseCase>()));
     gh.factory<_i225.LoginViewModel>(

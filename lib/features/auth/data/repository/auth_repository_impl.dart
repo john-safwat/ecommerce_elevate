@@ -1,5 +1,6 @@
 // 📦 Package imports:
 // 🌎 Project imports:
+import 'package:dio/dio.dart';
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:ecommerce_elevate/features/auth/data/datasource/contract/auth_local_datasource.dart';
 import 'package:ecommerce_elevate/features/auth/data/datasource/contract/auth_remote_datasource.dart';
@@ -77,5 +78,10 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<Results<GetUserInfoResponse>> getUserInfo(String token) async {
     return await _remoteDatasource.getUserInfo(token);
+  }
+
+  @override
+  Future<Results<String>> uploadProfileImage(FormData imageFile) {
+    return _remoteDatasource.uploadProfileImage(imageFile);
   }
 }

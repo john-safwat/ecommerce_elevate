@@ -5,10 +5,11 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i3;
 
+import 'package:dio/dio.dart' as _i17;
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart'
     as _i4;
 import 'package:ecommerce_elevate/features/auth/data/datasource/contract/auth_local_datasource.dart'
-    as _i17;
+    as _i18;
 import 'package:ecommerce_elevate/features/auth/data/datasource/contract/auth_remote_datasource.dart'
     as _i2;
 import 'package:ecommerce_elevate/features/auth/domain/entities/authentication/authentication_request.dart'
@@ -184,13 +185,31 @@ class MockAuthRemoteDatasource extends _i1.Mock
           ),
         )),
       ) as _i3.Future<_i4.Results<_i16.GetUserInfoResponse>>);
+
+  @override
+  _i3.Future<_i4.Results<String>> uploadProfileImage(
+          _i17.FormData? imageFile) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #uploadProfileImage,
+          [imageFile],
+        ),
+        returnValue: _i3.Future<_i4.Results<String>>.value(
+            _i7.dummyValue<_i4.Results<String>>(
+          this,
+          Invocation.method(
+            #uploadProfileImage,
+            [imageFile],
+          ),
+        )),
+      ) as _i3.Future<_i4.Results<String>>);
 }
 
 /// A class which mocks [AuthLocalDatasource].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockAuthLocalDatasource extends _i1.Mock
-    implements _i17.AuthLocalDatasource {
+    implements _i18.AuthLocalDatasource {
   MockAuthLocalDatasource() {
     _i1.throwOnMissingStub(this);
   }
