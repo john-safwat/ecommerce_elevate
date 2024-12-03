@@ -1,10 +1,15 @@
+// 🐦 Flutter imports:
+// 🌎 Project imports:
 import 'package:ecommerce_elevate/core/base/base_view.dart';
 import 'package:ecommerce_elevate/core/di/di.dart';
-import 'package:ecommerce_elevate/features/home/domain/entities/products/product.dart';
+import 'package:ecommerce_elevate/core/shared_features/domain/entities/products/product.dart';
+import 'package:ecommerce_elevate/core/utils/app_dialogs.dart';
+import 'package:ecommerce_elevate/features/product_details/presentation/product_details_contract.dart';
 import 'package:ecommerce_elevate/features/product_details/presentation/product_details_view_model.dart';
 import 'package:ecommerce_elevate/features/product_details/presentation/widgets/product_details_and_description.dart';
 import 'package:ecommerce_elevate/features/product_details/presentation/widgets/product_details_image_widget.dart';
 import 'package:flutter/material.dart';
+// 📦 Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProductDetailsView extends StatefulWidget {
@@ -18,7 +23,7 @@ class _ProductDetailsViewState
     extends BaseState<ProductDetailsView, ProductDetailsViewModel> {
   @override
   Widget build(BuildContext context) {
-    var product = ModalRoute.of(context)!.settings.arguments as Product;
+    viewModel.product = ModalRoute.of(context)!.settings.arguments as Product;
     super.build(context);
     return BlocProvider(
       create: (context) => viewModel,
@@ -28,11 +33,11 @@ class _ProductDetailsViewState
           ListView(padding: EdgeInsets.zero, children: [
             ProductDetailsImageWidget(
               viewModel: viewModel,
-              product: product,
+              product: viewModel.product,
             ),
             ProductDetailsAndDescription(
               viewModel: viewModel,
-              product: product,
+              product: viewModel.product,
             )
           ]),
           Positioned(

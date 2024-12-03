@@ -1,14 +1,14 @@
 // 📦 Package imports:
-import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
-import 'package:mockito/mockito.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/registration/registration_response.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/registration/registration_user.dart';
 import 'package:ecommerce_elevate/features/auth/domain/repository/auth_repository.dart';
 import 'package:ecommerce_elevate/features/auth/domain/use_case/signup_user_use_case.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
+
 import 'signup_user_use_case_test.mocks.dart';
 
 @GenerateMocks([AuthRepository])

@@ -1,8 +1,10 @@
 // 📦 Package imports:
-import 'package:json_annotation/json_annotation.dart';
 
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/features/auth/domain/entities/authentication/authentication_request.dart';
+import 'package:json_annotation/json_annotation.dart';
+// 📦 Package imports:
+import 'package:json_annotation/json_annotation.dart';
 
 part 'authentication_request_dto.g.dart';
 

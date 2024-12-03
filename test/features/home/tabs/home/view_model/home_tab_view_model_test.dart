@@ -1,13 +1,5 @@
-import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
-import 'package:ecommerce_elevate/features/home/domain/entities/category/category.dart';
-import 'package:ecommerce_elevate/features/home/domain/entities/occasions/occasion.dart';
-import 'package:ecommerce_elevate/features/home/domain/entities/products/product.dart';
-import 'package:ecommerce_elevate/features/home/domain/use_case/get_categories_list_use_case.dart';
-import 'package:ecommerce_elevate/features/home/domain/use_case/get_most_selling_products_list_use_case.dart';
-import 'package:ecommerce_elevate/features/home/domain/use_case/get_occasions_list_use_case.dart';
-import 'package:ecommerce_elevate/features/home/presentation/tabs/home/view_model/home_tab_actions.dart';
-import 'package:ecommerce_elevate/features/home/presentation/tabs/home/view_model/home_tab_state.dart';
-import 'package:ecommerce_elevate/features/home/presentation/tabs/home/view_model/home_tab_view_model.dart';
+// 📦 Package imports:
+import 'package:ecommerce_elevate/core/shared_features/domain/use_case/add_item_to_cart_use_case.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:geocode/geocode.dart';
@@ -15,6 +7,17 @@ import 'package:location/location.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
+// 🌎 Project imports:
+import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
+import 'package:ecommerce_elevate/core/shared_features/domain/entities/category/category.dart';
+import 'package:ecommerce_elevate/core/shared_features/domain/entities/occasions/occasion.dart';
+import 'package:ecommerce_elevate/core/shared_features/domain/entities/products/product.dart';
+import 'package:ecommerce_elevate/core/shared_features/domain/use_case/get_categories_list_use_case.dart';
+import 'package:ecommerce_elevate/core/shared_features/domain/use_case/get_most_selling_products_list_use_case.dart';
+import 'package:ecommerce_elevate/core/shared_features/domain/use_case/get_occasions_list_use_case.dart';
+import 'package:ecommerce_elevate/features/home/presentation/tabs/home/view_model/home_tab_actions.dart';
+import 'package:ecommerce_elevate/features/home/presentation/tabs/home/view_model/home_tab_state.dart';
+import 'package:ecommerce_elevate/features/home/presentation/tabs/home/view_model/home_tab_view_model.dart';
 import '../../../../../core/di/di_test.dart';
 import 'home_tab_view_model_test.mocks.dart';
 
@@ -257,7 +260,6 @@ void main() async {
       expect(viewModel.state.productsState, isA<HomeTabLoadingFailState>());
     });
 
-
     test("emits mixed success and failure states", () async {
       var occasionsResponse = Success<List<Occasion>?>([]);
       var categoriesResponse = Failure<List<Category>?>(Exception());
@@ -277,9 +279,9 @@ void main() async {
       await viewModel.doIntent(LoadDataAction());
 
       expect(viewModel.state.categoriesState, isA<HomeTabLoadingFailState>());
-      expect(viewModel.state.occasionsState, isA<HomeTabLoadingSuccessState<List<Occasion>?>>());
+      expect(viewModel.state.occasionsState,
+          isA<HomeTabLoadingSuccessState<List<Occasion>?>>());
       expect(viewModel.state.productsState, isA<HomeTabLoadingFailState>());
     });
-
   });
 }

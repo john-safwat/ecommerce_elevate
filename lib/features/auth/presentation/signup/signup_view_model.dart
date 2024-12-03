@@ -1,12 +1,6 @@
 // 🎯 Dart imports:
 import 'dart:developer';
 
-// 🐦 Flutter imports:
-import 'package:flutter/cupertino.dart';
-
-// 📦 Package imports:
-import 'package:injectable/injectable.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/base/base_view_model.dart';
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
@@ -14,6 +8,10 @@ import 'package:ecommerce_elevate/features/auth/domain/entities/registration/reg
 import 'package:ecommerce_elevate/features/auth/domain/entities/registration/registration_user.dart';
 import 'package:ecommerce_elevate/features/auth/domain/use_case/signup_user_use_case.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/signup/signup_contract.dart';
+// 🐦 Flutter imports:
+import 'package:flutter/cupertino.dart';
+// 📦 Package imports:
+import 'package:injectable/injectable.dart';
 
 @injectable
 class SignupViewModel extends BaseViewModel<SignupViewState, SignupAction> {
@@ -21,7 +19,7 @@ class SignupViewModel extends BaseViewModel<SignupViewState, SignupAction> {
 
   SignupViewModel(this.signupUserUseCase) : super(InitialSignupViewState());
 
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController firstNameController = TextEditingController();
   final TextEditingController lastNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
@@ -44,7 +42,7 @@ class SignupViewModel extends BaseViewModel<SignupViewState, SignupAction> {
         }
       case SignupAction():
         {
-          _signup();
+          await _signup();
         }
       case ChangePasswordVisibilityAction():
         {
@@ -144,7 +142,7 @@ class SignupViewModel extends BaseViewModel<SignupViewState, SignupAction> {
     }
   }
 
-  void _signup() async {
+  Future<void> _signup() async {
     if (formKey.currentState!.validate()) {
       emit(SignupLoadingState());
       var response = await signupUserUseCase(RegistrationUser(

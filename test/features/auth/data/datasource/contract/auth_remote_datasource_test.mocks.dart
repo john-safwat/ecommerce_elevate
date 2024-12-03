@@ -3,31 +3,40 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i8;
+import 'dart:async' as _i9;
 
+import 'package:ecommerce_elevate/core/datasource_execution/datasource_execution.dart'
+    as _i14;
+import 'package:ecommerce_elevate/core/datasource_execution/results.dart'
+    as _i15;
 import 'package:ecommerce_elevate/features/auth/data/api/auth_retrofit_client.dart'
+    as _i8;
+import 'package:ecommerce_elevate/features/auth/data/models/authentication/change_password/change_password_request/change_password_request_dto.dart'
+    as _i15;
+import 'package:ecommerce_elevate/features/auth/data/models/authentication/change_password/change_password_response/change_password_response_dto.dart'
     as _i7;
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/forget_password/request/forget_password_request_dto.dart'
-    as _i11;
+    as _i12;
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/forget_password/response/forget_password_response_dto.dart'
     as _i4;
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/login/request/authentication_request_dto.dart'
-    as _i10;
+    as _i11;
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/login/response/authentication_response_dto.dart'
     as _i3;
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/registration/request/registration_user_dto.dart'
-    as _i9;
+    as _i10;
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/registration/response/registration_response_dto.dart'
     as _i2;
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/reset_password/request/reset_password_request_dto.dart'
-    as _i13;
+    as _i14;
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/reset_password/response/reset_password_response_dto.dart'
     as _i6;
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/verify_reset_code/request/verify_reset_code_request_dto.dart'
-    as _i12;
+    as _i13;
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/verify_reset_code/response/verify_reset_code_response_dto.dart'
     as _i5;
 import 'package:mockito/mockito.dart' as _i1;
+import 'package:mockito/src/dummies.dart' as _i16;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -97,24 +106,35 @@ class _FakeResetPasswordResponseDto_4 extends _i1.SmartFake
         );
 }
 
+class _FakeChangePasswordResponseDto_5 extends _i1.SmartFake
+    implements _i7.ChangePasswordResponseDto {
+  _FakeChangePasswordResponseDto_5(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [AuthRetrofitClient].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockAuthRetrofitClient extends _i1.Mock
-    implements _i7.AuthRetrofitClient {
+    implements _i8.AuthRetrofitClient {
   MockAuthRetrofitClient() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i8.Future<_i2.RegistrationResponseDto> signup(
-          _i9.RegistrationUserDto? user) =>
+  _i9.Future<_i2.RegistrationResponseDto> signup(
+          _i10.RegistrationUserDto? user) =>
       (super.noSuchMethod(
         Invocation.method(
           #signup,
           [user],
         ),
-        returnValue: _i8.Future<_i2.RegistrationResponseDto>.value(
+        returnValue: _i9.Future<_i2.RegistrationResponseDto>.value(
             _FakeRegistrationResponseDto_0(
           this,
           Invocation.method(
@@ -122,17 +142,17 @@ class MockAuthRetrofitClient extends _i1.Mock
             [user],
           ),
         )),
-      ) as _i8.Future<_i2.RegistrationResponseDto>);
+      ) as _i9.Future<_i2.RegistrationResponseDto>);
 
   @override
-  _i8.Future<_i3.AuthenticationResponseDto> signIn(
-          _i10.AuthenticationRequestDto? authentication) =>
+  _i9.Future<_i3.AuthenticationResponseDto> signIn(
+          _i11.AuthenticationRequestDto? authentication) =>
       (super.noSuchMethod(
         Invocation.method(
           #signIn,
           [authentication],
         ),
-        returnValue: _i8.Future<_i3.AuthenticationResponseDto>.value(
+        returnValue: _i9.Future<_i3.AuthenticationResponseDto>.value(
             _FakeAuthenticationResponseDto_1(
           this,
           Invocation.method(
@@ -140,17 +160,17 @@ class MockAuthRetrofitClient extends _i1.Mock
             [authentication],
           ),
         )),
-      ) as _i8.Future<_i3.AuthenticationResponseDto>);
+      ) as _i9.Future<_i3.AuthenticationResponseDto>);
 
   @override
-  _i8.Future<_i4.ForgetPasswordResponseDto> forgetPassword(
-          _i11.ForgetPasswordRequestDto? request) =>
+  _i9.Future<_i4.ForgetPasswordResponseDto> forgetPassword(
+          _i12.ForgetPasswordRequestDto? request) =>
       (super.noSuchMethod(
         Invocation.method(
           #forgetPassword,
           [request],
         ),
-        returnValue: _i8.Future<_i4.ForgetPasswordResponseDto>.value(
+        returnValue: _i9.Future<_i4.ForgetPasswordResponseDto>.value(
             _FakeForgetPasswordResponseDto_2(
           this,
           Invocation.method(
@@ -158,17 +178,17 @@ class MockAuthRetrofitClient extends _i1.Mock
             [request],
           ),
         )),
-      ) as _i8.Future<_i4.ForgetPasswordResponseDto>);
+      ) as _i9.Future<_i4.ForgetPasswordResponseDto>);
 
   @override
-  _i8.Future<_i5.VerifyResetCodeResponseDto> verifyResetCode(
-          _i12.VerifyResetCodeRequestDto? resetCode) =>
+  _i9.Future<_i5.VerifyResetCodeResponseDto> verifyResetCode(
+          _i13.VerifyResetCodeRequestDto? resetCode) =>
       (super.noSuchMethod(
         Invocation.method(
           #verifyResetCode,
           [resetCode],
         ),
-        returnValue: _i8.Future<_i5.VerifyResetCodeResponseDto>.value(
+        returnValue: _i9.Future<_i5.VerifyResetCodeResponseDto>.value(
             _FakeVerifyResetCodeResponseDto_3(
           this,
           Invocation.method(
@@ -176,17 +196,17 @@ class MockAuthRetrofitClient extends _i1.Mock
             [resetCode],
           ),
         )),
-      ) as _i8.Future<_i5.VerifyResetCodeResponseDto>);
+      ) as _i9.Future<_i5.VerifyResetCodeResponseDto>);
 
   @override
-  _i8.Future<_i6.ResetPasswordResponseDto> resetPassword(
-          _i13.ResetPasswordRequestDto? request) =>
+  _i9.Future<_i6.ResetPasswordResponseDto> resetPassword(
+          _i14.ResetPasswordRequestDto? request) =>
       (super.noSuchMethod(
         Invocation.method(
           #resetPassword,
           [request],
         ),
-        returnValue: _i8.Future<_i6.ResetPasswordResponseDto>.value(
+        returnValue: _i9.Future<_i6.ResetPasswordResponseDto>.value(
             _FakeResetPasswordResponseDto_4(
           this,
           Invocation.method(
@@ -194,5 +214,58 @@ class MockAuthRetrofitClient extends _i1.Mock
             [request],
           ),
         )),
-      ) as _i8.Future<_i6.ResetPasswordResponseDto>);
+      ) as _i9.Future<_i6.ResetPasswordResponseDto>);
+
+  @override
+  _i9.Future<_i7.ChangePasswordResponseDto> changePassword(
+    String? token,
+    _i15.ChangePasswordRequestDto? request,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #changePassword,
+          [
+            token,
+            request,
+          ],
+        ),
+        returnValue: _i9.Future<_i7.ChangePasswordResponseDto>.value(
+            _FakeChangePasswordResponseDto_5(
+          this,
+          Invocation.method(
+            #changePassword,
+            [
+              token,
+              request,
+            ],
+          ),
+        )),
+      ) as _i9.Future<_i7.ChangePasswordResponseDto>);
+}
+
+/// A class which mocks [DataSourceExecution].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockDataSourceExecution extends _i1.Mock
+    implements _i14.DataSourceExecution {
+  MockDataSourceExecution() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i8.Future<_i15.Results<T>> execute<T>(_i8.Future<T> Function()? apiCall) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #execute,
+          [apiCall],
+        ),
+        returnValue:
+            _i8.Future<_i15.Results<T>>.value(_i16.dummyValue<_i15.Results<T>>(
+          this,
+          Invocation.method(
+            #execute,
+            [apiCall],
+          ),
+        )),
+      ) as _i8.Future<_i15.Results<T>>);
 }

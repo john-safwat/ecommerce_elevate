@@ -8,23 +8,23 @@ import 'dart:ui' as _i10;
 
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart'
     as _i14;
-import 'package:ecommerce_elevate/features/home/domain/entities/category/category.dart'
+import 'package:ecommerce_elevate/core/shared_features/domain/entities/category/category.dart'
     as _i15;
-import 'package:ecommerce_elevate/features/home/domain/entities/occasions/occasion.dart'
+import 'package:ecommerce_elevate/core/shared_features/domain/entities/occasions/occasion.dart'
     as _i17;
-import 'package:ecommerce_elevate/features/home/domain/entities/products/product.dart'
+import 'package:ecommerce_elevate/core/shared_features/domain/entities/products/product.dart'
     as _i19;
-import 'package:ecommerce_elevate/features/home/domain/repository/categories_repository.dart'
+import 'package:ecommerce_elevate/core/shared_features/domain/repository/categories_repository.dart'
     as _i5;
-import 'package:ecommerce_elevate/features/home/domain/repository/occasions_repository.dart'
+import 'package:ecommerce_elevate/core/shared_features/domain/repository/occasions_repository.dart'
     as _i6;
-import 'package:ecommerce_elevate/features/home/domain/repository/products_repository.dart'
+import 'package:ecommerce_elevate/core/shared_features/domain/repository/products_repository.dart'
     as _i7;
-import 'package:ecommerce_elevate/features/home/domain/use_case/get_categories_list_use_case.dart'
+import 'package:ecommerce_elevate/core/shared_features/domain/use_case/get_categories_list_use_case.dart'
     as _i13;
-import 'package:ecommerce_elevate/features/home/domain/use_case/get_most_selling_products_list_use_case.dart'
+import 'package:ecommerce_elevate/core/shared_features/domain/use_case/get_most_selling_products_list_use_case.dart'
     as _i18;
-import 'package:ecommerce_elevate/features/home/domain/use_case/get_occasions_list_use_case.dart'
+import 'package:ecommerce_elevate/core/shared_features/domain/use_case/get_occasions_list_use_case.dart'
     as _i16;
 import 'package:geocode/src/geocode.dart' as _i11;
 import 'package:geocode/src/model/address.dart' as _i3;
