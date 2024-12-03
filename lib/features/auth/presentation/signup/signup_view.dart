@@ -11,9 +11,6 @@ import 'package:ecommerce_elevate/features/auth/presentation/signup/widgets/sign
 import 'package:flutter/material.dart';
 // 📦 Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter/material.dart';
-// 📦 Package imports:
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignupView extends StatefulWidget {
   const SignupView({super.key});

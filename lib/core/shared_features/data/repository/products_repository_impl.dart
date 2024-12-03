@@ -2,13 +2,8 @@
 
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
-import 'package:ecommerce_elevate/features/home/data/datasource/contract/products_remote_datasource.dart';
-import 'package:ecommerce_elevate/features/home/domain/entities/products/product.dart';
-import 'package:ecommerce_elevate/features/home/domain/repository/products_repository.dart';
-import 'package:injectable/injectable.dart';
 import 'package:ecommerce_elevate/core/shared_features/data/datasource/contract/products_remote_datasource.dart';
 import 'package:ecommerce_elevate/core/shared_features/domain/entities/products/product.dart';
-// 📦 Package imports:
 import 'package:injectable/injectable.dart';
 
 import '../../domain/repository/products_repository.dart';

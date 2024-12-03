@@ -79,28 +79,27 @@ class ProductDetailsAndDescription extends StatelessWidget {
             width: double.infinity,
             child: ElevatedButton(
               onPressed: () {
-
                 viewModel.doIntent(AddItemToCartAction());
               },
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.all(16),
                 backgroundColor: AppColors.pink,
               ),
-              child: BlocBuilder<ProductDetailsViewModel , ProductDetailsState>(
-                  builder:(context, state) {
-                    if(state is AddItemToCartLoadingState){
-                      return const SizedBox(
-                        height: 20,
-                        width: 20,
-                        child: Center(child: CircularProgressIndicator(
-                          color: AppColors.white,
-                        )),
-                      );
-                    }else{
-                      return Text(viewModel.locale!.addToCart);
-                    }
-                  }
-              ),
+              child: BlocBuilder<ProductDetailsViewModel, ProductDetailsState>(
+                  builder: (context, state) {
+                if (state is AddItemToCartLoadingState) {
+                  return const SizedBox(
+                    height: 20,
+                    width: 20,
+                    child: Center(
+                        child: CircularProgressIndicator(
+                      color: AppColors.white,
+                    )),
+                  );
+                } else {
+                  return Text(viewModel.locale!.addToCart);
+                }
+              }),
             ),
           ),
         ],

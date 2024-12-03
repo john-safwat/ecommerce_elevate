@@ -21,7 +21,7 @@ class CartDto {
   @JsonKey(name: "__v")
   final int? v;
 
-  CartDto ({
+  CartDto({
     this.id,
     this.user,
     this.cartItems,
@@ -38,17 +38,18 @@ class CartDto {
   Map<String, dynamic> toJson() {
     return _$CartDtoToJson(this);
   }
+
   Cart toDomain() => Cart(
-    user: user,
-    cartItems: cartItems
-        ?.map(
-          (e) => e.toDomain(),
-        )
-        .toList(),
-    id: id,
-    totalPrice: totalPrice,
-    createdAt: createdAt,
-    updatedAt: updatedAt,
-    v: v,
-  );
+        user: user,
+        cartItems: cartItems
+            ?.map(
+              (e) => e.toDomain(),
+            )
+            .toList(),
+        id: id,
+        totalPrice: totalPrice,
+        createdAt: createdAt,
+        updatedAt: updatedAt,
+        v: v,
+      );
 }

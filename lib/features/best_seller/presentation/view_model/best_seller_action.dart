@@ -6,8 +6,10 @@ sealed class BestSellerAction extends BaseAction {}
 
 class AddProductToCartAction extends BestSellerAction {
   final Product product;
+
   AddProductToCartAction(this.product);
 }
+
 class NavigatorToProductDetails extends BestSellerAction {
   final Product product;
 

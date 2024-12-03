@@ -11,7 +11,7 @@ class DeleteProductsResponseDto {
   @JsonKey(name: "cart")
   final Cart? cart;
 
-  DeleteProductsResponseDto ({
+  DeleteProductsResponseDto({
     this.message,
     this.numOfCartItems,
     this.cart,
@@ -43,7 +43,7 @@ class Cart {
   @JsonKey(name: "__v")
   final int? v;
 
-  Cart ({
+  Cart({
     this.Id,
     this.user,
     this.cartItems,
@@ -73,7 +73,7 @@ class CartItems {
   @JsonKey(name: "_id")
   final String? Id;
 
-  CartItems ({
+  CartItems({
     this.product,
     this.price,
     this.quantity,
@@ -88,5 +88,3 @@ class CartItems {
     return _$CartItemsToJson(this);
   }
 }
-
-

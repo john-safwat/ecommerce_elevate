@@ -10,7 +10,8 @@ class AddItemToCartUseCase {
 
   AddItemToCartUseCase(this.remoteDatasource);
 
-  Future<Results<AddToCartResponse>> call(AddToCartRequest request , String token) {
-    return remoteDatasource.addItemToCart(request , token);
+  Future<Results<AddToCartResponse>> call(
+      AddToCartRequest request, String token) {
+    return remoteDatasource.addItemToCart(request, token);
   }
 }

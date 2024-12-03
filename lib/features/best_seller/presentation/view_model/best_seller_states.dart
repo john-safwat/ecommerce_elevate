@@ -4,7 +4,9 @@ import 'package:ecommerce_elevate/core/shared_features/domain/entities/products/
 sealed class BestSellerStates {}
 
 class BestSellerInitial extends BestSellerStates {}
+
 class AddItemToCartState extends BestSellerStates {}
+
 class AddItemToCartDoneState extends BestSellerStates {}
 
 class NavigatorToProductDetailsState extends BestSellerStates {

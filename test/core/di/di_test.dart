@@ -17,11 +17,6 @@ import '../shared_features/data/datasource/impl/categories_remote_datasource_imp
 import '../shared_features/data/datasource/impl/occasions_remote_datasource_impl_test.mocks.dart';
 import '../shared_features/data/datasource/impl/products_remote_datasource_impl_test.mocks.dart';
 import '../shared_features/data/repository/categories_repository_impl_test.mocks.dart';
-import '../shared_features/data/repository/occasions_repository_impl_test.mocks.dart';
-import '../shared_features/data/repository/products_repository_impl_test.mocks.dart';
-import '../shared_features/domain/use_case/get_categories_list_use_case_test.mocks.dart';
-import '../shared_features/domain/use_case/get_most_selling_products_list_use_case_test.mocks.dart';
-import '../shared_features/domain/use_case/get_occasions_list_use_case_test.mocks.dart';
 
 final GetIt getItTest = GetIt.I;
 
@@ -65,15 +60,6 @@ Future<void> dependenciesSetup() async {
 
   getItTest.registerSingleton<MockProductsRetrofitClient>(
       MockProductsRetrofitClient());
-  getItTest.registerSingleton<MockOccasionsRemoteDatasource>(
-      MockOccasionsRemoteDatasource());
-  getItTest.registerSingleton<MockProductsRemoteDatasourceImpl>(
-      MockProductsRemoteDatasourceImpl());
-  getItTest
-      .registerSingleton<MockCategoriesRepository>(MockCategoriesRepository());
-  getItTest
-      .registerSingleton<MockOccasionsRepository>(MockOccasionsRepository());
-  getItTest.registerSingleton<MockProductsRepository>(MockProductsRepository());
 }
 void main() {
   setUp(() async {

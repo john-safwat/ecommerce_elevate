@@ -26,8 +26,9 @@ abstract class CartRetrofitClient {
 
   @PUT("${ApiConstants.cartRoute}/{id}")
   Future<UserCartResponseDto> updateCart(@Header("Authorization") String token,
-      @Path("id") String id,@Body() Map<String, int> body);
+      @Path("id") String id, @Body() Map<String, int> body);
+
   @DELETE("${ApiConstants.cartRoute}/{id}")
-  Future<DeleteProductsResponseDto> deleteCartProduct(@Header("Authorization") String token,
-      @Path("id") String id);
+  Future<DeleteProductsResponseDto> deleteCartProduct(
+      @Header("Authorization") String token, @Path("id") String id);
 }

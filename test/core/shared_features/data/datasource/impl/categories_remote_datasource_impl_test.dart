@@ -5,9 +5,6 @@ import 'package:dio/dio.dart';
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/datasource_execution/app_exception.dart';
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
-import 'package:ecommerce_elevate/features/home/data/api/categories/categories_retrofit_client.dart';
-import 'package:ecommerce_elevate/features/home/data/datasource/impl/categories_remote_datasource_impl.dart';
-import 'package:ecommerce_elevate/features/home/domain/entities/category/category.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';

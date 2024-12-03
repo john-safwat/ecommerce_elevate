@@ -8,11 +8,6 @@ import 'package:flutter/material.dart';
 // 📦 Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-// 🐦 Flutter imports:
-import 'package:flutter/material.dart';
-// 📦 Package imports:
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../reset_password_contract.dart';
 
 // ignore: must_be_immutable

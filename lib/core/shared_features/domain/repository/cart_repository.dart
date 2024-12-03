@@ -5,11 +5,13 @@ import 'package:ecommerce_elevate/core/shared_features/domain/entities/cart/cart
 
 abstract interface class CartRepository {
   Future<Results<AddToCartResponse>> addItemToCart(
-      AddToCartRequest addToCartRequest , String token);
+      AddToCartRequest addToCartRequest, String token);
 
   Future<Results<UserCartResponse>> getUserCart(String token);
+
   Future<Results<UserCartResponse>> updateCart(
       {required String token, required String id, required int quantity});
 
-  Future<Results<int>> deleteCartProduct({required String token, required String id});
+  Future<Results<int>> deleteCartProduct(
+      {required String token, required String id});
 }

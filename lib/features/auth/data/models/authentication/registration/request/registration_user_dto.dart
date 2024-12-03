@@ -3,8 +3,6 @@
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/features/auth/domain/entities/registration/registration_user.dart';
 import 'package:json_annotation/json_annotation.dart';
-// 📦 Package imports:
-import 'package:json_annotation/json_annotation.dart';
 
 part 'registration_user_dto.g.dart'; // Add this line
 

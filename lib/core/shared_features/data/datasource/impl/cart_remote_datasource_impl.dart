@@ -36,19 +36,24 @@ class CartRemoteDatasourceImpl implements CartRemoteDatasource {
   }
 
   @override
-  Future<Results<UserCartResponse>> updateCart({required String token, required String id, required int quantity})async {
+  Future<Results<UserCartResponse>> updateCart(
+      {required String token,
+      required String id,
+      required int quantity}) async {
     var response = await _dataSourceExecution.execute(() async {
-      var response = await _retrofitClient.updateCart(token, id, {"quantity": quantity});
+      var response =
+          await _retrofitClient.updateCart(token, id, {"quantity": quantity});
       return response.toDomain();
     });
     return response;
   }
 
   @override
-  Future<Results<int>> deleteCartProduct({required String token, required String id}) async {
+  Future<Results<int>> deleteCartProduct(
+      {required String token, required String id}) async {
     var response = await _dataSourceExecution.execute(() async {
       var response = await _retrofitClient.deleteCartProduct(token, id);
-      return response.cart?.totalPrice??0;
+      return response.cart?.totalPrice ?? 0;
     });
     return response;
   }

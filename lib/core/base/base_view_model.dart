@@ -2,7 +2,6 @@
 import 'dart:async';
 import 'dart:io';
 
-
 // 📦 Package imports:
 
 import 'package:bloc/bloc.dart';
@@ -12,14 +11,10 @@ import 'package:ecommerce_elevate/core/di/di.dart';
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/providers/app_config_provider.dart';
 import 'package:ecommerce_elevate/core/providers/language_provider.dart';
-// 🐦 Flutter imports:
-import 'package:flutter/cupertino.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:ecommerce_elevate/core/shared_features/domain/entities/cart/add_to_cart/request/add_to_cart_request.dart';
 import 'package:ecommerce_elevate/core/shared_features/domain/entities/cart/add_to_cart/response/add_to_cart_response.dart';
 import 'package:ecommerce_elevate/core/shared_features/domain/use_case/add_item_to_cart_use_case.dart';
-import 'package:ecommerce_elevate/core/utils/app_dialogs.dart';
-// 🐦 Flutter imports:
+import 'package:ecommerce_elevate/core/utils/app_dialogs.dart';// 🐦 Flutter imports:
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:geocode/geocode.dart';

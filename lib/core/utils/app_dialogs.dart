@@ -2,9 +2,7 @@
 
 // 📦 Package imports:
 import 'package:dialogs/app_dialog_utils.dart';
-import 'package:flutter/material.dart';
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
-// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -76,8 +74,7 @@ class AppDialogs {
         timeInSecForIosWeb: 1,
         backgroundColor: AppColors.red,
         textColor: Colors.white,
-        fontSize: 16.0
-    );
+        fontSize: 16.0);
   }
 
   static void showSuccessToast(String message) {
@@ -88,9 +85,9 @@ class AppDialogs {
         timeInSecForIosWeb: 1,
         backgroundColor: AppColors.green,
         textColor: Colors.white,
-        fontSize: 16.0
-    );
+        fontSize: 16.0);
   }
+
   static void showInfoToast(String message) {
     Fluttertoast.showToast(
         msg: message,
@@ -99,8 +96,6 @@ class AppDialogs {
         timeInSecForIosWeb: 1,
         backgroundColor: AppColors.pink,
         textColor: Colors.white,
-        fontSize: 16.0
-    );
+        fontSize: 16.0);
   }
-
 }

@@ -147,8 +147,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i77.HomeViewModel>(() => _i77.HomeViewModel());
     gh.factory<_i155.ProductDetailsViewModel>(
         () => _i155.ProductDetailsViewModel());
-    gh.singleton<_i56.AppConfigProvider>(() => _i56.AppConfigProvider());
     gh.singleton<_i166.DataSourceExecution>(() => _i166.DataSourceExecution());
+    gh.singleton<_i56.AppConfigProvider>(() => _i56.AppConfigProvider());
     gh.lazySingleton<_i645.Location>(() => locationModule.location);
     gh.lazySingleton<_i1024.GeoCode>(() => locationModule.geoCode);
     gh.lazySingleton<_i974.Logger>(() => loggerModule.loggerProvider);
@@ -156,17 +156,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i361.Dio>(() => networkModule.provideDio());
     gh.lazySingleton<_i528.PrettyDioLogger>(
         () => networkModule.providerInterceptor());
-    gh.singleton<_i202.ProductsRetrofitClient>(
-        () => _i202.ProductsRetrofitClient(gh<_i361.Dio>()));
-    gh.singleton<_i207.OccasionsRetrofitClient>(
-        () => _i207.OccasionsRetrofitClient(gh<_i361.Dio>()));
-    gh.singleton<_i186.CategoriesRetrofitClient>(
-        () => _i186.CategoriesRetrofitClient(gh<_i361.Dio>()));
-    gh.singleton<_i187.AuthRetrofitClient>(
-        () => _i187.AuthRetrofitClient(gh<_i361.Dio>()));
-    gh.factory<_i96.OccasionsRemoteDatasource>(
-        () => _i290.OccasionsRemoteDatasourceImpl(
-              gh<_i207.OccasionsRetrofitClient>(),
     gh.singleton<_i703.CartRetrofitClient>(
         () => _i703.CartRetrofitClient(gh<_i361.Dio>()));
     gh.singleton<_i162.CategoriesRetrofitClient>(
@@ -248,12 +237,12 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i674.GetOccasionsListUseCase(gh<_i486.OccasionsRepository>()));
     gh.factory<_i1055.SignupViewModel>(
         () => _i1055.SignupViewModel(gh<_i529.SignupUserUseCase>()));
-    gh.factory<_i660.VerifyResetPasswordUseCase>(
-        () => _i660.VerifyResetPasswordUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i697.LoginUserUseCase>(
         () => _i697.LoginUserUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i149.ResetPasswordUseCase>(
         () => _i149.ResetPasswordUseCase(gh<_i961.AuthRepository>()));
+    gh.factory<_i660.VerifyResetPasswordUseCase>(
+        () => _i660.VerifyResetPasswordUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i863.ChangePasswordUseCase>(
         () => _i863.ChangePasswordUseCase(gh<_i961.AuthRepository>()));
     gh.factory<_i974.ResetPasswordViewModel>(
@@ -267,8 +256,6 @@ extension GetItInjectableX on _i174.GetIt {
         ));
     gh.factory<_i599.ForgetPasswordViewModel>(
         () => _i599.ForgetPasswordViewModel(gh<_i90.ForgetPasswordUseCase>()));
-    gh.factory<_i98.ChangePasswordViewModel>(
-        () => _i98.ChangePasswordViewModel(gh<_i863.ChangePasswordUseCase>()));
     gh.factory<_i742.HomeTabViewModel>(() => _i742.HomeTabViewModel(
           gh<_i120.GetCategoriesListUseCase>(),
           gh<_i1056.GetMostSellingProductsListUseCase>(),
@@ -276,6 +263,8 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i645.Location>(),
           gh<_i1024.GeoCode>(),
         ));
+    gh.factory<_i98.ChangePasswordViewModel>(
+        () => _i98.ChangePasswordViewModel(gh<_i863.ChangePasswordUseCase>()));
     gh.factory<_i225.LoginViewModel>(
         () => _i225.LoginViewModel(gh<_i697.LoginUserUseCase>()));
     gh.factory<_i1033.OtpVerifyViewModel>(() => _i1033.OtpVerifyViewModel(
