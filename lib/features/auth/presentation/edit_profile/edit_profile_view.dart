@@ -79,6 +79,13 @@ class _ProfileViewState extends BaseState<ProfileView, ProfileViewModel> {
                     context: context,
                     posActionTitle: viewModel.locale!.tryAgain);
               }
+              // if (state is UpdateImageProfileFailureState) {
+              //   log(state.message);
+              //   AppDialogs.showFailDialog(
+              //       message: state.message,
+              //       context: context,
+              //       posActionTitle: viewModel.locale!.tryAgain);
+              // }
             },
             builder: (context, state) {
               if (state is ProfileDataLoadingState) {

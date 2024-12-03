@@ -24,7 +24,6 @@ class ProfileViewModel extends BaseViewModel<ProfileViewState, ProfileAction> {
   GetUserInfoUseCase getUserInfoUseCase;
   EditProfileUseCase updateUserInfoUseCase;
   UploadProfileImageUseCase uploadProfileImageUseCase;
-  // late MainViewModel mainViewModel;
 
   ProfileViewModel(this.getUserInfoUseCase, this.updateUserInfoUseCase,
       this.uploadProfileImageUseCase)
@@ -87,7 +86,7 @@ class ProfileViewModel extends BaseViewModel<ProfileViewState, ProfileAction> {
     imageFile = await pickImage(context);
 
     emit(SetImageProfileState());
-    _updateImageProfile();
+    await _updateImageProfile();
   }
 
   Future<void> _updateImageProfile() async {
@@ -101,7 +100,7 @@ class ProfileViewModel extends BaseViewModel<ProfileViewState, ProfileAction> {
           //filename: 'profile.png',
         ),
     });
-    var response = uploadProfileImageUseCase.call(imageFile: formData);
+    var response = await uploadProfileImageUseCase.call(imageFile: formData);
     switch (response) {
       case Success<String>():
         {
@@ -110,7 +109,7 @@ class ProfileViewModel extends BaseViewModel<ProfileViewState, ProfileAction> {
         }
       case Failure<String>():
         {
-          emit(UpdateImageProfileFailureState('error'));
+          emit(UpdateImageProfileFailureState(''));
         }
     }
   }

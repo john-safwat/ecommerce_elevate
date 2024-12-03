@@ -128,18 +128,9 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
     //   ),
     // });
     return await _apiExecution.execute<String>(() async {
-      var response = await Dio().put(
-        'https://flower.elevateegy.com/api/v1/auth/upload-photo',
-        data: imageFile,
-        options: Options(headers: {
-          "Authorization": "Bearer ${getIt.get<AppConfigProvider>().token}",
-          "Content-Type": "multipart/form-data"
-        }),
-      );
-
-      //  _authRetrofitClient.uploadProfileImage(
-      //     "Bearer ${getIt.get<AppConfigProvider>().token}", imageFile);
-      return response.data['message'];
+      var response = await _authRetrofitClient.uploadProfileImage(
+          "Bearer ${getIt.get<AppConfigProvider>().token}", imageFile);
+      return response;
     });
   }
 }
