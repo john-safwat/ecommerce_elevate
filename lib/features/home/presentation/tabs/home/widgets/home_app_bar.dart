@@ -2,7 +2,6 @@
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
 import 'package:ecommerce_elevate/core/assets/app_images.dart';
-import 'package:ecommerce_elevate/core/constants/routes.dart';
 import 'package:ecommerce_elevate/core/shared_widgets/search_text_field.dart';
 import 'package:flutter/material.dart';
 
@@ -18,15 +17,10 @@ class HomeAppBar extends StatelessWidget {
     return SliverAppBar(
       title: Row(
         children: [
-          InkWell(
-            onTap: () {
-              Navigator.of(context).pushNamed(Routes.changePasswordRoute);
-            },
-            child: Image.asset(
-              AppImages.logo,
-              width: MediaQuery.of(context).size.width * 0.25,
-              fit: BoxFit.cover,
-            ),
+          Image.asset(
+            AppImages.logo,
+            width: MediaQuery.of(context).size.width * 0.25,
+            fit: BoxFit.cover,
           ),
           const SizedBox(width: 16),
           Expanded(

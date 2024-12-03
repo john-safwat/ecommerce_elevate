@@ -40,7 +40,7 @@ class _ChangePasswordViewState
                   context: context,
                   posActionTitle: viewModel.locale!.ok,
                   posAction: () {
-                    viewModel.doIntent(NavigateToHomeScreeAction());
+                    //viewModel.doIntent(NavigateToHomeScreeAction());
                   });
             }
             if (state is ShowFailState) {
