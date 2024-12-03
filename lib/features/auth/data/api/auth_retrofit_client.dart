@@ -2,6 +2,8 @@
 import 'package:dio/dio.dart';
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/constants/api_constants.dart';
+import 'package:ecommerce_elevate/features/auth/data/models/authentication/change_password/change_password_request/change_password_request_dto.dart';
+import 'package:ecommerce_elevate/features/auth/data/models/authentication/change_password/change_password_response/change_password_response_dto.dart';
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/forget_password/request/forget_password_request_dto.dart';
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/forget_password/response/forget_password_response_dto.dart';
 import 'package:ecommerce_elevate/features/auth/data/models/authentication/login/request/authentication_request_dto.dart';
@@ -41,4 +43,10 @@ abstract class AuthRetrofitClient {
   @PUT(ApiConstants.resetPasswordRoute)
   Future<ResetPasswordResponseDto> resetPassword(
       @Body() ResetPasswordRequestDto request);
+
+  @PATCH(ApiConstants.changePasswordRoute)
+  Future<ChangePasswordResponseDto> changePassword(
+    @Header("Authorization") String token,
+    @Body() ChangePasswordRequestDto request,
+  );
 }

@@ -5,6 +5,8 @@ import 'package:ecommerce_elevate/features/auth/data/datasource/contract/auth_lo
 import 'package:ecommerce_elevate/features/auth/data/datasource/contract/auth_remote_datasource.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/authentication/authentication_request.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/authentication/authentication_response.dart';
+import 'package:ecommerce_elevate/features/auth/domain/entities/change_password/change_password_reaponse.dart';
+import 'package:ecommerce_elevate/features/auth/domain/entities/change_password/change_password_request.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/forgetPassword/forget_password_response.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/registration/registration_response.dart';
 import 'package:ecommerce_elevate/features/auth/domain/entities/registration/registration_user.dart';
@@ -62,5 +64,13 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<void> deleteToken() async {
     await _authLocalDatasource.deleteToken();
+  }
+
+  @override
+  Future<Results<ChangePasswordResponse?>> changePassword(
+    String token,
+    ChangePasswordRequest request,
+  ) {
+    return _remoteDatasource.changePassword(token, request);
   }
 }

@@ -2,7 +2,9 @@
 import 'dart:async';
 import 'dart:io';
 
+
 // 📦 Package imports:
+
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 // 🌎 Project imports:
@@ -40,7 +42,8 @@ abstract class BaseViewModel<T, E extends BaseAction> extends Cubit<T> {
         case DioExceptionType.badCertificate:
           return locale!.dioBadCertificateMessage;
         case DioExceptionType.badResponse:
-          return locale!.dioBadResponseMessage;
+          return exception.response?.data['error'] ??
+              locale!.dioBadResponseMessage;
         case DioExceptionType.cancel:
           return locale!.dioCancelMessage;
         case DioExceptionType.connectionError:

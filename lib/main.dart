@@ -3,6 +3,7 @@
 import 'package:ecommerce_elevate/core/providers/app_config_provider.dart';
 import 'package:ecommerce_elevate/core/providers/language_provider.dart';
 import 'package:ecommerce_elevate/core/utils/app_initializer.dart';
+import 'package:ecommerce_elevate/features/auth/presentation/change_password/change_password_view.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/forget_password/forget_password_view.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/login/login_view.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/otp_verify/otp_verify_view.dart';
@@ -65,6 +66,7 @@ class MyApp extends StatelessWidget {
         Routes.occasionsRoute: (context) => const OccasionsScreen(),
         Routes.productDetailsRoute: (context) => const ProductDetailsView(),
         Routes.bestSellerViewRoute: (context) => const BestSellerView(),
+        Routes.changePasswordRoute: (context) => const ChangePasswordView(),
       },
       initialRoute: appConfigProvider.token.isEmpty
           ? Routes.loginRoute
