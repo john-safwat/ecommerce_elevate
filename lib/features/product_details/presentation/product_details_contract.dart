@@ -16,4 +16,5 @@ sealed class ProductDetailsState {}
 class ProductDetailsInitial extends ProductDetailsState {}
 
 class ProductDetailsChangeCurrentPageIndex extends ProductDetailsState {}
+
 class AddItemToCartLoadingState extends ProductDetailsState {}

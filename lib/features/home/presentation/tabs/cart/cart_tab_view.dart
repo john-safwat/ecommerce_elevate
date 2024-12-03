@@ -88,14 +88,12 @@ class _CartTabViewState extends BaseState<CartTabView, CartTabViewModel> {
                           item: (response != null)
                               ? response.cart!.cartItems![index]
                               : CartItems(
-                            quantity: 10,
-                            price: 323,
-                            product: CartProduct(
-                              imgCover: "-----------------",
-                              title: "----------------",
-                              description: "------------------"
-                            )
-                          ),
+                                  quantity: 10,
+                                  price: 323,
+                                  product: CartProduct(
+                                      imgCover: "-----------------",
+                                      title: "----------------",
+                                      description: "------------------")),
                         ),
                       ),
                       separatorBuilder: (context, index) =>
@@ -104,7 +102,7 @@ class _CartTabViewState extends BaseState<CartTabView, CartTabViewModel> {
                           ? response.cart?.cartItems?.length ?? 0
                           : 20,
                     )),
-                    BillingInformation(response , viewModel)
+                    BillingInformation(response, viewModel)
                   ],
                 ),
               ),

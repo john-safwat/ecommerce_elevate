@@ -107,14 +107,14 @@
   "thereIsNoProduct": "لا يوجد منتجات لعرضها هنا",
   "notLoggedIn": "يجب تسجيل الدخول اولا",
   "addedToCartSuccessfully": "تمت اضافة المنتج الى السلة بنجاح",
-  "cartError" : "حدث خطأ ما",
+  "cartError": "حدث خطأ ما",
   "youMustBeLoggedIn": "يجب تسجيل الدخول اولا",
-  "items" : "العناصر",
-  "subTotal" : "المجموع",
-  "total" : "المجموع",
-  "deliveryFee" : "رسوم التوصيل",
-  "checkout" : "الدفع",
-  "updating" : "تحديث...",
-  "deleting" : "حذف...",
-  "deletedSuccessfully" : "تم الحذف بنجاح"
+  "items": "العناصر",
+  "subTotal": "المجموع",
+  "total": "المجموع",
+  "deliveryFee": "رسوم التوصيل",
+  "checkout": "الدفع",
+  "updating": "تحديث...",
+  "deleting": "حذف...",
+  "deletedSuccessfully": "تم الحذف بنجاح"
 }

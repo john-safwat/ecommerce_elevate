@@ -21,8 +21,8 @@ class OccasionProductsSuccessState extends OccasionsStates {
 }
 
 class AddItemToCartState extends OccasionsStates {}
-class AddItemToCartDoneState extends OccasionsStates {}
 
+class AddItemToCartDoneState extends OccasionsStates {}
 
 class OccasionFailureState extends OccasionsStates {
   String errorMessage;

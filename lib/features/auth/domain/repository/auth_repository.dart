@@ -23,6 +23,7 @@ abstract class AuthRepository {
 
   Future<Results<ResetPasswordResponse>> resetPassword(
       ResetPasswordRequest request);
+
   Future<Results<ChangePasswordResponse?>> changePassword(
     String token,
     ChangePasswordRequest request,

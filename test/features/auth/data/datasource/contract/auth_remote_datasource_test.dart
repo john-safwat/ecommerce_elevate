@@ -19,7 +19,7 @@ import 'package:mockito/mockito.dart';
 import '../../../../../core/datasource_execution/mock_datasource_execution.dart';
 import 'auth_remote_datasource_test.mocks.dart';
 
-@GenerateMocks([AuthRetrofitClient, DataSourceExecution])
+@GenerateMocks([AuthRetrofitClient])
 void main() {
   group('Verify Reset Password RemoteDataSource ', (){
     test('Successful response', () async {

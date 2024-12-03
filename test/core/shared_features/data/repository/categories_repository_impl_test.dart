@@ -1,7 +1,4 @@
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
-import 'package:ecommerce_elevate/features/home/data/datasource/contract/categories_remote_datasource.dart';
-import 'package:ecommerce_elevate/features/home/data/repository/categories_repository_impl.dart';
-import 'package:ecommerce_elevate/features/home/domain/entities/category/category.dart';
 // 📦 Package imports:
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';

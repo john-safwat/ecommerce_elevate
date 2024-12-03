@@ -31,10 +31,12 @@ class BestSellerViewModel
   }
 
   Future<void> _addItemToCart(Product product) async {
-    await addProductToCart(AddToCartRequest(
-      quantity: 1,
-      product: product.id,
-    ), AddItemToCartState());
+    await addProductToCart(
+        AddToCartRequest(
+          quantity: 1,
+          product: product.id,
+        ),
+        AddItemToCartState());
     emit(AddItemToCartDoneState());
   }
 }

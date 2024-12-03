@@ -27,10 +27,6 @@ class _CustomDotIndicatorState extends State<CustomDotIndicator> {
             ? AppColors.pink
             : AppColors.white[AppColors.colorCode70],
         borderRadius: BorderRadius.circular(12),
-        color: widget.isActive
-            ? AppColors.pink
-            : AppColors.white[AppColors.colorCode70],
-        borderRadius: BorderRadius.circular(8),
       ),
     );
   }

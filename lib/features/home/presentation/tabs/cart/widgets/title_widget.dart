@@ -1,12 +1,12 @@
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
 import 'package:ecommerce_elevate/features/home/presentation/tabs/cart/view_model/cart_tab_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 // ignore: must_be_immutable
 class TitleWidget extends StatelessWidget {
   CartTabViewModel viewModel;
-  TitleWidget(this.viewModel ,{super.key});
+
+  TitleWidget(this.viewModel, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +21,9 @@ class TitleWidget extends StatelessWidget {
             ),
             Text(
               " (${viewModel.state.userCartState.data?.numOfCartItems ?? 0} ${viewModel.locale!.items})",
-              style:
-              Theme.of(context).textTheme.titleLarge!.copyWith(
-                color: AppColors.gray,
-              ),
+              style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                    color: AppColors.gray,
+                  ),
             ),
           ],
         ),
