@@ -1,7 +1,10 @@
 // 🐦 Flutter imports:
+
+// 🐦 Flutter imports:
+import 'package:flutter/material.dart';
+
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/features/product_details/presentation/widgets/custom_dot_indicator.dart';
-import 'package:flutter/material.dart';
 
 class DotsIndicatorWidget extends StatelessWidget {
   const DotsIndicatorWidget({

@@ -1,5 +1,7 @@
 // 🌎 Project imports:
-import 'package:ecommerce_elevate/core/shared_features/domain/entities/products/product.dart';
+
+// 🌎 Project imports:
+import 'package:ecommerce_elevate/domain/entities/products/product.dart';
 
 sealed class BestSellerStates {}
 

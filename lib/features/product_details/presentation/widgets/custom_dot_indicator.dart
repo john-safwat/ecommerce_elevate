@@ -1,7 +1,10 @@
 // 🐦 Flutter imports:
+
+// 🐦 Flutter imports:
+import 'package:flutter/material.dart';
+
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
-import 'package:flutter/material.dart';
 
 class CustomDotIndicator extends StatefulWidget {
   const CustomDotIndicator({

@@ -1,16 +1,20 @@
 // 🐦 Flutter imports:
+
+// 🐦 Flutter imports:
+import 'package:flutter/material.dart';
+
+// 📦 Package imports:
+import 'package:injectable/injectable.dart';
+
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/base/base_view_model.dart';
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
-import 'package:ecommerce_elevate/core/shared_features/domain/entities/cart/add_to_cart/request/add_to_cart_request.dart';
-import 'package:ecommerce_elevate/core/shared_features/domain/entities/occasions/occasion.dart';
-import 'package:ecommerce_elevate/core/shared_features/domain/entities/products/product.dart';
-import 'package:ecommerce_elevate/core/shared_features/domain/use_case/get_all_products_list_use_case.dart';
+import 'package:ecommerce_elevate/domain/entities/cart/add_to_cart/request/add_to_cart_request.dart';
+import 'package:ecommerce_elevate/domain/entities/occasions/occasion.dart';
+import 'package:ecommerce_elevate/domain/entities/products/product.dart';
+import 'package:ecommerce_elevate/domain/use_case/get_all_products_list_use_case.dart';
 import 'package:ecommerce_elevate/features/occasions/occasions_view_model/occasions_actions.dart';
 import 'package:ecommerce_elevate/features/occasions/occasions_view_model/occasions_states.dart';
-import 'package:flutter/material.dart';
-// 📦 Package imports:
-import 'package:injectable/injectable.dart';
 
 @injectable
 class OccasionsViewModel

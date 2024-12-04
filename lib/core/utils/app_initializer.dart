@@ -1,11 +1,13 @@
 // 📦 Package imports:
 
+// 📦 Package imports:
+import 'package:injectable/injectable.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/constants/constants.dart';
 import 'package:ecommerce_elevate/core/providers/app_config_provider.dart';
 import 'package:ecommerce_elevate/core/providers/language_provider.dart';
-import 'package:injectable/injectable.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 @lazySingleton
 class AppInitializer {
