@@ -142,20 +142,20 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i361.Dio>(() => networkModule.provideDio());
     gh.lazySingleton<_i528.PrettyDioLogger>(
         () => networkModule.providerInterceptor());
+    gh.singleton<_i797.AuthRetrofitClient>(
+        () => _i797.AuthRetrofitClient(gh<_i361.Dio>()));
     gh.singleton<_i112.CartRetrofitClient>(
         () => _i112.CartRetrofitClient(gh<_i361.Dio>()));
     gh.singleton<_i703.CategoriesRetrofitClient>(
         () => _i703.CategoriesRetrofitClient(gh<_i361.Dio>()));
-    gh.singleton<_i835.OccasionsRetrofitClient>(
-        () => _i835.OccasionsRetrofitClient(gh<_i361.Dio>()));
-    gh.singleton<_i361.ProductsRetrofitClient>(
-        () => _i361.ProductsRetrofitClient(gh<_i361.Dio>()));
     gh.singleton<_i627.GetUserLoggedInfoRetrofitClient>(
         () => _i627.GetUserLoggedInfoRetrofitClient(gh<_i361.Dio>()));
     gh.singleton<_i353.LogoutRetrofitClient>(
         () => _i353.LogoutRetrofitClient(gh<_i361.Dio>()));
-    gh.singleton<_i797.AuthRetrofitClient>(
-        () => _i797.AuthRetrofitClient(gh<_i361.Dio>()));
+    gh.singleton<_i835.OccasionsRetrofitClient>(
+        () => _i835.OccasionsRetrofitClient(gh<_i361.Dio>()));
+    gh.singleton<_i361.ProductsRetrofitClient>(
+        () => _i361.ProductsRetrofitClient(gh<_i361.Dio>()));
     gh.factory<_i488.AuthLocalDatasource>(
         () => _i141.AuthLocalDatasourceImpl(gh<_i460.SharedPreferences>()));
     gh.factory<_i283.OccasionsRemoteDatasource>(

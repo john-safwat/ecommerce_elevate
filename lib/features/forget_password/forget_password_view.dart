@@ -14,12 +14,14 @@ import 'package:ecommerce_elevate/core/utils/app_dialogs.dart';
 import 'package:ecommerce_elevate/features/forget_password/Widgets/forget_password_form.dart';
 import 'package:ecommerce_elevate/features/forget_password/forget_password_contract.dart';
 import 'package:ecommerce_elevate/features/forget_password/forget_password_view_model.dart';
+import 'package:injectable/injectable.dart';
 
 class ForgetPasswordView extends StatefulWidget {
   const ForgetPasswordView({super.key});
 
   @override
-  State<ForgetPasswordView> createState() => _ForgetPasswordViewState();
+  // ignore: library_private_types_in_public_api
+  _ForgetPasswordViewState createState() => _ForgetPasswordViewState();
 }
 
 class _ForgetPasswordViewState
