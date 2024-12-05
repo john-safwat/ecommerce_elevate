@@ -1,14 +1,17 @@
 // 🐦 Flutter imports:
-// 🌎 Project imports:
-import 'package:ecommerce_elevate/core/base/base_view.dart';
-import 'package:ecommerce_elevate/core/di/di.dart';
-import 'package:ecommerce_elevate/core/shared_features/domain/entities/occasions/occasion.dart';
-import 'package:ecommerce_elevate/features/occasions/occasions_view_model/occasions_actions.dart';
-import 'package:ecommerce_elevate/features/occasions/occasions_view_model/occasions_view_model.dart';
+
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
+
 // 📦 Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+// 🌎 Project imports:
+import 'package:ecommerce_elevate/core/base/base_view.dart';
+import 'package:ecommerce_elevate/core/di/di.dart';
+import 'package:ecommerce_elevate/domain/entities/occasions/occasion.dart';
+import 'package:ecommerce_elevate/features/occasions/occasions_view_model/occasions_actions.dart';
+import 'package:ecommerce_elevate/features/occasions/occasions_view_model/occasions_view_model.dart';
 import 'widgets/occasions_app_bar_title.dart';
 import 'widgets/occasions_tabbar_widget.dart';
 import 'widgets/occasions_tabview_widget.dart';
@@ -75,7 +78,7 @@ class _OccasionsScreenState
               OccasionsTabbarWidget(
                 tabController: viewModel.tabController,
                 tabs: viewModel.occasions!.map((occasion) {
-                  return Tab(text: occasion?.name ?? "");
+                  return Tab(text: occasion.name ?? "");
                 }).toList(),
               ),
               Expanded(

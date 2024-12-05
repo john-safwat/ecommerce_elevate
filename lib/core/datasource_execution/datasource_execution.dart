@@ -4,10 +4,11 @@ import 'dart:io';
 
 // 📦 Package imports:
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
+
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/datasource_execution/app_exception.dart';
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
-import 'package:injectable/injectable.dart';
 
 @singleton
 mixin class DataSourceExecution {
