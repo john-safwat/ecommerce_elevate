@@ -62,9 +62,11 @@ Future<void> dependenciesSetup() async {
 
   getItTest.registerSingleton<MockProductsRetrofitClient>(
       MockProductsRetrofitClient());
+  getItTest.registerSingleton<MockForgetPasswordUseCase>(
+      MockForgetPasswordUseCase());
 
   getItTest.registerSingleton(ForgetPasswordViewModel(
-    MockForgetPasswordUseCase(),
+    getItTest<MockForgetPasswordUseCase>(),
   )..locale = getItTest<AppLocalizations>());
   getItTest.registerSingleton<Locale>(const Locale("en"));
 }

@@ -1,5 +1,8 @@
+import 'package:ecommerce_elevate/core/datasource_execution/app_exception.dart';
+import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:ecommerce_elevate/core/providers/app_config_provider.dart';
 import 'package:ecommerce_elevate/core/providers/language_provider.dart';
+import 'package:ecommerce_elevate/domain/entities/forgetPassword/forget_password_response.dart';
 import 'package:ecommerce_elevate/domain/use_case/forget_password_use_case.dart';
 import 'package:ecommerce_elevate/features/forget_password/forget_password_contract.dart';
 import 'package:ecommerce_elevate/features/forget_password/forget_password_view.dart';
@@ -7,8 +10,8 @@ import 'package:ecommerce_elevate/features/forget_password/forget_password_view_
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:get_it/get_it.dart';
 import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/datasource_execution/mock_shared_prefrences.dart';
@@ -139,5 +142,111 @@ void main() async {
       expect(viewModel.state, isA<NavigateToOtpScreenState>());
       expect(viewModel.appConfigProvider!.email, equals(email));
     });
+  });
+  group("Testing Send Forget Password Email ", () {
+    setUp(() {
+      getItTest.unregister<ForgetPasswordViewModel>(instance: getItTest<ForgetPasswordViewModel>());
+      getItTest.registerSingleton<ForgetPasswordViewModel>(ForgetPasswordViewModel(
+          getItTest<MockForgetPasswordUseCase>()
+      ));
+      viewModel = getItTest<ForgetPasswordViewModel>();
+    });
+    testWidgets(
+      "Test If Email input is Invalid",
+          (tester) async {
+        // Assert
+        await tester.pumpWidget(
+          MultiProvider(
+            providers: [
+              ChangeNotifierProvider<LanguageProvider>(
+                  create: (context) =>
+                      LanguageProvider(getItTest<MockSharedPreferences>())),
+              ChangeNotifierProvider<AppConfigProvider>(
+                  create: (context) => AppConfigProvider()),
+            ],
+            child: MaterialApp(
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
+              supportedLocales: AppLocalizations.supportedLocales,
+              locale: getItTest<Locale>(),
+              home: const ForgetPasswordView(),
+            ),
+          ),
+        );
+        viewModel.emailController.text = "john@ddd..";
+
+        // Act
+        await viewModel.doIntent(ForgetPasswordAction());
+        // Assert
+        expect(viewModel.state, isA<InitialForgetPasswordViewState>());
+      },
+    );
+    testWidgets(
+      "Test If the request fails",
+          (tester) async {
+        // Assert
+        MockForgetPasswordUseCase forgetPasswordUseCase =
+        getItTest<MockForgetPasswordUseCase>();
+        await tester.pumpWidget(
+          MultiProvider(
+            providers: [
+              ChangeNotifierProvider<LanguageProvider>(
+                  create: (context) =>
+                      LanguageProvider(getItTest<MockSharedPreferences>())),
+              ChangeNotifierProvider<AppConfigProvider>(
+                  create: (context) => AppConfigProvider()),
+            ],
+            child: MaterialApp(
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
+              supportedLocales: AppLocalizations.supportedLocales,
+              locale: getItTest<Locale>(),
+              home: const ForgetPasswordView(),
+            ),
+          ),
+        );
+        viewModel.emailController.text = "john@route.com";
+        var result = Failure<ForgetPasswordResponse>(ServerError("asd", 404));
+        provideDummy<Results<ForgetPasswordResponse>>(result);
+
+        // Act
+        when(forgetPasswordUseCase.call(email: anyNamed("email"))).thenAnswer((_) async =>result,);
+        await viewModel.doIntent(ForgetPasswordAction());
+        // Assert
+        expect(viewModel.state, isA<ForgetPasswordFailState>());
+      },
+    );
+    testWidgets(
+      "Test If the request success",
+          (tester) async {
+        // Assert
+        MockForgetPasswordUseCase forgetPasswordUseCase =
+        getItTest<MockForgetPasswordUseCase>();
+        await tester.pumpWidget(
+          MultiProvider(
+            providers: [
+              ChangeNotifierProvider<LanguageProvider>(
+                  create: (context) =>
+                      LanguageProvider(getItTest<MockSharedPreferences>())),
+              ChangeNotifierProvider<AppConfigProvider>(
+                  create: (context) => AppConfigProvider()),
+            ],
+            child: MaterialApp(
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
+              supportedLocales: AppLocalizations.supportedLocales,
+              locale: getItTest<Locale>(),
+              home: const ForgetPasswordView(),
+            ),
+          ),
+        );
+        viewModel.emailController.text = "john@route.com";
+        var result = Success<ForgetPasswordResponse>(null);
+        provideDummy<Results<ForgetPasswordResponse>>(result);
+
+        // Act
+        when(forgetPasswordUseCase.call(email: anyNamed("email"))).thenAnswer((_) async =>result,);
+        await viewModel.doIntent(ForgetPasswordAction());
+        // Assert
+        expect(viewModel.state, isA<ForgetPasswordSuccessState>());
+      },
+    );
   });
 }
