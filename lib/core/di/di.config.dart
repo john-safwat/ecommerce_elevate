@@ -130,9 +130,9 @@ extension GetItInjectableX on _i174.GetIt {
       preResolve: true,
     );
     gh.factory<_i835.BestSellerViewModel>(() => _i835.BestSellerViewModel());
-    gh.factory<_i656.HomeViewModel>(() => _i656.HomeViewModel());
     gh.factory<_i155.ProductDetailsViewModel>(
         () => _i155.ProductDetailsViewModel());
+    gh.factory<_i656.HomeViewModel>(() => _i656.HomeViewModel());
     gh.singleton<_i166.DataSourceExecution>(() => _i166.DataSourceExecution());
     gh.singleton<_i56.AppConfigProvider>(() => _i56.AppConfigProvider());
     gh.lazySingleton<_i645.Location>(() => locationModule.location);
