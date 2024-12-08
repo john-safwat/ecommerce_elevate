@@ -44,7 +44,7 @@ class ResetPasswordViewModel
         }
       case FormDataChangedAction():
         {
-          _updateValidationState();
+          await _updateValidationState();
         }
       case ChangePasswordVisibilityAction():
         {
@@ -80,7 +80,7 @@ class ResetPasswordViewModel
     return null;
   }
 
-  void _updateValidationState() {
+  Future<void> _updateValidationState() async {
     if (passwordController.text.isEmpty ||
         confirmPasswordController.text.isEmpty) {
       valid.value = false;

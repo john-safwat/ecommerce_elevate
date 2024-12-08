@@ -5,6 +5,8 @@ import 'package:ecommerce_elevate/data/api/auth/auth_retrofit_client.dart';
 import 'package:ecommerce_elevate/data/datasource/contract/auth_remote_datasource.dart';
 import 'package:ecommerce_elevate/data/datasource/impl/auth_remote_datasource_impl.dart';
 import 'package:ecommerce_elevate/domain/entities/forgetPassword/forget_password_response.dart';
+import 'package:ecommerce_elevate/domain/entities/reset_password/reset_password_request.dart';
+import 'package:ecommerce_elevate/domain/entities/reset_password/reset_password_response.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
@@ -59,4 +61,49 @@ void main() {
       expect(actual, result);
     });
   });
+
+
+  group("Reset Password Calling test", () {
+    test("Reset Password Calling return Fail State", () async {
+      // arrange
+      MockDataSourceExecution dataSourceExecution = MockDataSourceExecution();
+      AuthRemoteDatasource remoteDatasourceImpl = AuthRemoteDatasourceImpl(
+          MockAuthRetrofitClient(), dataSourceExecution);
+
+      var result = Failure<ResetPasswordResponse>(ServerError("asd", 404));
+
+      provideDummy<Results<ResetPasswordResponse>>(result);
+
+      // act
+      when(dataSourceExecution.execute<ResetPasswordResponse>(any)).thenAnswer((_)async => result,);
+
+
+      var actual = await remoteDatasourceImpl.resetPassword(ResetPasswordRequest());
+
+      // assert
+      expect(actual, isA<Failure<ResetPasswordResponse>>());
+      expect(actual, result);
+    });
+
+    test("Reset Password Calling return Success State", () async {
+      // arrange
+      MockDataSourceExecution dataSourceExecution = MockDataSourceExecution();
+      AuthRemoteDatasource remoteDatasourceImpl = AuthRemoteDatasourceImpl(
+          MockAuthRetrofitClient(), dataSourceExecution);
+      var result = Success<ResetPasswordResponse>(ResetPasswordResponse());
+
+      provideDummy<Results<ResetPasswordResponse>>(result);
+
+      // act
+      when(dataSourceExecution.execute<ResetPasswordResponse>(any)).thenAnswer((_)async => result,);
+
+
+      var actual = await remoteDatasourceImpl.resetPassword(ResetPasswordRequest());
+
+      // assert
+      expect(actual, isA<Success<ResetPasswordResponse>>());
+      expect(actual, result);
+    });
+  });
+
 }
