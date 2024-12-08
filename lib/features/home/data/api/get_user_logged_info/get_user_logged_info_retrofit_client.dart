@@ -1,6 +1,6 @@
 // 📦 Package imports:
 import 'package:dio/dio.dart';
-import 'package:ecommerce_elevate/data/models/profile_info/profile_response_dto.dart';
+import 'package:ecommerce_elevate/features/home/data/models/profile_info/profile_response_dto.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 

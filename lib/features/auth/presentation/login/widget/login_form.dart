@@ -2,13 +2,12 @@
 
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
-import 'package:ecommerce_elevate/features/login/login_view_model.dart';
+import 'package:ecommerce_elevate/features/auth/presentation/login/login_view_model.dart';
 import 'package:flutter/material.dart';
 // 📦 Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../login/login_contract.dart';
-
+import '../login_contract.dart';
 
 // ignore: must_be_immutable
 class LoginForm extends StatelessWidget {
