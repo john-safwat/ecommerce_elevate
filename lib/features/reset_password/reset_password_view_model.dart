@@ -40,7 +40,7 @@ class ResetPasswordViewModel
         }
       case ResetPasswordAction():
         {
-          _resetPassword();
+          await _resetPassword();
         }
       case FormDataChangedAction():
         {
@@ -91,7 +91,7 @@ class ResetPasswordViewModel
     }
   }
 
-  void _resetPassword() async {
+  Future<void> _resetPassword() async {
     if (formKey.currentState!.validate()) {
       emit(ResetPasswordViewLoadingState());
       var response = await _resetPasswordUseCase(ResetPasswordRequest(

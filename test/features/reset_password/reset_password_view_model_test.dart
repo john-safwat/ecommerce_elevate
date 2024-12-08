@@ -1,5 +1,8 @@
+import 'package:ecommerce_elevate/core/datasource_execution/app_exception.dart';
+import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:ecommerce_elevate/core/providers/app_config_provider.dart';
 import 'package:ecommerce_elevate/core/providers/language_provider.dart';
+import 'package:ecommerce_elevate/domain/entities/reset_password/reset_password_response.dart';
 import 'package:ecommerce_elevate/domain/use_case/reset_password_use_case.dart';
 import 'package:ecommerce_elevate/features/reset_password/reset_password_contract.dart';
 import 'package:ecommerce_elevate/features/reset_password/reset_password_view.dart';
@@ -8,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/datasource_execution/mock_shared_prefrences.dart';
@@ -83,120 +87,271 @@ void main() async {
     });
 
     testWidgets("Form key validation have invalid input in password controller",
-            (WidgetTester tester) async {
-          // Arrange
-          await tester.pumpWidget(
-            MultiProvider(
-              providers: [
-                ChangeNotifierProvider<LanguageProvider>(
-                    create: (context) =>
-                        LanguageProvider(getItTest<MockSharedPreferences>())),
-                ChangeNotifierProvider<AppConfigProvider>(
-                    create: (context) => AppConfigProvider()),
-              ],
-              child: MaterialApp(
-                localizationsDelegates: AppLocalizations.localizationsDelegates,
-                supportedLocales: AppLocalizations.supportedLocales,
-                locale: getItTest<Locale>(),
-                home: const ResetPasswordView(),
-              ),
+        (WidgetTester tester) async {
+      // Arrange
+      await tester.pumpWidget(
+        MultiProvider(
+          providers: [
+            ChangeNotifierProvider<LanguageProvider>(
+                create: (context) =>
+                    LanguageProvider(getItTest<MockSharedPreferences>())),
+            ChangeNotifierProvider<AppConfigProvider>(
+                create: (context) => AppConfigProvider()),
+          ],
+          child: MaterialApp(
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
+            locale: getItTest<Locale>(),
+            home: const ResetPasswordView(),
+          ),
+        ),
+      );
+      resetPasswordViewModel.passwordController.text = "3123";
+      resetPasswordViewModel.confirmPasswordController.text = "3123";
+      // Act
+      resetPasswordViewModel.doIntent(FormDataChangedAction());
+      // Assert
+      expect(resetPasswordViewModel.valid.value, false);
+    });
+
+    testWidgets(
+        "Form key validation have invalid input in password confirmation controller",
+        (WidgetTester tester) async {
+      // Arrange
+      await tester.pumpWidget(
+        MultiProvider(
+          providers: [
+            ChangeNotifierProvider<LanguageProvider>(
+                create: (context) =>
+                    LanguageProvider(getItTest<MockSharedPreferences>())),
+            ChangeNotifierProvider<AppConfigProvider>(
+                create: (context) => AppConfigProvider()),
+          ],
+          child: MaterialApp(
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
+            locale: getItTest<Locale>(),
+            home: const ResetPasswordView(),
+          ),
+        ),
+      );
+      resetPasswordViewModel.passwordController.text = "3asd123";
+      resetPasswordViewModel.confirmPasswordController.text = "3123";
+
+      // Act
+      resetPasswordViewModel.doIntent(FormDataChangedAction());
+      // Assert
+      expect(resetPasswordViewModel.valid.value, false);
+    });
+
+    testWidgets(
+        "Form key validation if password and password confirmation is not the same",
+        (WidgetTester tester) async {
+      // Arrange
+      await tester.pumpWidget(
+        MultiProvider(
+          providers: [
+            ChangeNotifierProvider<LanguageProvider>(
+                create: (context) =>
+                    LanguageProvider(getItTest<MockSharedPreferences>())),
+            ChangeNotifierProvider<AppConfigProvider>(
+                create: (context) => AppConfigProvider()),
+          ],
+          child: MaterialApp(
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
+            locale: getItTest<Locale>(),
+            home: const ResetPasswordView(),
+          ),
+        ),
+      );
+      resetPasswordViewModel.passwordController.text = "1234";
+      resetPasswordViewModel.confirmPasswordController.text = "3123";
+
+      // Act
+      resetPasswordViewModel.doIntent(FormDataChangedAction());
+      // Assert
+      expect(resetPasswordViewModel.valid.value, false);
+    });
+
+    testWidgets(
+        "Form key validation if password and password confirmation is the same and valid",
+        (WidgetTester tester) async {
+      // Arrange
+      await tester.pumpWidget(
+        MultiProvider(
+          providers: [
+            ChangeNotifierProvider<LanguageProvider>(
+                create: (context) =>
+                    LanguageProvider(getItTest<MockSharedPreferences>())),
+            ChangeNotifierProvider<AppConfigProvider>(
+                create: (context) => AppConfigProvider()),
+          ],
+          child: MaterialApp(
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
+            locale: getItTest<Locale>(),
+            home: const ResetPasswordView(),
+          ),
+        ),
+      );
+      resetPasswordViewModel.passwordController.text = "Jo123@123";
+      resetPasswordViewModel.confirmPasswordController.text = "Jo123@123";
+
+      // Act
+      resetPasswordViewModel.doIntent(FormDataChangedAction());
+      // Assert
+      expect(resetPasswordViewModel.valid.value, true);
+    });
+  });
+  group("Testing reset Password Function", () {
+    setUp(() {
+      getItTest.unregister<ResetPasswordViewModel>();
+      getItTest.registerSingleton<ResetPasswordViewModel>(
+          ResetPasswordViewModel(getItTest<MockResetPasswordUseCase>())
+            ..locale = getItTest<AppLocalizations>());
+
+      resetPasswordViewModel = getItTest<ResetPasswordViewModel>();
+    });
+
+    testWidgets(
+      "test if the data is invalid before api call",
+      (widgetTester) async {
+        // Arrange
+        await widgetTester.pumpWidget(
+          MultiProvider(
+            providers: [
+              ChangeNotifierProvider<LanguageProvider>(
+                  create: (context) =>
+                      LanguageProvider(getItTest<MockSharedPreferences>())),
+              ChangeNotifierProvider<AppConfigProvider>(
+                  create: (context) => AppConfigProvider()),
+            ],
+            child: MaterialApp(
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
+              supportedLocales: AppLocalizations.supportedLocales,
+              locale: getItTest<Locale>(),
+              home: const ResetPasswordView(),
             ),
-          );
-          resetPasswordViewModel.passwordController.text = "3123";
-          resetPasswordViewModel.confirmPasswordController.text = "3123";
-          // Act
-          resetPasswordViewModel.doIntent(FormDataChangedAction());
-          // Assert
-          expect(resetPasswordViewModel.valid.value, false);
-        });
+          ),
+        );
+        resetPasswordViewModel.passwordController.text = "asddas3";
+        resetPasswordViewModel.confirmPasswordController.text = "asddas3";
 
-    testWidgets("Form key validation have invalid input in password confirmation controller",
-            (WidgetTester tester) async {
-          // Arrange
-          await tester.pumpWidget(
-            MultiProvider(
-              providers: [
-                ChangeNotifierProvider<LanguageProvider>(
-                    create: (context) =>
-                        LanguageProvider(getItTest<MockSharedPreferences>())),
-                ChangeNotifierProvider<AppConfigProvider>(
-                    create: (context) => AppConfigProvider()),
-              ],
-              child: MaterialApp(
-                localizationsDelegates: AppLocalizations.localizationsDelegates,
-                supportedLocales: AppLocalizations.supportedLocales,
-                locale: getItTest<Locale>(),
-                home: const ResetPasswordView(),
-              ),
+        // Act
+        await resetPasswordViewModel.doIntent(ResetPasswordAction());
+
+        // Assert
+        expect(
+            resetPasswordViewModel.state, isA<InitialResetPasswordViewState>());
+      },
+    );
+    testWidgets(
+      "test if the data of password and confirm password doesn't match before api call",
+      (widgetTester) async {
+        // Arrange
+        await widgetTester.pumpWidget(
+          MultiProvider(
+            providers: [
+              ChangeNotifierProvider<LanguageProvider>(
+                  create: (context) =>
+                      LanguageProvider(getItTest<MockSharedPreferences>())),
+              ChangeNotifierProvider<AppConfigProvider>(
+                  create: (context) => AppConfigProvider()),
+            ],
+            child: MaterialApp(
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
+              supportedLocales: AppLocalizations.supportedLocales,
+              locale: getItTest<Locale>(),
+              home: const ResetPasswordView(),
             ),
-          );
-          resetPasswordViewModel.passwordController.text = "3asd123";
-          resetPasswordViewModel.confirmPasswordController.text = "3123";
+          ),
+        );
+        resetPasswordViewModel.passwordController.text = "Jo123@123";
+        resetPasswordViewModel.confirmPasswordController.text = "Jo123@1233";
 
-          // Act
-          resetPasswordViewModel.doIntent(FormDataChangedAction());
-          // Assert
-          expect(resetPasswordViewModel.valid.value, false);
-        });
+        // Act
+        await resetPasswordViewModel.doIntent(ResetPasswordAction());
 
-    testWidgets("Form key validation if password and password confirmation is not the same",
-            (WidgetTester tester) async {
-          // Arrange
-          await tester.pumpWidget(
-            MultiProvider(
-              providers: [
-                ChangeNotifierProvider<LanguageProvider>(
-                    create: (context) =>
-                        LanguageProvider(getItTest<MockSharedPreferences>())),
-                ChangeNotifierProvider<AppConfigProvider>(
-                    create: (context) => AppConfigProvider()),
-              ],
-              child: MaterialApp(
-                localizationsDelegates: AppLocalizations.localizationsDelegates,
-                supportedLocales: AppLocalizations.supportedLocales,
-                locale: getItTest<Locale>(),
-                home: const ResetPasswordView(),
-              ),
+        // Assert
+        expect(
+            resetPasswordViewModel.state, isA<InitialResetPasswordViewState>());
+      },
+    );
+    testWidgets(
+      "test if the data of password and confirm password match and api call fail",
+      (widgetTester) async {
+        // Arrange
+        await widgetTester.pumpWidget(
+          MultiProvider(
+            providers: [
+              ChangeNotifierProvider<LanguageProvider>(
+                  create: (context) =>
+                      LanguageProvider(getItTest<MockSharedPreferences>())),
+              ChangeNotifierProvider<AppConfigProvider>(
+                  create: (context) => AppConfigProvider()),
+            ],
+            child: MaterialApp(
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
+              supportedLocales: AppLocalizations.supportedLocales,
+              locale: getItTest<Locale>(),
+              home: const ResetPasswordView(),
             ),
-          );
-          resetPasswordViewModel.passwordController.text = "1234";
-          resetPasswordViewModel.confirmPasswordController.text = "3123";
+          ),
+        );
+        resetPasswordViewModel.passwordController.text = "Jo123@123";
+        resetPasswordViewModel.confirmPasswordController.text = "Jo123@123";
+        var useCase = getItTest<MockResetPasswordUseCase>();
 
-          // Act
-          resetPasswordViewModel.doIntent(FormDataChangedAction());
-          // Assert
-          expect(resetPasswordViewModel.valid.value, false);
-        });
+        var results = Failure<ResetPasswordResponse>(ServerError("", 404));
+        provideDummy<Results<ResetPasswordResponse>>(results);
 
-    testWidgets("Form key validation if password and password confirmation is the same and valid",
-            (WidgetTester tester) async {
-          // Arrange
-          await tester.pumpWidget(
-            MultiProvider(
-              providers: [
-                ChangeNotifierProvider<LanguageProvider>(
-                    create: (context) =>
-                        LanguageProvider(getItTest<MockSharedPreferences>())),
-                ChangeNotifierProvider<AppConfigProvider>(
-                    create: (context) => AppConfigProvider()),
-              ],
-              child: MaterialApp(
-                localizationsDelegates: AppLocalizations.localizationsDelegates,
-                supportedLocales: AppLocalizations.supportedLocales,
-                locale: getItTest<Locale>(),
-                home: const ResetPasswordView(),
-              ),
+        // Act
+        when(useCase(any)).thenAnswer((_)async => results,);
+        await resetPasswordViewModel.doIntent(ResetPasswordAction());
+
+        // Assert
+        expect(
+            resetPasswordViewModel.state, isA<ResetPasswordFailState>());
+      },
+    );
+    testWidgets(
+      "test if the data of password and confirm password match and api call success",
+          (widgetTester) async {
+        // Arrange
+        await widgetTester.pumpWidget(
+          MultiProvider(
+            providers: [
+              ChangeNotifierProvider<LanguageProvider>(
+                  create: (context) =>
+                      LanguageProvider(getItTest<MockSharedPreferences>())),
+              ChangeNotifierProvider<AppConfigProvider>(
+                  create: (context) => AppConfigProvider()),
+            ],
+            child: MaterialApp(
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
+              supportedLocales: AppLocalizations.supportedLocales,
+              locale: getItTest<Locale>(),
+              home: const ResetPasswordView(),
             ),
-          );
-          resetPasswordViewModel.passwordController.text = "Jo123@123";
-          resetPasswordViewModel.confirmPasswordController.text = "Jo123@123";
+          ),
+        );
+        resetPasswordViewModel.passwordController.text = "Jo123@123";
+        resetPasswordViewModel.confirmPasswordController.text = "Jo123@123";
+        var useCase = getItTest<MockResetPasswordUseCase>();
 
-          // Act
-          resetPasswordViewModel.doIntent(FormDataChangedAction());
-          // Assert
-          expect(resetPasswordViewModel.valid.value, true);
-        });
+        var results = Success<ResetPasswordResponse>(null);
+        provideDummy<Results<ResetPasswordResponse>>(results);
+
+        // Act
+        when(useCase(any)).thenAnswer((_)async => results,);
+        await resetPasswordViewModel.doIntent(ResetPasswordAction());
+
+        // Assert
+        expect(
+            resetPasswordViewModel.state, isA<ResetPasswordSuccessState>());
+      },
+    );
 
   });
-
 }
