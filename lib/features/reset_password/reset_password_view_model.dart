@@ -40,11 +40,11 @@ class ResetPasswordViewModel
         }
       case ResetPasswordAction():
         {
-          _resetPassword();
+          await _resetPassword();
         }
       case FormDataChangedAction():
         {
-          _updateValidationState();
+          await _updateValidationState();
         }
       case ChangePasswordVisibilityAction():
         {
@@ -80,7 +80,7 @@ class ResetPasswordViewModel
     return null;
   }
 
-  void _updateValidationState() {
+  Future<void> _updateValidationState() async {
     if (passwordController.text.isEmpty ||
         confirmPasswordController.text.isEmpty) {
       valid.value = false;
@@ -91,7 +91,7 @@ class ResetPasswordViewModel
     }
   }
 
-  void _resetPassword() async {
+  Future<void> _resetPassword() async {
     if (formKey.currentState!.validate()) {
       emit(ResetPasswordViewLoadingState());
       var response = await _resetPasswordUseCase(ResetPasswordRequest(
