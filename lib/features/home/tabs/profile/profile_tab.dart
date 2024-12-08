@@ -49,6 +49,9 @@ class _ProfileTabState extends BaseState<ProfileTab, ProfileTabViewModel> {
             if (state.navigationState is HideDialogState) {
               Navigator.pop(context);
             }
+            if (state.navigationState is ProfileNavigatorToAboutUs) {
+              Navigator.pushNamed(context, Routes.aboutUsRoute);
+            }
             if (state.navigationState
                 is ProfileNavigatorToTermsAndCondtionsState) {
               Navigator.pushNamed(context, Routes.termsAndCondtionsRoute);

@@ -7,6 +7,8 @@ class ProfileInitialState extends ProfileTabStates {}
 
 class ProfileLoadingState extends ProfileTabStates {}
 
+class ProfileNavigatorToAboutUs extends ProfileTabStates {}
+
 class ProfileNavigatorToTermsAndCondtionsState extends ProfileTabStates {}
 
 class ProfileFailState extends ProfileTabStates {

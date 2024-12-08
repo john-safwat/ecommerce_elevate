@@ -110,6 +110,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
         ListTileWidget(
           title: viewModel.locale?.aboutUs,
           suffixWidget: const Icon(Icons.arrow_forward_ios_rounded),
+          onPress: () {
+            viewModel.doIntent(NavigateToAboutUsAction());
+          },
         ),
         ListTileWidget(
           title: viewModel.locale?.termsAndConditions,

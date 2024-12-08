@@ -44,6 +44,10 @@ class ProfileTabViewModel
         {
           _logoutConfirmation();
         }
+      case NavigateToAboutUsAction():
+        {
+          _navigatorToAboutUS();
+        }
       case NavigatorToTermsAndConditionsAction():
         {
           _navigatorToTermsAndConditions();
@@ -100,6 +104,10 @@ class ProfileTabViewModel
 
   void _logoutConfirmation() {
     emit(state.copyWith(navigationState: QuestionDialogState()));
+  }
+
+  void _navigatorToAboutUS() {
+    emit(state.copyWith(navigationState: ProfileNavigatorToAboutUs()));
   }
 
   void _navigatorToTermsAndConditions() {

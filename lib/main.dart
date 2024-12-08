@@ -4,6 +4,8 @@
 import 'package:ecommerce_elevate/core/providers/app_config_provider.dart';
 import 'package:ecommerce_elevate/core/providers/language_provider.dart';
 import 'package:ecommerce_elevate/core/utils/app_initializer.dart';
+// 🐦 Flutter imports:
+import 'package:ecommerce_elevate/features/about_us/about_us_view.dart';
 import 'package:ecommerce_elevate/features/best_seller/presentation/best_seller_view.dart';
 import 'package:ecommerce_elevate/features/change_password/change_password_view.dart';
 import 'package:ecommerce_elevate/features/forget_password/forget_password_view.dart';
@@ -70,6 +72,7 @@ class MyApp extends StatelessWidget {
         Routes.productDetailsRoute: (context) => const ProductDetailsView(),
         Routes.bestSellerViewRoute: (context) => const BestSellerView(),
         Routes.changePasswordRoute: (context) => const ChangePasswordView(),
+        Routes.aboutUsRoute: (context) => const AboutUsView(),
         Routes.termsAndCondtionsRoute: (context) =>
             const TermsAndConditionsView(),
       },
