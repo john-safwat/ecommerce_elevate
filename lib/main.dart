@@ -6,14 +6,14 @@ import 'package:ecommerce_elevate/core/providers/language_provider.dart';
 import 'package:ecommerce_elevate/core/utils/app_initializer.dart';
 // 🐦 Flutter imports:
 import 'package:ecommerce_elevate/features/about_us/about_us_view.dart';
-import 'package:ecommerce_elevate/features/best_seller/presentation/best_seller_view.dart';
+import 'package:ecommerce_elevate/features/best_seller/best_seller_view.dart';
 import 'package:ecommerce_elevate/features/change_password/change_password_view.dart';
 import 'package:ecommerce_elevate/features/forget_password/forget_password_view.dart';
 import 'package:ecommerce_elevate/features/home/home_view.dart';
 import 'package:ecommerce_elevate/features/login/login_view.dart';
 import 'package:ecommerce_elevate/features/occasions/occasions_screen.dart';
 import 'package:ecommerce_elevate/features/otp_verify/otp_verify_view.dart';
-import 'package:ecommerce_elevate/features/product_details/presentation/product_details_view.dart';
+import 'package:ecommerce_elevate/features/product_details/product_details_view.dart';
 import 'package:ecommerce_elevate/features/reset_password/reset_password_view.dart';
 import 'package:ecommerce_elevate/features/signup/signup_view.dart';
 import 'package:flutter/material.dart';

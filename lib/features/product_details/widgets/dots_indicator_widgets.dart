@@ -1,10 +1,11 @@
 // 🐦 Flutter imports:
 
 // 🐦 Flutter imports:
+import 'package:ecommerce_elevate/features/product_details/widgets/custom_dot_indicator.dart';
 import 'package:flutter/material.dart';
 
 // 🌎 Project imports:
-import 'package:ecommerce_elevate/features/product_details/presentation/widgets/custom_dot_indicator.dart';
+
 
 class DotsIndicatorWidget extends StatelessWidget {
   const DotsIndicatorWidget({
@@ -18,7 +19,6 @@ class DotsIndicatorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.sizeOf(context);
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: List.generate(dotNumber, (index) {

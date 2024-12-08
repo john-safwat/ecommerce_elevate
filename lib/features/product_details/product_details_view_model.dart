@@ -10,7 +10,7 @@ import 'package:injectable/injectable.dart';
 import 'package:ecommerce_elevate/core/base/base_view_model.dart';
 import 'package:ecommerce_elevate/domain/entities/cart/add_to_cart/request/add_to_cart_request.dart';
 import 'package:ecommerce_elevate/domain/entities/products/product.dart';
-import 'package:ecommerce_elevate/features/product_details/presentation/product_details_contract.dart';
+import 'package:ecommerce_elevate/features/product_details/product_details_contract.dart';
 
 @injectable
 class ProductDetailsViewModel

@@ -1,6 +1,9 @@
 // 🐦 Flutter imports:
 
 // 🐦 Flutter imports:
+import 'package:ecommerce_elevate/features/best_seller/view_model/best_seller_action.dart';
+import 'package:ecommerce_elevate/features/best_seller/view_model/best_seller_states.dart';
+import 'package:ecommerce_elevate/features/best_seller/view_model/best_seller_view_model.dart';
 import 'package:flutter/material.dart';
 
 // 📦 Package imports:
@@ -15,9 +18,6 @@ import 'package:ecommerce_elevate/core/di/di.dart';
 import 'package:ecommerce_elevate/core/shared_widgets/product_card_widget.dart';
 import 'package:ecommerce_elevate/core/utils/app_dialogs.dart';
 import 'package:ecommerce_elevate/domain/entities/products/product.dart';
-import 'package:ecommerce_elevate/features/best_seller/presentation/view_model/best_seller_action.dart';
-import 'package:ecommerce_elevate/features/best_seller/presentation/view_model/best_seller_states.dart';
-import 'package:ecommerce_elevate/features/best_seller/presentation/view_model/best_seller_view_model.dart';
 
 class BestSellerView extends StatefulWidget {
   const BestSellerView({super.key});
