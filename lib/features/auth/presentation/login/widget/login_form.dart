@@ -9,7 +9,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../login/login_contract.dart';
 
-
 // ignore: must_be_immutable
 class LoginForm extends StatelessWidget {
   late LoginViewModel viewModel;

@@ -12,3 +12,5 @@ class LogoutUser extends ProfileTabActions {}
 class LogoutConfirmationAction extends ProfileTabActions {}
 
 class NavigateToAboutUsAction extends ProfileTabActions {}
+
+class NavigatorToTermsAndConditionsAction extends ProfileTabActions {}

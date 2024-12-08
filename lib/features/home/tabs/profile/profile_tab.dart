@@ -52,6 +52,10 @@ class _ProfileTabState extends BaseState<ProfileTab, ProfileTabViewModel> {
             if (state.navigationState is ProfileNavigatorToAboutUs) {
               Navigator.pushNamed(context, Routes.aboutUsRoute);
             }
+            if (state.navigationState
+                is ProfileNavigatorToTermsAndCondtionsState) {
+              Navigator.pushNamed(context, Routes.termsAndCondtionsRoute);
+            }
             if (state.navigationState is QuestionDialogState) {
               AppDialogs.showInfoDialog(
                   message: viewModel.locale!.areYouSureYouWantToLogout,

@@ -48,6 +48,10 @@ class ProfileTabViewModel
         {
           _navigatorToAboutUS();
         }
+      case NavigatorToTermsAndConditionsAction():
+        {
+          _navigatorToTermsAndConditions();
+        }
     }
   }
 
@@ -104,5 +108,10 @@ class ProfileTabViewModel
 
   void _navigatorToAboutUS() {
     emit(state.copyWith(navigationState: ProfileNavigatorToAboutUs()));
+  }
+
+  void _navigatorToTermsAndConditions() {
+    emit(state.copyWith(
+        navigationState: ProfileNavigatorToTermsAndCondtionsState()));
   }
 }
