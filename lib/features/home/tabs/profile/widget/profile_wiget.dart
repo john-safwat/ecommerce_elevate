@@ -1,10 +1,6 @@
 // 🐦 Flutter imports:
-import 'package:flutter/material.dart';
-
 // 📦 Package imports:
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
 import 'package:ecommerce_elevate/core/assets/app_images.dart';
@@ -14,6 +10,8 @@ import 'package:ecommerce_elevate/features/home/tabs/profile/view_model/profile_
 import 'package:ecommerce_elevate/features/home/tabs/profile/view_model/profile_tab_view_model.dart';
 import 'package:ecommerce_elevate/features/home/tabs/profile/widget/list_tile_widget.dart';
 import 'package:ecommerce_elevate/features/home/tabs/profile/widget/profile_bottom_sheet.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProfileWidget extends StatefulWidget {
   const ProfileWidget({super.key});
@@ -112,6 +110,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
         ListTileWidget(
           title: viewModel.locale?.aboutUs,
           suffixWidget: const Icon(Icons.arrow_forward_ios_rounded),
+          onPress: () {
+            viewModel.doIntent(NavigateToAboutUsAction());
+          },
         ),
         ListTileWidget(
           title: viewModel.locale?.termsAndConditions,

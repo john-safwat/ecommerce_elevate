@@ -10,3 +10,5 @@ class OnLoginPressAction extends ProfileTabActions {}
 class LogoutUser extends ProfileTabActions {}
 
 class LogoutConfirmationAction extends ProfileTabActions {}
+
+class NavigateToAboutUsAction extends ProfileTabActions {}
