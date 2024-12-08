@@ -14,7 +14,7 @@ part 'get_user_logged_info_retrofit_client.g.dart';
 abstract class GetUserLoggedInfoRetrofitClient {
   @factoryMethod
   factory GetUserLoggedInfoRetrofitClient(Dio dio) =
-      _GetUserLoggedInfoRetrofitClient;
+  _GetUserLoggedInfoRetrofitClient;
 
   @GET(ApiConstants.profileDataRoute)
   Future<ProfileResponseDto> getLoggedUserInfo(

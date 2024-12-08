@@ -49,7 +49,7 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
   Future<Results<AuthenticationResponse>> signIn(
       AuthenticationRequest auth) async {
     var response =
-        await _apiExecution.execute<AuthenticationResponse>(() async {
+    await _apiExecution.execute<AuthenticationResponse>(() async {
       var response = await _authRetrofitClient
           .signIn(AuthenticationRequestDto.fromDomain(auth));
       return response.toDomain();
@@ -60,7 +60,7 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
   @override
   Future<Results<ForgetPasswordResponse>> forgetPassword(String email) async {
     var response =
-        await _apiExecution.execute<ForgetPasswordResponse>(() async {
+    await _apiExecution.execute<ForgetPasswordResponse>(() async {
       var response = await _authRetrofitClient
           .forgetPassword(ForgetPasswordRequestDto(email: email));
       return response.toDomain();
@@ -72,7 +72,7 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
   Future<Results<VerifyResetCodeResponse>> verifyResetCode(
       String resetCode) async {
     var response =
-        await _apiExecution.execute<VerifyResetCodeResponse>(() async {
+    await _apiExecution.execute<VerifyResetCodeResponse>(() async {
       var response = await _authRetrofitClient
           .verifyResetCode(VerifyResetCodeRequestDto(resetCode: resetCode));
       return response.toDomain();
@@ -94,11 +94,11 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
 
   @override
   Future<Results<ChangePasswordResponse?>> changePassword(
-    String token,
-    ChangePasswordRequest request,
-  ) async {
+      String token,
+      ChangePasswordRequest request,
+      ) async {
     var response = await _apiExecution.execute<ChangePasswordResponse?>(
-      () async {
+          () async {
         var response = await _authRetrofitClient.changePassword(
             token,
             ChangePasswordRequestDto(
