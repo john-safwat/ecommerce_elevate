@@ -1,10 +1,4 @@
 // 🐦 Flutter imports:
-import 'package:flutter/material.dart';
-
-// 📦 Package imports:
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:lottie/lottie.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/assets/animation_assets.dart';
 import 'package:ecommerce_elevate/core/utils/app_dialogs.dart';
@@ -13,6 +7,11 @@ import 'package:ecommerce_elevate/features/home/tabs/profile/view_model/profile_
 import 'package:ecommerce_elevate/features/home/tabs/profile/view_model/profile_tab_view_model.dart';
 import 'package:ecommerce_elevate/features/home/tabs/profile/widget/profile_app_bar.dart';
 import 'package:ecommerce_elevate/features/home/tabs/profile/widget/profile_wiget.dart';
+import 'package:flutter/material.dart';
+// 📦 Package imports:
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lottie/lottie.dart';
+
 import '../../../../../core/base/base_view.dart';
 import '../../../../../core/constants/routes.dart';
 import '../../../../../core/di/di.dart';
@@ -49,6 +48,10 @@ class _ProfileTabState extends BaseState<ProfileTab, ProfileTabViewModel> {
             }
             if (state.navigationState is HideDialogState) {
               Navigator.pop(context);
+            }
+            if (state.navigationState
+                is ProfileNavigatorToTermsAndCondtionsState) {
+              Navigator.pushNamed(context, Routes.termsAndCondtionsRoute);
             }
             if (state.navigationState is QuestionDialogState) {
               AppDialogs.showInfoDialog(

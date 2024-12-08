@@ -1,13 +1,5 @@
 // 🐦 Flutter imports:
 
-// 🐦 Flutter imports:
-import 'package:flutter/material.dart';
-
-// 📦 Package imports:
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:provider/provider.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/providers/app_config_provider.dart';
 import 'package:ecommerce_elevate/core/providers/language_provider.dart';
@@ -22,6 +14,14 @@ import 'package:ecommerce_elevate/features/otp_verify/otp_verify_view.dart';
 import 'package:ecommerce_elevate/features/product_details/presentation/product_details_view.dart';
 import 'package:ecommerce_elevate/features/reset_password/reset_password_view.dart';
 import 'package:ecommerce_elevate/features/signup/signup_view.dart';
+// 🐦 Flutter imports:
+import 'package:ecommerce_elevate/features/terms_and_conditions/terms_and_conditions_view.dart';
+import 'package:flutter/material.dart';
+// 📦 Package imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:provider/provider.dart';
+
 import 'core/constants/routes.dart';
 import 'core/di/di.dart';
 import 'core/theme/app_theme.dart';
@@ -70,6 +70,8 @@ class MyApp extends StatelessWidget {
         Routes.productDetailsRoute: (context) => const ProductDetailsView(),
         Routes.bestSellerViewRoute: (context) => const BestSellerView(),
         Routes.changePasswordRoute: (context) => const ChangePasswordView(),
+        Routes.termsAndCondtionsRoute: (context) =>
+            const TermsAndConditionsView(),
       },
       initialRoute: appConfigProvider.token.isEmpty
           ? Routes.loginRoute

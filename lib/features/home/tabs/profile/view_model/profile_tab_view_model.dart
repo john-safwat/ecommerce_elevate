@@ -1,8 +1,5 @@
 // 🐦 Flutter imports:
 
-// 📦 Package imports:
-import 'package:injectable/injectable.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/base/base_view_model.dart';
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
@@ -13,6 +10,9 @@ import 'package:ecommerce_elevate/domain/entities/logout/logout_response.dart';
 import 'package:ecommerce_elevate/domain/entities/profile_info/profile_response.dart';
 import 'package:ecommerce_elevate/domain/use_case/logged_user_info_use_case.dart';
 import 'package:ecommerce_elevate/domain/use_case/logout_user_use_case.dart';
+// 📦 Package imports:
+import 'package:injectable/injectable.dart';
+
 import 'profile_tab_actions.dart';
 import 'profile_tab_state.dart';
 
@@ -43,6 +43,10 @@ class ProfileTabViewModel
       case LogoutConfirmationAction():
         {
           _logoutConfirmation();
+        }
+      case NavigatorToTermsAndConditionsAction():
+        {
+          _navigatorToTermsAndConditions();
         }
     }
   }
@@ -96,5 +100,10 @@ class ProfileTabViewModel
 
   void _logoutConfirmation() {
     emit(state.copyWith(navigationState: QuestionDialogState()));
+  }
+
+  void _navigatorToTermsAndConditions() {
+    emit(state.copyWith(
+        navigationState: ProfileNavigatorToTermsAndCondtionsState()));
   }
 }
