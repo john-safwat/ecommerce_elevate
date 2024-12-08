@@ -16,6 +16,8 @@ import 'package:ecommerce_elevate/features/otp_verify/otp_verify_view.dart';
 import 'package:ecommerce_elevate/features/product_details/presentation/product_details_view.dart';
 import 'package:ecommerce_elevate/features/reset_password/reset_password_view.dart';
 import 'package:ecommerce_elevate/features/signup/signup_view.dart';
+// 🐦 Flutter imports:
+import 'package:ecommerce_elevate/features/terms_and_conditions/terms_and_conditions_view.dart';
 import 'package:flutter/material.dart';
 // 📦 Package imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -71,6 +73,8 @@ class MyApp extends StatelessWidget {
         Routes.bestSellerViewRoute: (context) => const BestSellerView(),
         Routes.changePasswordRoute: (context) => const ChangePasswordView(),
         Routes.aboutUsRoute: (context) => const AboutUsView(),
+        Routes.termsAndCondtionsRoute: (context) =>
+            const TermsAndConditionsView(),
       },
       initialRoute: appConfigProvider.token.isEmpty
           ? Routes.loginRoute

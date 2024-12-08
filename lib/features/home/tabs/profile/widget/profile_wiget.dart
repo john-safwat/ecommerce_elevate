@@ -117,6 +117,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
         ListTileWidget(
           title: viewModel.locale?.termsAndConditions,
           suffixWidget: const Icon(Icons.arrow_forward_ios_rounded),
+          onPress: () {
+            viewModel.doIntent(NavigatorToTermsAndConditionsAction());
+          },
         ),
         const Divider(),
         ListTileWidget(

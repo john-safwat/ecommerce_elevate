@@ -10,4 +10,5 @@ class Routes {
   static const String bestSellerViewRoute = "/bestSeller";
   static const String changePasswordRoute = "/changePassword";
   static const String aboutUsRoute = "/aboutUs";
+  static const String termsAndCondtionsRoute = "/termsAndCondtions";
 }

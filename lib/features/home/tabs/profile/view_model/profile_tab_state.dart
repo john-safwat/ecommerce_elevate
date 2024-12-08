@@ -9,6 +9,8 @@ class ProfileLoadingState extends ProfileTabStates {}
 
 class ProfileNavigatorToAboutUs extends ProfileTabStates {}
 
+class ProfileNavigatorToTermsAndCondtionsState extends ProfileTabStates {}
+
 class ProfileFailState extends ProfileTabStates {
   final String message;
   Exception exception;
