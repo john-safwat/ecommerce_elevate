@@ -44,3 +44,7 @@ class NavigatorToProductDetailsState extends CategoriesStates {
 class AddItemToCartState extends CategoriesStates {}
 
 class AddItemToCartDoneState extends CategoriesStates {}
+
+class ScrollDouwnState extends CategoriesStates {}
+
+class ScrollUpState extends CategoriesStates {}

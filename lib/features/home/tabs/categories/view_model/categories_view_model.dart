@@ -8,6 +8,7 @@ import 'package:ecommerce_elevate/domain/use_case/get_categories_list_use_case.d
 import 'package:ecommerce_elevate/features/home/tabs/categories/view_model/categories_actions.dart';
 import 'package:ecommerce_elevate/features/home/tabs/categories/view_model/categories_states.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
@@ -20,6 +21,8 @@ class CategoriesViewModel
       : super(CategoriesInitialState());
 
   late TabController tabController;
+  final ScrollController scrollController = ScrollController();
+  bool isScroll = false;
 
   @override
   Future<void> doIntent(CategoriesActions action) async {
@@ -39,6 +42,10 @@ class CategoriesViewModel
       case AddProductToCartActions():
         {
           await _addItemToCart(action.product);
+        }
+      case ScrollFilterAction():
+        {
+          _listenToShowFilterCard();
         }
     }
   }
@@ -92,5 +99,23 @@ class CategoriesViewModel
 
   void _navigateToProductDetails(Product product) async {
     emit(NavigatorToProductDetailsState(product));
+  }
+
+  void _listenToShowFilterCard() {
+    scrollController.addListener(() {
+      if (scrollController.position.userScrollDirection ==
+          ScrollDirection.reverse) {
+        if (!isScroll) {
+          isScroll = true;
+          emit(ScrollDouwnState());
+        }
+      } else if (scrollController.position.userScrollDirection ==
+          ScrollDirection.forward) {
+        if (isScroll) {
+          isScroll = false;
+          emit(ScrollUpState());
+        }
+      }
+    });
   }
 }

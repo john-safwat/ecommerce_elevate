@@ -21,3 +21,5 @@ class AddProductToCartActions extends CategoriesActions {
   final Product product;
   AddProductToCartActions(this.product);
 }
+
+class ScrollFilterAction extends CategoriesActions {}
