@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 @JsonSerializable()
 class LoggedUser {
   final List<dynamic>? wishlist;
-  final String? Id;
+  final String? id;
   final String? firstName;
   final String? lastName;
   final String? email;
@@ -21,7 +21,7 @@ class LoggedUser {
 
   LoggedUser({
     this.wishlist,
-    this.Id,
+    this.id,
     this.firstName,
     this.lastName,
     this.email,

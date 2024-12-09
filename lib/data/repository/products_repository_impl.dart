@@ -1,12 +1,12 @@
 // 📦 Package imports:
 
-// 📦 Package imports:
-import 'package:injectable/injectable.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:ecommerce_elevate/data/datasource/contract/products_remote_datasource.dart';
 import 'package:ecommerce_elevate/domain/entities/products/product.dart';
+// 📦 Package imports:
+import 'package:injectable/injectable.dart';
+
 import '../../domain/repository/products_repository.dart';
 
 @Injectable(as: ProductsRepository)

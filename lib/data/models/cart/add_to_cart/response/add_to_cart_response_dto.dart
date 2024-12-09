@@ -1,8 +1,7 @@
 // 📦 Package imports:
-import 'package:json_annotation/json_annotation.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/domain/entities/cart/add_to_cart/response/add_to_cart_response.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'add_to_cart_response_dto.g.dart';
 

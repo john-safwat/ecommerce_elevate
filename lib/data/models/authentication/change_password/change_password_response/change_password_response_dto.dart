@@ -1,8 +1,7 @@
 // 📦 Package imports:
-import 'package:json_annotation/json_annotation.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/domain/entities/change_password/change_password_reaponse.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'change_password_response_dto.g.dart';
 

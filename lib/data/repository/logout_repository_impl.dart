@@ -1,11 +1,11 @@
 // 📦 Package imports:
 
-// 📦 Package imports:
-import 'package:injectable/injectable.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:ecommerce_elevate/domain/entities/logout/logout_response.dart';
+// 📦 Package imports:
+import 'package:injectable/injectable.dart';
+
 import '../../domain/repository/logout_repository.dart';
 import '../datasource/contract/logout_remote_datasource.dart';
 

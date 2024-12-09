@@ -1,11 +1,5 @@
 // 🐦 Flutter imports:
 
-// 🐦 Flutter imports:
-import 'package:flutter/material.dart';
-
-// 📦 Package imports:
-import 'package:injectable/injectable.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/base/base_view_model.dart';
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
@@ -13,6 +7,10 @@ import 'package:ecommerce_elevate/domain/entities/reset_password/reset_password_
 import 'package:ecommerce_elevate/domain/entities/reset_password/reset_password_response.dart';
 import 'package:ecommerce_elevate/domain/use_case/reset_password_use_case.dart';
 import 'package:ecommerce_elevate/features/reset_password/reset_password_contract.dart';
+// 🐦 Flutter imports:
+import 'package:flutter/material.dart';
+// 📦 Package imports:
+import 'package:injectable/injectable.dart';
 
 @injectable
 class ResetPasswordViewModel
@@ -40,11 +38,11 @@ class ResetPasswordViewModel
         }
       case ResetPasswordAction():
         {
-          _resetPassword();
+          await _resetPassword();
         }
       case FormDataChangedAction():
         {
-          _updateValidationState();
+          await _updateValidationState();
         }
       case ChangePasswordVisibilityAction():
         {
@@ -80,7 +78,7 @@ class ResetPasswordViewModel
     return null;
   }
 
-  void _updateValidationState() {
+  Future<void> _updateValidationState() async {
     if (passwordController.text.isEmpty ||
         confirmPasswordController.text.isEmpty) {
       valid.value = false;
@@ -91,7 +89,7 @@ class ResetPasswordViewModel
     }
   }
 
-  void _resetPassword() async {
+  Future<void> _resetPassword() async {
     if (formKey.currentState!.validate()) {
       emit(ResetPasswordViewLoadingState());
       var response = await _resetPasswordUseCase(ResetPasswordRequest(

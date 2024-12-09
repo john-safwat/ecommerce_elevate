@@ -17,6 +17,7 @@ import 'package:logger/logger.dart' as _i974;
 import 'package:pretty_dio_logger/pretty_dio_logger.dart' as _i528;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
+import '../../data/api/addresses/addresses_retrofit_client.dart' as _i677;
 import '../../data/api/auth/auth_retrofit_client.dart' as _i797;
 import '../../data/api/cart/cart_retrofit_client.dart' as _i112;
 import '../../data/api/categories/categories_retrofit_client.dart' as _i703;
@@ -25,6 +26,8 @@ import '../../data/api/get_user_logged_info/get_user_logged_info_retrofit_client
 import '../../data/api/logout/logout_retrofit_client.dart' as _i353;
 import '../../data/api/occasions/occasions_retrofit_client.dart' as _i835;
 import '../../data/api/products/products_retrofit_client.dart' as _i361;
+import '../../data/datasource/contract/addresses_remote_datasource.dart'
+    as _i653;
 import '../../data/datasource/contract/auth_local_datasource.dart' as _i488;
 import '../../data/datasource/contract/auth_remote_datasource.dart' as _i912;
 import '../../data/datasource/contract/cart_remote_datasource.dart' as _i41;
@@ -37,6 +40,8 @@ import '../../data/datasource/contract/occasions_remote_datasource.dart'
     as _i283;
 import '../../data/datasource/contract/products_remote_datasource.dart'
     as _i568;
+import '../../data/datasource/impl/addresses_remote_datasource_impl.dart'
+    as _i26;
 import '../../data/datasource/impl/auth_local_datasource_impl.dart' as _i141;
 import '../../data/datasource/impl/auth_remote_datasource_impl.dart' as _i939;
 import '../../data/datasource/impl/cart_remote_datasource_impl.dart' as _i701;
@@ -49,6 +54,7 @@ import '../../data/datasource/impl/occasions_remote_datasource_impl.dart'
     as _i791;
 import '../../data/datasource/impl/products_remote_datasource_impl.dart'
     as _i421;
+import '../../data/repository/addresses_repository_impl.dart' as _i1009;
 import '../../data/repository/auth_repository_impl.dart' as _i581;
 import '../../data/repository/cart_repository_impl.dart' as _i942;
 import '../../data/repository/categories_repository_impl.dart' as _i958;
@@ -56,6 +62,7 @@ import '../../data/repository/logged_user_info_repository_impl.dart' as _i233;
 import '../../data/repository/logout_repository_impl.dart' as _i613;
 import '../../data/repository/occasions_repository_impl.dart' as _i544;
 import '../../data/repository/products_repository_impl.dart' as _i1005;
+import '../../domain/repository/addresses_repository.dart' as _i562;
 import '../../domain/repository/auth_repository.dart' as _i614;
 import '../../domain/repository/cart_repository.dart' as _i461;
 import '../../domain/repository/categories_repository.dart' as _i723;
@@ -64,6 +71,7 @@ import '../../domain/repository/logout_repository.dart' as _i984;
 import '../../domain/repository/occasions_repository.dart' as _i431;
 import '../../domain/repository/products_repository.dart' as _i150;
 import '../../domain/use_case/add_item_to_cart_use_case.dart' as _i530;
+import '../../domain/use_case/add_new_address_use_case.dart' as _i834;
 import '../../domain/use_case/change_password_use_case.dart' as _i406;
 import '../../domain/use_case/delete_product_from_cart_use_case.dart' as _i591;
 import '../../domain/use_case/delete_token_use_case.dart' as _i714;
@@ -81,6 +89,7 @@ import '../../domain/use_case/reset_password_use_case.dart' as _i16;
 import '../../domain/use_case/signup_user_use_case.dart' as _i205;
 import '../../domain/use_case/update_cart_product_use_case.dart' as _i496;
 import '../../domain/use_case/verify_reset_code_use_case.dart' as _i499;
+import '../../features/address/address_view_model.dart' as _i413;
 import '../../features/best_seller/presentation/view_model/best_seller_view_model.dart'
     as _i835;
 import '../../features/change_password/change_password_view_model.dart'
@@ -146,6 +155,14 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i361.Dio>(() => networkModule.provideDio());
     gh.lazySingleton<_i528.PrettyDioLogger>(
         () => networkModule.providerInterceptor());
+    gh.singleton<_i677.AddressesRetrofitClient>(
+        () => _i677.AddressesRetrofitClient(gh<_i361.Dio>()));
+    gh.singleton<_i797.AuthRetrofitClient>(
+        () => _i797.AuthRetrofitClient(gh<_i361.Dio>()));
+    gh.singleton<_i112.CartRetrofitClient>(
+        () => _i112.CartRetrofitClient(gh<_i361.Dio>()));
+    gh.singleton<_i703.CategoriesRetrofitClient>(
+        () => _i703.CategoriesRetrofitClient(gh<_i361.Dio>()));
     gh.singleton<_i2.GetUserLoggedInfoRetrofitClient>(
         () => _i2.GetUserLoggedInfoRetrofitClient(gh<_i361.Dio>()));
     gh.singleton<_i361.ProductsRetrofitClient>(
@@ -156,6 +173,10 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i627.GetUserLoggedInfoRetrofitClient(gh<_i361.Dio>()));
     gh.singleton<_i353.LogoutRetrofitClient>(
         () => _i353.LogoutRetrofitClient(gh<_i361.Dio>()));
+    gh.singleton<_i835.OccasionsRetrofitClient>(
+        () => _i835.OccasionsRetrofitClient(gh<_i361.Dio>()));
+    gh.singleton<_i361.ProductsRetrofitClient>(
+        () => _i361.ProductsRetrofitClient(gh<_i361.Dio>()));
     gh.singleton<_i112.CartRetrofitClient>(
         () => _i112.CartRetrofitClient(gh<_i361.Dio>()));
     gh.singleton<_i835.OccasionsRetrofitClient>(
@@ -199,10 +220,17 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i912.AuthRemoteDatasource>(),
           gh<_i488.AuthLocalDatasource>(),
         ));
+    gh.factory<_i653.AddressesRemoteDatasource>(
+        () => _i26.AddressesRemoteDatasourceImpl(
+              gh<_i677.AddressesRetrofitClient>(),
+              gh<_i166.DataSourceExecution>(),
+            ));
     gh.factory<_i742.ForgetPasswordUseCase>(
         () => _i742.ForgetPasswordUseCase(gh<_i614.AuthRepository>()));
     gh.factory<_i205.SignupUserUseCase>(
         () => _i205.SignupUserUseCase(gh<_i614.AuthRepository>()));
+    gh.factory<_i562.AddressesRepository>(() =>
+        _i1009.AddressesRepositoryImpl(gh<_i653.AddressesRemoteDatasource>()));
     gh.lazySingleton<_i348.AppInitializer>(() => _i348.AppInitializer(
           gh<_i822.LanguageProvider>(),
           gh<_i56.AppConfigProvider>(),
@@ -247,6 +275,15 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i406.ChangePasswordUseCase(gh<_i614.AuthRepository>()));
     gh.factory<_i16.ResetPasswordUseCase>(
         () => _i16.ResetPasswordUseCase(gh<_i614.AuthRepository>()));
+    gh.factory<_i499.VerifyResetPasswordUseCase>(
+        () => _i499.VerifyResetPasswordUseCase(gh<_i614.AuthRepository>()));
+    gh.factory<_i834.AddNewAddressUseCase>(
+        () => _i834.AddNewAddressUseCase(gh<_i562.AddressesRepository>()));
+    gh.factory<_i413.AddressViewModel>(() => _i413.AddressViewModel(
+          gh<_i834.AddNewAddressUseCase>(),
+          gh<_i645.Location>(),
+          gh<_i1024.GeoCode>(),
+        ));
     gh.factory<_i170.GetMostSellingProductsListUseCase>(() =>
         _i170.GetMostSellingProductsListUseCase(
             gh<_i150.ProductsRepository>()));

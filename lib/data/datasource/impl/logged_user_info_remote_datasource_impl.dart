@@ -1,10 +1,10 @@
 // 📦 Package imports:
-import 'package:injectable/injectable.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:ecommerce_elevate/data/api/get_user_logged_info/get_user_logged_info_retrofit_client.dart';
 import 'package:ecommerce_elevate/domain/entities/profile_info/profile_response.dart';
+import 'package:injectable/injectable.dart';
+
 import '../../../../../core/datasource_execution/datasource_execution.dart';
 import '../contract/logged_user_info_remote_datasource.dart';
 

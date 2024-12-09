@@ -1,12 +1,12 @@
 // 📦 Package imports:
 
-// 📦 Package imports:
-import 'package:injectable/injectable.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:ecommerce_elevate/data/api/occasions/occasions_retrofit_client.dart';
 import 'package:ecommerce_elevate/data/datasource/contract/occasions_remote_datasource.dart';
+// 📦 Package imports:
+import 'package:injectable/injectable.dart';
+
 import '../../../../../core/datasource_execution/datasource_execution.dart';
 import '../../../domain/entities/occasions/occasion.dart';
 

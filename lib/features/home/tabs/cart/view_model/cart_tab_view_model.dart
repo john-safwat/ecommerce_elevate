@@ -1,8 +1,4 @@
 // 📦 Package imports:
-import 'package:geocode/geocode.dart';
-import 'package:injectable/injectable.dart';
-import 'package:location/location.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/base/base_view_model.dart';
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
@@ -15,6 +11,9 @@ import 'package:ecommerce_elevate/domain/use_case/get_user_cart_use_case.dart';
 import 'package:ecommerce_elevate/domain/use_case/update_cart_product_use_case.dart';
 import 'package:ecommerce_elevate/features/home/tabs/cart/view_model/cart_tab_events.dart';
 import 'package:ecommerce_elevate/features/home/tabs/cart/view_model/cart_tab_states.dart';
+import 'package:geocode/geocode.dart';
+import 'package:injectable/injectable.dart';
+import 'package:location/location.dart';
 
 @injectable
 class CartTabViewModel extends BaseViewModel<CartTabStates, CartTabAction> {

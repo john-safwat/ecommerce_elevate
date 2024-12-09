@@ -1,12 +1,11 @@
 // 📦 Package imports:
 // 🌎 Project imports:
 
-// 📦 Package imports:
-import 'package:json_annotation/json_annotation.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/data/models/occasions/metadata_dto.dart';
 import 'package:ecommerce_elevate/data/models/occasions/occasion_dto.dart';
+// 📦 Package imports:
+import 'package:json_annotation/json_annotation.dart';
 
 part 'occasions_response_dto.g.dart';
 

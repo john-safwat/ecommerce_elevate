@@ -2,28 +2,25 @@
 import 'dart:async';
 import 'dart:io';
 
-// 🐦 Flutter imports:
-import 'package:flutter/cupertino.dart';
-
 // 📦 Package imports:
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:geocode/geocode.dart';
-import 'package:location/location.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:ecommerce_elevate/core/di/di.dart';
 import 'package:ecommerce_elevate/core/providers/app_config_provider.dart';
 import 'package:ecommerce_elevate/core/providers/language_provider.dart';
-import 'package:ecommerce_elevate/domain/entities/cart/add_to_cart/request/add_to_cart_request.dart';
-import 'package:ecommerce_elevate/domain/entities/cart/add_to_cart/response/add_to_cart_response.dart';
-import 'package:ecommerce_elevate/domain/use_case/add_item_to_cart_use_case.dart';
-
 // 📦 Package imports:
 
 import 'package:ecommerce_elevate/core/utils/app_dialogs.dart'; // 🐦 Flutter imports:
+import 'package:ecommerce_elevate/domain/entities/cart/add_to_cart/request/add_to_cart_request.dart';
+import 'package:ecommerce_elevate/domain/entities/cart/add_to_cart/response/add_to_cart_response.dart';
+import 'package:ecommerce_elevate/domain/use_case/add_item_to_cart_use_case.dart';
+// 🐦 Flutter imports:
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:geocode/geocode.dart';
+import 'package:location/location.dart';
 
 abstract class BaseViewModel<T, E extends BaseAction> extends Cubit<T> {
   BaseViewModel(super.initialState, {this.location, this.geoCode});
@@ -101,13 +98,13 @@ abstract class BaseViewModel<T, E extends BaseAction> extends Cubit<T> {
   }
 
   /// Main method to retrieve the user's location and display their address.
-  Future<void> getLocation() async {
+  Future<LocationData?> getLocation() async {
     // Check if the location service is enabled.
     var serviceEnabled = await _checkForLocationService();
     if (!serviceEnabled) {
       // Update the UI message if the location service is disabled.
       locationMessage.value = locale!.youMustEnableLocation;
-      return;
+      return null;
     }
 
     // Check if the app has location permissions.
@@ -115,18 +112,20 @@ abstract class BaseViewModel<T, E extends BaseAction> extends Cubit<T> {
     if (!permissionGranted) {
       // Update the UI message if permissions are not granted.
       locationMessage.value = locale!.locationPermissionNotGranted;
-      return;
+      return null;
     }
 
     // Attempt to retrieve the user's location data.
     var locationData = await _getLocationData();
     if (locationData == null) {
       // Exit if location data retrieval fails.
-      return;
+      return null;
     }
 
     // Use the location data to fetch and display the user's address.
     await _getUserAddress(locationData);
+
+    return locationData;
   }
 
   /// Checks if the location service is enabled on the device.

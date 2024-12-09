@@ -1,12 +1,7 @@
 // 🐦 Flutter imports:
 
-// 🐦 Flutter imports:
-import 'package:flutter/material.dart';
-
 // 📦 Package imports:
 import 'package:animate_do/animate_do.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
 import 'package:ecommerce_elevate/core/base/base_view.dart';
@@ -18,6 +13,9 @@ import 'package:ecommerce_elevate/domain/entities/products/product.dart';
 import 'package:ecommerce_elevate/features/best_seller/presentation/view_model/best_seller_action.dart';
 import 'package:ecommerce_elevate/features/best_seller/presentation/view_model/best_seller_states.dart';
 import 'package:ecommerce_elevate/features/best_seller/presentation/view_model/best_seller_view_model.dart';
+// 🐦 Flutter imports:
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BestSellerView extends StatefulWidget {
   const BestSellerView({super.key});

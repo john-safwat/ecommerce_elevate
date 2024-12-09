@@ -1,14 +1,13 @@
 // 🐦 Flutter imports:
 
-// 🐦 Flutter imports:
-import 'package:flutter/material.dart';
-
 // 📦 Package imports:
 import 'package:dialogs/app_dialog_utils.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
+// 🐦 Flutter imports:
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+
 import '../assets/animation_assets.dart';
 
 class AppDialogs {
