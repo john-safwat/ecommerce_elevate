@@ -1,8 +1,7 @@
 // 📦 Package imports:
-import 'package:json_annotation/json_annotation.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/domain/entities/profile_info/user/logged_user.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'logged_user_dto.g.dart';
 
@@ -11,7 +10,7 @@ class LoggedUserDto {
   @JsonKey(name: "wishlist")
   final List<dynamic>? wishlist;
   @JsonKey(name: "_id")
-  final String? Id;
+  final String? id;
   @JsonKey(name: "firstName")
   final String? firstName;
   @JsonKey(name: "lastName")
@@ -41,7 +40,7 @@ class LoggedUserDto {
 
   LoggedUserDto({
     this.wishlist,
-    this.Id,
+    this.id,
     this.firstName,
     this.lastName,
     this.email,
@@ -68,7 +67,7 @@ class LoggedUserDto {
   LoggedUser toDomain() {
     return LoggedUser(
       wishlist: wishlist,
-      Id: Id,
+      id: id,
       firstName: firstName,
       lastName: lastName,
       email: email,

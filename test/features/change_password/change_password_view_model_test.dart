@@ -1,15 +1,14 @@
 // 🐦 Flutter imports:
+// 🌎 Project imports:
+import 'package:ecommerce_elevate/domain/use_case/change_password_use_case.dart';
+import 'package:ecommerce_elevate/features/change_password/change_password_contract.dart';
+import 'package:ecommerce_elevate/features/change_password/change_password_view_model.dart';
 import 'package:flutter/material.dart';
-
 // 📦 Package imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 
-// 🌎 Project imports:
-import 'package:ecommerce_elevate/domain/use_case/change_password_use_case.dart';
-import 'package:ecommerce_elevate/features/change_password/change_password_contract.dart';
-import 'package:ecommerce_elevate/features/change_password/change_password_view_model.dart';
 import 'change_password_view_model_test.mocks.dart';
 
 @GenerateMocks([ChangePasswordUseCase])

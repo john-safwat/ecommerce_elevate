@@ -1,12 +1,11 @@
 // 📦 Package imports:
 
-// 📦 Package imports:
-import 'package:injectable/injectable.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/constants/constants.dart';
 import 'package:ecommerce_elevate/data/datasource/contract/auth_local_datasource.dart';
+// 📦 Package imports:
+import 'package:injectable/injectable.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 @Injectable(as: AuthLocalDatasource)
 class AuthLocalDatasourceImpl implements AuthLocalDatasource {

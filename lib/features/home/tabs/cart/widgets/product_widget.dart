@@ -1,15 +1,14 @@
 // 🐦 Flutter imports:
-import 'package:flutter/material.dart';
-
 // 📦 Package imports:
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
 import 'package:ecommerce_elevate/core/assets/app_images.dart';
 import 'package:ecommerce_elevate/features/home/tabs/cart/view_model/cart_tab_events.dart';
 import 'package:ecommerce_elevate/features/home/tabs/cart/view_model/cart_tab_view_model.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../../../../domain/entities/cart/cart_data/cart_items.dart';
 
 class ProductWidget extends StatelessWidget {

@@ -1,13 +1,12 @@
 // 📦 Package imports:
 
-// 📦 Package imports:
-import 'package:injectable/injectable.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:ecommerce_elevate/data/datasource/contract/categories_remote_datasource.dart';
 import 'package:ecommerce_elevate/domain/entities/category/category.dart';
 import 'package:ecommerce_elevate/domain/repository/categories_repository.dart';
+// 📦 Package imports:
+import 'package:injectable/injectable.dart';
 
 @Injectable(as: CategoriesRepository)
 class CategoriesRepositoryImpl implements CategoriesRepository {

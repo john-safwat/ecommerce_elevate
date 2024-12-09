@@ -1,13 +1,5 @@
 // 🐦 Flutter imports:
 
-// 🐦 Flutter imports:
-import 'package:flutter/material.dart';
-
-// 📦 Package imports:
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:lottie/lottie.dart';
-import 'package:skeletonizer/skeletonizer.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/assets/animation_assets.dart';
 import 'package:ecommerce_elevate/core/constants/routes.dart';
@@ -17,6 +9,12 @@ import 'package:ecommerce_elevate/domain/entities/products/product.dart';
 import 'package:ecommerce_elevate/features/occasions/occasions_view_model/occasions_actions.dart';
 import 'package:ecommerce_elevate/features/occasions/occasions_view_model/occasions_states.dart';
 import 'package:ecommerce_elevate/features/occasions/occasions_view_model/occasions_view_model.dart';
+// 🐦 Flutter imports:
+import 'package:flutter/material.dart';
+// 📦 Package imports:
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lottie/lottie.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class OccasionsTabviewWidget extends StatelessWidget {
   final OccasionsViewModel viewModel;

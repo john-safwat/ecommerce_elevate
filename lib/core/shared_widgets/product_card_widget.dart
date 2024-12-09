@@ -1,14 +1,13 @@
 // 🐦 Flutter imports:
 
-// 🐦 Flutter imports:
-import 'package:flutter/material.dart';
-
 // 📦 Package imports:
 import 'package:cached_network_image/cached_network_image.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/assets/app_images.dart';
 import 'package:ecommerce_elevate/domain/entities/products/product.dart';
+// 🐦 Flutter imports:
+import 'package:flutter/material.dart';
+
 import '../assets/app_colors.dart';
 
 class ProductCardWidget extends StatelessWidget {

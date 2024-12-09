@@ -1,9 +1,6 @@
 // 🎯 Dart imports:
 import 'dart:async';
 
-// 📦 Package imports:
-import 'package:injectable/injectable.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/datasource_execution/datasource_execution.dart';
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
@@ -25,6 +22,8 @@ import 'package:ecommerce_elevate/domain/entities/registration/registration_user
 import 'package:ecommerce_elevate/domain/entities/reset_password/reset_password_request.dart';
 import 'package:ecommerce_elevate/domain/entities/reset_password/reset_password_response.dart';
 import 'package:ecommerce_elevate/domain/entities/verify_reset_code/verify_reset_code_response.dart';
+// 📦 Package imports:
+import 'package:injectable/injectable.dart';
 
 // 📦 Package imports:
 
@@ -49,7 +48,7 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
   Future<Results<AuthenticationResponse>> signIn(
       AuthenticationRequest auth) async {
     var response =
-    await _apiExecution.execute<AuthenticationResponse>(() async {
+        await _apiExecution.execute<AuthenticationResponse>(() async {
       var response = await _authRetrofitClient
           .signIn(AuthenticationRequestDto.fromDomain(auth));
       return response.toDomain();
@@ -60,7 +59,7 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
   @override
   Future<Results<ForgetPasswordResponse>> forgetPassword(String email) async {
     var response =
-    await _apiExecution.execute<ForgetPasswordResponse>(() async {
+        await _apiExecution.execute<ForgetPasswordResponse>(() async {
       var response = await _authRetrofitClient
           .forgetPassword(ForgetPasswordRequestDto(email: email));
       return response.toDomain();
@@ -72,7 +71,7 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
   Future<Results<VerifyResetCodeResponse>> verifyResetCode(
       String resetCode) async {
     var response =
-    await _apiExecution.execute<VerifyResetCodeResponse>(() async {
+        await _apiExecution.execute<VerifyResetCodeResponse>(() async {
       var response = await _authRetrofitClient
           .verifyResetCode(VerifyResetCodeRequestDto(resetCode: resetCode));
       return response.toDomain();
@@ -94,11 +93,11 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
 
   @override
   Future<Results<ChangePasswordResponse?>> changePassword(
-      String token,
-      ChangePasswordRequest request,
-      ) async {
+    String token,
+    ChangePasswordRequest request,
+  ) async {
     var response = await _apiExecution.execute<ChangePasswordResponse?>(
-          () async {
+      () async {
         var response = await _authRetrofitClient.changePassword(
             token,
             ChangePasswordRequestDto(

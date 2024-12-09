@@ -1,9 +1,4 @@
 // 🐦 Flutter imports:
-import 'package:flutter/material.dart';
-
-// 📦 Package imports:
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
 import 'package:ecommerce_elevate/core/base/base_view.dart';
@@ -11,6 +6,9 @@ import 'package:ecommerce_elevate/core/di/di.dart';
 import 'package:ecommerce_elevate/core/utils/app_dialogs.dart';
 import 'package:ecommerce_elevate/features/change_password/change_password_contract.dart';
 import 'package:ecommerce_elevate/features/change_password/change_password_view_model.dart';
+import 'package:flutter/material.dart';
+// 📦 Package imports:
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ChangePasswordView extends StatefulWidget {
   const ChangePasswordView({super.key});

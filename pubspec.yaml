@@ -55,6 +55,11 @@ dependencies:
   skeletonizer:
   import_sorter:
   fluttertoast:
+  google_maps_flutter:
+  country_state_city:
+    git:
+      url: https://github.com/paulpascal/country_state_city.git
+      ref: develop
 
 import_sorter:
   emojis: true # Optional, defaults to false

@@ -1,11 +1,10 @@
 // 🐦 Flutter imports:
 
-// 🐦 Flutter imports:
-import 'package:flutter/material.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
 import 'package:ecommerce_elevate/core/assets/app_images.dart';
+// 🐦 Flutter imports:
+import 'package:flutter/material.dart';
 
 class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
   const ProfileAppBar({super.key});

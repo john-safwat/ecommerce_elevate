@@ -1,8 +1,5 @@
 // 📦 Package imports:
 
-// 📦 Package imports:
-import 'package:injectable/injectable.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:ecommerce_elevate/data/datasource/contract/auth_local_datasource.dart';
@@ -18,6 +15,8 @@ import 'package:ecommerce_elevate/domain/entities/reset_password/reset_password_
 import 'package:ecommerce_elevate/domain/entities/reset_password/reset_password_response.dart';
 import 'package:ecommerce_elevate/domain/entities/verify_reset_code/verify_reset_code_response.dart';
 import 'package:ecommerce_elevate/domain/repository/auth_repository.dart';
+// 📦 Package imports:
+import 'package:injectable/injectable.dart';
 
 @Injectable(as: AuthRepository)
 class AuthRepositoryImpl implements AuthRepository {

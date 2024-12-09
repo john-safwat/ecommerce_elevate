@@ -1,14 +1,12 @@
 // 🐦 Flutter imports:
-import 'package:flutter/material.dart';
-
-// 📦 Package imports:
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:provider/provider.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
 import 'package:ecommerce_elevate/core/constants/constants.dart';
 import 'package:ecommerce_elevate/core/providers/language_provider.dart';
+import 'package:flutter/material.dart';
+// 📦 Package imports:
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
 class ProfileBottomSheet extends StatefulWidget {
