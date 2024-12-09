@@ -1,11 +1,4 @@
 // 🐦 Flutter imports:
-import 'package:flutter/material.dart';
-
-// 📦 Package imports:
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:lottie/lottie.dart';
-import 'package:skeletonizer/skeletonizer.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/assets/animation_assets.dart';
 import 'package:ecommerce_elevate/core/base/base_view.dart';
@@ -19,6 +12,12 @@ import 'package:ecommerce_elevate/features/home/tabs/cart/view_model/cart_tab_vi
 import 'package:ecommerce_elevate/features/home/tabs/cart/widgets/billing_information.dart';
 import 'package:ecommerce_elevate/features/home/tabs/cart/widgets/product_widget.dart';
 import 'package:ecommerce_elevate/features/home/tabs/cart/widgets/title_widget.dart';
+import 'package:flutter/material.dart';
+// 📦 Package imports:
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lottie/lottie.dart';
+import 'package:skeletonizer/skeletonizer.dart';
+
 import '../../../../../domain/entities/cart/cart_data/cart_items.dart';
 
 class CartTabView extends StatefulWidget {

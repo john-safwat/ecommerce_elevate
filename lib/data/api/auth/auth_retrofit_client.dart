@@ -1,8 +1,5 @@
 // 📦 Package imports:
 import 'package:dio/dio.dart';
-import 'package:injectable/injectable.dart';
-import 'package:retrofit/retrofit.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/constants/api_constants.dart';
 import 'package:ecommerce_elevate/data/models/authentication/change_password/change_password_request/change_password_request_dto.dart';
@@ -17,6 +14,8 @@ import 'package:ecommerce_elevate/data/models/authentication/reset_password/requ
 import 'package:ecommerce_elevate/data/models/authentication/reset_password/response/reset_password_response_dto.dart';
 import 'package:ecommerce_elevate/data/models/authentication/verify_reset_code/request/verify_reset_code_request_dto.dart';
 import 'package:ecommerce_elevate/data/models/authentication/verify_reset_code/response/verify_reset_code_response_dto.dart';
+import 'package:injectable/injectable.dart';
+import 'package:retrofit/retrofit.dart';
 
 part 'auth_retrofit_client.g.dart';
 

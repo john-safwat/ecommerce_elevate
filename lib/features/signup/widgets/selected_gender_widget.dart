@@ -1,15 +1,13 @@
 // 🐦 Flutter imports:
 
-// 🐦 Flutter imports:
-import 'package:flutter/material.dart';
-
-// 📦 Package imports:
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/features/signup/signup_contract.dart';
 import 'package:ecommerce_elevate/features/signup/signup_view_model.dart';
 import 'package:ecommerce_elevate/features/signup/widgets/radio_widget.dart';
+// 🐦 Flutter imports:
+import 'package:flutter/material.dart';
+// 📦 Package imports:
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SelectedGenderWidget extends StatelessWidget {
   const SelectedGenderWidget({super.key});

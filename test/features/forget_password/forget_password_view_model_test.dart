@@ -145,15 +145,15 @@ void main() async {
   });
   group("Testing Send Forget Password Email ", () {
     setUp(() {
-      getItTest.unregister<ForgetPasswordViewModel>(instance: getItTest<ForgetPasswordViewModel>());
-      getItTest.registerSingleton<ForgetPasswordViewModel>(ForgetPasswordViewModel(
-          getItTest<MockForgetPasswordUseCase>()
-      ));
+      getItTest.unregister<ForgetPasswordViewModel>(
+          instance: getItTest<ForgetPasswordViewModel>());
+      getItTest.registerSingleton<ForgetPasswordViewModel>(
+          ForgetPasswordViewModel(getItTest<MockForgetPasswordUseCase>()));
       viewModel = getItTest<ForgetPasswordViewModel>();
     });
     testWidgets(
       "Test If Email input is Invalid",
-          (tester) async {
+      (tester) async {
         // Assert
         await tester.pumpWidget(
           MultiProvider(
@@ -182,10 +182,10 @@ void main() async {
     );
     testWidgets(
       "Test If the request fails",
-          (tester) async {
+      (tester) async {
         // Assert
         MockForgetPasswordUseCase forgetPasswordUseCase =
-        getItTest<MockForgetPasswordUseCase>();
+            getItTest<MockForgetPasswordUseCase>();
         await tester.pumpWidget(
           MultiProvider(
             providers: [
@@ -208,7 +208,9 @@ void main() async {
         provideDummy<Results<ForgetPasswordResponse>>(result);
 
         // Act
-        when(forgetPasswordUseCase.call(email: anyNamed("email"))).thenAnswer((_) async =>result,);
+        when(forgetPasswordUseCase.call(email: anyNamed("email"))).thenAnswer(
+          (_) async => result,
+        );
         await viewModel.doIntent(ForgetPasswordAction());
         // Assert
         expect(viewModel.state, isA<ForgetPasswordFailState>());
@@ -216,10 +218,10 @@ void main() async {
     );
     testWidgets(
       "Test If the request success",
-          (tester) async {
+      (tester) async {
         // Assert
         MockForgetPasswordUseCase forgetPasswordUseCase =
-        getItTest<MockForgetPasswordUseCase>();
+            getItTest<MockForgetPasswordUseCase>();
         await tester.pumpWidget(
           MultiProvider(
             providers: [
@@ -242,7 +244,9 @@ void main() async {
         provideDummy<Results<ForgetPasswordResponse>>(result);
 
         // Act
-        when(forgetPasswordUseCase.call(email: anyNamed("email"))).thenAnswer((_) async =>result,);
+        when(forgetPasswordUseCase.call(email: anyNamed("email"))).thenAnswer(
+          (_) async => result,
+        );
         await viewModel.doIntent(ForgetPasswordAction());
         // Assert
         expect(viewModel.state, isA<ForgetPasswordSuccessState>());

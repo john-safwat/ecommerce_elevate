@@ -1,11 +1,5 @@
 // 🐦 Flutter imports:
 
-// 🐦 Flutter imports:
-import 'package:flutter/material.dart';
-
-// 📦 Package imports:
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/base/base_view.dart';
 import 'package:ecommerce_elevate/core/di/di.dart';
@@ -13,6 +7,10 @@ import 'package:ecommerce_elevate/domain/entities/products/product.dart';
 import 'package:ecommerce_elevate/features/product_details/presentation/product_details_view_model.dart';
 import 'package:ecommerce_elevate/features/product_details/presentation/widgets/product_details_and_description.dart';
 import 'package:ecommerce_elevate/features/product_details/presentation/widgets/product_details_image_widget.dart';
+// 🐦 Flutter imports:
+import 'package:flutter/material.dart';
+// 📦 Package imports:
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProductDetailsView extends StatefulWidget {
   const ProductDetailsView({super.key});

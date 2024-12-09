@@ -1,13 +1,13 @@
 // 📦 Package imports:
-import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
-import 'package:mockito/mockito.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:ecommerce_elevate/domain/entities/occasions/occasion.dart';
 import 'package:ecommerce_elevate/domain/repository/occasions_repository.dart';
 import 'package:ecommerce_elevate/domain/use_case/get_occasions_list_use_case.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
+
 import '../../core/di/di_test.dart';
 import 'get_occasions_list_use_case_test.mocks.dart';
 
@@ -53,4 +53,3 @@ void main() async {
     });
   });
 }
-

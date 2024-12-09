@@ -9,7 +9,7 @@ part of 'logged_user_dto.dart';
 LoggedUserDto _$LoggedUserDtoFromJson(Map<String, dynamic> json) =>
     LoggedUserDto(
       wishlist: json['wishlist'] as List<dynamic>?,
-      Id: json['_id'] as String?,
+      id: json['_id'] as String?,
       firstName: json['firstName'] as String?,
       lastName: json['lastName'] as String?,
       email: json['email'] as String?,
@@ -28,7 +28,7 @@ LoggedUserDto _$LoggedUserDtoFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$LoggedUserDtoToJson(LoggedUserDto instance) =>
     <String, dynamic>{
       'wishlist': instance.wishlist,
-      '_id': instance.Id,
+      '_id': instance.id,
       'firstName': instance.firstName,
       'lastName': instance.lastName,
       'email': instance.email,

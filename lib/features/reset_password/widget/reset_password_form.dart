@@ -1,15 +1,14 @@
 // 🐦 Flutter imports:
 
-// 🐦 Flutter imports:
-import 'package:flutter/material.dart';
-
-// 📦 Package imports:
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
 import 'package:ecommerce_elevate/core/theme/app_theme.dart';
 import 'package:ecommerce_elevate/features/reset_password/reset_password_view_model.dart';
+// 🐦 Flutter imports:
+import 'package:flutter/material.dart';
+// 📦 Package imports:
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../reset_password_contract.dart';
 
 // ignore: must_be_immutable

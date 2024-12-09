@@ -1,11 +1,5 @@
 // 🐦 Flutter imports:
 
-// 🐦 Flutter imports:
-import 'package:flutter/material.dart';
-
-// 📦 Package imports:
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/base/base_view.dart';
 import 'package:ecommerce_elevate/core/di/di.dart';
@@ -13,6 +7,10 @@ import 'package:ecommerce_elevate/core/utils/app_dialogs.dart';
 import 'package:ecommerce_elevate/features/reset_password/reset_password_contract.dart';
 import 'package:ecommerce_elevate/features/reset_password/reset_password_view_model.dart';
 import 'package:ecommerce_elevate/features/reset_password/widget/reset_password_form.dart';
+// 🐦 Flutter imports:
+import 'package:flutter/material.dart';
+// 📦 Package imports:
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 // 🐦 Flutter imports:
 

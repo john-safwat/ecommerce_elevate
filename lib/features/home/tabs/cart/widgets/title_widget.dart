@@ -1,9 +1,8 @@
 // 🐦 Flutter imports:
-import 'package:flutter/material.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
 import 'package:ecommerce_elevate/features/home/tabs/cart/view_model/cart_tab_view_model.dart';
+import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class TitleWidget extends StatelessWidget {

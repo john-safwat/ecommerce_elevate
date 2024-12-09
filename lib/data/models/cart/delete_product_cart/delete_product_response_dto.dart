@@ -30,7 +30,7 @@ class DeleteProductsResponseDto {
 @JsonSerializable()
 class Cart {
   @JsonKey(name: "_id")
-  final String? Id;
+  final String? id;
   @JsonKey(name: "user")
   final String? user;
   @JsonKey(name: "cartItems")
@@ -45,7 +45,7 @@ class Cart {
   final int? v;
 
   Cart({
-    this.Id,
+    this.id,
     this.user,
     this.cartItems,
     this.totalPrice,
@@ -72,13 +72,13 @@ class CartItems {
   @JsonKey(name: "quantity")
   final int? quantity;
   @JsonKey(name: "_id")
-  final String? Id;
+  final String? id;
 
   CartItems({
     this.product,
     this.price,
     this.quantity,
-    this.Id,
+    this.id,
   });
 
   factory CartItems.fromJson(Map<String, dynamic> json) {

@@ -1,11 +1,10 @@
 // 📦 Package imports:
 
-// 📦 Package imports:
-import 'package:json_annotation/json_annotation.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/data/models/user_info/user_dto.dart';
 import 'package:ecommerce_elevate/domain/entities/registration/registration_response.dart';
+// 📦 Package imports:
+import 'package:json_annotation/json_annotation.dart';
 
 part 'registration_response_dto.g.dart';
 

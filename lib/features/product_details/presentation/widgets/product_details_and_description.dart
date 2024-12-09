@@ -1,16 +1,14 @@
 // 🐦 Flutter imports:
 
-// 🐦 Flutter imports:
-import 'package:flutter/material.dart';
-
-// 📦 Package imports:
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
 import 'package:ecommerce_elevate/domain/entities/products/product.dart';
 import 'package:ecommerce_elevate/features/product_details/presentation/product_details_contract.dart';
 import 'package:ecommerce_elevate/features/product_details/presentation/product_details_view_model.dart';
+// 🐦 Flutter imports:
+import 'package:flutter/material.dart';
+// 📦 Package imports:
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProductDetailsAndDescription extends StatelessWidget {
   const ProductDetailsAndDescription(

@@ -1,11 +1,4 @@
 // 📦 Package imports:
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:geocode/geocode.dart';
-import 'package:location/location.dart';
-import 'package:mockito/annotations.dart';
-import 'package:mockito/mockito.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:ecommerce_elevate/domain/entities/category/category.dart';
@@ -17,6 +10,13 @@ import 'package:ecommerce_elevate/domain/use_case/get_occasions_list_use_case.da
 import 'package:ecommerce_elevate/features/home/tabs/home/view_model/home_tab_actions.dart';
 import 'package:ecommerce_elevate/features/home/tabs/home/view_model/home_tab_state.dart';
 import 'package:ecommerce_elevate/features/home/tabs/home/view_model/home_tab_view_model.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:geocode/geocode.dart';
+import 'package:location/location.dart';
+import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
+
 import '../../../../../core/di/di_test.dart';
 import 'home_tab_view_model_test.mocks.dart';
 

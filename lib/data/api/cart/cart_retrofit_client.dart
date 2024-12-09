@@ -1,14 +1,13 @@
 // 📦 Package imports:
 import 'package:dio/dio.dart';
-import 'package:injectable/injectable.dart';
-import 'package:retrofit/retrofit.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/constants/api_constants.dart';
 import 'package:ecommerce_elevate/data/models/cart/add_to_cart/request/add_to_cart_request_dto.dart';
 import 'package:ecommerce_elevate/data/models/cart/add_to_cart/response/add_to_cart_response_dto.dart';
 import 'package:ecommerce_elevate/data/models/cart/card_data/user_cart_response_dto.dart';
 import 'package:ecommerce_elevate/data/models/cart/delete_product_cart/delete_product_response_dto.dart';
+import 'package:injectable/injectable.dart';
+import 'package:retrofit/retrofit.dart';
 
 part 'cart_retrofit_client.g.dart';
 

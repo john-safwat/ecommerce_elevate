@@ -307,17 +307,18 @@ void main() async {
         provideDummy<Results<ResetPasswordResponse>>(results);
 
         // Act
-        when(useCase(any)).thenAnswer((_)async => results,);
+        when(useCase(any)).thenAnswer(
+          (_) async => results,
+        );
         await resetPasswordViewModel.doIntent(ResetPasswordAction());
 
         // Assert
-        expect(
-            resetPasswordViewModel.state, isA<ResetPasswordFailState>());
+        expect(resetPasswordViewModel.state, isA<ResetPasswordFailState>());
       },
     );
     testWidgets(
       "test if the data of password and confirm password match and api call success",
-          (widgetTester) async {
+      (widgetTester) async {
         // Arrange
         await widgetTester.pumpWidget(
           MultiProvider(
@@ -344,14 +345,14 @@ void main() async {
         provideDummy<Results<ResetPasswordResponse>>(results);
 
         // Act
-        when(useCase(any)).thenAnswer((_)async => results,);
+        when(useCase(any)).thenAnswer(
+          (_) async => results,
+        );
         await resetPasswordViewModel.doIntent(ResetPasswordAction());
 
         // Assert
-        expect(
-            resetPasswordViewModel.state, isA<ResetPasswordSuccessState>());
+        expect(resetPasswordViewModel.state, isA<ResetPasswordSuccessState>());
       },
     );
-
   });
 }

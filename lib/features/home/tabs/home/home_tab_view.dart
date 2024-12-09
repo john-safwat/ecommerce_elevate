@@ -1,12 +1,5 @@
 // 🐦 Flutter imports:
 
-// 🐦 Flutter imports:
-import 'package:flutter/material.dart';
-
-// 📦 Package imports:
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:skeletonizer/skeletonizer.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/base/base_view.dart';
 import 'package:ecommerce_elevate/core/constants/routes.dart';
@@ -22,6 +15,11 @@ import 'package:ecommerce_elevate/features/home/tabs/home/widgets/category_icon_
 import 'package:ecommerce_elevate/features/home/tabs/home/widgets/home_app_bar.dart';
 import 'package:ecommerce_elevate/features/home/tabs/home/widgets/occasions_card_widget.dart';
 import 'package:ecommerce_elevate/features/home/tabs/home/widgets/title_widget.dart';
+// 🐦 Flutter imports:
+import 'package:flutter/material.dart';
+// 📦 Package imports:
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class HomeTabView extends StatefulWidget {
   const HomeTabView({super.key});

@@ -1,11 +1,10 @@
 // 📦 Package imports:
-import 'package:injectable/injectable.dart';
-
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:ecommerce_elevate/data/datasource/contract/cart_remote_datasource.dart';
 import 'package:ecommerce_elevate/domain/entities/cart/add_to_cart/request/add_to_cart_request.dart';
 import 'package:ecommerce_elevate/domain/entities/cart/add_to_cart/response/add_to_cart_response.dart';
+import 'package:injectable/injectable.dart';
 
 @singleton
 class AddItemToCartUseCase {

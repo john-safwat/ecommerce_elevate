@@ -17,81 +17,82 @@ import 'auth_repository_impl_test.mocks.dart';
 @GenerateMocks([AuthRemoteDatasourceImpl, AuthLocalDatasourceImpl])
 void main() {
   late AuthRepository repository;
-  getItTest.registerSingleton<MockAuthRemoteDatasourceImpl>(MockAuthRemoteDatasourceImpl());
+  getItTest.registerSingleton<MockAuthRemoteDatasourceImpl>(
+      MockAuthRemoteDatasourceImpl());
   getItTest.registerSingleton<AuthRepositoryImpl>(AuthRepositoryImpl(
-      getItTest<MockAuthRemoteDatasourceImpl>(), MockAuthLocalDatasourceImpl()));
+      getItTest<MockAuthRemoteDatasourceImpl>(),
+      MockAuthLocalDatasourceImpl()));
   setUp(() {
     repository = getItTest<AuthRepositoryImpl>();
   });
   group("Testing Forget Password Function", () {
-
-    test("if the function return a failure ", ()async{
+    test("if the function return a failure ", () async {
       // Assert
-      MockAuthRemoteDatasourceImpl authRemoteDatasourceImpl = getItTest<MockAuthRemoteDatasourceImpl>();
-      var results = Failure<ForgetPasswordResponse>(ServerError("",404));
+      MockAuthRemoteDatasourceImpl authRemoteDatasourceImpl =
+          getItTest<MockAuthRemoteDatasourceImpl>();
+      var results = Failure<ForgetPasswordResponse>(ServerError("", 404));
       provideDummy<Results<ForgetPasswordResponse>>(results);
 
       // Act
-      when(authRemoteDatasourceImpl.forgetPassword(any)).thenAnswer((_)async => results);
+      when(authRemoteDatasourceImpl.forgetPassword(any))
+          .thenAnswer((_) async => results);
       var actual = await repository.forgetPassword("email");
 
       // Assert
       expect(actual, isA<Failure<ForgetPasswordResponse>>());
       expect(actual, results);
-
     });
 
-    test("if the function return a success ", ()async{
+    test("if the function return a success ", () async {
       // Assert
-      MockAuthRemoteDatasourceImpl authRemoteDatasourceImpl = getItTest<MockAuthRemoteDatasourceImpl>();
+      MockAuthRemoteDatasourceImpl authRemoteDatasourceImpl =
+          getItTest<MockAuthRemoteDatasourceImpl>();
       var results = Success<ForgetPasswordResponse>(null);
       provideDummy<Results<ForgetPasswordResponse>>(results);
 
       // Act
-      when(authRemoteDatasourceImpl.forgetPassword(any)).thenAnswer((_)async => results);
+      when(authRemoteDatasourceImpl.forgetPassword(any))
+          .thenAnswer((_) async => results);
       var actual = await repository.forgetPassword("email");
 
       // Assert
       expect(actual, isA<Success<ForgetPasswordResponse>>());
       expect(actual, results);
-
     });
-
   });
   group("Testing Reset Password Function", () {
-
-    test("if the function return a failure ", ()async{
+    test("if the function return a failure ", () async {
       // Assert
-      MockAuthRemoteDatasourceImpl authRemoteDatasourceImpl = getItTest<MockAuthRemoteDatasourceImpl>();
-      var results = Failure<ResetPasswordResponse>(ServerError("",404));
+      MockAuthRemoteDatasourceImpl authRemoteDatasourceImpl =
+          getItTest<MockAuthRemoteDatasourceImpl>();
+      var results = Failure<ResetPasswordResponse>(ServerError("", 404));
       provideDummy<Results<ResetPasswordResponse>>(results);
 
       // Act
-      when(authRemoteDatasourceImpl.resetPassword(any)).thenAnswer((_)async => results);
+      when(authRemoteDatasourceImpl.resetPassword(any))
+          .thenAnswer((_) async => results);
       var actual = await repository.resetPassword(ResetPasswordRequest());
 
       // Assert
       expect(actual, isA<Failure<ResetPasswordResponse>>());
       expect(actual, results);
-
     });
 
-    test("if the function return a success ", ()async{
+    test("if the function return a success ", () async {
       // Assert
-      MockAuthRemoteDatasourceImpl authRemoteDatasourceImpl = getItTest<MockAuthRemoteDatasourceImpl>();
+      MockAuthRemoteDatasourceImpl authRemoteDatasourceImpl =
+          getItTest<MockAuthRemoteDatasourceImpl>();
       var results = Success<ResetPasswordResponse>(null);
       provideDummy<Results<ResetPasswordResponse>>(results);
 
       // Act
-      when(authRemoteDatasourceImpl.resetPassword(any)).thenAnswer((_)async => results);
+      when(authRemoteDatasourceImpl.resetPassword(any))
+          .thenAnswer((_) async => results);
       var actual = await repository.resetPassword(ResetPasswordRequest());
 
       // Assert
       expect(actual, isA<Success<ResetPasswordResponse>>());
       expect(actual, results);
-
     });
-
   });
-
 }

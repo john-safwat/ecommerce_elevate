@@ -1,5 +1,4 @@
 import 'package:ecommerce_elevate/core/datasource_execution/app_exception.dart';
-import 'package:ecommerce_elevate/core/datasource_execution/datasource_execution.dart';
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:ecommerce_elevate/data/api/auth/auth_retrofit_client.dart';
 import 'package:ecommerce_elevate/data/datasource/contract/auth_remote_datasource.dart';
@@ -29,8 +28,9 @@ void main() {
       provideDummy<Results<ForgetPasswordResponse>>(result);
 
       // act
-      when(dataSourceExecution.execute<ForgetPasswordResponse>(any)).thenAnswer((_)async => result,);
-
+      when(dataSourceExecution.execute<ForgetPasswordResponse>(any)).thenAnswer(
+        (_) async => result,
+      );
 
       var actual = await remoteDatasourceImpl.forgetPassword(email);
 
@@ -51,8 +51,9 @@ void main() {
       provideDummy<Results<ForgetPasswordResponse>>(result);
 
       // act
-      when(dataSourceExecution.execute<ForgetPasswordResponse>(any)).thenAnswer((_)async => result,);
-
+      when(dataSourceExecution.execute<ForgetPasswordResponse>(any)).thenAnswer(
+        (_) async => result,
+      );
 
       var actual = await remoteDatasourceImpl.forgetPassword(email);
 
@@ -61,7 +62,6 @@ void main() {
       expect(actual, result);
     });
   });
-
 
   group("Reset Password Calling test", () {
     test("Reset Password Calling return Fail State", () async {
@@ -75,10 +75,12 @@ void main() {
       provideDummy<Results<ResetPasswordResponse>>(result);
 
       // act
-      when(dataSourceExecution.execute<ResetPasswordResponse>(any)).thenAnswer((_)async => result,);
+      when(dataSourceExecution.execute<ResetPasswordResponse>(any)).thenAnswer(
+        (_) async => result,
+      );
 
-
-      var actual = await remoteDatasourceImpl.resetPassword(ResetPasswordRequest());
+      var actual =
+          await remoteDatasourceImpl.resetPassword(ResetPasswordRequest());
 
       // assert
       expect(actual, isA<Failure<ResetPasswordResponse>>());
@@ -95,15 +97,16 @@ void main() {
       provideDummy<Results<ResetPasswordResponse>>(result);
 
       // act
-      when(dataSourceExecution.execute<ResetPasswordResponse>(any)).thenAnswer((_)async => result,);
+      when(dataSourceExecution.execute<ResetPasswordResponse>(any)).thenAnswer(
+        (_) async => result,
+      );
 
-
-      var actual = await remoteDatasourceImpl.resetPassword(ResetPasswordRequest());
+      var actual =
+          await remoteDatasourceImpl.resetPassword(ResetPasswordRequest());
 
       // assert
       expect(actual, isA<Success<ResetPasswordResponse>>());
       expect(actual, result);
     });
   });
-
 }
