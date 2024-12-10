@@ -7,7 +7,7 @@ import 'package:ecommerce_elevate/core/utils/app_initializer.dart';
 // 🐦 Flutter imports:
 import 'package:ecommerce_elevate/features/about_us/about_us_view.dart';
 import 'package:ecommerce_elevate/features/address/address_view.dart';
-import 'package:ecommerce_elevate/features/auth/presentation/edit_profile/edit_profile_view.dart';
+import 'package:ecommerce_elevate/features/edit_profile/edit_profile_view.dart';
 import 'package:ecommerce_elevate/features/best_seller/presentation/best_seller_view.dart';
 import 'package:ecommerce_elevate/features/change_password/change_password_view.dart';
 import 'package:ecommerce_elevate/features/forget_password/forget_password_view.dart';

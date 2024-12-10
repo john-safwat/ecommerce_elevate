@@ -5,6 +5,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i3;
 
+import 'package:dio/src/form_data.dart' as _i18;
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart'
     as _i4;
 import 'package:ecommerce_elevate/data/repository/auth_repository_impl.dart'
@@ -17,6 +18,10 @@ import 'package:ecommerce_elevate/domain/entities/change_password/change_passwor
     as _i14;
 import 'package:ecommerce_elevate/domain/entities/change_password/change_password_request.dart'
     as _i15;
+import 'package:ecommerce_elevate/domain/entities/edit_profile/edit_profile_request.dart'
+    as _i17;
+import 'package:ecommerce_elevate/domain/entities/edit_profile/edit_profile_response.dart'
+    as _i16;
 import 'package:ecommerce_elevate/domain/entities/forgetPassword/forget_password_response.dart'
     as _i10;
 import 'package:ecommerce_elevate/domain/entities/registration/registration_response.dart'
@@ -189,4 +194,40 @@ class MockAuthRepositoryImpl extends _i1.Mock
           ),
         )),
       ) as _i3.Future<_i4.Results<_i14.ChangePasswordResponse?>>);
+
+  @override
+  _i3.Future<_i4.Results<_i16.EditProfileResponse>> editProfile(
+          _i17.EditProfileRequest? request) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #editProfile,
+          [request],
+        ),
+        returnValue: _i3.Future<_i4.Results<_i16.EditProfileResponse>>.value(
+            _i7.dummyValue<_i4.Results<_i16.EditProfileResponse>>(
+          this,
+          Invocation.method(
+            #editProfile,
+            [request],
+          ),
+        )),
+      ) as _i3.Future<_i4.Results<_i16.EditProfileResponse>>);
+
+  @override
+  _i3.Future<_i4.Results<String>> uploadProfileImage(
+          _i18.FormData? imageFile) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #uploadProfileImage,
+          [imageFile],
+        ),
+        returnValue: _i3.Future<_i4.Results<String>>.value(
+            _i7.dummyValue<_i4.Results<String>>(
+          this,
+          Invocation.method(
+            #uploadProfileImage,
+            [imageFile],
+          ),
+        )),
+      ) as _i3.Future<_i4.Results<String>>);
 }

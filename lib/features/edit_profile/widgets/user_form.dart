@@ -1,9 +1,9 @@
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
-import 'package:ecommerce_elevate/features/auth/presentation/edit_profile/edit_profile_contract.dart';
-import 'package:ecommerce_elevate/features/auth/presentation/edit_profile/edit_profile_view_model.dart';
-import 'package:ecommerce_elevate/features/auth/presentation/edit_profile/widgets/image_profile_and_edit_icon.dart';
-import 'package:ecommerce_elevate/features/auth/presentation/signup/signup_view_model.dart';
-import 'package:ecommerce_elevate/features/auth/presentation/signup/widgets/radio_widget.dart';
+import 'package:ecommerce_elevate/features/edit_profile/edit_profile_contract.dart';
+import 'package:ecommerce_elevate/features/edit_profile/edit_profile_view_model.dart';
+import 'package:ecommerce_elevate/features/edit_profile/widgets/image_profile_and_edit_icon.dart';
+import 'package:ecommerce_elevate/features/signup/signup_view_model.dart';
+import 'package:ecommerce_elevate/features/signup/widgets/radio_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -40,7 +40,7 @@ class UserForm extends StatelessWidget {
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   validator: (value) => viewModel.nameValidation(value ?? ""),
                   keyboardType: TextInputType.name,
-                  controller: viewModel.firstNameController,
+                  initialValue: viewModel.user?.firstName,
                   decoration: InputDecoration(
                     label: Text(viewModel.locale!.firstName),
                     hintText: viewModel.locale!.enterFirstName,
@@ -53,7 +53,7 @@ class UserForm extends StatelessWidget {
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   validator: (value) => viewModel.nameValidation(value ?? ""),
                   keyboardType: TextInputType.name,
-                  controller: viewModel.lastNameController,
+                  initialValue: viewModel.user?.lastName,
                   decoration: InputDecoration(
                     label: Text(viewModel.locale!.lastName),
                     hintText: viewModel.locale!.enterLastName,
@@ -67,7 +67,7 @@ class UserForm extends StatelessWidget {
             autovalidateMode: AutovalidateMode.onUserInteraction,
             validator: (value) => viewModel.emailValidation(value ?? ""),
             keyboardType: TextInputType.emailAddress,
-            controller: viewModel.emailController,
+            initialValue: viewModel.user?.email,
             decoration: InputDecoration(
               label: Text(viewModel.locale!.email),
               hintText: viewModel.locale!.enterEmail,
@@ -111,7 +111,7 @@ class UserForm extends StatelessWidget {
             autovalidateMode: AutovalidateMode.onUserInteraction,
             validator: (value) => viewModel.phoneValidation(value ?? ""),
             keyboardType: TextInputType.phone,
-            controller: viewModel.phoneController,
+            initialValue: viewModel.user?.phone,
             decoration: InputDecoration(
               label: Text(viewModel.locale!.phone),
               hintText: viewModel.locale!.enterPhone,

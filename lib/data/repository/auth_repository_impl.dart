@@ -1,6 +1,6 @@
 // 📦 Package imports:
 
-// 🌎 Project imports:
+import 'package:dio/src/form_data.dart';
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
 import 'package:ecommerce_elevate/data/datasource/contract/auth_local_datasource.dart';
 import 'package:ecommerce_elevate/data/datasource/contract/auth_remote_datasource.dart';
@@ -8,6 +8,8 @@ import 'package:ecommerce_elevate/domain/entities/authentication/authentication_
 import 'package:ecommerce_elevate/domain/entities/authentication/authentication_response.dart';
 import 'package:ecommerce_elevate/domain/entities/change_password/change_password_reaponse.dart';
 import 'package:ecommerce_elevate/domain/entities/change_password/change_password_request.dart';
+import 'package:ecommerce_elevate/domain/entities/edit_profile/edit_profile_request.dart';
+import 'package:ecommerce_elevate/domain/entities/edit_profile/edit_profile_response.dart';
 import 'package:ecommerce_elevate/domain/entities/forgetPassword/forget_password_response.dart';
 import 'package:ecommerce_elevate/domain/entities/registration/registration_response.dart';
 import 'package:ecommerce_elevate/domain/entities/registration/registration_user.dart';
@@ -74,5 +76,17 @@ class AuthRepositoryImpl implements AuthRepository {
     ChangePasswordRequest request,
   ) {
     return _remoteDatasource.changePassword(token, request);
+  }
+
+  @override
+  Future<Results<EditProfileResponse>> editProfile(
+      EditProfileRequest request) async {
+    var response = await _remoteDatasource.editProfile(request);
+    return response;
+  }
+
+  @override
+  Future<Results<String>> uploadProfileImage(FormData imageFile) {
+    return _remoteDatasource.uploadProfileImage(imageFile);
   }
 }

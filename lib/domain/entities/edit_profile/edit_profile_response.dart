@@ -1,4 +1,5 @@
-import 'package:ecommerce_elevate/features/auth/domain/entities/user/user.dart';
+
+import 'package:ecommerce_elevate/domain/entities/user/user.dart';
 
 class EditProfileResponse {
   final String? message;

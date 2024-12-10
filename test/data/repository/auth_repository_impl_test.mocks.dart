@@ -5,10 +5,11 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i4;
 
+import 'package:dio/dio.dart' as _i19;
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart'
     as _i5;
 import 'package:ecommerce_elevate/data/datasource/impl/auth_local_datasource_impl.dart'
-    as _i17;
+    as _i20;
 import 'package:ecommerce_elevate/data/datasource/impl/auth_remote_datasource_impl.dart'
     as _i3;
 import 'package:ecommerce_elevate/domain/entities/authentication/authentication_request.dart'
@@ -19,6 +20,10 @@ import 'package:ecommerce_elevate/domain/entities/change_password/change_passwor
     as _i15;
 import 'package:ecommerce_elevate/domain/entities/change_password/change_password_request.dart'
     as _i16;
+import 'package:ecommerce_elevate/domain/entities/edit_profile/edit_profile_request.dart'
+    as _i18;
+import 'package:ecommerce_elevate/domain/entities/edit_profile/edit_profile_response.dart'
+    as _i17;
 import 'package:ecommerce_elevate/domain/entities/forgetPassword/forget_password_response.dart'
     as _i11;
 import 'package:ecommerce_elevate/domain/entities/registration/registration_response.dart'
@@ -185,13 +190,49 @@ class MockAuthRemoteDatasourceImpl extends _i1.Mock
           ),
         )),
       ) as _i4.Future<_i5.Results<_i15.ChangePasswordResponse?>>);
+
+  @override
+  _i4.Future<_i5.Results<_i17.EditProfileResponse>> editProfile(
+          _i18.EditProfileRequest? request) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #editProfile,
+          [request],
+        ),
+        returnValue: _i4.Future<_i5.Results<_i17.EditProfileResponse>>.value(
+            _i8.dummyValue<_i5.Results<_i17.EditProfileResponse>>(
+          this,
+          Invocation.method(
+            #editProfile,
+            [request],
+          ),
+        )),
+      ) as _i4.Future<_i5.Results<_i17.EditProfileResponse>>);
+
+  @override
+  _i4.Future<_i5.Results<String>> uploadProfileImage(
+          _i19.FormData? imageFile) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #uploadProfileImage,
+          [imageFile],
+        ),
+        returnValue: _i4.Future<_i5.Results<String>>.value(
+            _i8.dummyValue<_i5.Results<String>>(
+          this,
+          Invocation.method(
+            #uploadProfileImage,
+            [imageFile],
+          ),
+        )),
+      ) as _i4.Future<_i5.Results<String>>);
 }
 
 /// A class which mocks [AuthLocalDatasourceImpl].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockAuthLocalDatasourceImpl extends _i1.Mock
-    implements _i17.AuthLocalDatasourceImpl {
+    implements _i20.AuthLocalDatasourceImpl {
   MockAuthLocalDatasourceImpl() {
     _i1.throwOnMissingStub(this);
   }

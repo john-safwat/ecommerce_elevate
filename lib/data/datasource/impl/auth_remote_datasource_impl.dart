@@ -2,8 +2,11 @@
 import 'dart:async';
 
 // 🌎 Project imports:
+import 'package:dio/dio.dart';
 import 'package:ecommerce_elevate/core/datasource_execution/datasource_execution.dart';
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
+import 'package:ecommerce_elevate/core/di/di.dart';
+import 'package:ecommerce_elevate/core/providers/app_config_provider.dart';
 import 'package:ecommerce_elevate/data/api/auth/auth_retrofit_client.dart';
 import 'package:ecommerce_elevate/data/datasource/contract/auth_remote_datasource.dart';
 import 'package:ecommerce_elevate/data/models/authentication/change_password/change_password_request/change_password_request_dto.dart';
@@ -12,10 +15,13 @@ import 'package:ecommerce_elevate/data/models/authentication/login/request/authe
 import 'package:ecommerce_elevate/data/models/authentication/registration/request/registration_user_dto.dart';
 import 'package:ecommerce_elevate/data/models/authentication/reset_password/request/reset_password_request_dto.dart';
 import 'package:ecommerce_elevate/data/models/authentication/verify_reset_code/request/verify_reset_code_request_dto.dart';
+import 'package:ecommerce_elevate/data/models/edit_profile/request/edit_profile_request_dto.dart';
 import 'package:ecommerce_elevate/domain/entities/authentication/authentication_request.dart';
 import 'package:ecommerce_elevate/domain/entities/authentication/authentication_response.dart';
 import 'package:ecommerce_elevate/domain/entities/change_password/change_password_reaponse.dart';
 import 'package:ecommerce_elevate/domain/entities/change_password/change_password_request.dart';
+import 'package:ecommerce_elevate/domain/entities/edit_profile/edit_profile_request.dart';
+import 'package:ecommerce_elevate/domain/entities/edit_profile/edit_profile_response.dart';
 import 'package:ecommerce_elevate/domain/entities/forgetPassword/forget_password_response.dart';
 import 'package:ecommerce_elevate/domain/entities/registration/registration_response.dart';
 import 'package:ecommerce_elevate/domain/entities/registration/registration_user.dart';
@@ -108,5 +114,39 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
       },
     );
     return response;
+  }
+
+  @override
+  Future<Results<EditProfileResponse>> editProfile(EditProfileRequest request) {
+    return _apiExecution.execute<EditProfileResponse>(() async {
+      var response = await _authRetrofitClient.editProfile(
+        "Bearer ${getIt.get<AppConfigProvider>().token}",
+        EditProfileRequestDto(
+          email: request.email,
+          firstName: request.firstName,
+          lastName: request.lastName,
+          // gender: request.gender,
+          phone: request.phone,
+          // photo: request.photo,
+        ),
+      );
+      return response.toDomain();
+    });
+  }
+
+  @override
+  Future<Results<String>> uploadProfileImage(FormData imageFile) async {
+    // FormData formData = FormData.fromMap({
+    //   "photo": await MultipartFile.fromFile(
+    //     imageFile.path,
+    //     filename: imageFile.path.split('/').last,
+
+    //   ),
+    // });
+    return await _apiExecution.execute<String>(() async {
+      var response = await _authRetrofitClient.uploadProfileImage(
+          "Bearer ${getIt.get<AppConfigProvider>().token}", imageFile);
+      return response;
+    });
   }
 }

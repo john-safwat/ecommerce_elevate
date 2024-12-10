@@ -4,48 +4,39 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:ecommerce_elevate/core/base/base_view_model.dart';
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart';
-import 'package:ecommerce_elevate/core/di/di.dart';
-import 'package:ecommerce_elevate/core/providers/app_config_provider.dart';
 import 'package:ecommerce_elevate/core/utils/set_image.dart';
-import 'package:ecommerce_elevate/features/auth/domain/entities/edit_profile/edit_profile_request.dart';
-import 'package:ecommerce_elevate/features/auth/domain/entities/edit_profile/edit_profile_response.dart';
-import 'package:ecommerce_elevate/features/auth/domain/entities/user/user.dart';
-import 'package:ecommerce_elevate/features/auth/domain/entities/user_info/user_info_response.dart';
-import 'package:ecommerce_elevate/features/auth/domain/use_case/edit_profile_use_case.dart';
-import 'package:ecommerce_elevate/features/auth/domain/use_case/get_user_info_use_case.dart';
-import 'package:ecommerce_elevate/features/auth/domain/use_case/upload_profile_image_use_case.dart';
-import 'package:ecommerce_elevate/features/auth/presentation/edit_profile/edit_profile_contract.dart';
-import 'package:ecommerce_elevate/features/auth/presentation/signup/signup_view_model.dart';
+import 'package:ecommerce_elevate/domain/entities/edit_profile/edit_profile_request.dart';
+import 'package:ecommerce_elevate/domain/entities/edit_profile/edit_profile_response.dart';
+import 'package:ecommerce_elevate/domain/entities/profile_info/user/logged_user.dart';
+import 'package:ecommerce_elevate/domain/use_case/edit_profile_use_case.dart';
+import 'package:ecommerce_elevate/domain/use_case/upload_profile_image_use_case.dart';
+import 'package:ecommerce_elevate/features/edit_profile/edit_profile_contract.dart';
+import 'package:ecommerce_elevate/features/signup/signup_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
 class ProfileViewModel extends BaseViewModel<ProfileViewState, ProfileAction> {
-  GetUserInfoUseCase getUserInfoUseCase;
   EditProfileUseCase updateUserInfoUseCase;
   UploadProfileImageUseCase uploadProfileImageUseCase;
 
-  ProfileViewModel(this.getUserInfoUseCase, this.updateUserInfoUseCase,
-      this.uploadProfileImageUseCase)
+  ProfileViewModel(this.updateUserInfoUseCase, this.uploadProfileImageUseCase)
       : super(InitialProfileViewState());
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  final TextEditingController firstNameController = TextEditingController();
-  final TextEditingController lastNameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController phoneController = TextEditingController();
+
   Gender selectedGender = Gender.female;
   File? imageFile;
 
   ValueNotifier<bool> valid = ValueNotifier(false);
-  User? user;
+  LoggedUser? user;
 
   @override
   Future<void> doIntent(ProfileAction action) async {
     switch (action) {
       case LoadDataAction():
         {
-          _loadData();
+          _loadData(action.user);
         }
       case FormDataChangedAction():
         {
@@ -75,10 +66,6 @@ class ProfileViewModel extends BaseViewModel<ProfileViewState, ProfileAction> {
   }
 
   _clear() {
-    firstNameController.dispose();
-    lastNameController.dispose();
-    emailController.dispose();
-    phoneController.dispose();
     valid.dispose();
   }
 
@@ -105,7 +92,6 @@ class ProfileViewModel extends BaseViewModel<ProfileViewState, ProfileAction> {
       case Success<String>():
         {
           emit(UpdateImageProfileSuccessState());
-          _loadData();
         }
       case Failure<String>():
         {
@@ -114,24 +100,10 @@ class ProfileViewModel extends BaseViewModel<ProfileViewState, ProfileAction> {
     }
   }
 
-  void _loadData() async {
-    emit(ProfileDataLoadingState());
-    var response =
-        await getUserInfoUseCase(token: getIt<AppConfigProvider>().token);
-    switch (response) {
-      case Success<GetUserInfoResponse>():
-        {
-          _initUser(response.data?.user);
-          emit(ProfileDataLoadingSuccessState());
-        }
-
-      case Failure<GetUserInfoResponse>():
-        {
-          emit(ProfileDataLoadingFailState(
-              mapExceptionToMessage(response.exception)));
-          //mainViewModel.validateOnException(response.exception);
-        }
-    }
+  void _loadData(LoggedUser user) async {
+    this.user = user;
+    selectedGender = user.gender == "female" ? Gender.female : Gender.male;
+    emit(GetUserDataState());
   }
 
   // validation functions
@@ -170,20 +142,8 @@ class ProfileViewModel extends BaseViewModel<ProfileViewState, ProfileAction> {
     return null;
   }
 
-  void _initUser(User? data) {
-    user = data;
-    emailController.text = data?.email ?? "";
-    phoneController.text = data?.phone ?? "";
-    firstNameController.text = data?.firstName ?? "";
-    lastNameController.text = data?.lastName ?? "";
-    selectedGender = data?.gender == "female" ? Gender.female : Gender.male;
-  }
-
   void _updateValidationState() {
-    if (firstNameController.text.isEmpty ||
-        lastNameController.text.isEmpty ||
-        emailController.text.isEmpty ||
-        phoneController.text.isEmpty) {
+    if (user == null) {
       valid.value = false;
     } else if (!formKey.currentState!.validate()) {
       valid.value = false;
@@ -212,10 +172,10 @@ class ProfileViewModel extends BaseViewModel<ProfileViewState, ProfileAction> {
       emit(ShowLoadingState());
       var response = await updateUserInfoUseCase(
         request: EditProfileRequest(
-          firstName: firstNameController.text,
-          lastName: lastNameController.text,
-          email: emailController.text,
-          phone: phoneController.text,
+          firstName: user?.firstName,
+          lastName: user?.lastName,
+          email: user?.email,
+          phone: user?.phone,
           // gender: selectedGender == Gender.female ? "female" : "male",
           // photo: user?.photo,
         ),

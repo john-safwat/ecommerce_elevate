@@ -1,5 +1,5 @@
-import 'package:ecommerce_elevate/features/auth/data/models/user_info/user_dto.dart';
-import 'package:ecommerce_elevate/features/auth/domain/entities/edit_profile/edit_profile_response.dart';
+import 'package:ecommerce_elevate/data/models/user_info/user_dto.dart';
+import 'package:ecommerce_elevate/domain/entities/edit_profile/edit_profile_response.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'edit_profile_response_dto.g.dart';

@@ -38,14 +38,23 @@ class _ProfileWidgetState extends State<ProfileWidget> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ClipOval(
-              child: CachedNetworkImage(
-                fit: BoxFit.cover,
-                height: 100,
-                width: 100,
-                imageUrl: user.photo ?? "",
-                errorWidget: (context, url, error) => const Icon(
-                  Icons.error,
+            InkWell(
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  Routes.editProfileViewRoute,
+                  arguments: user,
+                );
+              },
+              child: ClipOval(
+                child: CachedNetworkImage(
+                  fit: BoxFit.cover,
+                  height: 100,
+                  width: 100,
+                  imageUrl: user.photo ?? "",
+                  errorWidget: (context, url, error) => const Icon(
+                    Icons.error,
+                  ),
                 ),
               ),
             ),
@@ -76,7 +85,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
           title: viewModel.locale?.myOrders,
         ),
         ListTileWidget(
-          onPress: (){
+          onPress: () {
             Navigator.pushNamed(context, Routes.addressesRoute);
           },
           prefixWidget: const ImageIcon(AssetImage(AppImages.location)),

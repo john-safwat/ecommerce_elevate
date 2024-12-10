@@ -1,10 +1,15 @@
 import 'package:ecommerce_elevate/core/base/base_view_model.dart';
-import 'package:ecommerce_elevate/features/auth/presentation/signup/signup_view_model.dart';
+import 'package:ecommerce_elevate/domain/entities/profile_info/user/logged_user.dart';
+import 'package:ecommerce_elevate/features/signup/signup_view_model.dart';
 import 'package:flutter/material.dart';
 
 sealed class ProfileAction extends BaseAction {}
 
-class LoadDataAction extends ProfileAction {}
+class LoadDataAction extends ProfileAction {
+  LoggedUser user;
+
+  LoadDataAction({required this.user});
+}
 
 class ChangeGenderAction extends ProfileAction {
   Gender gender;
@@ -67,3 +72,5 @@ class ShowFailMessageState extends ProfileViewState {
 
   ShowFailMessageState(this.message);
 }
+
+class GetUserDataState extends ProfileViewState {}
