@@ -154,6 +154,15 @@
   "itIsAGift" : "It is a gift",
   "addNew" : "Add New",
   "nameOrPhoneNumberIsInvalid" : "Name or phone number is invalid",
-  "orderPlaceSuccessfully" : "Order Place Successfully , Thank you"
-
+  "orderPlaceSuccessfully" : "Order Place Successfully , Thank you",
+  "address": "Address",
+  "recipientName": "Recipient name",
+  "city": "City",
+  "area": "Area",
+  "addressCantBeEmpty": "Address can't be empty",
+  "invalidAddress": "Please enter a valid address",
+  "saveAddress": "Save Address",
+  "addressSavedSuccessfully": "Address Save Successfully",
+  "termsAndSOnditionsDescription": "By using Flowe App, you agree to our Terms and Privacy Policy. The app is designed for personal use only, and any misuse or activities that harm the platform or other users are prohibited. You are responsible for safeguarding your account credentials and notifying us immediately of any unauthorized access. Prices are subject to change without prior notice, and delivery times are estimates that may vary due to external factors. Orders can be canceled within [specific time frame], provided they have not been processed, and refunds will be issued according to our policy. All content, including text, images, and designs, is owned by Flowe App and protected by copyright laws. Unauthorized reproduction or distribution is strictly prohibited. We are not responsible for any indirect damages, delays, or errors resulting from the use of the app. Your privacy is important to us; please review our Privacy Policy to understand how your data is handled. By continuing to use the app, you confirm your acceptance of these Terms. For any questions or concerns, contact us at ",
+  "filter": "Filter"
 }
