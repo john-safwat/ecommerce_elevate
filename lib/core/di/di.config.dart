@@ -85,6 +85,7 @@ import '../../domain/use_case/get_user_cart_use_case.dart' as _i172;
 import '../../domain/use_case/logged_user_info_use_case.dart' as _i10;
 import '../../domain/use_case/login_user_use_case.dart' as _i678;
 import '../../domain/use_case/logout_user_use_case.dart' as _i748;
+import '../../domain/use_case/remove_address_use_case.dart' as _i45;
 import '../../domain/use_case/reset_password_use_case.dart' as _i16;
 import '../../domain/use_case/signup_user_use_case.dart' as _i205;
 import '../../domain/use_case/update_cart_product_use_case.dart' as _i496;
@@ -109,6 +110,8 @@ import '../../features/otp_verify/otp_verify_view_model.dart' as _i678;
 import '../../features/product_details/presentation/product_details_view_model.dart'
     as _i155;
 import '../../features/reset_password/reset_password_view_model.dart' as _i735;
+import '../../features/saved_address/view_model/remove_address_view_model.dart'
+    as _i307;
 import '../../features/signup/signup_view_model.dart' as _i512;
 import '../datasource_execution/datasource_execution.dart' as _i166;
 import '../providers/app_config_provider.dart' as _i56;
@@ -261,6 +264,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i499.VerifyResetPasswordUseCase(gh<_i614.AuthRepository>()));
     gh.factory<_i834.AddNewAddressUseCase>(
         () => _i834.AddNewAddressUseCase(gh<_i562.AddressesRepository>()));
+    gh.factory<_i45.RemoveAddressUseCase>(
+        () => _i45.RemoveAddressUseCase(gh<_i562.AddressesRepository>()));
     gh.factory<_i413.AddressViewModel>(() => _i413.AddressViewModel(
           gh<_i834.AddNewAddressUseCase>(),
           gh<_i645.Location>(),
@@ -290,6 +295,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i164.GetCategoriesListUseCase(gh<_i723.CategoriesRepository>()));
     gh.factory<_i535.OccasionsViewModel>(
         () => _i535.OccasionsViewModel(gh<_i197.GetAllProductsListUseCase>()));
+    gh.factory<_i307.RemoveAddressViewModel>(
+        () => _i307.RemoveAddressViewModel(gh<_i45.RemoveAddressUseCase>()));
     gh.factory<_i237.LoginViewModel>(
         () => _i237.LoginViewModel(gh<_i678.LoginUserUseCase>()));
     gh.factory<_i678.OtpVerifyViewModel>(() => _i678.OtpVerifyViewModel(

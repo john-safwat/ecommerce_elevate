@@ -11,6 +11,7 @@ import 'package:ecommerce_elevate/features/home/tabs/profile/view_model/profile_
 import 'package:ecommerce_elevate/features/home/tabs/profile/view_model/profile_tab_view_model.dart';
 import 'package:ecommerce_elevate/features/home/tabs/profile/widget/list_tile_widget.dart';
 import 'package:ecommerce_elevate/features/home/tabs/profile/widget/profile_bottom_sheet.dart';
+import 'package:ecommerce_elevate/features/saved_address/saved_addresses_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -77,7 +78,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
         ),
         ListTileWidget(
           onPress: (){
-            Navigator.pushNamed(context, Routes.addressesRoute);
+            Navigator.push(context,MaterialPageRoute(builder: (context) => SavedAddressesView(viewModel:viewModel ,  title: viewModel.locale!.savedAddress,),));
           },
           prefixWidget: const ImageIcon(AssetImage(AppImages.location)),
           suffixWidget: const Icon(Icons.arrow_forward_ios_rounded),
@@ -129,6 +130,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
         ListTileWidget(
           onPress: () {
             viewModel.doIntent(LogoutConfirmationAction());
+
           },
           title: viewModel.locale?.logout,
           suffixWidget: const Icon(Icons.logout_outlined),

@@ -3,12 +3,14 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i4;
+import 'dart:async' as _i5;
 
 import 'package:ecommerce_elevate/data/api/addresses/addresses_retrofit_client.dart'
+    as _i4;
+import 'package:ecommerce_elevate/data/models/addresses/remove_addresses/response/remove_address_response_dto.dart'
     as _i3;
 import 'package:ecommerce_elevate/data/models/addresses/request/add_address_request_dto.dart'
-    as _i5;
+    as _i6;
 import 'package:ecommerce_elevate/data/models/addresses/response/add_address_response_dto.dart'
     as _i2;
 import 'package:mockito/mockito.dart' as _i1;
@@ -37,18 +39,29 @@ class _FakeAddAddressResponseDto_0 extends _i1.SmartFake
         );
 }
 
+class _FakeRemoveAddressResponseDto_1 extends _i1.SmartFake
+    implements _i3.RemoveAddressResponseDto {
+  _FakeRemoveAddressResponseDto_1(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [AddressesRetrofitClient].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockAddressesRetrofitClient extends _i1.Mock
-    implements _i3.AddressesRetrofitClient {
+    implements _i4.AddressesRetrofitClient {
   MockAddressesRetrofitClient() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<_i2.AddAddressResponseDto> addNewAddress(
-    _i5.AddAddressRequestDto? addAddressRequestDto,
+  _i5.Future<_i2.AddAddressResponseDto> addNewAddress(
+    _i6.AddAddressRequestDto? addAddressRequestDto,
     String? token,
   ) =>
       (super.noSuchMethod(
@@ -59,7 +72,7 @@ class MockAddressesRetrofitClient extends _i1.Mock
             token,
           ],
         ),
-        returnValue: _i4.Future<_i2.AddAddressResponseDto>.value(
+        returnValue: _i5.Future<_i2.AddAddressResponseDto>.value(
             _FakeAddAddressResponseDto_0(
           this,
           Invocation.method(
@@ -70,5 +83,31 @@ class MockAddressesRetrofitClient extends _i1.Mock
             ],
           ),
         )),
-      ) as _i4.Future<_i2.AddAddressResponseDto>);
+      ) as _i5.Future<_i2.AddAddressResponseDto>);
+
+  @override
+  _i5.Future<_i3.RemoveAddressResponseDto> removeAddress(
+    String? token,
+    String? id,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #removeAddress,
+          [
+            token,
+            id,
+          ],
+        ),
+        returnValue: _i5.Future<_i3.RemoveAddressResponseDto>.value(
+            _FakeRemoveAddressResponseDto_1(
+          this,
+          Invocation.method(
+            #removeAddress,
+            [
+              token,
+              id,
+            ],
+          ),
+        )),
+      ) as _i5.Future<_i3.RemoveAddressResponseDto>);
 }
