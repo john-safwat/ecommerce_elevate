@@ -8,6 +8,7 @@ import 'package:ecommerce_elevate/features/home/tabs/categories/view_model/categ
 import 'package:ecommerce_elevate/features/home/tabs/categories/view_model/categories_view_model.dart';
 import 'package:ecommerce_elevate/features/home/tabs/categories/widgets/categories_app_bar_widget.dart';
 import 'package:ecommerce_elevate/features/home/tabs/categories/widgets/categories_tabview_widget.dart';
+import 'package:ecommerce_elevate/features/home/tabs/categories/widgets/filter_item_widget.dart';
 import 'package:ecommerce_elevate/features/occasions/widgets/occasions_tabbar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -59,38 +60,45 @@ class _CategoriesTabState extends BaseState<CategoriesTab, CategoriesViewModel>
           }
         },
         builder: (context, state) {
-          return SafeArea(
-            child: Column(
-              children: [
-                ///--------> Categories App Bar
-                CategoriesAppBarWidget(
-                  searchHint: viewModel.locale!.search,
-                ),
-                //----------------> Categories Tabs
-                Skeletonizer(
-                  enabled: categoriesList.isEmpty,
-                  child: DefaultTabController(
-                    length: categoriesList.isEmpty ? 6 : categoriesList.length,
-                    child: OccasionsTabbarWidget(
-                      tabController: categoriesList.isEmpty
-                          ? TabController(length: 6, vsync: this)
-                          : viewModel.tabController,
-                      isIndecatorLoading: categoriesList.isEmpty ? true : false,
-                      tabs: categoriesList.isEmpty
-                          ? [...List.filled(6, const Tab(text: "**********"))]
-                          : categoriesList.map((category) {
-                              return Tab(text: category.name ?? "");
-                            }).toList(),
+          return Scaffold(
+            floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+            floatingActionButton: viewModel.isScroll? FilterItemWidget(
+              onPressedFilter: () {},
+              filterText: viewModel.locale!.filter,
+            ):null,
+            body: SafeArea(
+              child: Column(
+                children: [
+                  ///--------> Categories App Bar
+                  CategoriesAppBarWidget(
+                    searchHint: viewModel.locale!.search,
+                  ),
+                  //----------------> Categories Tabs
+                  Skeletonizer(
+                    enabled: categoriesList.isEmpty,
+                    child: DefaultTabController(
+                      length: categoriesList.isEmpty ? 6 : categoriesList.length,
+                      child: OccasionsTabbarWidget(
+                        tabController: categoriesList.isEmpty
+                            ? TabController(length: 6, vsync: this)
+                            : viewModel.tabController,
+                        isIndecatorLoading: categoriesList.isEmpty ? true : false,
+                        tabs: categoriesList.isEmpty
+                            ? [...List.filled(6, const Tab(text: "**********"))]
+                            : categoriesList.map((category) {
+                                return Tab(text: category.name ?? "");
+                              }).toList(),
+                      ),
                     ),
                   ),
-                ),
-                //------------> Categories Tab View
-                Expanded(
-                    child: CategoriesTabsViewWidget(
-                  viewModel: viewModel,
-                  productsList: productsList,
-                )),
-              ],
+                  //------------> Categories Tab View
+                  Expanded(
+                      child: CategoriesTabsViewWidget(
+                    viewModel: viewModel,
+                    productsList: productsList,
+                  )),
+                ],
+              ),
             ),
           );
         },

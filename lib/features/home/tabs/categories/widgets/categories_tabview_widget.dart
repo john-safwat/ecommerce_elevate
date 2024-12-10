@@ -72,62 +72,48 @@ class _CategoriesTabsViewWidgetState extends State<CategoriesTabsViewWidget> {
             ),
           );
         }
-        return Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Skeletonizer(
-            enabled: widget.productsList.isEmpty,
-            child: Stack(
-              alignment: Alignment.bottomCenter,
-              children: [
-                GridView.builder(
-                  controller: widget.viewModel.scrollController,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    childAspectRatio: 0.7,
-                    crossAxisSpacing: 16,
-                    mainAxisSpacing: 16,
-                  ),
-                  itemCount: widget.productsList.isEmpty
-                      ? 10
-                      : widget.productsList.length,
-                  itemBuilder: (context, index) {
-                    return SlideInUp(
-                      duration: Duration(milliseconds: 500 + (index * 50)),
-                      child: ProductCardWidget(
-                        product: widget.productsList.isNotEmpty
-                            ? widget.productsList[index]
-                            : Product(
-                                id: UniqueKey().toString(),
-                                imgCover: "",
-                                price: 123,
-                                priceAfterDiscount: 32,
-                                title: "ad"),
-                        buttonTitle: widget.viewModel.locale!.addToCart,
-                        buttonIcon: Icons.shopping_cart_outlined,
-                        onPressed: () {
-                          //------> add product to cart
-                          widget.viewModel.doIntent(AddProductToCartActions(
-                              widget.productsList[index]));
-                        },
-                        onCardPressed: () {
-                          //--------> navigator to product details
-                          widget.viewModel.doIntent(
-                              NavigatorToProductDetailsActions(
-                                  widget.productsList[index]));
-                        },
-                      ),
-                    );
+        return Skeletonizer(
+          enabled: widget.productsList.isEmpty,
+          child: GridView.builder(
+            padding: const EdgeInsets.all(16.0),
+            controller: widget.viewModel.scrollController,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 0.7,
+              crossAxisSpacing: 16,
+              mainAxisSpacing: 16,
+            ),
+            itemCount: widget.productsList.isEmpty
+                ? 10
+                : widget.productsList.length,
+            itemBuilder: (context, index) {
+              return SlideInUp(
+                duration: Duration(milliseconds: 500 + (index * 50)),
+                child: ProductCardWidget(
+                  product: widget.productsList.isNotEmpty
+                      ? widget.productsList[index]
+                      : Product(
+                          id: UniqueKey().toString(),
+                          imgCover: "",
+                          price: 123,
+                          priceAfterDiscount: 32,
+                          title: "ad"),
+                  buttonTitle: widget.viewModel.locale!.addToCart,
+                  buttonIcon: Icons.shopping_cart_outlined,
+                  onPressed: () {
+                    //------> add product to cart
+                    widget.viewModel.doIntent(AddProductToCartActions(
+                        widget.productsList[index]));
+                  },
+                  onCardPressed: () {
+                    //--------> navigator to product details
+                    widget.viewModel.doIntent(
+                        NavigatorToProductDetailsActions(
+                            widget.productsList[index]));
                   },
                 ),
-                if (widget.viewModel.isScroll)
-                  Positioned(
-                      bottom: 8,
-                      child: FilterItemWidget(
-                        onPressedFilter: () {},
-                        filterText: widget.viewModel.locale!.filter,
-                      ))
-              ],
-            ),
+              );
+            },
           ),
         );
       },

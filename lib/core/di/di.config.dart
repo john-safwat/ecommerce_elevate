@@ -148,12 +148,12 @@ extension GetItInjectableX on _i174.GetIt {
       () => sharedPreferencesModule.prefs,
       preResolve: true,
     );
-    gh.factory<_i656.HomeViewModel>(() => _i656.HomeViewModel());
     gh.factory<_i835.BestSellerViewModel>(() => _i835.BestSellerViewModel());
+    gh.factory<_i656.HomeViewModel>(() => _i656.HomeViewModel());
     gh.factory<_i155.ProductDetailsViewModel>(
         () => _i155.ProductDetailsViewModel());
-    gh.singleton<_i56.AppConfigProvider>(() => _i56.AppConfigProvider());
     gh.singleton<_i166.DataSourceExecution>(() => _i166.DataSourceExecution());
+    gh.singleton<_i56.AppConfigProvider>(() => _i56.AppConfigProvider());
     gh.lazySingleton<_i645.Location>(() => locationModule.location);
     gh.lazySingleton<_i1024.GeoCode>(() => locationModule.geoCode);
     gh.lazySingleton<_i974.Logger>(() => loggerModule.loggerProvider);
@@ -161,26 +161,24 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i361.Dio>(() => networkModule.provideDio());
     gh.lazySingleton<_i528.PrettyDioLogger>(
         () => networkModule.providerInterceptor());
-    gh.singleton<_i361.ProductsRetrofitClient>(
-        () => _i361.ProductsRetrofitClient(gh<_i361.Dio>()));
+    gh.singleton<_i677.AddressesRetrofitClient>(
+        () => _i677.AddressesRetrofitClient(gh<_i361.Dio>()));
     gh.singleton<_i797.AuthRetrofitClient>(
         () => _i797.AuthRetrofitClient(gh<_i361.Dio>()));
+    gh.singleton<_i112.CartRetrofitClient>(
+        () => _i112.CartRetrofitClient(gh<_i361.Dio>()));
+    gh.singleton<_i703.CategoriesRetrofitClient>(
+        () => _i703.CategoriesRetrofitClient(gh<_i361.Dio>()));
     gh.singleton<_i627.GetUserLoggedInfoRetrofitClient>(
         () => _i627.GetUserLoggedInfoRetrofitClient(gh<_i361.Dio>()));
     gh.singleton<_i353.LogoutRetrofitClient>(
         () => _i353.LogoutRetrofitClient(gh<_i361.Dio>()));
-    gh.singleton<_i677.AddressesRetrofitClient>(
-        () => _i677.AddressesRetrofitClient(gh<_i361.Dio>()));
-    gh.singleton<_i112.CartRetrofitClient>(
-        () => _i112.CartRetrofitClient(gh<_i361.Dio>()));
     gh.singleton<_i835.OccasionsRetrofitClient>(
         () => _i835.OccasionsRetrofitClient(gh<_i361.Dio>()));
     gh.singleton<_i361.ProductsRetrofitClient>(
         () => _i361.ProductsRetrofitClient(gh<_i361.Dio>()));
     gh.singleton<_i355.OrdersRetrofitClient>(
         () => _i355.OrdersRetrofitClient(gh<_i361.Dio>()));
-    gh.singleton<_i703.CategoriesRetrofitClient>(
-        () => _i703.CategoriesRetrofitClient(gh<_i361.Dio>()));
     gh.factory<_i488.AuthLocalDatasource>(
         () => _i141.AuthLocalDatasourceImpl(gh<_i460.SharedPreferences>()));
     gh.factory<_i283.OccasionsRemoteDatasource>(
@@ -272,14 +270,14 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i291.OrdersRepositoryImpl(gh<_i877.OrdersRemoteDatasource>()));
     gh.factory<_i714.DeleteTokenUseCase>(
         () => _i714.DeleteTokenUseCase(gh<_i614.AuthRepository>()));
-    gh.factory<_i499.VerifyResetPasswordUseCase>(
-        () => _i499.VerifyResetPasswordUseCase(gh<_i614.AuthRepository>()));
-    gh.factory<_i678.LoginUserUseCase>(
-        () => _i678.LoginUserUseCase(gh<_i614.AuthRepository>()));
     gh.factory<_i406.ChangePasswordUseCase>(
         () => _i406.ChangePasswordUseCase(gh<_i614.AuthRepository>()));
+    gh.factory<_i678.LoginUserUseCase>(
+        () => _i678.LoginUserUseCase(gh<_i614.AuthRepository>()));
     gh.factory<_i16.ResetPasswordUseCase>(
         () => _i16.ResetPasswordUseCase(gh<_i614.AuthRepository>()));
+    gh.factory<_i499.VerifyResetPasswordUseCase>(
+        () => _i499.VerifyResetPasswordUseCase(gh<_i614.AuthRepository>()));
     gh.factory<_i834.AddNewAddressUseCase>(
         () => _i834.AddNewAddressUseCase(gh<_i562.AddressesRepository>()));
     gh.factory<_i418.GetAllAddressUseCase>(

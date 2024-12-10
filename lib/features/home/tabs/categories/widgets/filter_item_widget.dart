@@ -7,9 +7,11 @@ class FilterItemWidget extends StatelessWidget {
     required this.filterText,
     required this.onPressedFilter,
   });
+
   final String filterText;
 
   final VoidCallback onPressedFilter;
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
