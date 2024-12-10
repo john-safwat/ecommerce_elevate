@@ -77,7 +77,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
         ),
         ListTileWidget(
           onPress: (){
-            Navigator.push(context,MaterialPageRoute(builder: (context) => SavedAddressesView(viewModel:viewModel ,  title: viewModel.locale!.savedAddress,),));
+            Navigator.push(context,MaterialPageRoute(builder: (context) => SavedAddressesView( title: viewModel.locale!.savedAddress,),));
           },
           prefixWidget: const ImageIcon(AssetImage(AppImages.location)),
           suffixWidget: const Icon(Icons.arrow_forward_ios_rounded),

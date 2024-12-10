@@ -86,23 +86,6 @@ class MockAddressesRetrofitClient extends _i1.Mock
       ) as _i5.Future<_i2.AddressResponseDto>);
 
   @override
-  _i4.Future<_i2.AddressResponseDto> getAddresses(String? token) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #getAddresses,
-          [token],
-        ),
-        returnValue:
-            _i4.Future<_i2.AddressResponseDto>.value(_FakeAddressResponseDto_0(
-          this,
-          Invocation.method(
-            #getAddresses,
-            [token],
-          ),
-        )),
-      ) as _i4.Future<_i2.AddressResponseDto>);
-
-  @override
   _i5.Future<_i3.RemoveAddressResponseDto> removeAddress(
     String? token,
     String? id,
@@ -127,4 +110,21 @@ class MockAddressesRetrofitClient extends _i1.Mock
           ),
         )),
       ) as _i5.Future<_i3.RemoveAddressResponseDto>);
+
+  @override
+  _i5.Future<_i2.AddressResponseDto> getAddresses(String? token) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getAddresses,
+          [token],
+        ),
+        returnValue:
+            _i5.Future<_i2.AddressResponseDto>.value(_FakeAddressResponseDto_0(
+          this,
+          Invocation.method(
+            #getAddresses,
+            [token],
+          ),
+        )),
+      ) as _i5.Future<_i2.AddressResponseDto>);
 }
