@@ -7,11 +7,13 @@ import '../../../../../../core/assets/app_colors.dart';
 class OccasionsTabbarWidget extends StatelessWidget {
   final TabController tabController;
   final List<Widget> tabs;
+  final bool isIndecatorLoading;
 
   const OccasionsTabbarWidget({
     super.key,
     required this.tabController,
     required this.tabs,
+    this.isIndecatorLoading = false,
   });
 
   @override
@@ -25,7 +27,7 @@ class OccasionsTabbarWidget extends StatelessWidget {
       ),
       tabAlignment: TabAlignment.start,
       dividerHeight: 0,
-      indicatorColor: AppColors.pink,
+      indicatorColor: isIndecatorLoading ? AppColors.lightGray : AppColors.pink,
       isScrollable: true,
       tabs: tabs,
     );
