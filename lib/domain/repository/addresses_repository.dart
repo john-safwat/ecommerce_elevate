@@ -4,4 +4,6 @@ import 'package:ecommerce_elevate/domain/entities/addresses/response/address.dar
 
 abstract interface class AddressesRepository {
   Future<Results<List<Address>?>> addNewAddress(AddAddressRequest request , String token);
+  Future<Results<List<Address>?>> getAddresses(String token);
+
 }

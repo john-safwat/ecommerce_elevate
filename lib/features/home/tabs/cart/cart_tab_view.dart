@@ -6,6 +6,7 @@ import 'package:ecommerce_elevate/core/constants/routes.dart';
 import 'package:ecommerce_elevate/core/di/di.dart';
 import 'package:ecommerce_elevate/domain/entities/cart/cart_data/cart_product.dart';
 import 'package:ecommerce_elevate/domain/entities/cart/cart_data/user_cart_response.dart';
+import 'package:ecommerce_elevate/features/checkout/checkout_view.dart';
 import 'package:ecommerce_elevate/features/home/tabs/cart/view_model/cart_tab_events.dart';
 import 'package:ecommerce_elevate/features/home/tabs/cart/view_model/cart_tab_states.dart';
 import 'package:ecommerce_elevate/features/home/tabs/cart/view_model/cart_tab_view_model.dart';
@@ -44,6 +45,18 @@ class _CartTabViewState extends BaseState<CartTabView, CartTabViewModel> {
         listener: (context, state) {
           if (state.navigationState is NavigateToLoginScreen) {
             Navigator.pushReplacementNamed(context, Routes.loginRoute);
+          }
+          if (state.navigationState is NavigateToCheckoutScreen) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => CheckoutView(
+                  userCartResponse:
+                      (state.navigationState as NavigateToCheckoutScreen)
+                          .userCartResponse ,
+                ),
+              ),
+            );
           }
         },
         builder: (context, state) {

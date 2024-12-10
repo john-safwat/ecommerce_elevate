@@ -2,14 +2,14 @@
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
 import 'package:ecommerce_elevate/domain/entities/cart/cart_data/user_cart_response.dart';
-import 'package:ecommerce_elevate/features/home/tabs/cart/view_model/cart_tab_events.dart';
-import 'package:ecommerce_elevate/features/home/tabs/cart/view_model/cart_tab_view_model.dart';
+import 'package:ecommerce_elevate/features/checkout/checkout_contact.dart';
+import 'package:ecommerce_elevate/features/checkout/checkout_view_model.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class BillingInformation extends StatelessWidget {
   UserCartResponse? userCartResponse;
-  CartTabViewModel viewModel;
+  CheckoutViewModel viewModel;
 
   BillingInformation(this.userCartResponse, this.viewModel, {super.key});
 
@@ -77,9 +77,7 @@ class BillingInformation extends StatelessWidget {
         const SizedBox(height: 8),
         ElevatedButton(
             onPressed: () {
-              if(userCartResponse != null){
-                viewModel.doIntent(NavigateToCheckoutAction(userCartResponse!));
-              }
+              viewModel.doIntent(PlaceOrderAction());
             },
             child: Padding(
               padding: const EdgeInsets.all(8.0),

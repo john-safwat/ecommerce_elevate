@@ -1,5 +1,6 @@
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/base/base_view_model.dart';
+import 'package:ecommerce_elevate/domain/entities/cart/cart_data/user_cart_response.dart';
 
 sealed class CartTabAction extends BaseAction {}
 
@@ -21,4 +22,9 @@ class DeleteProductAction extends CartTabAction {
   int index;
 
   DeleteProductAction(this.productId, this.index);
+}
+
+class NavigateToCheckoutAction extends CartTabAction {
+  UserCartResponse userCartResponse;
+  NavigateToCheckoutAction(this.userCartResponse);
 }
