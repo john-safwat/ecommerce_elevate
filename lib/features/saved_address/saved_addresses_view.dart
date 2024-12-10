@@ -32,7 +32,7 @@ class _SavedAddressesViewState extends State<SavedAddressesView> {
         bloc: widget.viewModel,
         builder: (context, state) {
           if (state is ProfileLoadingState){
-            return Center(child: CircularProgressIndicator(),);
+            return const Center(child: CircularProgressIndicator(),);
           }
 
         if (addresses!.isEmpty ){
@@ -42,7 +42,7 @@ class _SavedAddressesViewState extends State<SavedAddressesView> {
               Lottie.asset(AnimationsAssets.loginImageAnimation),
               ElevatedButton(onPressed: (){
                 Navigator.pushNamed(context, Routes.addressesRoute);
-              }, child: Text('add address'))
+              }, child: Text(widget.viewModel.locale!.addAddress))
             ],
           );
         }
@@ -65,7 +65,7 @@ class _SavedAddressesViewState extends State<SavedAddressesView> {
                       height: 16,
                     );
                   },
-                  itemCount: addresses!.length),
+                  itemCount: addresses.length),
               const SizedBox(height: 48,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -76,8 +76,8 @@ class _SavedAddressesViewState extends State<SavedAddressesView> {
                       setState(() {
 
                       });
-                    }, child: Text('add address')),
-                  ),
+                    }, child: Text(widget.viewModel.locale!.addAddress),
+                    )),
                 ],
               )
             ],

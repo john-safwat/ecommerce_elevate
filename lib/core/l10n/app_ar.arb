@@ -142,5 +142,7 @@
   "addressCantBeEmpty" : "يجب ان لا يكون العنوان فارغ",
   "invalidAddress" : "العنوان غير صالح",
   "saveAddress" : "حفظ العنوان",
-  "addressSavedSuccessfully" : "تم حفظ العنوان بنجاح"
+  "addressSavedSuccessfully" : "تم حفظ العنوان بنجاح",
+  "addAddress": "اضافه عنوان "
+
 }

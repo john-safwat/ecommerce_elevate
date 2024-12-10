@@ -5,7 +5,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
 import 'package:ecommerce_elevate/core/assets/app_images.dart';
 import 'package:ecommerce_elevate/core/constants/constants.dart';
-import 'package:ecommerce_elevate/core/constants/routes.dart';
 import 'package:ecommerce_elevate/features/home/tabs/profile/view_model/profile_tab_actions.dart';
 import 'package:ecommerce_elevate/features/home/tabs/profile/view_model/profile_tab_state.dart';
 import 'package:ecommerce_elevate/features/home/tabs/profile/view_model/profile_tab_view_model.dart';

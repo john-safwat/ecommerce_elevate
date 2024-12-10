@@ -142,5 +142,7 @@
   "addressCantBeEmpty" : "Address can't be empty",
   "invalidAddress" : "Please enter a valid address",
   "saveAddress" : "Save Address",
-  "addressSavedSuccessfully" : "Address Save Successfully"
+  "addressSavedSuccessfully" : "Address Save Successfully",
+  "addAddress": "Add Address"
+
 }

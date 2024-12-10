@@ -105,8 +105,7 @@ class RemoveAddressViewModel extends BaseViewModel<RemoveAddressState, RemoveAdd
       emit(LoadingRemoveAddressState());
 
       var response = await removeAddressUseCase(id,getIt<AppConfigProvider>().token);
-      print(id);
-      print("----------------------");
+
       switch (response) {
         case Success<RemoveAddressResponse?>():
           {

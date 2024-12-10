@@ -1,6 +1,5 @@
 // 📦 Package imports:
 import 'package:ecommerce_elevate/domain/entities/addresses/response/address.dart';
-import 'package:json_annotation/json_annotation.dart';
 
 class LoggedUser {
   final List<dynamic>? wishlist;

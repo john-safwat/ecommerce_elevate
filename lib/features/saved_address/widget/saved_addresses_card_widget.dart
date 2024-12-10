@@ -83,7 +83,7 @@ class _SavedAddressesCardWidgetState
                     children: [
                       IconButton(
                         onPressed: () => _showDeleteConfirmation(context, address?.id),
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.delete_outline_outlined,
                           size: 24,
                           color: AppColors.red,
