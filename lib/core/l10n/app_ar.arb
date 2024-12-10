@@ -143,6 +143,18 @@
   "invalidAddress" : "العنوان غير صالح",
   "saveAddress" : "حفظ العنوان",
   "addressSavedSuccessfully" : "تم حفظ العنوان بنجاح",
-  "addAddress": "اضافه عنوان "
-
+  "addAddress": "اضافه عنوان ",
+  "deliveryTime" : "وقت التسليم",
+  "scheduled" : "مجدول",
+  "instant" : "فوري",
+  "arriveBy" : "وقت التوصيل",
+  "deliveryAddress" : "عنوان التوصيل",
+  "paymentMethod" : "طريقة الدفع",
+  "cashOnDelivery" : "الدفع عند الاستلام",
+  "creditCard" : "بطاقة الائتمان",
+  "itIsAGift" : "هدية",
+  "addNew" : "اضافة جديد",
+  "nameOrPhoneNumberIsInvalid" : "الاسم او رقم الهاتف غير صالح",
+  "orderPlaceSuccessfully" : "تم تقديم الطلب بنجاح",
+  "filter": "تصفية"
 }

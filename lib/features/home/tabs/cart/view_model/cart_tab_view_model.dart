@@ -49,6 +49,10 @@ class CartTabViewModel extends BaseViewModel<CartTabStates, CartTabAction> {
         {
           _deleteProductFromCart(action.productId, action.index);
         }
+      case NavigateToCheckoutAction():
+        {
+          _navigateToCheckoutScreen(action.userCartResponse);
+        }
     }
   }
 
@@ -132,5 +136,13 @@ class CartTabViewModel extends BaseViewModel<CartTabStates, CartTabAction> {
           AppDialogs.showErrorToast(mapExceptionToMessage(response.exception));
         }
     }
+  }
+
+  void _navigateToCheckoutScreen(UserCartResponse userCartResponse) async {
+    emit(
+      state.copyWith(
+        navigationState: NavigateToCheckoutScreen(userCartResponse),
+      ),
+    );
   }
 }

@@ -18,4 +18,5 @@ class ApiConstants {
   static const String allProductsRoute = "products";
   static const String cartRoute = "cart";
   static const String addressesRoute = "addresses";
+  static const String addCacheOrderRoute = "orders";
 }

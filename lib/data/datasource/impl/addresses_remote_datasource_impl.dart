@@ -36,4 +36,13 @@ class AddressesRemoteDatasourceImpl implements AddressesRemoteDatasource {
     });
     return response;
   }
+
+  @override
+  Future<Results<List<Address>?>> getAddresses(String token) async {
+    var response = await _dataSourceExecution.execute(()async{
+      var response = await _retrofitClient.getAddresses("Bearer $token");
+      return response.addresses?.map((e) => e.toDomain(),).toList();
+    });
+    return response;
+  }
 }

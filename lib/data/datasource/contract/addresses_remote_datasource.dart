@@ -6,5 +6,6 @@ import 'package:ecommerce_elevate/domain/entities/addresses/response/address.dar
 abstract interface class AddressesRemoteDatasource{
   Future<Results<List<Address>?>> addNewAddress(AddAddressRequest request , String token);
   Future<Results<RemoveAddressResponse?>> removeAddress(String token, String id);
+  Future<Results<List<Address>?>> getAddresses(String token);
 
 }

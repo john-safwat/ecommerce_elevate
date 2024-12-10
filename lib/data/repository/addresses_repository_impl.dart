@@ -25,4 +25,10 @@ class AddressesRepositoryImpl implements AddressesRepository {
     return response;
 
   }
+
+  @override
+  Future<Results<List<Address>?>> getAddresses(String token) async {
+    var response = await _remoteDatasource.getAddresses(token);
+    return response;
+  }
 }

@@ -24,7 +24,7 @@ class _AddressesRetrofitClient implements AddressesRetrofitClient {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<AddAddressResponseDto> addNewAddress(
+  Future<AddressResponseDto> addNewAddress(
     AddAddressRequestDto addAddressRequestDto,
     String token,
   ) async {
@@ -34,7 +34,7 @@ class _AddressesRetrofitClient implements AddressesRetrofitClient {
     _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
     _data.addAll(addAddressRequestDto.toJson());
-    final _options = _setStreamType<AddAddressResponseDto>(Options(
+    final _options = _setStreamType<AddressResponseDto>(Options(
       method: 'PATCH',
       headers: _headers,
       extra: _extra,
@@ -51,9 +51,43 @@ class _AddressesRetrofitClient implements AddressesRetrofitClient {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late AddAddressResponseDto _value;
+    late AddressResponseDto _value;
     try {
-      _value = AddAddressResponseDto.fromJson(_result.data!);
+      _value = AddressResponseDto.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<AddressResponseDto> getAddresses(String token) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'Authorization': token};
+    _headers.removeWhere((k, v) => v == null);
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<AddressResponseDto>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'addresses',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late AddressResponseDto _value;
+    try {
+      _value = AddressResponseDto.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

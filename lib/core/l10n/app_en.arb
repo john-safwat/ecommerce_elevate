@@ -138,11 +138,25 @@
   "address" : "Address",
   "recipientName" : "Recipient name",
   "city" : "City",
-  "area" : "Area",
-  "addressCantBeEmpty" : "Address can't be empty",
-  "invalidAddress" : "Please enter a valid address",
-  "saveAddress" : "Save Address",
-  "addressSavedSuccessfully" : "Address Save Successfully",
-  "addAddress": "Add Address"
 
+  "addAddress": "Add Address",
+
+  "deliveryTime" : "Delivery Time",
+  "scheduled" : "Scheduled",
+  "instant" : "Instant",
+  "arriveBy" : "Arrive by",
+  "deliveryAddress" : "Delivery address",
+  "paymentMethod" : "Payment method",
+  "cashOnDelivery" : "Cash on delivery",
+  "creditCard" : "Credit card",
+  "itIsAGift" : "It is a gift",
+  "addNew" : "Add New",
+  "nameOrPhoneNumberIsInvalid" : "Name or phone number is invalid",
+  "orderPlaceSuccessfully" : "Order Place Successfully , Thank you",
+  "area": "Area",
+  "addressCantBeEmpty": "Address can't be empty",
+  "invalidAddress": "Please enter a valid address",
+  "saveAddress": "Save Address",
+  "addressSavedSuccessfully": "Address Save Successfully",
+  "filter": "Filter"
 }

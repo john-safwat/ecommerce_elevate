@@ -1,3 +1,5 @@
+import 'package:ecommerce_elevate/domain/entities/cart/cart_data/user_cart_response.dart';
+
 sealed class CartTabState {
   dynamic get data => null;
 }
@@ -15,6 +17,11 @@ class CartTabLoadingSuccessState<T> extends CartTabState {
 
   @override
   T? get data => _data;
+}
+
+class NavigateToCheckoutScreen extends CartTabState {
+  UserCartResponse userCartResponse;
+  NavigateToCheckoutScreen(this.userCartResponse);
 }
 
 class CartTabLoadingFailState extends CartTabState {

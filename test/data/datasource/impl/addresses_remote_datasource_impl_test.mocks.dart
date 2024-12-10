@@ -11,7 +11,7 @@ import 'package:ecommerce_elevate/data/models/addresses/remove_addresses/respons
     as _i3;
 import 'package:ecommerce_elevate/data/models/addresses/request/add_address_request_dto.dart'
     as _i6;
-import 'package:ecommerce_elevate/data/models/addresses/response/add_address_response_dto.dart'
+import 'package:ecommerce_elevate/data/models/addresses/response/address_response_dto.dart'
     as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 
@@ -28,9 +28,9 @@ import 'package:mockito/mockito.dart' as _i1;
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
-class _FakeAddAddressResponseDto_0 extends _i1.SmartFake
-    implements _i2.AddAddressResponseDto {
-  _FakeAddAddressResponseDto_0(
+class _FakeAddressResponseDto_0 extends _i1.SmartFake
+    implements _i2.AddressResponseDto {
+  _FakeAddressResponseDto_0(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -60,7 +60,7 @@ class MockAddressesRetrofitClient extends _i1.Mock
   }
 
   @override
-  _i5.Future<_i2.AddAddressResponseDto> addNewAddress(
+  _i5.Future<_i2.AddressResponseDto> addNewAddress(
     _i6.AddAddressRequestDto? addAddressRequestDto,
     String? token,
   ) =>
@@ -72,8 +72,8 @@ class MockAddressesRetrofitClient extends _i1.Mock
             token,
           ],
         ),
-        returnValue: _i5.Future<_i2.AddAddressResponseDto>.value(
-            _FakeAddAddressResponseDto_0(
+        returnValue:
+            _i5.Future<_i2.AddressResponseDto>.value(_FakeAddressResponseDto_0(
           this,
           Invocation.method(
             #addNewAddress,
@@ -83,7 +83,24 @@ class MockAddressesRetrofitClient extends _i1.Mock
             ],
           ),
         )),
-      ) as _i5.Future<_i2.AddAddressResponseDto>);
+      ) as _i5.Future<_i2.AddressResponseDto>);
+
+  @override
+  _i4.Future<_i2.AddressResponseDto> getAddresses(String? token) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getAddresses,
+          [token],
+        ),
+        returnValue:
+            _i4.Future<_i2.AddressResponseDto>.value(_FakeAddressResponseDto_0(
+          this,
+          Invocation.method(
+            #getAddresses,
+            [token],
+          ),
+        )),
+      ) as _i4.Future<_i2.AddressResponseDto>);
 
   @override
   _i5.Future<_i3.RemoveAddressResponseDto> removeAddress(
