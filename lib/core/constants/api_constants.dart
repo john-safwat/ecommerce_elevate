@@ -16,4 +16,6 @@ class ApiConstants {
   static const String occasionsRoute = "occasions";
   static const String bestSellerRoute = "best-seller";
   static const String allProductsRoute = "products";
+  static const String cartRoute = "cart";
+  static const String addressesRoute = "addresses";
 }

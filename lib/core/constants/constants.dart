@@ -5,4 +5,5 @@ class Constants {
   static const String tokenKey = "token";
   static const String mainEnvironment = "main";
   static const String testEnvironment = "test";
+  static const String myEmail = "mohamedalaacs@gmail.com";
 }

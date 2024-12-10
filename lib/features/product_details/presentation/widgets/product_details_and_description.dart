@@ -1,13 +1,22 @@
+// 🐦 Flutter imports:
+
+// 🌎 Project imports:
 import 'package:ecommerce_elevate/core/assets/app_colors.dart';
-import 'package:ecommerce_elevate/features/home/domain/entities/products/product.dart';
+import 'package:ecommerce_elevate/domain/entities/products/product.dart';
+import 'package:ecommerce_elevate/features/product_details/presentation/product_details_contract.dart';
 import 'package:ecommerce_elevate/features/product_details/presentation/product_details_view_model.dart';
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
+// 📦 Package imports:
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProductDetailsAndDescription extends StatelessWidget {
   const ProductDetailsAndDescription(
       {super.key, required this.viewModel, required this.product});
+
   final ProductDetailsViewModel viewModel;
   final Product product;
+
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
@@ -72,12 +81,28 @@ class ProductDetailsAndDescription extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                viewModel.doIntent(AddItemToCartAction());
+              },
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.all(16),
                 backgroundColor: AppColors.pink,
               ),
-              child: Text(viewModel.locale!.addToCart),
+              child: BlocBuilder<ProductDetailsViewModel, ProductDetailsState>(
+                  builder: (context, state) {
+                if (state is AddItemToCartLoadingState) {
+                  return const SizedBox(
+                    height: 20,
+                    width: 20,
+                    child: Center(
+                        child: CircularProgressIndicator(
+                      color: AppColors.white,
+                    )),
+                  );
+                } else {
+                  return Text(viewModel.locale!.addToCart);
+                }
+              }),
             ),
           ),
         ],

@@ -8,5 +8,9 @@ class Routes {
   static const String occasionsRoute = "/occasions";
   static const String productDetailsRoute = "/productDetails";
   static const String bestSellerViewRoute = "/bestSeller";
+  static const String changePasswordRoute = "/changePassword";
+  static const String aboutUsRoute = "/aboutUs";
+  static const String termsAndCondtionsRoute = "/termsAndCondtions";
+  static const String addressesRoute = "/address";
   static const String editProfileViewRoute = "/edit_profile";
 }

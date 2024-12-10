@@ -8,29 +8,35 @@ import 'dart:async' as _i3;
 import 'package:dio/dio.dart' as _i17;
 import 'package:ecommerce_elevate/core/datasource_execution/results.dart'
     as _i4;
-import 'package:ecommerce_elevate/features/auth/domain/entities/authentication/authentication_request.dart'
+import 'package:ecommerce_elevate/domain/entities/authentication/authentication_request.dart'
     as _i9;
-import 'package:ecommerce_elevate/features/auth/domain/entities/authentication/authentication_response.dart'
+import 'package:ecommerce_elevate/domain/entities/authentication/authentication_response.dart'
     as _i8;
+import 'package:ecommerce_elevate/domain/entities/change_password/change_password_reaponse.dart'
+    as _i14;
+import 'package:ecommerce_elevate/domain/entities/change_password/change_password_request.dart'
+    as _i15;
+import 'package:ecommerce_elevate/domain/entities/forgetPassword/forget_password_response.dart'
 import 'package:ecommerce_elevate/features/auth/domain/entities/edit_profile/edit_profile_request.dart'
     as _i15;
 import 'package:ecommerce_elevate/features/auth/domain/entities/edit_profile/edit_profile_response.dart'
     as _i14;
 import 'package:ecommerce_elevate/features/auth/domain/entities/forgetPassword/forget_password_response.dart'
     as _i10;
-import 'package:ecommerce_elevate/features/auth/domain/entities/registration/registration_response.dart'
+import 'package:ecommerce_elevate/domain/entities/registration/registration_response.dart'
     as _i5;
-import 'package:ecommerce_elevate/features/auth/domain/entities/registration/registration_user.dart'
+import 'package:ecommerce_elevate/domain/entities/registration/registration_user.dart'
     as _i6;
-import 'package:ecommerce_elevate/features/auth/domain/entities/reset_password/reset_password_request.dart'
+import 'package:ecommerce_elevate/domain/entities/reset_password/reset_password_request.dart'
     as _i13;
-import 'package:ecommerce_elevate/features/auth/domain/entities/reset_password/reset_password_response.dart'
+import 'package:ecommerce_elevate/domain/entities/reset_password/reset_password_response.dart'
     as _i12;
+import 'package:ecommerce_elevate/domain/entities/verify_reset_code/verify_reset_code_response.dart'
 import 'package:ecommerce_elevate/features/auth/domain/entities/user_info/user_info_response.dart'
     as _i16;
 import 'package:ecommerce_elevate/features/auth/domain/entities/verify_reset_code/verify_reset_code_response.dart'
     as _i11;
-import 'package:ecommerce_elevate/features/auth/domain/repository/auth_repository.dart'
+import 'package:ecommerce_elevate/domain/repository/auth_repository.dart'
     as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i7;
@@ -154,6 +160,33 @@ class MockAuthRepository extends _i1.Mock implements _i2.AuthRepository {
           ),
         )),
       ) as _i3.Future<_i4.Results<_i12.ResetPasswordResponse>>);
+
+  @override
+  _i3.Future<_i4.Results<_i14.ChangePasswordResponse?>> changePassword(
+    String? token,
+    _i15.ChangePasswordRequest? request,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #changePassword,
+          [
+            token,
+            request,
+          ],
+        ),
+        returnValue:
+            _i3.Future<_i4.Results<_i14.ChangePasswordResponse?>>.value(
+                _i7.dummyValue<_i4.Results<_i14.ChangePasswordResponse?>>(
+          this,
+          Invocation.method(
+            #changePassword,
+            [
+              token,
+              request,
+            ],
+          ),
+        )),
+      ) as _i3.Future<_i4.Results<_i14.ChangePasswordResponse?>>);
 
   @override
   _i3.Future<_i4.Results<_i14.EditProfileResponse>> editProfile(

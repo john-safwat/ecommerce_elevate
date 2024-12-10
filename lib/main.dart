@@ -1,18 +1,25 @@
 // 🐦 Flutter imports:
+
 // 🌎 Project imports:
 import 'package:ecommerce_elevate/core/providers/app_config_provider.dart';
 import 'package:ecommerce_elevate/core/providers/language_provider.dart';
 import 'package:ecommerce_elevate/core/utils/app_initializer.dart';
+// 🐦 Flutter imports:
+import 'package:ecommerce_elevate/features/about_us/about_us_view.dart';
+import 'package:ecommerce_elevate/features/address/address_view.dart';
 import 'package:ecommerce_elevate/features/auth/presentation/edit_profile/edit_profile_view.dart';
-import 'package:ecommerce_elevate/features/auth/presentation/forget_password/forget_password_view.dart';
-import 'package:ecommerce_elevate/features/auth/presentation/login/login_view.dart';
-import 'package:ecommerce_elevate/features/auth/presentation/otp_verify/otp_verify_view.dart';
-import 'package:ecommerce_elevate/features/auth/presentation/reset_password/reset_password_view.dart';
-import 'package:ecommerce_elevate/features/auth/presentation/signup/signup_view.dart';
 import 'package:ecommerce_elevate/features/best_seller/presentation/best_seller_view.dart';
-import 'package:ecommerce_elevate/features/home/presentation/home_view.dart';
-import 'package:ecommerce_elevate/features/home/presentation/tabs/occasions/occasions_screen.dart';
+import 'package:ecommerce_elevate/features/change_password/change_password_view.dart';
+import 'package:ecommerce_elevate/features/forget_password/forget_password_view.dart';
+import 'package:ecommerce_elevate/features/home/home_view.dart';
+import 'package:ecommerce_elevate/features/login/login_view.dart';
+import 'package:ecommerce_elevate/features/occasions/occasions_screen.dart';
+import 'package:ecommerce_elevate/features/otp_verify/otp_verify_view.dart';
 import 'package:ecommerce_elevate/features/product_details/presentation/product_details_view.dart';
+import 'package:ecommerce_elevate/features/reset_password/reset_password_view.dart';
+import 'package:ecommerce_elevate/features/signup/signup_view.dart';
+// 🐦 Flutter imports:
+import 'package:ecommerce_elevate/features/terms_and_conditions/terms_and_conditions_view.dart';
 import 'package:flutter/material.dart';
 // 📦 Package imports:
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -66,6 +73,11 @@ class MyApp extends StatelessWidget {
         Routes.occasionsRoute: (context) => const OccasionsScreen(),
         Routes.productDetailsRoute: (context) => const ProductDetailsView(),
         Routes.bestSellerViewRoute: (context) => const BestSellerView(),
+        Routes.changePasswordRoute: (context) => const ChangePasswordView(),
+        Routes.aboutUsRoute: (context) => const AboutUsView(),
+        Routes.termsAndCondtionsRoute: (context) =>
+            const TermsAndConditionsView(),
+        Routes.addressesRoute: (context) => const AddressView(),
         Routes.editProfileViewRoute: (context) => const ProfileView(),
       },
       initialRoute: appConfigProvider.token.isEmpty

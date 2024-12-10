@@ -1,3 +1,5 @@
+// 📦 Package imports:
+// 🌎 Project imports:
 import 'package:ecommerce_elevate/features/product_details/presentation/product_details_contract.dart';
 import 'package:ecommerce_elevate/features/product_details/presentation/product_details_view_model.dart';
 import 'package:flutter_test/flutter_test.dart';
