@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'addresses_retrofit_client.dart';
+part of 'orders_retrofit_client.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'addresses_retrofit_client.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations
 
-class _AddressesRetrofitClient implements AddressesRetrofitClient {
-  _AddressesRetrofitClient(
+class _OrdersRetrofitClient implements OrdersRetrofitClient {
+  _OrdersRetrofitClient(
     this._dio, {
     this.baseUrl,
     this.errorLogger,
@@ -24,24 +24,25 @@ class _AddressesRetrofitClient implements AddressesRetrofitClient {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<AddressResponseDto> addNewAddress(
-    AddAddressRequestDto addAddressRequestDto,
-    String token,
+  Future<CreateCacheOrderResponseDto> crateCacheOrder(
+    CreateCacheOrderRequestDto request,
+    String? token,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{r'Authorization': token};
     _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
-    _data.addAll(addAddressRequestDto.toJson());
-    final _options = _setStreamType<AddressResponseDto>(Options(
-      method: 'PATCH',
+    _data.addAll(request.toJson());
+    final _options = _setStreamType<CreateCacheOrderResponseDto>(Options(
+      method: 'POST',
       headers: _headers,
       extra: _extra,
     )
         .compose(
           _dio.options,
-          'addresses',
+          'orders',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -51,43 +52,9 @@ class _AddressesRetrofitClient implements AddressesRetrofitClient {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late AddressResponseDto _value;
+    late CreateCacheOrderResponseDto _value;
     try {
-      _value = AddressResponseDto.fromJson(_result.data!);
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
-      rethrow;
-    }
-    return _value;
-  }
-
-  @override
-  Future<AddressResponseDto> getAddresses(String token) async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{r'Authorization': token};
-    _headers.removeWhere((k, v) => v == null);
-    const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<AddressResponseDto>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          'addresses',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        )));
-    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late AddressResponseDto _value;
-    try {
-      _value = AddressResponseDto.fromJson(_result.data!);
+      _value = CreateCacheOrderResponseDto.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

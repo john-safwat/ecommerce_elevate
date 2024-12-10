@@ -63,4 +63,21 @@ class MockAddressesRepositoryImpl extends _i1.Mock
           ),
         )),
       ) as _i3.Future<_i4.Results<List<_i5.Address>?>>);
+
+  @override
+  _i3.Future<_i4.Results<List<_i5.Address>?>> getAddresses(String? token) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getAddresses,
+          [token],
+        ),
+        returnValue: _i3.Future<_i4.Results<List<_i5.Address>?>>.value(
+            _i7.dummyValue<_i4.Results<List<_i5.Address>?>>(
+          this,
+          Invocation.method(
+            #getAddresses,
+            [token],
+          ),
+        )),
+      ) as _i3.Future<_i4.Results<List<_i5.Address>?>>);
 }
