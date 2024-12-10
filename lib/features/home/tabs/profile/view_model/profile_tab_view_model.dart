@@ -30,7 +30,7 @@ class ProfileTabViewModel
     switch (action) {
       case LoadLoggedUserInfo():
         {
-          _getLoggedUser();
+          getLoggedUser();
         }
       case OnLoginPressAction():
         {
@@ -55,7 +55,7 @@ class ProfileTabViewModel
     }
   }
 
-  Future<void> _getLoggedUser() async {
+  Future<void> getLoggedUser() async {
     emit(state.copyWith(userProfileState: ProfileLoadingState()));
 
     final Results<ProfileResponse?> profile = await loggedUserInfoUseCase

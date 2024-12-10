@@ -9,6 +9,8 @@ import 'package:ecommerce_elevate/core/datasource_execution/results.dart'
     as _i4;
 import 'package:ecommerce_elevate/data/datasource/impl/addresses_remote_datasource_impl.dart'
     as _i2;
+import 'package:ecommerce_elevate/domain/entities/addresses/remove_addresses/response/remove_address_response.dart'
+    as _i8;
 import 'package:ecommerce_elevate/domain/entities/addresses/request/add_address_request.dart'
     as _i6;
 import 'package:ecommerce_elevate/domain/entities/addresses/response/address.dart'
@@ -63,6 +65,32 @@ class MockAddressesRemoteDatasourceImpl extends _i1.Mock
           ),
         )),
       ) as _i3.Future<_i4.Results<List<_i5.Address>?>>);
+
+  @override
+  _i3.Future<_i4.Results<_i8.RemoveAddressResponse?>> removeAddress(
+    String? token,
+    String? id,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #removeAddress,
+          [
+            token,
+            id,
+          ],
+        ),
+        returnValue: _i3.Future<_i4.Results<_i8.RemoveAddressResponse?>>.value(
+            _i7.dummyValue<_i4.Results<_i8.RemoveAddressResponse?>>(
+          this,
+          Invocation.method(
+            #removeAddress,
+            [
+              token,
+              id,
+            ],
+          ),
+        )),
+      ) as _i3.Future<_i4.Results<_i8.RemoveAddressResponse?>>);
 
   @override
   _i3.Future<_i4.Results<List<_i5.Address>?>> getAddresses(String? token) =>

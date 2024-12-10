@@ -1,5 +1,6 @@
 // 📦 Package imports:
 // 🌎 Project imports:
+import 'package:ecommerce_elevate/data/models/addresses/response/address_dto.dart';
 import 'package:ecommerce_elevate/domain/entities/profile_info/user/logged_user.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -36,7 +37,7 @@ class LoggedUserDto {
   @JsonKey(name: "passwordChangedAt")
   final String? passwordChangedAt;
   @JsonKey(name: "addresses")
-  final List<dynamic>? addresses;
+  final List<AddressDto>? addresses;
 
   LoggedUserDto({
     this.wishlist,
@@ -80,7 +81,7 @@ class LoggedUserDto {
       passwordResetExpires: passwordResetExpires,
       resetCodeVerified: resetCodeVerified,
       passwordChangedAt: passwordChangedAt,
-      addresses: addresses,
+      addresses: addresses?.map((e) => e.toDomain(),).toList(),
     );
   }
 }

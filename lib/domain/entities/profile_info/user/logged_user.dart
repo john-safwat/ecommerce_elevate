@@ -1,7 +1,6 @@
 // 📦 Package imports:
-import 'package:json_annotation/json_annotation.dart';
+import 'package:ecommerce_elevate/domain/entities/addresses/response/address.dart';
 
-@JsonSerializable()
 class LoggedUser {
   final List<dynamic>? wishlist;
   final String? id;
@@ -17,7 +16,7 @@ class LoggedUser {
   final String? passwordResetExpires;
   final bool? resetCodeVerified;
   final String? passwordChangedAt;
-  final List<dynamic>? addresses;
+  final List<Address>? addresses;
 
   LoggedUser({
     this.wishlist,

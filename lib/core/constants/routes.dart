@@ -12,4 +12,5 @@ class Routes {
   static const String aboutUsRoute = "/aboutUs";
   static const String termsAndCondtionsRoute = "/termsAndCondtions";
   static const String addressesRoute = "/address";
+  static const String savedAddressesRoute = "/address";
 }

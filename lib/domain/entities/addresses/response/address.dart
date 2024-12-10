@@ -1,4 +1,3 @@
-
 class Address {
   final String? street;
   final String? phone;

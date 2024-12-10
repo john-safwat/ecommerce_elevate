@@ -22,7 +22,9 @@ LoggedUserDto _$LoggedUserDtoFromJson(Map<String, dynamic> json) =>
       passwordResetExpires: json['passwordResetExpires'] as String?,
       resetCodeVerified: json['resetCodeVerified'] as bool?,
       passwordChangedAt: json['passwordChangedAt'] as String?,
-      addresses: json['addresses'] as List<dynamic>?,
+      addresses: (json['addresses'] as List<dynamic>?)
+          ?.map((e) => AddressDto.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$LoggedUserDtoToJson(LoggedUserDto instance) =>
